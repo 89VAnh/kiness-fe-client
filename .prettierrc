@@ -1,0 +1,19 @@
+{
+  "arrowParens": "always",
+  "printWidth": 100,
+  "proseWrap": "preserve",
+  "tabWidth": 2,
+  "trailingComma": "all",
+  "endOfLine": "auto",
+  "overrides": [
+    {
+      "files": "*.json",
+      "options": {
+        "printWidth": 200
+      }
+    }
+  ],
+  "importOrder": ["^components/(.*)$", "^[./]"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
+}
