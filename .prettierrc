@@ -1,19 +1,12 @@
 {
+  "plugins": ["@trivago/prettier-plugin-sort-imports"],
   "arrowParens": "always",
-  "printWidth": 100,
+  "printWidth": 80,
   "proseWrap": "preserve",
   "tabWidth": 2,
   "trailingComma": "all",
   "endOfLine": "auto",
-  "overrides": [
-    {
-      "files": "*.json",
-      "options": {
-        "printWidth": 200
-      }
-    }
-  ],
-  "importOrder": ["^components/(.*)$", "^[./]"],
+  "importOrder": ["^@/(.*)$", "^[./]"],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true
 }

@@ -1,0 +1,17 @@
+@import "@/assets/scss/_variables.scss";
+
+.container {
+  background-color: $color-gray;
+  min-height: 450px;
+  padding-top: 120px;
+  position: relative;
+  padding: 0 100px;
+  @media only screen and (min-width: 1440px) {
+    padding: 0 300px;
+  }
+  background: url("@/assets/svg/back-cloud.svg") bottom no-repeat;
+  background-size: cover;
+  @media only screen and (min-width: 1440px) {
+    background-size: contain;
+  }
+}

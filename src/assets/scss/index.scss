@@ -1,0 +1,76 @@
+@import "variables";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: #0b132a;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.ant-image-preview-img {
+  max-height: 100% !important;
+}
+
+.ant-layout-content.ant-pro-layout-content {
+  @media only screen and (min-width: 1024px) {
+    padding: 0px;
+  }
+}
+
+.ant-select-selector {
+  border-radius: 5px !important;
+}
+
+.ant-menu.ant-menu-root.ant-menu-horizontal {
+  justify-content: flex-end;
+}
+
+.ant-pro-base-menu-horizontal-menu-item {
+  &:hover {
+    color: $color-primary !important;
+  }
+  .ant-pro-base-menu-horizontal-item-text {
+    font-weight: 600;
+    font-size: 14px;
+  }
+}
+
+.ant-layout-header {
+  height: auto !important;
+  border: none !important;
+  background-color: transparent !important;
+  backdrop-filter: blur(0) !important;
+}
+
+.ant-pro-top-nav-header-main {
+  height: auto;
+  align-items: center;
+  height: 80px;
+  border-radius: 0px 0px 10px 10px;
+  opacity: 0.8;
+  background: var(--neutral-1, #fff);
+  margin: 0 100px;
+  @media only screen and (min-width: 1440px) {
+    padding: 0;
+    margin: 0 300px;
+  }
+}
+
+.ant-layout-content {
+  padding-top: 0 !important;
+}
+
+.logo {
+  max-width: 199px;
+  height: 79px;
+  object-fit: cover;
+}

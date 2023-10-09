@@ -1,0 +1,18 @@
+// $color-primary: #f53838;
+$color-primary: #2C53A5;
+$color-black: #0b132a;
+$color-white: #fff;
+$color-green: #2FAB73;
+$color-gray: #F8F8F8;
+
+@mixin back-button-primary {
+  content: "";
+  position: absolute;
+  border-radius: 10px;
+  background: rgba(78, 56, 245, 0.35);
+  filter: blur(27px);
+  width: 211.829px;
+  height: 60px;
+  flex-shrink: 0;
+  top: 50%;
+}
