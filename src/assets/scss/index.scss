@@ -49,6 +49,40 @@ body {
   border: none !important;
   background-color: transparent !important;
   backdrop-filter: blur(0) !important;
+
+  .ant-menu-horizontal {
+    li {
+      border-bottom: 3px solid transparent;
+      & a {
+        color: $color-coffee;
+        font-size: 14px;
+        font-weight: 700;
+        transition: .1s;
+      }
+
+      &:hover {
+        a {
+          color: $color-blue;
+        }
+      }
+
+      &.ant-menu-submenu-selected {
+        border-radius: 10px;
+        border-bottom: 3px solid $color-blue;
+        transition: .2s;
+        a {
+          color: $color-blue;
+        }
+      }
+    }
+  }
+}
+
+.ant-menu-item-selected  {
+  a {
+    transition: .1s;
+    color: $color-blue !important;
+  }
 }
 
 .ant-pro-top-nav-header-main {
@@ -58,11 +92,7 @@ body {
   border-radius: 0px 0px 10px 10px;
   opacity: 0.8;
   background: var(--neutral-1, #fff);
-  margin: 0 100px;
-  @media only screen and (min-width: 1440px) {
-    padding: 0;
-    margin: 0 300px;
-  }
+  @include responsive-content;
 }
 
 .ant-layout-content {

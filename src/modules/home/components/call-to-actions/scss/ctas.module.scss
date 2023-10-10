@@ -1,0 +1,59 @@
+@import "@/assets/scss/_variables.scss";
+
+.container {
+  justify-content: center;
+  position: absolute;
+  top: -60px;
+  box-sizing: border-box;
+  @include responsive-content;
+}
+
+.list-nav {
+  column-gap: 0;
+
+  & .nav-item {
+    color: $color-white;
+    width: 100%;
+    display: block;
+
+    & button {
+      color: $color-white !important;
+      text-align: center;
+      /* Head 3 */
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 28px; /* 116.667% */
+      width: 100%;
+      height: 123px;
+      border-radius: 0;
+      white-space: pre-wrap;
+      border: none;
+      border-top: 10px solid;
+      padding: 0 40px;
+
+      :hover {
+        filter: opacity(0.8);
+      }
+    }
+  }
+  :global {
+    .ant-space-item {
+      width: 33.3333%;
+    }
+    .ant-space-item:nth-child(1) button {
+      border-radius: 0px 0px 0px 10px;
+      background: #2bb8e1;
+      border-color: #159ac9 !important;
+    }
+    .ant-space-item:nth-child(2) button {
+      background: #f49c0c;
+      border-color: #d7751e !important;
+    }
+    .ant-space-item:nth-child(3) button {
+      border-radius: 0px 0px 10px 0px;
+      background: #27a150;
+      border-color: #0c7026 !important;
+    }
+  }
+}

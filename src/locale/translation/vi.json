@@ -1,7 +1,25 @@
 {
   "nav": {
-    "about": "Giới thiệu",
-    "training": "Chương trình huấn luyện",
+    "about": {
+      "title": "Giới thiệu",
+      "children": {
+        "1": "Tin tức",
+        "2": "Sự kiện",
+        "3": "Kiness Việt Nam (Tầm nhìn, sứ mệnh)",
+        "4": "Blog thành viên",
+        "5": "Câu chuyện tăng trưởng"
+      }
+    },
+    "training": {
+      "title": "Chương trình huấn luyện",
+      "children": {
+        "1": "Phương pháp tăng trưởng",
+        "2": "Thiết bị hỗ trợ",
+        "3": "Chương trình tập luyện",
+        "4": "Chi phí",
+        "5": "Đảm bảo chất lượng"
+      }
+    },
     "wiki": "Bách khoa tăng trưởng về chiều cao",
     "test": "Kiểm tra tăng trưởng"
   }
