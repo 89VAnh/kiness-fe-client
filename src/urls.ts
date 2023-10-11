@@ -1,6 +1,9 @@
 const HOME_URL = "/";
 
 // Introduction
+const INTRO_URL = "/intro";
+
+// News
 const NEWS_URL = "/news";
 
 // Training
@@ -17,10 +20,11 @@ const breadcrumbNameMap: Record<string, string> = {
 };
 
 export {
-  breadcrumbNameMap,
-  HOME_URL,
-  NEWS_URL,
-  GROWTH_URL,
-  STAGES_GROWTH_URL,
   GROWTH_FORECAST_URL,
+  GROWTH_URL,
+  HOME_URL,
+  INTRO_URL,
+  NEWS_URL,
+  STAGES_GROWTH_URL,
+  breadcrumbNameMap,
 };

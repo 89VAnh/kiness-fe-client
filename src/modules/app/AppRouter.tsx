@@ -6,6 +6,7 @@ import {
   GROWTH_FORECAST_URL,
   GROWTH_URL,
   HOME_URL,
+  INTRO_URL,
   NEWS_URL,
   STAGES_GROWTH_URL,
 } from "@/urls";
@@ -15,8 +16,8 @@ export const appRoute = (t: TFunction): ProLayoutProps["route"] => {
     path: HOME_URL,
     routes: [
       {
-        path: NEWS_URL,
-        name: <Link to={NEWS_URL}>{t("nav.about.title")}</Link>,
+        path: INTRO_URL,
+        name: <Link to={INTRO_URL}>{t("nav.about.title")}</Link>,
         routes: [
           {
             path: NEWS_URL,

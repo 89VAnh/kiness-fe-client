@@ -1,0 +1,6 @@
+@import "@/assets/scss/_variables.scss";
+
+.ant-menu-item-selected {
+  background-color: $color-darker-gray !important;
+  color: $color-white !important;
+}

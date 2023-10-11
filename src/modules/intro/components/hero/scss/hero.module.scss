@@ -1,0 +1,15 @@
+@import "@/assets/scss/_variables.scss";
+
+.container {
+  max-height: 833px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+
+  & .img {
+    width: 100%;
+    object-fit: cover;
+    object-position: top;
+    height: 336px;
+  }
+}
