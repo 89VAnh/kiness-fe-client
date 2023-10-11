@@ -3,13 +3,26 @@
 .container {
   display: flex;
   justify-content: center;
-  margin-top: 37px;
+  margin-top: 37px !important;
   gap: 23px;
+  @include responsive-content;
+
+  :global {
+    .ant-menu-item-selected {
+      background-color: $color-darker-gray !important;
+      transition: .1s;
+      a {
+        color: $color-white !important;
+        transition: .1s all;
+      }
+    }
+  }
 }
 
 .left_menu {
   max-height: 833px;
   max-width: 200px;
+  width: 100%;
   overflow: hidden;
   position: relative;
 
@@ -48,22 +61,5 @@
   &:hover {
     background-color: $color-darker-gray !important;
     color: $color-white !important;
-  }
-}
-
-.caption {
-  max-width: 1097px;
-  // font-family: "Plus Jakarta Sans" !important;
-
-  .title {
-    font-size: 24px;
-    font-weight: 400;
-  }
-
-  .content {
-    display: block;
-    font-size: 16px;
-    line-height: 20px;
-    font-weight: 400;
   }
 }

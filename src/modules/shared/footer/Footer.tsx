@@ -1,5 +1,5 @@
 import { Col, Image, Row, Space, Typography } from "antd";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import logo from "@/assets/logo/logo.png";
 import {
@@ -10,10 +10,13 @@ import {
   PhoneIcon,
   TwitterIcon,
 } from "@/assets/svg";
+import { INTRO_URL } from "@/urls";
 
 import styles from "./scss/footer.module.scss";
 
 export default function Footer(): JSX.Element {
+  const location = useLocation();
+
   return (
     <div className={styles.container}>
       <div className={styles.footer}>
@@ -46,7 +49,12 @@ export default function Footer(): JSX.Element {
             <div>
               <Space direction="vertical" className={styles.quickLink}>
                 <Typography.Title level={4}>Quick link</Typography.Title>
-                <Link to="/" className={styles.active}>
+                <Link
+                  to={INTRO_URL}
+                  className={
+                    location.pathname.includes(INTRO_URL) ? styles.active : ""
+                  }
+                >
                   <Typography.Text>Giới thiệu</Typography.Text>
                 </Link>
                 <Link to="/">

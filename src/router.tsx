@@ -1,9 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 
+import { IntroPage } from "./modules/about/intro";
+import { NewsPage } from "./modules/about/news";
 import AppLayout from "./modules/app/AppLayout";
 import { HomePage } from "./modules/home";
-import Intro from "./modules/intro/Intro";
-import { HOME_URL, INTRO_URL } from "./urls";
+import { HOME_URL, INTRO_URL, NEWS_URL } from "./urls";
 
 export const router = createBrowserRouter([
   {
@@ -17,7 +18,11 @@ export const router = createBrowserRouter([
       },
       {
         path: INTRO_URL,
-        element: <Intro />,
+        element: <IntroPage />,
+      },
+      {
+        path: NEWS_URL,
+        element: <NewsPage />,
       },
     ],
   },

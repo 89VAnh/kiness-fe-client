@@ -18,137 +18,67 @@ export const appRoute = (t: TFunction): ProLayoutProps["route"] => {
       {
         path: INTRO_URL,
         name: <Link to={INTRO_URL}>{t("nav.about.title")}</Link>,
-        routes: [
-          {
-            path: NEWS_URL,
-            name: <Link to={NEWS_URL}>{t("nav.about.children.1")}</Link>,
-          },
-          {
-            path: NEWS_URL,
-            name: <Link to={NEWS_URL}>{t("nav.about.children.2")}</Link>,
-          },
-          {
-            path: NEWS_URL,
-            name: <Link to={NEWS_URL}>{t("nav.about.children.3")}</Link>,
-          },
-          {
-            path: NEWS_URL,
-            name: <Link to={NEWS_URL}>{t("nav.about.children.4")}</Link>,
-          },
-          {
-            path: NEWS_URL,
-            name: <Link to={NEWS_URL}>{t("nav.about.children.5")}</Link>,
-          },
-        ],
+        routes: renderRoutes(
+          t,
+          [NEWS_URL, NEWS_URL, NEWS_URL, NEWS_URL, NEWS_URL],
+          "about",
+        ),
       },
       {
         path: GROWTH_URL,
         name: <Link to={GROWTH_URL}>{t("nav.training.title")}</Link>,
-        routes: [
-          {
-            path: GROWTH_URL,
-            name: <Link to={GROWTH_URL}>{t("nav.training.children.1")}</Link>,
-          },
-          {
-            path: GROWTH_URL,
-            name: <Link to={GROWTH_URL}>{t("nav.training.children.2")}</Link>,
-          },
-          {
-            path: GROWTH_URL,
-            name: <Link to={GROWTH_URL}>{t("nav.training.children.3")}</Link>,
-          },
-          {
-            path: GROWTH_URL,
-            name: <Link to={GROWTH_URL}>{t("nav.training.children.4")}</Link>,
-          },
-          {
-            path: GROWTH_URL,
-            name: <Link to={GROWTH_URL}>{t("nav.training.children.5")}</Link>,
-          },
-        ],
+        routes: renderRoutes(
+          t,
+          [GROWTH_URL, GROWTH_URL, GROWTH_URL, GROWTH_URL, GROWTH_URL],
+          "training",
+        ),
       },
       {
         path: STAGES_GROWTH_URL,
-        name: <Link to={STAGES_GROWTH_URL}>{t("nav.wiki")}</Link>,
-        routes: [
-          {
-            path: STAGES_GROWTH_URL,
-            name: (
-              <Link to={STAGES_GROWTH_URL}>{t("nav.training.children.1")}</Link>
-            ),
-          },
-          {
-            path: STAGES_GROWTH_URL,
-            name: (
-              <Link to={STAGES_GROWTH_URL}>{t("nav.training.children.2")}</Link>
-            ),
-          },
-          {
-            path: STAGES_GROWTH_URL,
-            name: (
-              <Link to={STAGES_GROWTH_URL}>{t("nav.training.children.3")}</Link>
-            ),
-          },
-          {
-            path: STAGES_GROWTH_URL,
-            name: (
-              <Link to={STAGES_GROWTH_URL}>{t("nav.training.children.4")}</Link>
-            ),
-          },
-          {
-            path: STAGES_GROWTH_URL,
-            name: (
-              <Link to={STAGES_GROWTH_URL}>{t("nav.training.children.5")}</Link>
-            ),
-          },
-        ],
+        name: <Link to={STAGES_GROWTH_URL}>{t("nav.wiki.title")}</Link>,
+        routes: renderRoutes(
+          t,
+          [
+            STAGES_GROWTH_URL,
+            STAGES_GROWTH_URL,
+            STAGES_GROWTH_URL,
+            STAGES_GROWTH_URL,
+            STAGES_GROWTH_URL,
+          ],
+          "wiki",
+        ),
       },
       {
         path: GROWTH_FORECAST_URL,
-        name: <Link to={GROWTH_FORECAST_URL}>{t("nav.test")}</Link>,
-        routes: [
-          {
-            path: GROWTH_FORECAST_URL,
-            name: (
-              <Link to={GROWTH_FORECAST_URL}>
-                {t("nav.training.children.1")}
-              </Link>
-            ),
-          },
-          {
-            path: GROWTH_FORECAST_URL,
-            name: (
-              <Link to={GROWTH_FORECAST_URL}>
-                {t("nav.training.children.2")}
-              </Link>
-            ),
-          },
-          {
-            path: GROWTH_FORECAST_URL,
-            name: (
-              <Link to={GROWTH_FORECAST_URL}>
-                {t("nav.training.children.3")}
-              </Link>
-            ),
-          },
-          {
-            path: GROWTH_FORECAST_URL,
-            name: (
-              <Link to={GROWTH_FORECAST_URL}>
-                {t("nav.training.children.4")}
-              </Link>
-            ),
-          },
-          {
-            path: GROWTH_FORECAST_URL,
-            name: (
-              <Link to={GROWTH_FORECAST_URL}>
-                {t("nav.training.children.5")}
-              </Link>
-            ),
-          },
-        ],
+        name: <Link to={GROWTH_FORECAST_URL}>{t("nav.test.title")}</Link>,
+        routes: renderRoutes(
+          t,
+          [
+            GROWTH_FORECAST_URL,
+            GROWTH_FORECAST_URL,
+            GROWTH_FORECAST_URL,
+            GROWTH_FORECAST_URL,
+            GROWTH_FORECAST_URL,
+          ],
+          "wiki",
+        ),
       },
     ],
   };
+};
+
+export const renderRoutes = (
+  t: TFunction,
+  listUrls: string[],
+  prefixLocale: string,
+  start: number = 1,
+) => {
+  return listUrls.map((url, index) => ({
+    key: start + index,
+    path: url,
+    title: t(`nav.${prefixLocale}.children.${start + index}`),
+    name: (
+      <Link to={url}>{t(`nav.${prefixLocale}.children.${start + index}`)}</Link>
+    ),
+  }));
 };

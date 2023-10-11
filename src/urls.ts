@@ -2,8 +2,6 @@ const HOME_URL = "/";
 
 // Introduction
 const INTRO_URL = "/intro";
-
-// News
 const NEWS_URL = "/news";
 
 // Training
