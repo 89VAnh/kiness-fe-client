@@ -7,7 +7,7 @@ import styles from "../scss/ctas.module.scss";
 
 export default function NavClear(): JSX.Element {
   return (
-    <div className={styles.container}>
+    <div className={styles.containerPosition}>
       <Space className={styles.listNav}>
         <Link to={STAGES_GROWTH_URL} className={styles.navItem}>
           <Button>BÁCH KHOA TOÀN THƯ VỀ TĂNG TRƯỞNG CHIỀU CAO</Button>

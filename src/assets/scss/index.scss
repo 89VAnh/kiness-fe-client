@@ -104,3 +104,8 @@ body {
   height: 79px;
   object-fit: cover;
 }
+
+// Only work with CTAs
+.card-right {
+  justify-content: flex-end;
+}
