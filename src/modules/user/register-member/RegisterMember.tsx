@@ -1,6 +1,5 @@
 import {
   Button,
-  Checkbox,
   Col,
   DatePicker,
   Divider,
@@ -12,11 +11,8 @@ import {
   Typography,
 } from "antd";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
 
 import Sidebar from "@/modules/shared/sidebar/Sidebar";
-import { REGISTER_URL } from "@/urls";
-import { RULES_FORM } from "@/utils/validator";
 
 import { renderUserMenus } from "../utils/render";
 import styles from "./scss/login.module.scss";
@@ -172,7 +168,9 @@ export default function RegisterMember(): JSX.Element {
           <Row className={styles.footerForm}>
             <Col span={24}>
               <Button>{t("all.btn_cancel")}</Button>
-              <Button className="filled" htmlType="submit">{t("all.btn_confirm")}</Button>
+              <Button className="filled" htmlType="submit">
+                {t("all.btn_confirm")}
+              </Button>
             </Col>
           </Row>
         </Form>
