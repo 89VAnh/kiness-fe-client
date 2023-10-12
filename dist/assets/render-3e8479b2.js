@@ -1,0 +1,1 @@
+import{az as t,aA as r,aB as n,aC as o}from"./index-3083bf8f.js";const i=s=>{var e;return[...(e=t(s,[r,n,o],"about"))==null?void 0:e.map(a=>({key:a.key||"",label:a.title,url:a.path}))]};export{i as r};
