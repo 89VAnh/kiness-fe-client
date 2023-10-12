@@ -8,11 +8,13 @@ import { RouterProvider } from "react-router-dom";
 import { queryClient } from "./lib/react-query";
 import "./locale/i18n";
 import { router } from "./router";
+import { theme } from "./theme";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <ConfigProvider
+        theme={theme}
         locale={viVN}
         pagination={{
           showSizeChanger: true,

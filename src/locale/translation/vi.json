@@ -3,18 +3,17 @@
     "about": {
       "title": "Giới thiệu",
       "children": {
-        "0": "Giới thiệu",
-        "1": "Tin tức",
-        "2": "Sự kiện",
-        "3": "Kiness Việt Nam (Tầm nhìn, sứ mệnh)",
-        "4": "Blog thành viên",
-        "5": "Câu chuyện tăng trưởng"
+        "intro": "Giới thiệu",
+        "news": "Tin tức",
+        "mission": "Kiness Việt Nam (Tầm nhìn, sứ mệnh)",
+        "3": "Blog thành viên",
+        "4": "Câu chuyện tăng trưởng"
       }
     },
     "training": {
       "title": "Chương trình huấn luyện",
       "children": {
-        "1": "Phương pháp tăng trưởng",
+        "growth-method": "Phương pháp tăng trưởng",
         "2": "Thiết bị hỗ trợ",
         "3": "Chương trình tập luyện",
         "4": "Chi phí",
@@ -24,7 +23,7 @@
     "wiki": {
       "title": "Bách khoa tăng trưởng về chiều cao",
       "children": {
-        "1": "Tin tức",
+        "stages-of-growth": "Tin tức",
         "2": "Sự kiện",
         "3": "Kiness Việt Nam (Tầm nhìn, sứ mệnh)",
         "4": "Blog thành viên",
@@ -34,12 +33,25 @@
     "test": {
       "title": "Kiểm tra tăng trưởng",
       "children": {
-        "1": "Phương pháp tăng trưởng",
+        "growth-forecast": "Phương pháp tăng trưởng",
         "2": "Thiết bị hỗ trợ",
         "3": "Chương trình tập luyện",
         "4": "Chi phí",
         "5": "Đảm bảo chất lượng"
       }
+    },
+    "user": {
+      "children": {
+        "login": "Đăng nhập",
+        "register": "Đăng ký thành viên",
+        "privacy-policy": "Chính sách bảo mật",
+        "terms-use": "Điều khoản sử dụng"
+      }
     }
+  },
+  "user": {
+    "username": "Tên tài khoản",
+    "password": "Mật khẩu",
+    "remember": "Lưu mật khẩu"
   }
 }

@@ -1,22 +1,15 @@
 import { Typography } from "antd";
 import { useTranslation } from "react-i18next";
 
-import { renderRoutes } from "@/modules/app/AppRouter";
 import Sidebar from "@/modules/shared/sidebar/Sidebar";
-import { INTRO_URL, NEWS_URL } from "@/urls";
 
+import { renderAboutMenus } from "../utils/render";
 import styles from "./scss/intro.module.scss";
 
 export default function Intro() {
   const { t } = useTranslation();
 
-  const items = [
-    ...renderRoutes(t, [INTRO_URL, NEWS_URL], "about", 0)?.map((route) => ({
-      key: route.key + "",
-      label: route.title,
-      url: route.path,
-    })),
-  ];
+  const items = renderAboutMenus(t);
 
   const renderChildren = () => {
     return (

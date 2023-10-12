@@ -24,9 +24,27 @@ $color-darker-gray: #8c8c8c;
 }
 
 @mixin responsive-content {
-  margin: 0 100px;
+  margin: 0;
+  @media only screen and (min-width: 668px) {
+    padding: 0;
+    margin: 0 100px;
+  }
   @media only screen and (min-width: 1540px) {
     padding: 0;
     margin: 0 300px;
   }
+}
+
+@mixin perfect-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin perfect-flex-center($direction: "row") {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: center;
+  align-items: center;
 }

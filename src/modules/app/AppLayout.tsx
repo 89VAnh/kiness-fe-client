@@ -1,10 +1,11 @@
 import { ProLayout, ProLayoutProps } from "@ant-design/pro-components";
 import { Image } from "antd";
 import { useTranslation } from "react-i18next";
-import { Outlet, useLocation } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 
 import Logo from "@/assets/logo/logo.png";
 import "@/assets/scss/index.scss";
+import { HOME_URL } from "@/urls";
 
 import Footer from "../shared/footer/Footer";
 import Header from "../shared/header/Header";
@@ -30,6 +31,11 @@ export default function AppLayout({ children }: Props): JSX.Element {
       logo={<Image className="logo" preview={false} width={199} src={Logo} />}
       title={""}
       route={appRoute(t)}
+      headerTitleRender={(_, __, ___) => (
+        <Link to={HOME_URL}>
+          <Image className="logo" preview={false} width={199} src={Logo} />
+        </Link>
+      )}
       headerRender={(_, context) => <Header context={context} />}
       footerRender={() => <Footer />}
       {...settings}

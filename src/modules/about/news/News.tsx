@@ -1,22 +1,24 @@
 import { Col, Divider, Input, List, Row, Typography } from "antd";
 import { useTranslation } from "react-i18next";
+import { useSearchParams } from "react-router-dom";
 
-import { renderRoutes } from "@/modules/app/AppRouter";
 import Sidebar from "@/modules/shared/sidebar/Sidebar";
-import { INTRO_URL, NEWS_URL } from "@/urls";
 
+import { renderAboutMenus } from "../utils/render";
 import styles from "./scss/news.module.scss";
 
 export default function News() {
   const { t } = useTranslation();
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  const items = [
-    ...renderRoutes(t, [INTRO_URL, NEWS_URL], "about", 0)?.map((route) => ({
-      key: route.key + "",
-      label: route.title,
-      url: route.path,
-    })),
-  ];
+  // Get menus
+  const items = renderAboutMenus(t);
+  const searchContent = searchParams.get("k") || "";
+
+  const handleSearch = (value: string) => {
+    searchParams.set("k", value);
+    setSearchParams(searchParams);
+  };
 
   const renderChildren = () => {
     return (
@@ -28,7 +30,12 @@ export default function News() {
             </Typography.Title>
           </Col>
           <Col span={12} md={16}>
-            <Input.Search />
+            <Input.Search
+              defaultValue={searchContent}
+              allowClear
+              onSearch={handleSearch}
+              placeholder="Tìm kiếm"
+            />
           </Col>
         </Row>
         <Divider />
