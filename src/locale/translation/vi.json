@@ -1,4 +1,8 @@
 {
+  "all": {
+    "btn_cancel": "Hủy",
+    "btn_confirm": "Xác nhận"
+  },
   "nav": {
     "about": {
       "title": "Giới thiệu",
