@@ -20,21 +20,27 @@ const REGISTER_URL = "/register";
 const PRIVACY_POLICY = "/privacy-policy";
 const TERMS_USE = "/terms-use";
 
+// Branch
+const BRANCH_URL = "/branch";
+const TEST_REGISTER_URL = "/register-for-the-test";
+
 const breadcrumbNameMap: Record<string, string> = {
   [HOME_URL]: "Trang chủ",
 };
 
 export {
+  BRANCH_URL,
   GROWTH_FORECAST_URL,
   GROWTH_URL,
   HOME_URL,
   INTRO_URL,
-  NEWS_URL,
-  MISSION_URL,
-  STAGES_GROWTH_URL,
   LOGIN_URL,
-  REGISTER_URL,
+  MISSION_URL,
+  NEWS_URL,
   PRIVACY_POLICY,
+  REGISTER_URL,
+  STAGES_GROWTH_URL,
   TERMS_USE,
+  TEST_REGISTER_URL,
   breadcrumbNameMap,
 };
