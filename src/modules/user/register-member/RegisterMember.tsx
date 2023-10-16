@@ -46,10 +46,12 @@ export default function RegisterMember(): JSX.Element {
   });
 
   const handleSubmit = () => {
-    createCustomer.mutate({
-      ...form.getFieldsValue(),
-      birthday: dayjs(birthday).format(formatDatePost),
-      branch_id: 1,
+    form.validateFields().then((values) => {
+      createCustomer.mutate({
+        ...values,
+        birthday: dayjs(birthday).format(formatDatePost),
+        branch_id: 1,
+      });
     });
   };
 
