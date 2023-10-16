@@ -15,11 +15,6 @@ import { useState } from "react";
 import { branches, cities } from "./data/fakeData.json";
 import styles from "./scss/registerForm.module.scss";
 
-type City = {
-  id: string;
-  name: string;
-};
-
 type Branch = {
   id: string;
   cityId: string;

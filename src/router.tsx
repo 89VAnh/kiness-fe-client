@@ -5,7 +5,7 @@ import { MissionPage } from "./modules/about/mission";
 import { NewsPage } from "./modules/about/news";
 import AppLayout from "./modules/app/AppLayout";
 import Branch from "./modules/branch/branch/Branch";
-import TestRegister from "./modules/branch/testRegister/testRegister";
+import TestRegister from "./modules/branch/test-register/testRegister";
 import { HomePage } from "./modules/home";
 import FloatButtons from "./modules/shared/float-button/FloatButton";
 import { LoginPage } from "./modules/user/login";

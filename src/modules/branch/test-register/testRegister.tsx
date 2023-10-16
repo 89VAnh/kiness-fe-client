@@ -5,7 +5,7 @@ import girl from "@/assets/img/branch/Girl.png";
 import Sidebar from "@/modules/shared/sidebar/Sidebar";
 
 import { renderAboutMenus } from "../utils/render";
-import RegisterForm from "./RegisterForm/RegisterForm";
+import RegisterForm from "./register-form/registerForm";
 import styles from "./scss/testRegister.module.scss";
 
 type City = {
