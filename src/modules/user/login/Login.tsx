@@ -13,8 +13,8 @@ import { useTranslation } from "react-i18next";
 import { Link, useNavigate } from "react-router-dom";
 
 import { LOCAL_USER } from "@/constant/config";
+import { useLogin } from "@/loader/user.loader";
 import Sidebar from "@/modules/shared/sidebar/Sidebar";
-import { useLogin } from "@/services/user.service";
 import { REGISTER_URL } from "@/urls";
 import storage, { storageService } from "@/utils/storage";
 import { RULES_FORM } from "@/utils/validator";

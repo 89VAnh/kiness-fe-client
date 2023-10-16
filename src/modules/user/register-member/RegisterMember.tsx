@@ -11,13 +11,16 @@ import {
   Typography,
   message,
 } from "antd";
+import { DefaultOptionType } from "antd/es/select";
 import dayjs, { Dayjs } from "dayjs";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
+import { useCityDropdown } from "@/loader/city.loader";
+import { useCreateCustomer } from "@/loader/customer.loader";
 // import { useNavigate } from "react-router-dom";
 import Sidebar from "@/modules/shared/sidebar/Sidebar";
-import { useCreateCustomer } from "@/services/customer.service";
+import { getBranchesDropdown } from "@/services/branch.service";
 import { formatDatePost, formatDateShow } from "@/utils/format-string";
 import { RULES_FORM } from "@/utils/validator";
 
@@ -29,6 +32,10 @@ export default function RegisterMember(): JSX.Element {
   const [form] = Form.useForm();
   const [birthday, setBirthday] = useState<Dayjs | null>();
   const items = renderUserMenus(t);
+  const [branchOptions, setBranchOptions] = useState<DefaultOptionType[]>([]);
+  const [isLoadingBranch, setIsLoadingBranch] = useState<boolean>(false);
+
+  const { data: cityOptions, isLoading: isLoadingCity } = useCityDropdown({});
 
   const createCustomer = useCreateCustomer({
     config: {
@@ -39,11 +46,20 @@ export default function RegisterMember(): JSX.Element {
   });
 
   const handleSubmit = () => {
-    createCustomer.mutate({
-      ...form.getFieldsValue(),
-      birthday: dayjs(birthday).format(formatDatePost),
-      branch_id: 1,
+    form.validateFields().then((values) => {
+      createCustomer.mutate({
+        ...values,
+        birthday: dayjs(birthday).format(formatDatePost),
+        branch_id: 1,
+      });
     });
+  };
+
+  const handleChangeCity = async (city_id: string) => {
+    setIsLoadingBranch(true);
+    const dropdown = await getBranchesDropdown({ city_id });
+    setBranchOptions(dropdown);
+    setIsLoadingBranch(false);
   };
 
   const renderChildren = () => {
@@ -63,12 +79,21 @@ export default function RegisterMember(): JSX.Element {
             </Col>
             <Col span={6}>
               <Form.Item name={"city_id"} rules={[...RULES_FORM.required]}>
-                <Select placeholder="Chọn tỉnh, thành phố" />
+                <Select
+                  loading={isLoadingCity}
+                  onSelect={handleChangeCity}
+                  options={cityOptions}
+                  placeholder="Chọn tỉnh, thành phố"
+                />
               </Form.Item>
             </Col>
             <Col span={12}>
               <Form.Item name={"branch_id"} rules={[...RULES_FORM.required]}>
-                <Select placeholder="Chọn chi nhánh" />
+                <Select
+                  placeholder="Chọn chi nhánh"
+                  loading={isLoadingBranch}
+                  options={branchOptions}
+                />
               </Form.Item>
             </Col>
           </Row>
