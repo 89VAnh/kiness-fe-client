@@ -1,19 +1,20 @@
 	# Use an official Node.js LTS version as the base image
-FROM node:18.17 as build-stage
+FROM node:18-alpine as build-stage
  
 # Set the working directory inside the container
 WORKDIR /app
  
 # Copy package.json and package-lock.json to the working directory
-COPY package*.json yarn.lock ./
+COPY pnpm-lock.yaml ./
  
 # Install dependencies
-RUN npm install
+RUN npm i -g pnpm \
+		pnpm install
  
 # Copy the rest of the application code to the working directory
 COPY . .
 
-RUN npm run build
+RUN pnpm run build
 
 ENV VITE_BASE_URL=http://3.24.161.147/api
  

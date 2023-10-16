@@ -9,18 +9,42 @@ import {
   Row,
   Select,
   Typography,
+  message,
 } from "antd";
+import dayjs, { Dayjs } from "dayjs";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
+// import { useNavigate } from "react-router-dom";
 import Sidebar from "@/modules/shared/sidebar/Sidebar";
+import { useCreateCustomer } from "@/services/customer.service";
+import { formatDatePost, formatDateShow } from "@/utils/format-string";
+import { RULES_FORM } from "@/utils/validator";
 
 import { renderUserMenus } from "../utils/render";
 import styles from "./scss/login.module.scss";
 
 export default function RegisterMember(): JSX.Element {
   const { t } = useTranslation();
-
+  const [form] = Form.useForm();
+  const [birthday, setBirthday] = useState<Dayjs | null>();
   const items = renderUserMenus(t);
+
+  const createCustomer = useCreateCustomer({
+    config: {
+      onSuccess: () => {
+        message.success("Đăng ký thành công!");
+      },
+    },
+  });
+
+  const handleSubmit = () => {
+    createCustomer.mutate({
+      ...form.getFieldsValue(),
+      birthday: dayjs(birthday).format(formatDatePost),
+      branch_id: 1,
+    });
+  };
 
   const renderChildren = () => {
     return (
@@ -29,20 +53,21 @@ export default function RegisterMember(): JSX.Element {
           Đăng ký tham gia thành viên KINESS
         </Typography.Title>
         <Divider />
-        <Form className={styles.content}>
+        <Form form={form} className={styles.content}>
           <Row gutter={24} className={styles.listItem}>
             <Col span={6}>
               <Typography.Text className={styles.label}>
-                Trung tâm Kiness
+                Trung tâm Kiness{" "}
+                <Typography.Text type="danger">*</Typography.Text>
               </Typography.Text>
             </Col>
             <Col span={6}>
-              <Form.Item>
+              <Form.Item name={"city_id"} rules={[...RULES_FORM.required]}>
                 <Select placeholder="Chọn tỉnh, thành phố" />
               </Form.Item>
             </Col>
             <Col span={12}>
-              <Form.Item>
+              <Form.Item name={"branch_id"} rules={[...RULES_FORM.required]}>
                 <Select placeholder="Chọn chi nhánh" />
               </Form.Item>
             </Col>
@@ -50,11 +75,14 @@ export default function RegisterMember(): JSX.Element {
           <Row gutter={24} className={styles.listItem}>
             <Col span={6}>
               <Typography.Text className={styles.label}>
-                Tên tài khoản
+                Tên tài khoản <Typography.Text type="danger">*</Typography.Text>
               </Typography.Text>
             </Col>
             <Col span={6}>
-              <Form.Item>
+              <Form.Item
+                name={"customer_id"}
+                rules={[...RULES_FORM.required, ...RULES_FORM.username]}
+              >
                 <Input placeholder="Tên tài khoản" />
               </Form.Item>
             </Col>
@@ -67,11 +95,14 @@ export default function RegisterMember(): JSX.Element {
           <Row gutter={24} className={styles.listItem}>
             <Col span={6}>
               <Typography.Text className={styles.label}>
-                Mật khẩu
+                Mật khẩu <Typography.Text type="danger">*</Typography.Text>
               </Typography.Text>
             </Col>
             <Col span={6}>
-              <Form.Item>
+              <Form.Item
+                name={"password"}
+                rules={[...RULES_FORM.required, ...RULES_FORM.password]}
+              >
                 <Input.Password placeholder="Mật khẩu" />
               </Form.Item>
             </Col>
@@ -79,11 +110,15 @@ export default function RegisterMember(): JSX.Element {
           <Row gutter={24} className={styles.listItem}>
             <Col span={6}>
               <Typography.Text className={styles.label}>
-                Xác nhận mật khẩu
+                Xác nhận mật khẩu{" "}
+                <Typography.Text type="danger">*</Typography.Text>
               </Typography.Text>
             </Col>
             <Col span={6}>
-              <Form.Item>
+              <Form.Item
+                name={"confirm-password"}
+                rules={[...RULES_FORM.required, ...RULES_FORM.password]}
+              >
                 <Input.Password placeholder=" Xác nhận mật khẩu" />
               </Form.Item>
             </Col>
@@ -91,11 +126,15 @@ export default function RegisterMember(): JSX.Element {
           <Row gutter={24} className={styles.listItem}>
             <Col span={6}>
               <Typography.Text className={styles.label}>
-                Tên thành viên
+                Tên thành viên{" "}
+                <Typography.Text type="danger">*</Typography.Text>
               </Typography.Text>
             </Col>
             <Col span={6}>
-              <Form.Item>
+              <Form.Item
+                name={"customer_name"}
+                rules={[...RULES_FORM.required]}
+              >
                 <Input placeholder="Tên thành viên" />
               </Form.Item>
             </Col>
@@ -110,8 +149,10 @@ export default function RegisterMember(): JSX.Element {
               <Form.Item>
                 <DatePicker
                   style={{ width: "100%" }}
-                  format={"dd/mm/yyyy"}
-                  placeholder="dd/mm/yyyy"
+                  onChange={(value) => setBirthday(value)}
+                  value={birthday?.isValid() ? birthday : undefined}
+                  format={formatDateShow}
+                  placeholder={formatDateShow.toLowerCase()}
                 />
               </Form.Item>
             </Col>
@@ -123,7 +164,7 @@ export default function RegisterMember(): JSX.Element {
               </Typography.Text>
             </Col>
             <Col span={6}>
-              <Form.Item initialValue={1}>
+              <Form.Item name={"gender"} initialValue={1}>
                 <Radio.Group defaultValue={1}>
                   <Radio value={1}>Nam</Radio>
                   <Radio value={0}>Nữ</Radio>
@@ -138,7 +179,7 @@ export default function RegisterMember(): JSX.Element {
               </Typography.Text>
             </Col>
             <Col span={18}>
-              <Form.Item>
+              <Form.Item name={"address"}>
                 <Input placeholder="Địa chỉ" />
               </Form.Item>
             </Col>
@@ -146,21 +187,29 @@ export default function RegisterMember(): JSX.Element {
           <Row gutter={24} className={styles.listItem}>
             <Col span={6}>
               <Typography.Text className={styles.label}>
-                Số điện thoại
+                Số điện thoại <Typography.Text type="danger">*</Typography.Text>
               </Typography.Text>
             </Col>
             <Col span={6}>
-              <Form.Item>
+              <Form.Item
+                name={"phone_number"}
+                rules={[...RULES_FORM.required, ...RULES_FORM.phone]}
+              >
                 <Input placeholder="Số điện thoại" />
               </Form.Item>
             </Col>
           </Row>
           <Row gutter={24} className={styles.listItem}>
             <Col span={6}>
-              <Typography.Text className={styles.label}>Email</Typography.Text>
+              <Typography.Text className={styles.label}>
+                Email <Typography.Text type="danger">*</Typography.Text>
+              </Typography.Text>
             </Col>
             <Col span={6}>
-              <Form.Item>
+              <Form.Item
+                name="email"
+                rules={[...RULES_FORM.required, ...RULES_FORM.email]}
+              >
                 <Input placeholder="Email" />
               </Form.Item>
             </Col>
@@ -168,7 +217,11 @@ export default function RegisterMember(): JSX.Element {
           <Row className={styles.footerForm}>
             <Col span={24}>
               <Button>{t("all.btn_cancel")}</Button>
-              <Button className="filled" htmlType="submit">
+              <Button
+                className="filled"
+                htmlType="submit"
+                onClick={handleSubmit}
+              >
                 {t("all.btn_confirm")}
               </Button>
             </Col>

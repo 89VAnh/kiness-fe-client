@@ -6,3 +6,6 @@ export const getKeyFromPath = (path: string) => {
 
   return texts[len - 1];
 };
+
+export const formatDateShow = "DD/MM/YYYY";
+export const formatDatePost = "YYYY-MM-DD";

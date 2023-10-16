@@ -21,5 +21,10 @@ export default defineConfig({
   server: {
     port: 3465,
     open: true,
+    proxy: {
+      "/api": {
+        target: "http://localhost:4010",
+      },
+    },
   },
 });

@@ -7,21 +7,62 @@ import {
   Input,
   Row,
   Typography,
+  notification,
 } from "antd";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
+import { LOCAL_USER } from "@/constant/config";
 import Sidebar from "@/modules/shared/sidebar/Sidebar";
+import { useLogin } from "@/services/user.service";
 import { REGISTER_URL } from "@/urls";
+import storage, { storageService } from "@/utils/storage";
 import { RULES_FORM } from "@/utils/validator";
 
 import { renderUserMenus } from "../utils/render";
 import styles from "./scss/login.module.scss";
 
 export default function Login(): JSX.Element {
+  const [form] = Form.useForm();
   const { t } = useTranslation();
+  const navigate = useNavigate();
 
   const items = renderUserMenus(t);
+
+  const login = useLogin({
+    config: {
+      onSuccess: (data) => {
+        if (!data || data?.message) {
+          notification.error({
+            message:
+              data.response?.data?.message ||
+              t("authentication.messages.message_failure"),
+          });
+          return navigate("/login");
+        } else {
+          storage.setToken(data.token);
+          storageService.setStorage(LOCAL_USER, JSON.stringify(data));
+          notification.success({
+            message: t("authentication.messages.message_success"),
+          });
+          window.open("/", "_parent");
+        }
+      },
+      onError: (data) => {
+        notification.error({
+          message:
+            data.response?.data?.message ||
+            t("authentication.messages.message_failure"),
+        });
+      },
+    },
+  });
+
+  const handleLogin = () => {
+    form.validateFields().then((values) => {
+      login.mutate(values);
+    });
+  };
 
   const renderChildren = () => {
     return (
@@ -29,7 +70,7 @@ export default function Login(): JSX.Element {
         <div className={styles.wrapper}>
           <Typography.Title level={3}>Đăng nhập</Typography.Title>
           <Divider />
-          <Form className={styles.content}>
+          <Form form={form} className={styles.content}>
             <Row gutter={27}>
               <Col span={16}>
                 <div className={styles.contentForm}>
@@ -52,7 +93,12 @@ export default function Login(): JSX.Element {
               </Col>
               <Col span={8}>
                 <div className={styles.btnSubmit}>
-                  <Button type="text" htmlType="submit" size="large">
+                  <Button
+                    type="text"
+                    htmlType="submit"
+                    size="large"
+                    onClick={handleLogin}
+                  >
                     Đăng nhập
                   </Button>
                 </div>
