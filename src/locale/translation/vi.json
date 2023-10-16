@@ -51,6 +51,12 @@
         "privacy-policy": "Chính sách bảo mật",
         "terms-use": "Điều khoản sử dụng"
       }
+    },
+    "branch": {
+      "children": {
+        "branch": "Chi nhánh",
+        "register-for-the-test": "Đăng ký kiểm tra"
+      }
     }
   },
   "user": {
