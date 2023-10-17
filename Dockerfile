@@ -15,12 +15,11 @@ RUN npm i -g pnpm \
 COPY . .
 
 RUN pnpm run build
-
-ENV VITE_BASE_URL=http://3.24.161.147/api
  
 # Expose the port that the React app will run on
 EXPOSE 3465
 
 FROM nginx:1.17-alpine as production-stage
 COPY --from=build-stage /app/dist /usr/share/nginx/html
+COPY /config/nginx.conf  /etc/nginx/conf.d/default.conf
 CMD ["nginx", "-g", "daemon off;"]

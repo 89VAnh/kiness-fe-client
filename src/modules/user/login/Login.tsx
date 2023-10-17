@@ -35,24 +35,21 @@ export default function Login(): JSX.Element {
         if (!data || data?.message) {
           notification.error({
             message:
-              data.response?.data?.message ||
-              t("authentication.messages.message_failure"),
+              data.response?.data?.message || t("messages.login_failure"),
           });
           return navigate("/login");
         } else {
           storage.setToken(data.token);
           storageService.setStorage(LOCAL_USER, JSON.stringify(data));
           notification.success({
-            message: t("authentication.messages.message_success"),
+            message: t("messages.login_success"),
           });
           window.open("/", "_parent");
         }
       },
       onError: (data) => {
         notification.error({
-          message:
-            data.response?.data?.message ||
-            t("authentication.messages.message_failure"),
+          message: data.response?.data?.message || t("messages.login_failure"),
         });
       },
     },
@@ -88,7 +85,9 @@ export default function Login(): JSX.Element {
                   >
                     <Input.Password placeholder={t("user.username") || ""} />
                   </Form.Item>
-                  <Checkbox>Lưu tài khoản </Checkbox>
+                  <Checkbox defaultChecked style={{ userSelect: "none" }}>
+                    Lưu tài khoản{" "}
+                  </Checkbox>
                 </div>
               </Col>
               <Col span={8}>
@@ -98,8 +97,9 @@ export default function Login(): JSX.Element {
                     htmlType="submit"
                     size="large"
                     onClick={handleLogin}
+                    loading={login.isLoading}
                   >
-                    Đăng nhập
+                    {t("user.login")}
                   </Button>
                 </div>
               </Col>

@@ -20,7 +20,7 @@ export default function CTAs(): JSX.Element {
         preview={false}
       />
       {dataCTAs.map((item, index) => (
-        <Col span={12} className={styles.listItem}>
+        <Col key={index} span={12} className={styles.listItem}>
           <CardCTA
             onClick={handleClick}
             index={index}

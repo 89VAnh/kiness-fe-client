@@ -19,7 +19,7 @@ export default function Intro() {
           <br /> Tôi là Kim Yang-soo, Giám đốc điều hành của Trung tâm Tăng
           trưởng Kines.
         </Typography.Title>
-        <Typography.Text className={styles.content} style={{ maxWidth: 649 }}>
+        <Typography.Text className={styles.content}>
           Năm 1999, khi không ai nói về tăng trưởng chiều cao, Kinnessđã bắt đầu
           Phòng khám tăng trưởng chiều cao như một trung tâm tăng trưởng tập thể
           dục tùy chỉnh, phát triển phương pháp tăng trưởng Kines và phát

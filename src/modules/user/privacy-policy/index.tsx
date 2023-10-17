@@ -1,6 +1,6 @@
 import { lazyLoad } from "@/utils/loadable";
 
-export const BranchPage = lazyLoad(
-  () => import("./Branch"),
+export const PrivacyPolicyPage = lazyLoad(
+  () => import("./PrivacyPolicy"),
   (module) => module.default,
 );

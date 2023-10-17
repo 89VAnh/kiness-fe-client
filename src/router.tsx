@@ -4,12 +4,14 @@ import { IntroPage } from "./modules/about/intro";
 import { MissionPage } from "./modules/about/mission";
 import { NewsPage } from "./modules/about/news";
 import AppLayout from "./modules/app/AppLayout";
-import Branch from "./modules/branch/branch/Branch";
-import TestRegister from "./modules/branch/test-register/testRegister";
+import { BranchPage } from "./modules/branch/branch";
+import { TestRegisterPage } from "./modules/branch/test-register";
+import { ErrorBoundaryPage } from "./modules/error/boundary";
 import { HomePage } from "./modules/home";
-import FloatButtons from "./modules/shared/float-button/FloatButton";
 import { LoginPage } from "./modules/user/login";
-import RegisterMember from "./modules/user/register-member/RegisterMember";
+import { PrivacyPolicyPage } from "./modules/user/privacy-policy";
+import { RegisterMemberPage } from "./modules/user/register-member";
+import { TermsUsePage } from "./modules/user/terms-use";
 import {
   BRANCH_URL,
   HOME_URL,
@@ -17,15 +19,21 @@ import {
   LOGIN_URL,
   MISSION_URL,
   NEWS_URL,
+  PRIVACY_POLICY,
   REGISTER_URL,
+  TERMS_USE,
   TEST_REGISTER_URL,
 } from "./urls";
 
 export const router = createBrowserRouter([
   {
     path: "/",
-    element: <AppLayout children={<FloatButtons />} />,
-    errorElement: <AppLayout>{/* <ErrorBoundary /> */}</AppLayout>,
+    element: <AppLayout />,
+    errorElement: (
+      <AppLayout>
+        <ErrorBoundaryPage />
+      </AppLayout>
+    ),
     children: [
       {
         path: HOME_URL,
@@ -53,17 +61,25 @@ export const router = createBrowserRouter([
       },
       {
         path: REGISTER_URL,
-        element: <RegisterMember />,
+        element: <RegisterMemberPage />,
+      },
+      {
+        path: PRIVACY_POLICY,
+        element: <PrivacyPolicyPage />,
+      },
+      {
+        path: TERMS_USE,
+        element: <TermsUsePage />,
       },
 
       // Branch
       {
         path: BRANCH_URL,
-        element: <Branch />,
+        element: <BranchPage />,
       },
       {
         path: TEST_REGISTER_URL,
-        element: <TestRegister />,
+        element: <TestRegisterPage />,
       },
     ],
   },
