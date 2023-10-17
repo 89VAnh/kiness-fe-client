@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import branch_img from "@/assets/img/branch/branch_img.png";
 import Sidebar from "@/modules/shared/sidebar/Sidebar";
 
-import { renderAboutMenus } from "../../branch/utils/render";
+import { renderAboutMenus } from "../utils/render";
 import styles from "./scss/branch.module.scss";
 
 export default function Branch() {
