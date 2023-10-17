@@ -1,8 +1,15 @@
 import { AxiosRequestConfig } from "axios";
-import { useQuery } from "react-query";
+import { useMutation, useQuery } from "react-query";
 
-import { ExtractFnReturnType, QueryConfig } from "@/lib/react-query";
-import { getBranchesDropdown } from "@/services/branch.service";
+import {
+  ExtractFnReturnType,
+  MutationConfig,
+  QueryConfig,
+} from "@/lib/react-query";
+import {
+  createTestRegister,
+  getBranchesDropdown,
+} from "@/services/branch.service";
 
 export const CACHE_BRANCH = {
   DROPDOWN_BRANCH: "DROPDOWN_BRANCH",
@@ -22,4 +29,18 @@ const useBranchDropdown = ({
   });
 };
 
-export { useBranchDropdown };
+const useCreateTestRegister = ({
+  config,
+}: {
+  config?: MutationConfig<typeof createTestRegister>;
+}) => {
+  return useMutation({
+    onMutate: () => {},
+    onError: () => {},
+    onSuccess: () => {},
+    ...config,
+    mutationFn: createTestRegister,
+  });
+};
+
+export { useBranchDropdown, useCreateTestRegister };

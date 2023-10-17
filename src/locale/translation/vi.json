@@ -1,7 +1,8 @@
 {
   "all": {
     "btn_cancel": "Hủy",
-    "btn_confirm": "Xác nhận"
+    "btn_confirm": "Xác nhận",
+    "btn_register": "Đăng ký"
   },
   "nav": {
     "about": {

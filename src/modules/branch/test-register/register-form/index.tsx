@@ -1,6 +1,6 @@
 import { lazyLoad } from "@/utils/loadable";
 
 export const NewsPage = lazyLoad(
-  () => import("./RegisterForm"),
+  () => import("./registerForm"),
   (module) => module.default,
 );

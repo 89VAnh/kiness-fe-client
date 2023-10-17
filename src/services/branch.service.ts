@@ -11,3 +11,9 @@ export const getBranchesDropdown = async (
 
   return res.data;
 };
+
+export const createTestRegister = async (data: any): Promise<any> => {
+  const res = await apiClient?.post(`${prefix}/create-test-register`, data);
+
+  return res.data;
+};
