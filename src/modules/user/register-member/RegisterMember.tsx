@@ -39,8 +39,16 @@ export default function RegisterMember(): JSX.Element {
 
   const createCustomer = useCreateCustomer({
     config: {
-      onSuccess: () => {
+      onSuccess: (data) => {
+        if (!data.results) {
+          message.error(data.message);
+          return;
+        }
         message.success("Đăng ký thành công!");
+        // form.resetFields();
+      },
+      onError: () => {
+        message.error("Có lỗi xảy ra! Vui lòng thử lại");
       },
     },
   });
@@ -142,7 +150,19 @@ export default function RegisterMember(): JSX.Element {
             <Col span={6}>
               <Form.Item
                 name={"confirm-password"}
-                rules={[...RULES_FORM.required, ...RULES_FORM.password]}
+                rules={[
+                  ...RULES_FORM.required,
+                  ({ getFieldValue }) => ({
+                    validator(_, value) {
+                      if (!value || getFieldValue("password") === value) {
+                        return Promise.resolve();
+                      }
+                      return Promise.reject(
+                        new Error("Mật khẩu phải trùng nhau "),
+                      );
+                    },
+                  }),
+                ]}
               >
                 <Input.Password placeholder=" Xác nhận mật khẩu" />
               </Form.Item>
@@ -246,6 +266,7 @@ export default function RegisterMember(): JSX.Element {
                 className="filled"
                 htmlType="submit"
                 onClick={handleSubmit}
+                loading={createCustomer.isLoading}
               >
                 {t("all.btn_confirm")}
               </Button>

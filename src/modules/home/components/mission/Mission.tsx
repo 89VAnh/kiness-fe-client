@@ -22,6 +22,7 @@ export default function Mission(): JSX.Element {
             <div className={styles.groupButton}>
               {dataMissions.map((item, index) => (
                 <Button
+                  key={index}
                   size="large"
                   type="text"
                   onClick={() => handleSetCurrentButton(index)}

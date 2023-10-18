@@ -1,6 +1,6 @@
 import { lazyLoad } from "@/utils/loadable";
 
-export const TestRegister = lazyLoad(
-  () => import("./TestRegister"),
+export const TestRegisterPage = lazyLoad(
+  () => import("./testRegister"),
   (module) => module.default,
 );

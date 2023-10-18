@@ -31,8 +31,9 @@ apiClient.interceptors.response.use(
     if (error?.response?.status === 401) {
       storage.clearToken();
       storageService.clearStorage(LOCAL_USER);
-      if (error.response?.data?.message !== "Sai mật tài khoản hoặc mật khẩu")
-        window.open("/login", "_parent");
+      console.clear();
+      // if (error.response?.data?.message !== "Sai mật tài khoản hoặc mật khẩu")
+      //   window.open("/login", "_parent");
     }
     return Promise.reject(error);
   },

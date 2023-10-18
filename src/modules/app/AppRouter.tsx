@@ -3,13 +3,18 @@ import { TFunction } from "i18next";
 import { Link } from "react-router-dom";
 
 import {
+  FEE_URL,
   GROWTH_FORECAST_URL,
   GROWTH_URL,
   HOME_URL,
   INTRO_URL,
   MISSION_URL,
   NEWS_URL,
+  QUALITY_URL,
   STAGES_GROWTH_URL,
+  SUPPORT_EQUIP_URL,
+  TRAINING_PROGRAM_URL,
+  TRAINING_URL,
 } from "@/urls";
 import { getKeyFromPath } from "@/utils/format-string";
 
@@ -23,9 +28,19 @@ export const appRoute = (t: TFunction): ProLayoutProps["route"] => {
         routes: renderRoutes(t, [NEWS_URL, MISSION_URL], "about"),
       },
       {
-        path: GROWTH_URL,
-        name: <Link to={GROWTH_URL}>{t("nav.training.title")}</Link>,
-        routes: renderRoutes(t, [GROWTH_URL], "training"),
+        path: TRAINING_URL,
+        name: <Link to={TRAINING_URL}>{t("nav.training.title")}</Link>,
+        routes: renderRoutes(
+          t,
+          [
+            GROWTH_URL,
+            SUPPORT_EQUIP_URL,
+            TRAINING_PROGRAM_URL,
+            FEE_URL,
+            QUALITY_URL,
+          ],
+          "training",
+        ),
       },
       {
         path: STAGES_GROWTH_URL,

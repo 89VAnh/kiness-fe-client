@@ -51,7 +51,7 @@ export default function Sidebar({ children, items = [] }: Props) {
             ))}
           </Menu>
         </div>
-        <div style={{ width: "100%" }}>{children}</div>
+        <div style={{ width: "100%", overflow: "hidden" }}>{children}</div>
       </div>
     </div>
   );

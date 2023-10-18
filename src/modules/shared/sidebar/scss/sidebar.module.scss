@@ -25,6 +25,7 @@
   width: 100%;
   overflow: hidden;
   position: relative;
+  flex-shrink: 0;
 
   .top_menu {
     width: 200px;

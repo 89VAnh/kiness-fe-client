@@ -7,6 +7,7 @@ import Logo from "@/assets/logo/logo.png";
 import "@/assets/scss/index.scss";
 import { HOME_URL } from "@/urls";
 
+import FloatButtons from "../shared/float-button/FloatButton";
 import Footer from "../shared/footer/Footer";
 import Header from "../shared/header/Header";
 import { appRoute } from "./AppRouter";
@@ -42,6 +43,7 @@ export default function AppLayout({ children }: Props): JSX.Element {
     >
       <Outlet />
       {children}
+      <FloatButtons />
     </ProLayout>
   );
 }

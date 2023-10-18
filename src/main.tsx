@@ -4,6 +4,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { QueryClientProvider } from "react-query";
 import { RouterProvider } from "react-router-dom";
+import { RecoilRoot } from "recoil";
 
 import { queryClient } from "./lib/react-query";
 import "./locale/i18n";
@@ -12,17 +13,19 @@ import { theme } from "./theme";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <ConfigProvider
-        theme={theme}
-        locale={viVN}
-        pagination={{
-          showSizeChanger: true,
-        }}
-      >
-        <RouterProvider router={router} />
-      </ConfigProvider>
-    </QueryClientProvider>
+    <RecoilRoot>
+      <QueryClientProvider client={queryClient}>
+        <ConfigProvider
+          theme={theme}
+          locale={viVN}
+          pagination={{
+            showSizeChanger: true,
+          }}
+        >
+          <RouterProvider router={router} />
+        </ConfigProvider>
+      </QueryClientProvider>
+    </RecoilRoot>
   </React.StrictMode>,
 );
 
