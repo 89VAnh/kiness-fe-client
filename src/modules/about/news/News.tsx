@@ -1,7 +1,9 @@
 import { Col, Divider, Input, List, Row, Typography } from "antd";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
+import { useSearchNews } from "@/loader/news.loader";
 import Sidebar from "@/modules/shared/sidebar/Sidebar";
 
 import { renderAboutMenus } from "../utils/render";
@@ -11,9 +13,21 @@ export default function News() {
   const { t } = useTranslation();
   const [searchParams, setSearchParams] = useSearchParams();
 
+  let searchContent = searchParams.get("k") || "";
+
+  const { data, isLoading: isLoadingNews } = useSearchNews({
+    params: { content: searchContent },
+    config: {},
+  });
+
+  const [news, setNews] = useState<any[]>([]);
+
+  useEffect(() => {
+    setNews(data ? data.data : []);
+  }, [data]);
+
   // Get menus
   const items = renderAboutMenus(t);
-  const searchContent = searchParams.get("k") || "";
 
   const handleSearch = (value: string) => {
     searchParams.set("k", value);
@@ -39,35 +53,40 @@ export default function News() {
           </Col>
         </Row>
         <Divider />
-        <List>
-          {[...Array(7)].map((_, index) => (
-            <List.Item key={index}>
-              <div className={styles.thumbNews}>
-                <Typography.Title level={1}>NEW</Typography.Title>
-              </div>
-              <div className={styles.contentNews}>
-                <div>
-                  <Typography.Title level={5}>
-                    Key Growth Clinic Kines , tổ chức sự kiện đăng ký vào ngày
-                    tháng 6
-                  </Typography.Title>
-                  <Typography.Text>
-                    Phòng khám Kinesis Key Growth Kines, nơi quản lý sự tăng
-                    trưởng, tư thế đúng, béo phì và trưởng thành nhanh chóng, đã
-                    thông báo vào ngày 9 rằng họ sẽ tổ chức một sự kiện đăng ký
-                    vào cùng ngày của tháng Sáu . Kines tiến hành 10 bài kiểm
-                    tra độ chính xác về tăng trưởng khoa học. Nguyên nhân thấp
-                    lùn và các giai đoạn sinh trưởng...
-                  </Typography.Text>
+        <List
+          loading={isLoadingNews}
+          pagination={{
+            position: "bottom",
+            align: "end",
+            pageSize: 6,
+            pageSizeOptions: [],
+          }}
+          dataSource={news}
+          renderItem={(newsItem) =>
+            newsItem ? (
+              <List.Item key={newsItem.news_id}>
+                <div className={styles.thumbNews}>
+                  <Typography.Title level={1}>NEW</Typography.Title>
                 </div>
-
-                <div style={{ textAlign: "right" }}>
-                  <Typography.Text>09/06/2023</Typography.Text>
+                <div className={styles.contentNews}>
+                  <Link to={`news/${newsItem.news_id}`}>
+                    <Typography.Title className={styles.news_title} level={5}>
+                      {newsItem.news_title}
+                    </Typography.Title>
+                  </Link>
+                  {newsItem.content}
+                  <div style={{ textAlign: "right" }}>
+                    <Typography.Text>
+                      {newsItem.created_date_time}
+                    </Typography.Text>
+                  </div>
                 </div>
-              </div>
-            </List.Item>
-          ))}
-        </List>
+              </List.Item>
+            ) : (
+              <></>
+            )
+          }
+        />
       </div>
     );
   };

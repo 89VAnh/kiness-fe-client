@@ -8,7 +8,7 @@
       align-items: stretch;
     }
   }
-  
+
   .thumb-news {
     width: 200px;
     height: 200px;
@@ -27,10 +27,10 @@
       margin: 16px;
       background-color: $color-green;
     }
-  
+
     h1 {
       color: $color-white;
-  
+
       /* Head 1 */
       font-size: 46px;
       font-style: normal;
@@ -44,7 +44,10 @@
   .content-news {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
   }
 }
 
+.news_title {
+  color: $color-green !important;
+  padding: 10px 0;
+}
