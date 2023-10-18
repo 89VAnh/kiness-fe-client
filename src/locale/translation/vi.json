@@ -23,7 +23,7 @@
       "children": {
         "intro": "Giới thiệu",
         "news": "Tin tức",
-        "mission": "Kiness Việt Nam (Tầm nhìn, sứ mệnh)",
+        "mission": "Kiness Việt Nam",
         "3": "Blog thành viên",
         "4": "Câu chuyện tăng trưởng"
       }
@@ -41,21 +41,22 @@
     "wiki": {
       "title": "Bách khoa tăng trưởng về chiều cao",
       "children": {
-        "stages-of-growth": "Tin tức",
-        "2": "Sự kiện",
-        "3": "Kiness Việt Nam (Tầm nhìn, sứ mệnh)",
-        "4": "Blog thành viên",
-        "5": "Câu chuyện tăng trưởng"
+        "stages-of-growth": "Các giai đoạn phát triển",
+        "benefit-growth": "Lợi ích tăng trưởng chiều cao",
+        "hormone": "Hóc môn tăng trưởng",
+        "reasons-growth": "Các yếu tố giúp tăng trưởng chiều cao thành công",
+        "point-growth": "Điểm tăng trưởng chiều cao",
+        "range-growth": "Tấm tăng trưởng",
+        "info-growth": "38 thông tin chính để tăng trưởng chiều cao",
+        "exam-growth": "Bài kiểm tra độ chính xác tăng trưởng Kines"
       }
     },
     "test": {
       "title": "Kiểm tra tăng trưởng",
       "children": {
-        "growth-forecast": "Phương pháp tăng trưởng",
-        "2": "Thiết bị hỗ trợ",
-        "3": "Chương trình tập luyện",
-        "4": "Chi phí",
-        "5": "Đảm bảo chất lượng"
+        "growth-forecast": "Dự đoán tăng trưởng",
+        "schedule-train": "Lên lịch tập luyện",
+        "advise": "Tư vấn tăng trưởng"
       }
     },
     "user": {

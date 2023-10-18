@@ -5,6 +5,7 @@ $color-border: $color-green;
 @mixin template-hover($color) {
   background-color: $color !important;
   h3, span, a {
+    transition: .001s !important;
     color: $color-white;
   }
 

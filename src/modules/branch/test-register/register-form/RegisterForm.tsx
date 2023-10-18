@@ -7,6 +7,7 @@ import {
   Radio,
   Row,
   Select,
+  Typography,
   message,
 } from "antd";
 import { DefaultOptionType } from "antd/es/select";
@@ -14,10 +15,12 @@ import TextArea from "antd/lib/input/TextArea";
 import dayjs, { Dayjs } from "dayjs";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useRecoilValue } from "recoil";
 
 import { useCreateTestRegister } from "@/loader/branch.loader";
 import { useCityDropdown } from "@/loader/city.loader";
 import { getBranchesDropdown } from "@/services/branch.service";
+import { UserState } from "@/store/auth/atom";
 import { formatDatePost, formatDateShow } from "@/utils/format-string";
 import { RULES_FORM } from "@/utils/validator";
 
@@ -27,6 +30,7 @@ export default function RegisterForm() {
   const [branchOptions, setBranchOptions] = useState<DefaultOptionType[]>([]);
   const [isLoadingBranch, setIsLoadingBranch] = useState<boolean>(false);
   const [date, setDate] = useState<Dayjs | null>();
+  const userProfile = useRecoilValue(UserState);
 
   const { data: cityOptions, isLoading: isLoadingCity } = useCityDropdown({});
   const { t } = useTranslation();
@@ -42,14 +46,18 @@ export default function RegisterForm() {
   const handleChangeCity = async (city_id: string) => {
     setIsLoadingBranch(true);
     const dropdown = await getBranchesDropdown({ city_id });
-    setBranchOptions(dropdown);
+    if (!dropdown.message) setBranchOptions(dropdown);
     setIsLoadingBranch(false);
   };
 
   const items = [
     {
       key: "branch_id",
-      label: "Trung tâm Kiness",
+      label: (
+        <Typography.Text>
+          Trung tâm Kiness <Typography.Text type="danger">*</Typography.Text>
+        </Typography.Text>
+      ),
       input: (
         <Row gutter={24}>
           <Col span={7}>
@@ -59,7 +67,7 @@ export default function RegisterForm() {
                 placeholder="Chọn tỉnh, thành phố"
                 style={{ width: "100%" }}
                 onChange={handleChangeCity}
-                options={cityOptions}
+                options={cityOptions || []}
               />
             </Form.Item>
           </Col>
@@ -69,7 +77,7 @@ export default function RegisterForm() {
                 loading={isLoadingBranch}
                 placeholder="Chọn chi nhánh"
                 style={{ width: "100%" }}
-                options={branchOptions}
+                options={branchOptions || []}
               />
             </Form.Item>
           </Col>
@@ -78,7 +86,12 @@ export default function RegisterForm() {
     },
     {
       key: "fullname",
-      label: "Tên người đăng ký kiểm tra",
+      label: (
+        <Typography.Text>
+          Tên người ĐK kiểm tra{" "}
+          <Typography.Text type="danger">*</Typography.Text>
+        </Typography.Text>
+      ),
       input: (
         <Col span={7}>
           <Form.Item name="fullname" rules={[...RULES_FORM.required]}>
@@ -89,10 +102,18 @@ export default function RegisterForm() {
     },
     {
       key: "gender",
-      label: "Giới tính",
+      label: (
+        <Typography.Text>
+          Giới tính <Typography.Text type="danger">*</Typography.Text>
+        </Typography.Text>
+      ),
       input: (
         <Col>
-          <Form.Item name="gender" rules={[...RULES_FORM.required]}>
+          <Form.Item
+            name="gender"
+            rules={[...RULES_FORM.required]}
+            initialValue={"0"}
+          >
             <Radio.Group>
               <Radio value="0"> Nam </Radio>
               <Radio value="1"> Nữ </Radio>
@@ -103,7 +124,11 @@ export default function RegisterForm() {
     },
     {
       key: "level",
-      label: "Cấp",
+      label: (
+        <Typography.Text>
+          Cấp <Typography.Text type="danger">*</Typography.Text>
+        </Typography.Text>
+      ),
       input: (
         <Form.Item
           name="level"
@@ -124,7 +149,11 @@ export default function RegisterForm() {
     },
     {
       key: "date",
-      label: "Ngày đặt kiểm tra",
+      label: (
+        <Typography.Text>
+          Ngày đặt kiểm tra <Typography.Text type="danger">*</Typography.Text>
+        </Typography.Text>
+      ),
       input: (
         <Form.Item
           name="date"
@@ -142,7 +171,11 @@ export default function RegisterForm() {
     },
     {
       key: "phone_number",
-      label: "Số điện thoại",
+      label: (
+        <Typography.Text>
+          Số điện thoại <Typography.Text type="danger">*</Typography.Text>
+        </Typography.Text>
+      ),
       input: (
         <Form.Item
           name="phone_number"
@@ -155,11 +188,15 @@ export default function RegisterForm() {
     },
     {
       key: "address",
-      label: "Địa chỉ",
+      label: (
+        <Typography.Text>
+          Địa chỉ <Typography.Text type="danger">*</Typography.Text>
+        </Typography.Text>
+      ),
       input: (
         <Form.Item
           name="address"
-          wrapperCol={{ span: 22 }}
+          wrapperCol={{ span: 20 }}
           rules={[...RULES_FORM.required]}
         >
           <Input placeholder="Địa chỉ" />
@@ -168,10 +205,10 @@ export default function RegisterForm() {
     },
     {
       key: "detail",
-      label: "Chi tiết",
+      label: <Typography.Text>Chi tiết</Typography.Text>,
       input: (
-        <Form.Item name="detail" wrapperCol={{ span: 22 }}>
-          <TextArea rows={6} />
+        <Form.Item name="detail" wrapperCol={{ span: 20 }}>
+          <TextArea rows={5} placeholder="Chi tiết" />
         </Form.Item>
       ),
     },
@@ -181,13 +218,13 @@ export default function RegisterForm() {
     createTestRegister.mutate({
       ...value,
       date: dayjs(date).format(formatDatePost),
-      created_by_user_id: 1,
+      created_by_user_id: userProfile.user_id || 1,
     });
   };
 
   return (
     <Form className={styles.form} onFinish={onFinish}>
-      {items.map((item) => (
+      {items?.map((item) => (
         <Row key={item.key} className={styles.row}>
           <Col className={styles.label} style={{ width: 200 }}>
             {item.label}
@@ -198,7 +235,7 @@ export default function RegisterForm() {
         </Row>
       ))}
       <Row gutter={24} className={styles.btns}>
-        <Col offset={14}>
+        <Col offset={12}>
           <Form.Item>
             <Button type="default" htmlType="reset">
               {t("all.btn_cancel")}

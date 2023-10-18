@@ -1,18 +1,34 @@
-import { Image, Typography } from "antd";
+import { Carousel, Image, Typography } from "antd";
 
-import banner from "@/assets/img/banner.png";
+import hero01 from "@/assets/img/hero/hero01.png";
+import hero02 from "@/assets/img/hero/hero02.jpg";
+import hero03 from "@/assets/img/hero/hero03.png";
 
 import styles from "./scss/hero.module.scss";
 
 export default function Hero(): JSX.Element {
   return (
     <div className={styles.container}>
-      <Image
-        wrapperClassName={styles.img}
-        className={styles.img}
-        preview={false}
-        src={banner}
-      />
+      <Carousel autoplay autoplaySpeed={3000} draggable>
+        <Image
+          wrapperClassName={styles.img}
+          className={styles.img}
+          preview={false}
+          src={hero01}
+        />
+        <Image
+          wrapperClassName={styles.img}
+          className={styles.img}
+          preview={false}
+          src={hero02}
+        />
+        <Image
+          wrapperClassName={styles.img}
+          className={styles.img}
+          preview={false}
+          src={hero03}
+        />
+      </Carousel>
       <div className={styles.caption}>
         <Typography.Title level={1} className={styles.title}>
           KINESS Việt Nam

@@ -12,6 +12,12 @@
         width: 100%;
       }
     }
+
+    button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }
 
@@ -21,7 +27,7 @@
 
 .label {
   background-color: #c2edd9;
-  padding: 17px 4px;
+  padding: 17px 12px;
   font-weight: 700;
   line-height: 22px;
   color: $color-black;

@@ -90,6 +90,8 @@ export const router = createBrowserRouter([
         element: <QualityPage />,
       },
 
+      // Wiki
+
       // User
       {
         path: LOGIN_URL,

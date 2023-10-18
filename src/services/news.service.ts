@@ -4,7 +4,7 @@ import { apiClient } from "@/lib/api";
 
 const prefix = "news";
 
-export const getNewsById = async (id: number): Promise<any> => {
+export const getNewsById = async (id: string | number): Promise<any> => {
   const res = await apiClient?.get(`${prefix}/get-by-id/${id}`);
 
   return res.data;

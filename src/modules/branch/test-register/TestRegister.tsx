@@ -36,22 +36,22 @@ export default function TestRegister() {
     {
       key: 1,
       name: "Khu vực Hà Nội",
-      hotline: "",
+      hotline: "0983273723",
     },
     {
       key: 2,
       name: "Khu vực HCM",
-      hotline: "",
+      hotline: "0983565678",
     },
     {
       key: 3,
       name: "Khu vực Đà Nẵng",
-      hotline: "",
+      hotline: "0954565667",
     },
     {
       key: 4,
       name: "Khu vực Hải Phòng",
-      hotline: "",
+      hotline: "0945345345",
     },
   ];
 

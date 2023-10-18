@@ -8,6 +8,13 @@
   @include responsive-content;
 
   :global {
+    .ant-menu-item,
+    .ant-menu-item-active {
+      transition: .1s !important;
+      a, span {
+        transition: .001s !important;
+      }
+    }
     .ant-menu-item-selected {
       background-color: $color-darker-gray !important;
       transition: .1s;

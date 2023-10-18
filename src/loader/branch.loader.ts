@@ -8,11 +8,27 @@ import {
 } from "@/lib/react-query";
 import {
   createTestRegister,
+  getBranches,
   getBranchesDropdown,
 } from "@/services/branch.service";
 
 export const CACHE_BRANCH = {
+  BRANCHES: "BRANCHES",
   DROPDOWN_BRANCH: "DROPDOWN_BRANCH",
+};
+
+const useBranches = ({
+  params,
+  config,
+}: {
+  params: AxiosRequestConfig["params"];
+  config?: QueryConfig<typeof getBranches>;
+}) => {
+  return useQuery<ExtractFnReturnType<typeof getBranches>>({
+    ...config,
+    queryKey: [CACHE_BRANCH.BRANCHES, params],
+    queryFn: () => getBranches({ params }),
+  });
 };
 
 const useBranchDropdown = ({
@@ -43,4 +59,4 @@ const useCreateTestRegister = ({
   });
 };
 
-export { useBranchDropdown, useCreateTestRegister };
+export { useBranchDropdown, useCreateTestRegister, useBranches };

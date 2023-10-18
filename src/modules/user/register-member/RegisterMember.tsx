@@ -58,15 +58,15 @@ export default function RegisterMember(): JSX.Element {
       createCustomer.mutate({
         ...values,
         birthday: dayjs(birthday).format(formatDatePost),
-        branch_id: 1,
       });
     });
   };
 
   const handleChangeCity = async (city_id: string) => {
+    form.setFieldValue("branch_id", "");
     setIsLoadingBranch(true);
     const dropdown = await getBranchesDropdown({ city_id });
-    setBranchOptions(dropdown);
+    if (!dropdown.message) setBranchOptions(dropdown);
     setIsLoadingBranch(false);
   };
 
@@ -90,7 +90,7 @@ export default function RegisterMember(): JSX.Element {
                 <Select
                   loading={isLoadingCity}
                   onSelect={handleChangeCity}
-                  options={cityOptions}
+                  options={cityOptions || []}
                   placeholder="Chọn tỉnh, thành phố"
                 />
               </Form.Item>
@@ -100,7 +100,7 @@ export default function RegisterMember(): JSX.Element {
                 <Select
                   placeholder="Chọn chi nhánh"
                   loading={isLoadingBranch}
-                  options={branchOptions}
+                  options={branchOptions || []}
                 />
               </Form.Item>
             </Col>

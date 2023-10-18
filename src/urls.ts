@@ -14,10 +14,21 @@ const FEE_URL = `${TRAINING_URL}/fee`;
 const QUALITY_URL = `${TRAINING_URL}/quality`;
 
 // Wiki
-const STAGES_GROWTH_URL = "/stages-of-growth";
+const WIKI_URL = "/wiki";
+const STAGES_GROWTH_URL = `${WIKI_URL}/stages-of-growth`;
+const BENEFIT_GROWTH_URL = `${WIKI_URL}/benefit-growth`;
+const HORMONE_URL = `${WIKI_URL}/hormone`;
+const REASONS_GROWTH_URL = `${WIKI_URL}/reasons-growth`;
+const POINT_GROWTH_URL = `${WIKI_URL}/point-growth`;
+const RANGE_GROWTH_URL = `${WIKI_URL}/range-growth`;
+const INFO_GROWTH_URL = `${WIKI_URL}/info-growth`;
+const EXAM_GROWTH_URL = `${WIKI_URL}/exam-growth`;
 
 // Testing
-const GROWTH_FORECAST_URL = "/growth-forecast";
+const TESTING_URL = "/testing";
+const GROWTH_FORECAST_URL = `${TESTING_URL}/growth-forecast`;
+const SCHEDULE_TRAIN_URL = `${TESTING_URL}/schedule-train`;
+const ADVISE_URL = `${TESTING_URL}/advise`;
 
 // User
 const LOGIN_URL = "/login";
@@ -35,7 +46,10 @@ const breadcrumbNameMap: Record<string, string> = {
 
 export {
   BRANCH_URL,
+  TESTING_URL,
   GROWTH_FORECAST_URL,
+  SCHEDULE_TRAIN_URL,
+  ADVISE_URL,
   GROWTH_URL,
   HOME_URL,
   INTRO_URL,
@@ -44,7 +58,15 @@ export {
   NEWS_URL,
   PRIVACY_POLICY,
   REGISTER_URL,
+  WIKI_URL,
   STAGES_GROWTH_URL,
+  BENEFIT_GROWTH_URL,
+  HORMONE_URL,
+  REASONS_GROWTH_URL,
+  POINT_GROWTH_URL,
+  RANGE_GROWTH_URL,
+  INFO_GROWTH_URL,
+  EXAM_GROWTH_URL,
   TERMS_USE,
   TEST_REGISTER_URL,
   TRAINING_URL,

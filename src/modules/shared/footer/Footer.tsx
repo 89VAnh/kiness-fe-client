@@ -1,7 +1,7 @@
 import { Col, Image, Row, Space, Typography } from "antd";
 import { Link, useLocation } from "react-router-dom";
 
-import logo from "@/assets/logo/logo.png";
+import logo from "@/assets/img/logo/logo.png";
 import {
   FacebookIcon,
   InstagramIcon,
@@ -21,7 +21,7 @@ export default function Footer(): JSX.Element {
     <div className={styles.container}>
       <div className={styles.footer}>
         <Row gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
-          <Col span={24} md={12} lg={6}>
+          <Col span={24} md={12} lg={7}>
             <div>
               <Space direction="vertical">
                 <Image src={logo} preview={false} />
@@ -29,17 +29,27 @@ export default function Footer(): JSX.Element {
                 <Space direction="vertical">
                   <Space style={{ marginBottom: 10 }}>
                     <LocationIcon />
-                    <Typography.Text>
+                    <Typography.Text style={{ whiteSpace: "nowrap" }}>
                       Số 2 Trần Phú, P. Mộ Lao, Hà Đông, Hà Nội
                     </Typography.Text>
                   </Space>
                   <Space style={{ marginBottom: 16 }}>
                     <PhoneIcon />
-                    <Typography.Text>024 3382 4929</Typography.Text>
+                    <Typography.Link
+                      style={{ color: "#000" }}
+                      href="tel:024 3382 4929"
+                    >
+                      024 3382 4929
+                    </Typography.Link>
                   </Space>
                   <Space style={{ marginBottom: 16 }}>
                     <MailIcon />
-                    <Typography.Text></Typography.Text>
+                    <Typography.Link
+                      style={{ color: "#000" }}
+                      href="mailto:yoox@kiness.co.kr"
+                    >
+                      yoox@kiness.co.kr
+                    </Typography.Link>
                   </Space>
                 </Space>
               </Space>
@@ -78,7 +88,7 @@ export default function Footer(): JSX.Element {
               </Space>
             </div>
           </Col>
-          <Col span={24} md={12} lg={6}>
+          <Col span={24} md={12} lg={5}>
             <div>
               <Space direction="vertical" className={styles.quickLink}>
                 <Typography.Title level={4}>Đăng ký </Typography.Title>

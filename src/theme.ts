@@ -5,7 +5,7 @@ export const theme: ThemeConfig = {
     fontFamily: "Plus Jakarta Sans",
     fontWeightStrong: 800,
     // fontSize: 16,
-    // lineHeight: 2,
+    lineHeight: 2,
     colorPrimary: "#159AC9",
   },
 };

@@ -3,7 +3,7 @@ import { Image } from "antd";
 import { useTranslation } from "react-i18next";
 import { Link, Outlet, useLocation } from "react-router-dom";
 
-import Logo from "@/assets/logo/logo.png";
+import Logo from "@/assets/img/logo/logo.png";
 import "@/assets/scss/index.scss";
 import { HOME_URL } from "@/urls";
 

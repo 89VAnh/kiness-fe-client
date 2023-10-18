@@ -3,6 +3,12 @@
 .container {
   position: relative;
 
+  :global {
+    h3 {
+      line-height: 1.5 !important;
+    }
+  }
+
   .wrapper {
     position: absolute;
     inset: 0;
