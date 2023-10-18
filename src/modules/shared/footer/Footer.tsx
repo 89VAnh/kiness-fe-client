@@ -10,7 +10,7 @@ import {
   PhoneIcon,
   TwitterIcon,
 } from "@/assets/svg";
-import { INTRO_URL } from "@/urls";
+import { INTRO_URL, TRAINING_URL } from "@/urls";
 
 import styles from "./scss/footer.module.scss";
 
@@ -57,7 +57,14 @@ export default function Footer(): JSX.Element {
                 >
                   <Typography.Text>Giới thiệu</Typography.Text>
                 </Link>
-                <Link to="/">
+                <Link
+                  to={TRAINING_URL}
+                  className={
+                    location.pathname.includes(TRAINING_URL)
+                      ? styles.active
+                      : ""
+                  }
+                >
                   <Typography.Text>Chương trình huấn luyện</Typography.Text>
                 </Link>
                 <Link to="/">

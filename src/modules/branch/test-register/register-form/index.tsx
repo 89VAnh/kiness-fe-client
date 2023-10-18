@@ -1,6 +1,6 @@
 import { lazyLoad } from "@/utils/loadable";
 
 export const RegisterForm = lazyLoad(
-  () => import("./registerForm"),
+  () => import("./RegisterForm"),
   (module) => module.default,
 );
