@@ -1,0 +1,1 @@
+import{n as t,aK as R,aW as r,aX as n,aY as U,aZ as _}from"./index-fcaec6de.js";const m=e=>{var s;return[...(s=t(e,[R,r,n,U,_],"training"))==null?void 0:s.map(a=>({key:a.key||"",label:a.title,url:a.path}))]};export{m as r};
