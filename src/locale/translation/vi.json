@@ -32,10 +32,10 @@
       "title": "Chương trình huấn luyện",
       "children": {
         "growth-method": "Phương pháp tăng trưởng",
-        "2": "Thiết bị hỗ trợ",
-        "3": "Chương trình tập luyện",
-        "4": "Chi phí",
-        "5": "Đảm bảo chất lượng"
+        "support-equip": "Thiết bị hỗ trợ",
+        "training-program": "Chương trình tập luyện",
+        "fee": "Chi phí",
+        "quality": "Đảm bảo chất lượng"
       }
     },
     "wiki": {

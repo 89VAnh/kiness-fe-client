@@ -1,6 +1,15 @@
-.caption {
-  max-width: 1097px;
+@import "@/assets/scss/variables";
+
+.container {
   // font-family: "Plus Jakarta Sans" !important;
+
+  :global {
+    li {
+      padding-bottom: 10px;
+      line-height: 1.5;
+      color: $color-coffee;
+    }
+  }
 
   .title {
     font-size: 24px;

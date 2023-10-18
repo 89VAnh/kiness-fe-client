@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 
 import { IntroPage } from "./modules/about/intro";
 import { MissionPage } from "./modules/about/mission";
@@ -8,21 +8,31 @@ import { BranchPage } from "./modules/branch/branch";
 import { TestRegisterPage } from "./modules/branch/test-register";
 import { ErrorBoundaryPage } from "./modules/error/boundary";
 import { HomePage } from "./modules/home";
+import { EquipmentPage } from "./modules/training/equipment";
+import { GrowthPage } from "./modules/training/growth";
+import { ProgramPage } from "./modules/training/program";
+import { QualityPage } from "./modules/training/quality";
 import { LoginPage } from "./modules/user/login";
 import { PrivacyPolicyPage } from "./modules/user/privacy-policy";
 import { RegisterMemberPage } from "./modules/user/register-member";
 import { TermsUsePage } from "./modules/user/terms-use";
 import {
   BRANCH_URL,
+  FEE_URL,
+  GROWTH_URL,
   HOME_URL,
   INTRO_URL,
   LOGIN_URL,
   MISSION_URL,
   NEWS_URL,
   PRIVACY_POLICY,
+  QUALITY_URL,
   REGISTER_URL,
+  SUPPORT_EQUIP_URL,
   TERMS_USE,
   TEST_REGISTER_URL,
+  TRAINING_PROGRAM_URL,
+  TRAINING_URL,
 } from "./urls";
 
 export const router = createBrowserRouter([
@@ -52,6 +62,32 @@ export const router = createBrowserRouter([
       {
         path: MISSION_URL,
         element: <MissionPage />,
+      },
+
+      // Training
+      {
+        path: TRAINING_URL,
+        element: <Navigate to={GROWTH_URL} />,
+      },
+      {
+        path: GROWTH_URL,
+        element: <GrowthPage />,
+      },
+      {
+        path: SUPPORT_EQUIP_URL,
+        element: <EquipmentPage />,
+      },
+      {
+        path: TRAINING_PROGRAM_URL,
+        element: <ProgramPage />,
+      },
+      {
+        path: FEE_URL,
+        element: <GrowthPage />,
+      },
+      {
+        path: QUALITY_URL,
+        element: <QualityPage />,
       },
 
       // User
