@@ -100,14 +100,8 @@ export const router = createBrowserRouter([
       },
 
       // Wiki
-      {
-        path: STAGES_GROWTH_URL,
-        element: <TemplatePage />,
-      },
-      {
-        path: BENEFIT_GROWTH_URL,
-        element: <TemplatePage />,
-      },
+      { path: STAGES_GROWTH_URL, element: <TemplatePage /> },
+      { path: BENEFIT_GROWTH_URL, element: <TemplatePage /> },
       { path: HORMONE_URL, element: <TemplatePage /> },
       { path: REASONS_GROWTH_URL, element: <TemplatePage /> },
       { path: POINT_GROWTH_URL, element: <TemplatePage /> },
