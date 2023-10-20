@@ -1,0 +1,1 @@
+import{$ as t,bc as R,bm as r,bn as n,bo as U,bp as b}from"./index-9d3b7c60.js";const m=a=>{var e;return[...(e=t(a,[R,r,n,U,b],"training"))==null?void 0:e.map(s=>({key:s.key||"",label:s.title,url:s.path}))]};export{m as r};
