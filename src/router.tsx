@@ -8,6 +8,7 @@ import { BranchPage } from "./modules/branch/branch";
 import { TestRegisterPage } from "./modules/branch/test-register";
 import { ErrorBoundaryPage } from "./modules/error/boundary";
 import { HomePage } from "./modules/home";
+import TemplatePage from "./modules/shared/templatePage/TemplatePage";
 import { EquipmentPage } from "./modules/training/equipment";
 import { GrowthPage } from "./modules/training/growth";
 import { ProgramPage } from "./modules/training/program";
@@ -17,17 +18,25 @@ import { PrivacyPolicyPage } from "./modules/user/privacy-policy";
 import { RegisterMemberPage } from "./modules/user/register-member";
 import { TermsUsePage } from "./modules/user/terms-use";
 import {
+  BENEFIT_GROWTH_URL,
   BRANCH_URL,
+  EXAM_GROWTH_URL,
   FEE_URL,
   GROWTH_URL,
   HOME_URL,
+  HORMONE_URL,
+  INFO_GROWTH_URL,
   INTRO_URL,
   LOGIN_URL,
   MISSION_URL,
   NEWS_URL,
+  POINT_GROWTH_URL,
   PRIVACY_POLICY,
   QUALITY_URL,
+  RANGE_GROWTH_URL,
+  REASONS_GROWTH_URL,
   REGISTER_URL,
+  STAGES_GROWTH_URL,
   SUPPORT_EQUIP_URL,
   TERMS_USE,
   TEST_REGISTER_URL,
@@ -91,6 +100,14 @@ export const router = createBrowserRouter([
       },
 
       // Wiki
+      { path: STAGES_GROWTH_URL, element: <TemplatePage /> },
+      { path: BENEFIT_GROWTH_URL, element: <TemplatePage /> },
+      { path: HORMONE_URL, element: <TemplatePage /> },
+      { path: REASONS_GROWTH_URL, element: <TemplatePage /> },
+      { path: POINT_GROWTH_URL, element: <TemplatePage /> },
+      { path: RANGE_GROWTH_URL, element: <TemplatePage /> },
+      { path: INFO_GROWTH_URL, element: <TemplatePage /> },
+      { path: EXAM_GROWTH_URL, element: <TemplatePage /> },
 
       // User
       {

@@ -55,11 +55,7 @@ export const appRoute = (t: TFunction): ProLayoutProps["route"] => {
       },
       {
         path: WIKI_URL,
-        name: (
-          <Link to={WIKI_URL} onClick={(e) => e.preventDefault()}>
-            {t("nav.wiki.title")}
-          </Link>
-        ),
+        name: <Link to={STAGES_GROWTH_URL}>{t("nav.wiki.title")}</Link>,
         routes: renderRoutes(
           t,
           [
@@ -73,7 +69,7 @@ export const appRoute = (t: TFunction): ProLayoutProps["route"] => {
             EXAM_GROWTH_URL,
           ],
           "wiki",
-          true,
+          // true,
         ),
       },
       {
