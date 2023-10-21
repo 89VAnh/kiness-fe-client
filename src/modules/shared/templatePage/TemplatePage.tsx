@@ -37,7 +37,7 @@ export default function TemplatePage() {
             <Spin />
           ) : (
             <div
-              style={{ fontSize: 16 }}
+              style={{ fontSize: 16, lineHeight: 2 }}
               dangerouslySetInnerHTML={{ __html: page.data?.content }}
             ></div>
           )

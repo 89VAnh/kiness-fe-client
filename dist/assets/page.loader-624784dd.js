@@ -1,1 +1,0 @@
-import{b as s}from"./index-9d3b7c60.js";import{u as a}from"./useQuery-a5d9a860.js";const n="pages",o=async e=>{var r;return(await((r=s)==null?void 0:r.get(`${n}/get-by-id/${e}`))).data},u={PAGE_CACHE:"PAGE_CACHE"},A=({id:e,config:t})=>a({...t,queryKey:[u.PAGE_CACHE,e],queryFn:()=>o(e)});export{A as u};

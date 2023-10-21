@@ -1,4 +1,4 @@
-import { Col, Divider, Input, List, Row, Typography } from "antd";
+import { Col, Divider, Image, Input, List, Row, Typography } from "antd";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
@@ -77,9 +77,12 @@ export default function News() {
                   style={{ cursor: "pointer" }}
                   onClick={() => handleSelectNews(newsItem.news_id)}
                 >
-                  <div className={styles.thumbNews}>
-                    <Typography.Title level={1}>NEW</Typography.Title>
+                  {/* <div className={styles.thumbNews}> */}
+                  <div style={{ paddingRight: 10 }}>
+                    <Image src={newsItem.thumbnail} preview={false} />
                   </div>
+                  {/* <Typography.Title level={1}>NEW</Typography.Title> */}
+                  {/* </div> */}
                   <div className={styles.contentNews}>
                     <div>
                       {/* <Link to={`news/${newsItem.news_id}`}> */}
