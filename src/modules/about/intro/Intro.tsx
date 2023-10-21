@@ -20,7 +20,10 @@ export default function Intro() {
     return page.isLoading ? (
       <Spin />
     ) : (
-      <div dangerouslySetInnerHTML={{ __html: page.data?.content }}></div>
+      <div
+        style={{ fontSize: 16, lineHeight: 2 }}
+        dangerouslySetInnerHTML={{ __html: page.data?.content }}
+      ></div>
     );
     // <div className={styles.caption}>
     //   <Typography.Title level={2} className={styles.title}>

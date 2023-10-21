@@ -1,1 +1,0 @@
-import{u as i,a as d,b as u,g as c,j as s,S as m,c as l}from"./index-fd25e44e.js";import{r as p}from"./render-ab9c5a27.js";function h(){const{t:a}=i(),e=d(),t=u({id:c(e.pathname)}),o=p(a),r=()=>{var n;return t.isLoading?s.jsx(l,{}):s.jsx("div",{dangerouslySetInnerHTML:{__html:(n=t.data)==null?void 0:n.content}})};return s.jsx(m,{children:r(),items:o})}export{h as default};
