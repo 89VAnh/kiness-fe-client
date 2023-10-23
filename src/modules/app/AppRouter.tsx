@@ -75,16 +75,12 @@ export const appRoute = (t: TFunction): ProLayoutProps["route"] => {
       {
         // path: TESTING_URL,
         path: "/testing",
-        name: (
-          <Link to={TESTING_URL} onClick={(e) => e.preventDefault()}>
-            {t("nav.test.title")}
-          </Link>
-        ),
+        name: <Link to={GROWTH_FORECAST_URL}>{t("nav.test.title")}</Link>,
         routes: renderRoutes(
           t,
           [GROWTH_FORECAST_URL, SCHEDULE_TRAIN_URL, ADVISE_URL],
           "test",
-          true,
+          // true,
         ),
       },
     ],
