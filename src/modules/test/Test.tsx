@@ -1,4 +1,4 @@
-import TemplatePage from "../shared/templatePage/TemplatePage";
+import TemplatePage from "../shared/template-page/TemplatePage";
 import { renderTestMenu } from "./utils/render";
 
 export default function Test() {
