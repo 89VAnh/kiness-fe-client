@@ -7,10 +7,9 @@ import { useGetPageById } from "@/loader/page.loader";
 import Sidebar from "@/modules/shared/sidebar/Sidebar";
 import { getLastPath } from "@/utils/format-string";
 
-import { renderWikiMenu } from "../utils/render";
 import styles from "./scss/templatePage.module.scss";
 
-export default function TemplatePage() {
+export default function TemplatePage(renderWikiMenu: Function) {
   const { t } = useTranslation();
   const location = useLocation();
 

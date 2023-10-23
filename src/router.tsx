@@ -9,6 +9,7 @@ import { TestRegisterPage } from "./modules/branch/test-register";
 import { ErrorBoundaryPage } from "./modules/error/boundary";
 import { HomePage } from "./modules/home";
 import TemplatePage from "./modules/shared/templatePage/TemplatePage";
+import Test from "./modules/test/Test";
 import { EquipmentPage } from "./modules/training/equipment";
 import { GrowthPage } from "./modules/training/growth";
 import { ProgramPage } from "./modules/training/program";
@@ -17,11 +18,14 @@ import { LoginPage } from "./modules/user/login";
 import { PrivacyPolicyPage } from "./modules/user/privacy-policy";
 import { RegisterMemberPage } from "./modules/user/register-member";
 import { TermsUsePage } from "./modules/user/terms-use";
+import Wiki from "./modules/wiki/Wiki";
 import {
+  ADVISE_URL,
   BENEFIT_GROWTH_URL,
   BRANCH_URL,
   EXAM_GROWTH_URL,
   FEE_URL,
+  GROWTH_FORECAST_URL,
   GROWTH_URL,
   HOME_URL,
   HORMONE_URL,
@@ -36,6 +40,7 @@ import {
   RANGE_GROWTH_URL,
   REASONS_GROWTH_URL,
   REGISTER_URL,
+  SCHEDULE_TRAIN_URL,
   STAGES_GROWTH_URL,
   SUPPORT_EQUIP_URL,
   TERMS_USE,
@@ -100,14 +105,19 @@ export const router = createBrowserRouter([
       },
 
       // Wiki
-      { path: STAGES_GROWTH_URL, element: <TemplatePage /> },
-      { path: BENEFIT_GROWTH_URL, element: <TemplatePage /> },
-      { path: HORMONE_URL, element: <TemplatePage /> },
-      { path: REASONS_GROWTH_URL, element: <TemplatePage /> },
-      { path: POINT_GROWTH_URL, element: <TemplatePage /> },
-      { path: RANGE_GROWTH_URL, element: <TemplatePage /> },
-      { path: INFO_GROWTH_URL, element: <TemplatePage /> },
-      { path: EXAM_GROWTH_URL, element: <TemplatePage /> },
+      { path: STAGES_GROWTH_URL, element: <Wiki /> },
+      { path: BENEFIT_GROWTH_URL, element: <Wiki /> },
+      { path: HORMONE_URL, element: <Wiki /> },
+      { path: REASONS_GROWTH_URL, element: <Wiki /> },
+      { path: POINT_GROWTH_URL, element: <Wiki /> },
+      { path: RANGE_GROWTH_URL, element: <Wiki /> },
+      { path: INFO_GROWTH_URL, element: <Wiki /> },
+      { path: EXAM_GROWTH_URL, element: <Wiki /> },
+
+      // Test
+      { path: GROWTH_FORECAST_URL, element: <Test /> },
+      { path: SCHEDULE_TRAIN_URL, element: <Test /> },
+      { path: ADVISE_URL, element: <Test /> },
 
       // User
       {
