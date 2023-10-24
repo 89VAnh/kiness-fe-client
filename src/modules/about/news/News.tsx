@@ -19,7 +19,7 @@ export default function News() {
   let searchContent = searchParams.get("k") || "";
 
   const { data, isLoading: isLoadingNews } = useSearchNews({
-    params: { content: searchContent },
+    params: { search_content: searchContent },
     config: {},
   });
 
