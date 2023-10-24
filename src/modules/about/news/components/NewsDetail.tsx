@@ -28,7 +28,11 @@ export default function NewsDetail({
 
   return (
     <Modal
-      title={<Typography.Title level={3}>Thông tin tin tức</Typography.Title>}
+      title={
+        <Typography.Title level={3}>
+          {news.isLoading ? <Spin /> : news.data?.news_title}
+        </Typography.Title>
+      }
       open={open}
       style={{ top: 120, borderRadius: "10px" }}
       width={"68vw"}
