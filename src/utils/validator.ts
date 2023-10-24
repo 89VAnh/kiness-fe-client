@@ -8,6 +8,7 @@ interface keyValidator {
   number?: any;
   username?: any;
   password?: any;
+  people_name?: any;
 }
 
 export const RULES_FORM: Record<keyof keyValidator, FormRule[]> = {
@@ -25,7 +26,7 @@ export const RULES_FORM: Record<keyof keyValidator, FormRule[]> = {
   ],
   phone: [
     {
-      pattern: /^[0-9]*$/gm,
+      pattern: /^0[0-9]{9}$/gm,
       message: "Số điện thoại không đúng định dạng",
     },
   ],
@@ -47,6 +48,13 @@ export const RULES_FORM: Record<keyof keyValidator, FormRule[]> = {
         /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*()_+{}\\[\]:;<>,.?~\\-]).{8,}$/g,
       message:
         "Mật khẩu phải có ít nhất 8 kí tự bao gồm chữ hoa, chữ thường, và ít nhất một kí tự đặc biệt và số",
+    },
+  ],
+  people_name: [
+    {
+      pattern:
+        /^[A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]*(?:[ ][A-ZÀÁẠẢÃÂẦẤẬẨẪĂẰẮẶẲẴÈÉẸẺẼÊỀẾỆỂỄÌÍỊỈĨÒÓỌỎÕÔỒỐỘỔỖƠỜỚỢỞỠÙÚỤỦŨƯỪỨỰỬỮỲÝỴỶỸĐ][a-zàáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]*)*$/gm,
+      message: "Tên này không hợp lệ",
     },
   ],
 };
