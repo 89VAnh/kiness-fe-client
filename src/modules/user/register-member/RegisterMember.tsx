@@ -11,16 +11,19 @@ import {
   Typography,
   message,
 } from "antd";
+import { RangePickerProps } from "antd/es/date-picker";
 import { DefaultOptionType } from "antd/es/select";
 import dayjs, { Dayjs } from "dayjs";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 import { useCityDropdown } from "@/loader/city.loader";
 import { useCreateCustomer } from "@/loader/customer.loader";
 // import { useNavigate } from "react-router-dom";
 import Sidebar from "@/modules/shared/sidebar/Sidebar";
 import { getBranchesDropdown } from "@/services/branch.service";
+import { LOGIN_URL } from "@/urls";
 import { formatDatePost, formatDateShow } from "@/utils/format-string";
 import { RULES_FORM } from "@/utils/validator";
 
@@ -45,10 +48,10 @@ export default function RegisterMember(): JSX.Element {
           return;
         }
         message.success("Đăng ký thành công!");
-        // form.resetFields();
+        form.resetFields();
       },
-      onError: () => {
-        message.error("Có lỗi xảy ra! Vui lòng thử lại");
+      onError: (err) => {
+        message.error(err.message);
       },
     },
   });
@@ -68,6 +71,12 @@ export default function RegisterMember(): JSX.Element {
     const dropdown = await getBranchesDropdown({ city_id });
     if (!dropdown.message) setBranchOptions(dropdown);
     setIsLoadingBranch(false);
+  };
+
+  // eslint-disable-next-line arrow-body-style
+  const disabledDate: RangePickerProps["disabledDate"] = (current) => {
+    // Can not select days before today and today
+    return current && current > dayjs().endOf("day");
   };
 
   const renderChildren = () => {
@@ -198,6 +207,8 @@ export default function RegisterMember(): JSX.Element {
                   value={birthday?.isValid() ? birthday : undefined}
                   format={formatDateShow}
                   placeholder={formatDateShow.toLowerCase()}
+                  disabledDate={disabledDate}
+                  defaultValue={dayjs("1999-01-01")}
                 />
               </Form.Item>
             </Col>
@@ -261,7 +272,9 @@ export default function RegisterMember(): JSX.Element {
           </Row>
           <Row className={styles.footerForm}>
             <Col span={24}>
-              <Button>{t("all.btn_cancel")}</Button>
+              <Link to={LOGIN_URL}>
+                <Button>{t("all.btn_cancel")}</Button>
+              </Link>
               <Button
                 className="filled"
                 htmlType="submit"

@@ -25,8 +25,8 @@ export const RULES_FORM: Record<keyof keyValidator, FormRule[]> = {
   ],
   phone: [
     {
-      pattern: /^[0-9]*$/gm,
-      message: "Số điện thoại không đúng định dạng",
+      pattern: /^\d{10,}$/gm,
+      message: "Số điện thoại phải lớn hơn 10 ký tự",
     },
   ],
   number: [
@@ -37,8 +37,8 @@ export const RULES_FORM: Record<keyof keyValidator, FormRule[]> = {
   ],
   username: [
     {
-      pattern: /^[a-zA-Z0-9]{4,10}$/g,
-      message: "Mã người dùng phải là chữ hoặc số, độ dài 4 đến 10 ký tự",
+      pattern: /^[a-zA-Z0-9]{6,8}$/g,
+      message: "Tài khoản có độ dài 6-8 chữ/số",
     },
   ],
   password: [
