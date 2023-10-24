@@ -10,6 +10,7 @@ import {
   Typography,
   message,
 } from "antd";
+import { useForm } from "antd/es/form/Form";
 import { DefaultOptionType } from "antd/es/select";
 import TextArea from "antd/lib/input/TextArea";
 import dayjs, { Dayjs } from "dayjs";
@@ -31,6 +32,7 @@ export default function RegisterForm() {
   const [isLoadingBranch, setIsLoadingBranch] = useState<boolean>(false);
   const [date, setDate] = useState<Dayjs | null>();
   const userProfile = useRecoilValue(UserState);
+  const [form] = useForm();
 
   const { data: cityOptions, isLoading: isLoadingCity } = useCityDropdown({});
   const { t } = useTranslation();
@@ -94,7 +96,10 @@ export default function RegisterForm() {
       ),
       input: (
         <Col span={7}>
-          <Form.Item name="fullname" rules={[...RULES_FORM.required]}>
+          <Form.Item
+            name="fullname"
+            rules={[...RULES_FORM.required, ...RULES_FORM.people_name]}
+          >
             <Input placeholder="Họ và tên" />
           </Form.Item>
         </Col>
@@ -142,6 +147,7 @@ export default function RegisterForm() {
               { value: "Cấp 1", label: "Cấp 1" },
               { value: "Cấp 2", label: "Cấp 2" },
               { value: "Cấp 3", label: "Cấp 3" },
+              { value: "Đại học", label: "Đại học" },
             ]}
           />
         </Form.Item>
@@ -158,13 +164,26 @@ export default function RegisterForm() {
         <Form.Item
           name="date"
           wrapperCol={{ span: 7 }}
-          rules={[...RULES_FORM.required]}
+          rules={[
+            ...RULES_FORM.required,
+            () => ({
+              validator(_, value) {
+                if (!value || value >= dayjs().add(-1, "d")) {
+                  return Promise.resolve();
+                }
+                return Promise.reject(
+                  new Error("Ngày được chọn không hợp lệ!"),
+                );
+              },
+            }),
+          ]}
         >
           <DatePicker
             onChange={(value) => setDate(value)}
             value={date?.isValid() ? date : undefined}
             format={formatDateShow}
             placeholder={formatDateShow.toLowerCase()}
+            name="date"
           />
         </Form.Item>
       ),
@@ -220,10 +239,12 @@ export default function RegisterForm() {
       date: dayjs(date).format(formatDatePost),
       created_by_user_id: userProfile.user_id || 1,
     });
+
+    form.resetFields();
   };
 
   return (
-    <Form className={styles.form} onFinish={onFinish}>
+    <Form className={styles.form} form={form} onFinish={onFinish}>
       {items?.map((item) => (
         <Row key={item.key} className={styles.row}>
           <Col className={styles.label} style={{ width: 200 }}>
