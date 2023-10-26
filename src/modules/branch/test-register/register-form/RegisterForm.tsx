@@ -10,6 +10,7 @@ import {
   Typography,
   message,
 } from "antd";
+import { RangePickerProps } from "antd/es/date-picker";
 import { useForm } from "antd/es/form/Form";
 import { DefaultOptionType } from "antd/es/select";
 import TextArea from "antd/lib/input/TextArea";
@@ -36,6 +37,10 @@ export default function RegisterForm() {
 
   const { data: cityOptions, isLoading: isLoadingCity } = useCityDropdown({});
   const { t } = useTranslation();
+
+  const disabledDate: RangePickerProps["disabledDate"] = (current) => {
+    return current && current <= dayjs().endOf("day").add(-1, "day");
+  };
 
   const createTestRegister = useCreateTestRegister({
     config: {
@@ -164,19 +169,7 @@ export default function RegisterForm() {
         <Form.Item
           name="date"
           wrapperCol={{ span: 7 }}
-          rules={[
-            ...RULES_FORM.required,
-            () => ({
-              validator(_, value) {
-                if (!value || value >= dayjs().add(-1, "d")) {
-                  return Promise.resolve();
-                }
-                return Promise.reject(
-                  new Error("Ngày được chọn không hợp lệ!"),
-                );
-              },
-            }),
-          ]}
+          rules={[...RULES_FORM.required]}
         >
           <DatePicker
             onChange={(value) => setDate(value)}
@@ -184,6 +177,7 @@ export default function RegisterForm() {
             format={formatDateShow}
             placeholder={formatDateShow.toLowerCase()}
             name="date"
+            disabledDate={disabledDate}
           />
         </Form.Item>
       ),
