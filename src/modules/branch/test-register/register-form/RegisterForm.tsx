@@ -17,12 +17,14 @@ import TextArea from "antd/lib/input/TextArea";
 import dayjs, { Dayjs } from "dayjs";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 
 import { useCreateTestRegister } from "@/loader/branch.loader";
 import { useCityDropdown } from "@/loader/city.loader";
 import { getBranchesDropdown } from "@/services/branch.service";
 import { UserState } from "@/store/auth/atom";
+import { HOME_URL } from "@/urls";
 import { formatDatePost, formatDateShow } from "@/utils/format-string";
 import { RULES_FORM } from "@/utils/validator";
 
@@ -253,7 +255,7 @@ export default function RegisterForm() {
         <Col offset={12}>
           <Form.Item>
             <Button type="default" htmlType="reset">
-              {t("all.btn_cancel")}
+              <Link to={HOME_URL}>{t("all.btn_cancel")}</Link>
             </Button>
           </Form.Item>
         </Col>
