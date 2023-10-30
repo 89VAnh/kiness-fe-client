@@ -10,18 +10,21 @@ import {
   Typography,
   message,
 } from "antd";
+import { RangePickerProps } from "antd/es/date-picker";
 import { useForm } from "antd/es/form/Form";
 import { DefaultOptionType } from "antd/es/select";
 import TextArea from "antd/lib/input/TextArea";
 import dayjs, { Dayjs } from "dayjs";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 
 import { useCreateTestRegister } from "@/loader/branch.loader";
 import { useCityDropdown } from "@/loader/city.loader";
 import { getBranchesDropdown } from "@/services/branch.service";
 import { UserState } from "@/store/auth/atom";
+import { HOME_URL } from "@/urls";
 import { formatDatePost, formatDateShow } from "@/utils/format-string";
 import { RULES_FORM } from "@/utils/validator";
 
@@ -36,6 +39,10 @@ export default function RegisterForm() {
 
   const { data: cityOptions, isLoading: isLoadingCity } = useCityDropdown({});
   const { t } = useTranslation();
+
+  const disabledDate: RangePickerProps["disabledDate"] = (current) => {
+    return current && current <= dayjs().endOf("day").add(-1, "day");
+  };
 
   const createTestRegister = useCreateTestRegister({
     config: {
@@ -164,19 +171,7 @@ export default function RegisterForm() {
         <Form.Item
           name="date"
           wrapperCol={{ span: 7 }}
-          rules={[
-            ...RULES_FORM.required,
-            () => ({
-              validator(_, value) {
-                if (!value || value >= dayjs().add(-1, "d")) {
-                  return Promise.resolve();
-                }
-                return Promise.reject(
-                  new Error("Ngày được chọn không hợp lệ!"),
-                );
-              },
-            }),
-          ]}
+          rules={[...RULES_FORM.required]}
         >
           <DatePicker
             onChange={(value) => setDate(value)}
@@ -184,6 +179,7 @@ export default function RegisterForm() {
             format={formatDateShow}
             placeholder={formatDateShow.toLowerCase()}
             name="date"
+            disabledDate={disabledDate}
           />
         </Form.Item>
       ),
@@ -259,7 +255,7 @@ export default function RegisterForm() {
         <Col offset={12}>
           <Form.Item>
             <Button type="default" htmlType="reset">
-              {t("all.btn_cancel")}
+              <Link to={HOME_URL}>{t("all.btn_cancel")}</Link>
             </Button>
           </Form.Item>
         </Col>

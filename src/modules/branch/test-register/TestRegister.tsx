@@ -29,6 +29,7 @@ function CityCard(city: City) {
 
 export default function TestRegister() {
   const { t } = useTranslation();
+
   // Get menus
   const items = renderAboutMenus(t);
 
