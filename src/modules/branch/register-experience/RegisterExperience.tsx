@@ -7,9 +7,9 @@ import Sidebar from "@/modules/shared/sidebar/Sidebar";
 
 import { renderBrandMenus } from "../utils/render";
 import { RegisterForm } from "./register-form";
-import styles from "./scss/testRegister.module.scss";
+import styles from "./scss/registerExperience.module.scss";
 
-export default function TestRegister() {
+export default function RegisterExperience() {
   const { t } = useTranslation();
 
   // Get menus
@@ -21,8 +21,7 @@ export default function TestRegister() {
         <Row>
           <Col span={19}>
             <Typography.Title level={2} className={styles.title}>
-              Kiểm tra độ chính xác tăng trưởng Kinesthesia có sẵn tại văn phòng
-              chính ở mỗi khu vực sau
+              Kiểm tra tăng trưởng Kiness tại các khu vực :
             </Typography.Title>
             <CityCardList />
           </Col>

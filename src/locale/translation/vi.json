@@ -14,8 +14,10 @@
     "btn_register": "Đăng ký"
   },
   "messages": {
-     "login_success": "Đăng nhập thành công",
-     "login_failure": "Tài khoản hoặc mật khẩu không đúng!"
+    "login_success": "Đăng nhập thành công",
+    "login_failure": "Tài khoản hoặc mật khẩu không đúng!",
+    "register_success": "Đăng ký thành công",
+    "register_failure": "Đăng ký thất bại"
   },
   "nav": {
     "about": {
@@ -70,7 +72,8 @@
     "branch": {
       "children": {
         "branch": "Chi nhánh",
-        "register-for-the-test": "Đăng ký kiểm tra"
+        "register-for-the-test": "Đăng ký kiểm tra",
+        "register-to-experience": "Đăng ký trải nghiệm"
       }
     }
   },

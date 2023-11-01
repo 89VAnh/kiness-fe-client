@@ -5,6 +5,7 @@ import { MissionPage } from "./modules/about/mission";
 import { NewsPage } from "./modules/about/news";
 import AppLayout from "./modules/app/AppLayout";
 import { BranchPage } from "./modules/branch/branch";
+import RegisterExperience from "./modules/branch/register-experience/RegisterExperience";
 import { TestRegisterPage } from "./modules/branch/test-register";
 import { ErrorBoundaryPage } from "./modules/error/boundary";
 import { HomePage } from "./modules/home";
@@ -38,6 +39,7 @@ import {
   QUALITY_URL,
   RANGE_GROWTH_URL,
   REASONS_GROWTH_URL,
+  REGISTER_EXPERIENCE_URL,
   REGISTER_URL,
   SCHEDULE_TRAIN_URL,
   STAGES_GROWTH_URL,
@@ -144,6 +146,10 @@ export const router = createBrowserRouter([
       {
         path: TEST_REGISTER_URL,
         element: <TestRegisterPage />,
+      },
+      {
+        path: REGISTER_EXPERIENCE_URL,
+        element: <RegisterExperience />,
       },
     ],
   },

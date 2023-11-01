@@ -1,0 +1,19 @@
+@import "@/assets/scss/variables";
+
+.card {
+  background-color: $color-amber;
+  border-radius: 5px;
+  padding: 14px 4px;
+
+  * {
+    color: $color-white !important;
+  }
+
+  .card_title {
+    text-align: center;
+  }
+
+  .card_hotline {
+    margin: 0 !important;
+  }
+}

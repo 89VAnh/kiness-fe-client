@@ -25,3 +25,12 @@ export const createTestRegister = async (data: any): Promise<any> => {
 
   return res.data;
 };
+
+export const createExperienceRegister = async (data: any): Promise<any> => {
+  const res = await apiClient?.post(
+    `${prefix}/create-experience-register`,
+    data,
+  );
+
+  return res.data;
+};
