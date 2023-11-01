@@ -6,7 +6,7 @@ import branch_img from "@/assets/img/branch/branch_img.png";
 import { useBranches } from "@/loader/branch.loader";
 import Sidebar from "@/modules/shared/sidebar/Sidebar";
 
-import { renderAboutMenus } from "../utils/render";
+import { renderBrandMenus } from "../utils/render";
 import styles from "./scss/branch.module.scss";
 
 // Table
@@ -22,7 +22,7 @@ interface IBranch {
 export default function Branch() {
   const { t } = useTranslation();
   // Get menus
-  const items = renderAboutMenus(t);
+  const items = renderBrandMenus(t);
   const branchesQuery = useBranches({
     params: {
       page: 1,

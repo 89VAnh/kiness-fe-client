@@ -2,7 +2,12 @@ import { Divider } from "antd";
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 
-import { HOME_URL, REGISTER_URL, TEST_REGISTER_URL } from "@/urls";
+import {
+  HOME_URL,
+  REGISTER_EXPERIENCE_URL,
+  REGISTER_URL,
+  TEST_REGISTER_URL,
+} from "@/urls";
 
 import UserDropdown from "./components/UserDropdown";
 import styles from "./scss/header.module.scss";
@@ -20,7 +25,7 @@ export default function Header({ context }: Props): JSX.Element {
             Đăng ký kiểm tra
           </Link>
           <Divider type="vertical" style={{ backgroundColor: "#8C8C8C" }} />
-          <Link to={HOME_URL} className={styles.linkItem}>
+          <Link to={REGISTER_EXPERIENCE_URL} className={styles.linkItem}>
             Đăng ký trải nghiệm
           </Link>
           <Divider type="vertical" style={{ backgroundColor: "#8C8C8C" }} />

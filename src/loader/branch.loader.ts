@@ -7,6 +7,7 @@ import {
   QueryConfig,
 } from "@/lib/react-query";
 import {
+  createExperienceRegister,
   createTestRegister,
   getBranches,
   getBranchesDropdown,
@@ -59,4 +60,23 @@ const useCreateTestRegister = ({
   });
 };
 
-export { useBranchDropdown, useCreateTestRegister, useBranches };
+const useCreateExperienceRegister = ({
+  config,
+}: {
+  config?: MutationConfig<typeof createExperienceRegister>;
+}) => {
+  return useMutation({
+    onMutate: () => {},
+    onError: () => {},
+    onSuccess: () => {},
+    ...config,
+    mutationFn: createExperienceRegister,
+  });
+};
+
+export {
+  useBranchDropdown,
+  useBranches,
+  useCreateExperienceRegister,
+  useCreateTestRegister,
+};
