@@ -20,6 +20,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 
+import { options } from "@/constant/config";
 import { useCreateTestRegister } from "@/loader/branch.loader";
 import { useCityDropdown } from "@/loader/city.loader";
 import { getBranchesDropdown } from "@/services/branch.service";
@@ -147,16 +148,7 @@ export default function RegisterForm() {
           wrapperCol={{ span: 20 }}
           rules={[...RULES_FORM.required]}
         >
-          <Select
-            placeholder="Chọn"
-            options={[
-              { value: "Mẫu giáo", label: "Mẫu giáo" },
-              { value: "Cấp 1", label: "Cấp 1" },
-              { value: "Cấp 2", label: "Cấp 2" },
-              { value: "Cấp 3", label: "Cấp 3" },
-              { value: "Đại học", label: "Đại học" },
-            ]}
-          />
+          <Select placeholder="Chọn" options={options} />
         </Form.Item>
       ),
     },
