@@ -3,7 +3,6 @@ import { ReactNode } from "react";
 import { Link } from "react-router-dom";
 
 import {
-  HOME_URL,
   REGISTER_EXPERIENCE_URL,
   REGISTER_URL,
   TEST_REGISTER_URL,

@@ -20,10 +20,7 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 
-import {
-  useCreateExperienceRegister,
-  useCreateTestRegister,
-} from "@/loader/branch.loader";
+import { useCreateExperienceRegister } from "@/loader/branch.loader";
 import { useCityDropdown } from "@/loader/city.loader";
 import { getBranchesDropdown } from "@/services/branch.service";
 import { UserState } from "@/store/auth/atom";
