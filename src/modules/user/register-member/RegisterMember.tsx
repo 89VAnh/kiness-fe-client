@@ -130,7 +130,7 @@ export default function RegisterMember(): JSX.Element {
             </Col>
             <Col span={12}>
               <Typography.Text type="secondary">
-                (Tối đa 6-8 chữ/số)
+                (Tối đa 6-10 chữ/số)
               </Typography.Text>
             </Col>
           </Row>

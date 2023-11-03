@@ -21,12 +21,8 @@ import { Link } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 
 import { options } from "@/constant/config";
-import {
-  useCreateExperienceRegister,
-  useCreateExperienceRegister,
-  useCreateTestRegister,
-} from "@/loader/branch.loader";
 import { useCityDropdown } from "@/loader/city.loader";
+import { useCreateExperienceRegister } from "@/loader/experience-register.loader";
 import { getBranchesDropdown } from "@/services/branch.service";
 import { UserState } from "@/store/auth/atom";
 import { HOME_URL } from "@/urls";
@@ -53,6 +49,9 @@ export default function RegisterForm() {
     config: {
       onSuccess: () => {
         message.success(t("messages.register_success"));
+      },
+      onError: (err) => {
+        message.error(err.message);
       },
     },
   });
