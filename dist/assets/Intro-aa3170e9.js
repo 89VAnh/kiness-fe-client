@@ -1,0 +1,1 @@
+import{T as r}from"./TemplatePage-68d18a64.js";import{r as t}from"./render-07ab8e77.js";import"./index-9a78810f.js";import"./useQuery-e8d2bc3e.js";import"./utils-0507c293.js";function i(){return r(t)}export{i as default};
