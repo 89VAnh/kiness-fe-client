@@ -1,0 +1,1 @@
+import{$ as a,bE as t,bx as R,bG as n,bH as b}from"./index-b1f5c75a.js";const i=r=>{var s;return[...(s=a(r,[t,R,n,b],"user"))==null?void 0:s.map(e=>({key:e.key||"",label:e.title,url:e.path}))]};export{i as r};

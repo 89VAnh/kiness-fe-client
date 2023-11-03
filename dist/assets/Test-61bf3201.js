@@ -1,1 +1,0 @@
-import{T as s}from"./TemplatePage-68d18a64.js";import{$ as a,bb as m,bd as n,be as o}from"./index-9a78810f.js";import"./useQuery-e8d2bc3e.js";import"./utils-0507c293.js";const i=r=>{var t;return[...(t=a(r,[m,n,o],"test"))==null?void 0:t.map(e=>({key:e.key||"",label:e.title,url:e.path}))]};function u(){return s(i)}export{u as default};

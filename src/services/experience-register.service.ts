@@ -1,5 +1,3 @@
-import { AxiosRequestConfig } from "axios";
-
 import { apiClient } from "@/lib/api";
 
 const prefix = "experience-register";

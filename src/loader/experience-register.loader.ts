@@ -1,5 +1,4 @@
-import { AxiosRequestConfig } from "axios";
-import { useMutation, useQuery } from "react-query";
+import { useMutation } from "react-query";
 
 import { MutationConfig } from "@/lib/react-query";
 import { createExperienceRegister } from "@/services/experience-register.service";
