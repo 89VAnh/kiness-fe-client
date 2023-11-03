@@ -20,8 +20,9 @@ import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 
-import { useCreateExperienceRegister } from "@/loader/branch.loader";
+import { options } from "@/constant/config";
 import { useCityDropdown } from "@/loader/city.loader";
+import { useCreateExperienceRegister } from "@/loader/experience-register.loader";
 import { getBranchesDropdown } from "@/services/branch.service";
 import { UserState } from "@/store/auth/atom";
 import { HOME_URL } from "@/urls";
@@ -48,6 +49,9 @@ export default function RegisterForm() {
     config: {
       onSuccess: () => {
         message.success(t("messages.register_success"));
+      },
+      onError: (err) => {
+        message.error(err.message);
       },
     },
   });
@@ -146,24 +150,7 @@ export default function RegisterForm() {
           wrapperCol={{ span: 20 }}
           rules={[...RULES_FORM.required]}
         >
-          <Select
-            placeholder="Chọn"
-            options={[
-              { value: "Mẫu giáo", label: "Mẫu giáo" },
-              { value: "Lớp 1", label: "Lớp 1" },
-              { value: "Lớp 2", label: "Lớp 2" },
-              { value: "Lớp 3", label: "Lớp 3" },
-              { value: "Lớp 4", label: "Lớp 4" },
-              { value: "Lớp 5", label: "Lớp 5" },
-              { value: "Lớp 6", label: "Lớp 6" },
-              { value: "Lớp 7", label: "Lớp 7" },
-              { value: "Lớp 8", label: "Lớp 8" },
-              { value: "Lớp 9", label: "Lớp 9" },
-              { value: "Lớp 10", label: "Lớp 10" },
-              { value: "Lớp 11", label: "Lớp 11" },
-              { value: "Lớp 12", label: "Lớp 12" },
-            ]}
-          />
+          <Select placeholder="Chọn" options={options} />
         </Form.Item>
       ),
     },
