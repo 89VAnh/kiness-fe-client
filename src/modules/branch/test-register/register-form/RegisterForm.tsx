@@ -57,6 +57,7 @@ export default function RegisterForm() {
     setIsLoadingBranch(true);
     const dropdown = await getBranchesDropdown({ city_id });
     if (!dropdown.message) setBranchOptions(dropdown);
+    form.setFieldValue("branch_id", dropdown[0].value);
     setIsLoadingBranch(false);
   };
 
