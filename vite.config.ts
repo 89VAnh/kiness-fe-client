@@ -19,7 +19,7 @@ export default defineConfig({
     },
   },
   // server: {
-  //   port: 3465,
+  //   port: 7841,
   //   open: true,
   //   // proxy: {
   //   //   "/api": {

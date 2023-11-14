@@ -16,9 +16,9 @@
     position: absolute;
     @include responsive-content;
     z-index: 1;
-    top: 50%;
-    left: 0;
-    transform: translate(0, -50%);
+    top: 25%;
+    max-width: 650px;
+    text-align: justify;
     & .title {
       color: $color-primary;
       font-size: 46px;
