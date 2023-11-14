@@ -48,6 +48,8 @@ export default function RegisterMember(): JSX.Element {
           return;
         }
         message.success("Đăng ký thành công!");
+
+        setBirthday(undefined);
         form.resetFields();
       },
       onError: (err) => {
@@ -65,11 +67,16 @@ export default function RegisterMember(): JSX.Element {
     });
   };
 
+  const handleReset = () => {
+    form.resetFields();
+    setBirthday(undefined);
+  };
+
   const handleChangeCity = async (city_id: string) => {
-    form.setFieldValue("branch_id", "");
     setIsLoadingBranch(true);
     const dropdown = await getBranchesDropdown({ city_id });
     if (!dropdown.message) setBranchOptions(dropdown);
+    form.setFieldValue("branch_id", dropdown[0].value);
     setIsLoadingBranch(false);
   };
 
@@ -203,12 +210,12 @@ export default function RegisterMember(): JSX.Element {
               <Form.Item>
                 <DatePicker
                   style={{ width: "100%" }}
-                  onChange={(value) => setBirthday(value)}
+                  onChange={setBirthday}
                   value={birthday?.isValid() ? birthday : undefined}
                   format={formatDateShow}
                   placeholder={formatDateShow.toLowerCase()}
                   disabledDate={disabledDate}
-                  defaultValue={dayjs("1999-01-01")}
+                  name="birthday"
                 />
               </Form.Item>
             </Col>
@@ -272,9 +279,9 @@ export default function RegisterMember(): JSX.Element {
           </Row>
           <Row className={styles.footerForm}>
             <Col span={24}>
-              <Link to={LOGIN_URL}>
-                <Button>{t("all.btn_cancel")}</Button>
-              </Link>
+              <Button type="default" htmlType="reset" onClick={handleReset}>
+                {t("all.btn_cancel")}
+              </Button>
               <Button
                 className="filled"
                 htmlType="submit"

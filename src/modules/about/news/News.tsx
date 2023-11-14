@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
 
+import { BASE_URL } from "@/constant/config";
 import { useSearchNews } from "@/loader/news.loader";
 import Sidebar from "@/modules/shared/sidebar/Sidebar";
 import { formatToDate } from "@/utils/format-string";
@@ -78,8 +79,14 @@ export default function News() {
                   onClick={() => handleSelectNews(newsItem.news_id)}
                 >
                   {/* <div className={styles.thumbNews}> */}
-                  <div style={{ paddingRight: 10 }}>
-                    <Image src={newsItem.thumbnail} preview={false} />
+                  <div
+                    className={styles.thumbnail}
+                    style={{ paddingRight: 10 }}
+                  >
+                    <Image
+                      src={BASE_URL + "/" + newsItem.thumbnail}
+                      preview={false}
+                    />
                   </div>
                   {/* <Typography.Title level={1}>NEW</Typography.Title> */}
                   {/* </div> */}

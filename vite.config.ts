@@ -18,13 +18,13 @@ export default defineConfig({
       localsConvention: "camelCase",
     },
   },
-  // server: {
-  //   port: 3465,
-  //   open: true,
-  //   // proxy: {
-  //   //   "/api": {
-  //   //     target: "http://localhost:4010",
-  //   //   },
-  //   // },
-  // },
+  server: {
+    port: 3467,
+    open: true,
+    proxy: {
+      "/api": {
+        target: "http://localhost:4010",
+      },
+    },
+  },
 });

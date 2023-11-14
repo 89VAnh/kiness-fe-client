@@ -16,7 +16,7 @@
   "messages": {
     "login_success": "Đăng nhập thành công",
     "login_failure": "Tài khoản hoặc mật khẩu không đúng!",
-    "register_success": "Đăng ký thành công",
+    "register_success": "Đăng ký thành công! Trung tâm sẽ liện hệ với bạn qua các thông tin liên hệ đã nhận được!",
     "register_failure": "Đăng ký thất bại"
   },
   "nav": {
@@ -84,5 +84,12 @@
     "login": "Đăng nhập",
     "logout": "Đăng xuất",
     "profile": "Thông tin cá nhân"
+  },
+  "branch_register": {
+    "city_id": "Thành phố",
+    "branch_name": "Tên chi nhánh",
+    "phone_number": "Số điện thoại",
+    "address": "Địa chỉ",
+    "email": "Email"
   }
 }
