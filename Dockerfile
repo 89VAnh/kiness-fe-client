@@ -18,5 +18,5 @@ RUN pnpm run build
 
 FROM nginx:1.17-alpine as production-stage
 COPY --from=build-stage /app/dist /usr/share/nginx/html
-COPY /config/nginx.conf  /etc/nginx/conf.d/default.conf
+COPY /config/default.conf  /etc/nginx/conf.d/default.conf
 CMD ["nginx", "-g", "daemon off;"]
