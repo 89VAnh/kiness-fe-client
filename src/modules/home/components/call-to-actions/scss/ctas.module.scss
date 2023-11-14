@@ -1,0 +1,207 @@
+@import "@/assets/scss/_variables.scss";
+
+$color-border: $color-green;
+
+@mixin template-hover($color) {
+  background-color: $color !important;
+  h3, span, a {
+    transition: .001s !important;
+    color: $color-white;
+  }
+
+  border-color: $color;
+}
+
+
+// CTAs
+.container {
+  @include responsive-content;
+  margin-top: 90px !important;
+  position: relative;
+  row-gap: 65px;
+
+  & .list-item {
+    min-height: 188px;
+    border-radius: 16px;
+    background: $color-white;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
+
+    @media only screen and (min-width: 978px) {
+      // &:nth-child(1){
+      //   margin-bottom: 65px;
+      // }
+    }
+
+  }
+
+  :global {
+    .ant-card {
+      border-radius: 16px;
+      border: none;
+      border-radius: 0;
+      height: 100%;
+      cursor: pointer;
+      // background-color: $color-blue;
+      display: flex;
+      transition: .2s;
+
+      .ant-card-body {
+        text-align: left;
+        border-radius: 16px;
+        height: 100%;
+        width: 68%;
+        // color: $color-white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        h3 {
+          // color: $color-white;
+          font-size: 24px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 28px; /* 116.667% */
+          margin-bottom: 8px;
+        }
+
+        span {
+          // color: $color-white;
+          font-size: 14px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 18px; /* 128.571% */
+          margin-bottom: 8px;
+        }
+
+        a {
+          // color: $color-white;
+          color: $color-black;
+
+          &:hover {
+            filter: blur(0.5px);
+          }
+        }
+      }
+    }
+
+    .ant-card.card1 {
+      &:hover {
+        @include template-hover($color-green);
+      }
+      
+      &.active {
+        @include template-hover($color-green);
+      }
+    }
+    
+    .ant-card.card2 {
+      &:hover {
+        @include template-hover($color-sky);
+      }
+
+      &.active {
+        @include template-hover($color-sky);
+      }
+    }
+    
+    .ant-card.card3 {
+      &:hover {
+        @include template-hover($color-pink)
+      }
+
+      &.active {
+        @include template-hover($color-pink);
+      }
+    }
+    .ant-card.card4 {
+      &:hover {
+        @include template-hover($color-amber)
+      }
+
+      &.active {
+        @include template-hover($color-amber);
+      }
+    }
+  }
+
+  & .image {
+    width: 442.15px;
+    height: 442.15px;
+    border-radius: 100%;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    
+    img {
+      border: 2px dashed $color-border;
+      padding: 5px;
+      object-fit: cover;
+      width: 442.15px;
+      height: 442.15px;
+      border-radius: 100%;
+      background-color: $color-white;
+    }
+  }
+}
+
+// Navigation
+.container-position {
+  justify-content: center;
+  position: absolute;
+  top: -60px;
+  box-sizing: border-box;
+  @include responsive-content;
+}
+
+.list-nav {
+  column-gap: 0;
+
+  & .nav-item {
+    color: $color-white;
+    width: 100%;
+    display: block;
+
+    & button {
+      color: $color-white !important;
+      text-align: center;
+      /* Head 3 */
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 28px; /* 116.667% */
+      width: 100%;
+      height: 123px;
+      border-radius: 0;
+      white-space: pre-wrap;
+      border: none;
+      border-top: 10px solid;
+      padding: 0 40px;
+
+      :hover {
+        filter: opacity(0.8);
+      }
+    }
+  }
+  :global {
+    .ant-space-item {
+      width: 33.3333%;
+    }
+    .ant-space-item:nth-child(1) button {
+      border-radius: 0px 0px 0px 10px;
+      background: #2bb8e1;
+      border-color: #159ac9 !important;
+    }
+    .ant-space-item:nth-child(2) button {
+      background: #f49c0c;
+      border-color: #d7751e !important;
+    }
+    .ant-space-item:nth-child(3) button {
+      border-radius: 0px 0px 10px 0px;
+      background: #27a150;
+      border-color: #0c7026 !important;
+    }
+  }
+}

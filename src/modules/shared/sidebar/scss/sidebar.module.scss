@@ -1,0 +1,73 @@
+@import "@/assets/scss/_variables.scss";
+
+.container {
+  display: flex;
+  justify-content: center;
+  margin-top: 37px !important;
+  gap: 23px;
+  @include responsive-content;
+
+  :global {
+    .ant-menu-item,
+    .ant-menu-item-active {
+      transition: .1s !important;
+      a, span {
+        transition: .001s !important;
+      }
+    }
+    .ant-menu-item-selected {
+      background-color: $color-darker-gray !important;
+      transition: .1s;
+      a {
+        color: $color-white !important;
+        transition: .1s all;
+      }
+    }
+  }
+}
+
+.left_menu {
+  max-height: 833px;
+  max-width: 200px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+
+  .top_menu {
+    width: 200px;
+    height: 166.67px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 16px;
+    background-color: $color-green;
+    border-radius: 10px 10px 0 0;
+    color: $color-white;
+    padding: 20px;
+    text-align: center;
+  }
+}
+
+.menu {
+  padding: 10px 0;
+  background-color: #f5f5f5 !important;
+}
+
+.menu_item {
+  font-size: 14px;
+  font-weight: 700;
+  margin: 0 !important;
+  width: 100% !important;
+  border-radius: 0 !important;
+  min-height: 40px;
+  line-height: 22px !important;
+  display: flex !important;
+  align-items: center !important;
+
+  &:hover {
+    background-color: $color-darker-gray !important;
+    color: $color-white !important;
+  }
+}

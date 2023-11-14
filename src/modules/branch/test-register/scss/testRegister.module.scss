@@ -1,0 +1,12 @@
+@import "@/assets/scss/variables";
+
+.title {
+  text-align: center;
+  color: $color-green !important;
+  font-size: 32px;
+  line-height: 36px;
+}
+
+.top {
+  display: flex;
+}

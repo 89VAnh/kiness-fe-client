@@ -1,0 +1,36 @@
+@import "@/assets/scss/_variables.scss";
+
+.header-top {
+  height: 40px;
+  background-color: $color-primary;
+  color: $color-white;
+  @include responsive-content;
+
+  .wrapper {
+    height: 100%;
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+
+    .link-item {
+      color: $color-white;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 22px;
+      padding: 5px 9px;
+
+      &:hover {
+        filter: blur(.5px);
+      }
+    }
+  }
+
+  :global {
+    .ant-avatar img {
+      border-radius: 50%;
+      object-fit: contain;
+      background-color: $color-pink;
+    }
+  }
+}
