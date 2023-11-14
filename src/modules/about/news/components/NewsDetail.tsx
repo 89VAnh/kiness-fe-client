@@ -34,7 +34,7 @@ export default function NewsDetail({
         </Typography.Title>
       }
       open={open}
-      style={{ top: 120, borderRadius: "10px" }}
+      style={{ top: 120, borderRadius: "10px", padding: 0 }}
       width={"68vw"}
       onCancel={() => {
         setOpen(false);
@@ -47,7 +47,7 @@ export default function NewsDetail({
       ) : (
         <div
           style={{
-            height: "calc(100vh - 120px)",
+            height: "calc(100vh - 205px)",
             overflow: "auto",
             paddingRight: 20,
           }}

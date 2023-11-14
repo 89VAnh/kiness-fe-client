@@ -79,7 +79,7 @@ export default function News() {
                 >
                   {/* <div className={styles.thumbNews}> */}
                   <div style={{ paddingRight: 10 }}>
-                    <Image src={newsItem.thumbnail} preview={false} />
+                    <Image src={"/api/" + newsItem.thumbnail} preview={false} />
                   </div>
                   {/* <Typography.Title level={1}>NEW</Typography.Title> */}
                   {/* </div> */}
