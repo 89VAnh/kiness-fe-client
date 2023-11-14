@@ -9,7 +9,7 @@ import {
   TRAINING_PROGRAM_URL,
 } from "@/urls";
 
-export const renderAboutMenus = (t: TFunction) => {
+export const renderTrainMenus = (t: TFunction) => {
   const items = [
     ...renderRoutes(
       t,
