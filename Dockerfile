@@ -5,7 +5,7 @@ FROM node:18-alpine as build-stage
 WORKDIR /app
  
 # Copy package.json and package-lock.json to the working directory
-COPY package.json pnpm-lock.yaml yarn.lock ./
+COPY package.json pnpm-lock.yaml ./
  
 # Install dependencies
 RUN npm i -g pnpm
@@ -18,5 +18,5 @@ RUN pnpm run build
 
 FROM nginx:1.17-alpine as production-stage
 COPY --from=build-stage /app/dist /usr/share/nginx/html
-COPY /config/nginx.conf  /etc/nginx/conf.d/default.conf
+COPY /config/default.conf  /etc/nginx/conf.d/default.conf
 CMD ["nginx", "-g", "daemon off;"]
