@@ -40,6 +40,7 @@ const TERMS_USE = "/terms-use";
 const BRANCH_URL = "/branch";
 const TEST_REGISTER_URL = "/register-for-the-test";
 const REGISTER_EXPERIENCE_URL = "/register-to-experience";
+const REGISTER_BRANCH_URL = "/register-branch";
 
 const breadcrumbNameMap: Record<string, string> = {
   [HOME_URL]: "Trang chủ",
@@ -65,6 +66,7 @@ export {
   QUALITY_URL,
   RANGE_GROWTH_URL,
   REASONS_GROWTH_URL,
+  REGISTER_BRANCH_URL,
   REGISTER_EXPERIENCE_URL,
   REGISTER_URL,
   SCHEDULE_TRAIN_URL,
