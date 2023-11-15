@@ -33,8 +33,8 @@ const ADVISE_URL = `${TESTING_URL}/advise`;
 // User
 const LOGIN_URL = "/login";
 const REGISTER_URL = "/register";
-const PRIVACY_POLICY = "/privacy-policy";
-const TERMS_USE = "/terms-use";
+const PRIVACY_POLICY_URL = "/privacy-policy";
+const TERMS_USE_URL = "/terms-use";
 
 // Branch
 const BRANCH_URL = "/branch";
@@ -62,7 +62,7 @@ export {
   MISSION_URL,
   NEWS_URL,
   POINT_GROWTH_URL,
-  PRIVACY_POLICY,
+  PRIVACY_POLICY_URL,
   QUALITY_URL,
   RANGE_GROWTH_URL,
   REASONS_GROWTH_URL,
@@ -72,7 +72,7 @@ export {
   SCHEDULE_TRAIN_URL,
   STAGES_GROWTH_URL,
   SUPPORT_EQUIP_URL,
-  TERMS_USE,
+  TERMS_USE_URL,
   TESTING_URL,
   TEST_REGISTER_URL,
   TRAINING_PROGRAM_URL,
