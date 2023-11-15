@@ -16,14 +16,12 @@ import { DefaultOptionType } from "antd/es/select";
 import dayjs, { Dayjs } from "dayjs";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
 
 import { useCityDropdown } from "@/loader/city.loader";
 import { useCreateCustomer } from "@/loader/customer.loader";
 // import { useNavigate } from "react-router-dom";
 import Sidebar from "@/modules/shared/sidebar/Sidebar";
 import { getBranchesDropdown } from "@/services/branch.service";
-import { LOGIN_URL } from "@/urls";
 import { formatDatePost, formatDateShow } from "@/utils/format-string";
 import { RULES_FORM } from "@/utils/validator";
 

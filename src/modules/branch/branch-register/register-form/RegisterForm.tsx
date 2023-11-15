@@ -3,23 +3,18 @@ import {
   Col,
   Form,
   Input,
-  Radio,
   Row,
   Select,
   Typography,
   message,
 } from "antd";
 import { useForm } from "antd/es/form/Form";
-import TextArea from "antd/lib/input/TextArea";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
 import { useRecoilValue } from "recoil";
 
-import { options } from "@/constant/config";
 import { useCreateBranchRegister } from "@/loader/branch-register.loader";
 import { useCityDropdown } from "@/loader/city.loader";
 import { UserState } from "@/store/auth/atom";
-import { HOME_URL } from "@/urls";
 import { RULES_FORM } from "@/utils/validator";
 
 import styles from "./scss/registerForm.module.scss";
