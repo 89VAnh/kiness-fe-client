@@ -45,7 +45,16 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 100%;
+    flex: 1;
+  }
+
+  .list-item {
+    justify-content: start;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba($color: #000, $alpha: .03);
+    }
   }
 }
 
@@ -53,8 +62,4 @@
   color: $color-green !important;
   padding: 10px 0;
   padding-top: 0;
-}
-
-.thumbnail {
-  width: 20%;
 }

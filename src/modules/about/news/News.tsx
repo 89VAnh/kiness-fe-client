@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
 
-import { BASE_URL } from "@/constant/config";
 import { useSearchNews } from "@/loader/news.loader";
 import Sidebar from "@/modules/shared/sidebar/Sidebar";
 import { formatToDate } from "@/utils/format-string";
@@ -46,7 +45,13 @@ export default function News() {
     return (
       <>
         <div className={styles.container}>
-          <Row style={{ width: "100%", justifyContent: "space-between" }}>
+          <Row
+            style={{
+              width: "100%",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
             <Col>
               <Typography.Title style={{ margin: 0 }} level={2}>
                 Tin tức Kiness
@@ -75,17 +80,15 @@ export default function News() {
               newsItem ? (
                 <List.Item
                   key={newsItem.news_id}
-                  style={{ cursor: "pointer" }}
+                  className={styles.listItem}
                   onClick={() => handleSelectNews(newsItem.news_id)}
                 >
                   {/* <div className={styles.thumbNews}> */}
-                  <div
-                    className={styles.thumbnail}
-                    style={{ paddingRight: 10 }}
-                  >
+                  <div style={{ paddingRight: 10 }}>
                     <Image
-                      src={BASE_URL + "/" + newsItem.thumbnail}
+                      src={"/api/" + newsItem.thumbnail}
                       preview={false}
+                      style={{ maxWidth: 200, minWidth: 200 }}
                     />
                   </div>
                   {/* <Typography.Title level={1}>NEW</Typography.Title> */}
@@ -97,7 +100,7 @@ export default function News() {
                         {newsItem.news_title}
                       </Typography.Title>
                       {/* </Link> */}
-                      {newsItem.content}
+                      <div>{newsItem.content}</div>
                     </div>
                     <div style={{ textAlign: "right" }}>
                       <Typography.Text>
