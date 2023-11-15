@@ -4,6 +4,7 @@ import { IntroPage } from "./modules/about/intro";
 import { MissionPage } from "./modules/about/mission";
 import { NewsPage } from "./modules/about/news";
 import AppLayout from "./modules/app/AppLayout";
+import ProtectedComponent from "./modules/app/ProtectComponent";
 import { BranchPage } from "./modules/branch/branch";
 import { BranchRegisterPage } from "./modules/branch/branch-register";
 import { ExperienceRegisterPage } from "./modules/branch/experence-register";
@@ -155,7 +156,12 @@ export const router = createBrowserRouter([
       },
       {
         path: REGISTER_BRANCH_URL,
-        element: <BranchRegisterPage />,
+        element: (
+          <ProtectedComponent
+            Element={BranchRegisterPage}
+            title="Đăng ký trung tâm | KINESS"
+          />
+        ),
       },
     ],
   },
