@@ -100,7 +100,9 @@ export default function News() {
                         {newsItem.news_title}
                       </Typography.Title>
                       {/* </Link> */}
-                      <div>{newsItem.content}</div>
+                      <Typography.Paragraph ellipsis={{ rows: 3 }}>
+                        {newsItem.content}
+                      </Typography.Paragraph>
                     </div>
                     <div style={{ textAlign: "right" }}>
                       <Typography.Text>
