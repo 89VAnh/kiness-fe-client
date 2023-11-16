@@ -20,6 +20,7 @@ import { LoginPage } from "./modules/user/login";
 import { PrivacyPolicyPage } from "./modules/user/privacy-policy";
 import { RegisterMemberPage } from "./modules/user/register-member";
 import { TermsUsePage } from "./modules/user/terms-use";
+import { VerifyAccountPage } from "./modules/user/verify";
 import { WikiPage } from "./modules/wiki";
 import {
   ADVISE_URL,
@@ -51,6 +52,7 @@ import {
   TEST_REGISTER_URL,
   TRAINING_PROGRAM_URL,
   TRAINING_URL,
+  VERIFY_URL,
 } from "./urls";
 
 export const router = createBrowserRouter([
@@ -314,6 +316,16 @@ export const router = createBrowserRouter([
             Element={TermsUsePage}
             title="Điều khoản sử dụng"
             url={TERMS_USE_URL}
+          />
+        ),
+      },
+      {
+        path: VERIFY_URL,
+        element: (
+          <ProtectedComponent
+            Element={VerifyAccountPage}
+            title="Xác thực tài khoản"
+            url={VERIFY_URL}
           />
         ),
       },

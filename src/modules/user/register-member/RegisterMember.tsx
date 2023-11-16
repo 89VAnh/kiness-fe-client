@@ -16,12 +16,15 @@ import { DefaultOptionType } from "antd/es/select";
 import dayjs, { Dayjs } from "dayjs";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 import { useCityDropdown } from "@/loader/city.loader";
 import { useCreateCustomer } from "@/loader/customer.loader";
 // import { useNavigate } from "react-router-dom";
 import Sidebar from "@/modules/shared/sidebar/Sidebar";
 import { getBranchesDropdown } from "@/services/branch.service";
+import { sendVerifyAccount } from "@/services/email.service";
+import { LOGIN_URL, VERIFY_URL } from "@/urls";
 import { formatDatePost, formatDateShow } from "@/utils/format-string";
 import { RULES_FORM } from "@/utils/validator";
 
@@ -35,20 +38,31 @@ export default function RegisterMember(): JSX.Element {
   const items = renderUserMenus(t);
   const [branchOptions, setBranchOptions] = useState<DefaultOptionType[]>([]);
   const [isLoadingBranch, setIsLoadingBranch] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const { data: cityOptions, isLoading: isLoadingCity } = useCityDropdown({});
 
   const createCustomer = useCreateCustomer({
     config: {
-      onSuccess: (data) => {
+      onSuccess: (data, variables) => {
         if (!data.results) {
           message.error(data.message);
           return;
         }
-        message.success("Đăng ký thành công!");
+        message.success(
+          "Đăng ký thành công! Vui lòng kiểm tra email để xác thực.",
+        );
 
+        sendVerifyAccount({
+          email: variables.email,
+          full_name: variables.customer_name,
+          link:
+            window.location.origin +
+            `/${VERIFY_URL}?email=${variables.email}&time=${Date.now()}`,
+        });
         setBirthday(undefined);
         form.resetFields();
+        navigate(LOGIN_URL);
       },
       onError: (err) => {
         message.error(err.message);

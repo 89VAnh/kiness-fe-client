@@ -35,6 +35,7 @@ const LOGIN_URL = "/login";
 const REGISTER_URL = "/register";
 const PRIVACY_POLICY_URL = "/privacy-policy";
 const TERMS_USE_URL = "/terms-use";
+const VERIFY_URL = "/verify";
 
 // Branch
 const BRANCH_URL = "/branch";
@@ -73,6 +74,7 @@ export {
   STAGES_GROWTH_URL,
   SUPPORT_EQUIP_URL,
   TERMS_USE_URL,
+  VERIFY_URL,
   TESTING_URL,
   TEST_REGISTER_URL,
   TRAINING_PROGRAM_URL,
