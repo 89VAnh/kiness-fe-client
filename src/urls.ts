@@ -33,13 +33,15 @@ const ADVISE_URL = `${TESTING_URL}/advise`;
 // User
 const LOGIN_URL = "/login";
 const REGISTER_URL = "/register";
-const PRIVACY_POLICY = "/privacy-policy";
-const TERMS_USE = "/terms-use";
+const PRIVACY_POLICY_URL = "/privacy-policy";
+const TERMS_USE_URL = "/terms-use";
+const VERIFY_URL = "/verify";
 
 // Branch
 const BRANCH_URL = "/branch";
 const TEST_REGISTER_URL = "/register-for-the-test";
 const REGISTER_EXPERIENCE_URL = "/register-to-experience";
+const REGISTER_BRANCH_URL = "/register-branch";
 
 const breadcrumbNameMap: Record<string, string> = {
   [HOME_URL]: "Trang chủ",
@@ -61,16 +63,18 @@ export {
   MISSION_URL,
   NEWS_URL,
   POINT_GROWTH_URL,
-  PRIVACY_POLICY,
+  PRIVACY_POLICY_URL,
   QUALITY_URL,
   RANGE_GROWTH_URL,
   REASONS_GROWTH_URL,
+  REGISTER_BRANCH_URL,
   REGISTER_EXPERIENCE_URL,
   REGISTER_URL,
   SCHEDULE_TRAIN_URL,
   STAGES_GROWTH_URL,
   SUPPORT_EQUIP_URL,
-  TERMS_USE,
+  TERMS_USE_URL,
+  VERIFY_URL,
   TESTING_URL,
   TEST_REGISTER_URL,
   TRAINING_PROGRAM_URL,

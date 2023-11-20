@@ -1,4 +1,5 @@
 import { Button, Result } from "antd";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate } from "react-router-dom";
 
@@ -7,6 +8,10 @@ import { HOME_URL } from "@/urls";
 export function ServerErrorPage(): JSX.Element {
   const { t } = useTranslation();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.title = "Lỗi hệ thống | KINESS";
+  }, []);
 
   return (
     <Result

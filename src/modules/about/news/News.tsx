@@ -45,7 +45,13 @@ export default function News() {
     return (
       <>
         <div className={styles.container}>
-          <Row style={{ width: "100%", justifyContent: "space-between" }}>
+          <Row
+            style={{
+              width: "100%",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
             <Col>
               <Typography.Title style={{ margin: 0 }} level={2}>
                 Tin tức Kiness
@@ -74,12 +80,16 @@ export default function News() {
               newsItem ? (
                 <List.Item
                   key={newsItem.news_id}
-                  style={{ cursor: "pointer" }}
+                  className={styles.listItem}
                   onClick={() => handleSelectNews(newsItem.news_id)}
                 >
                   {/* <div className={styles.thumbNews}> */}
                   <div style={{ paddingRight: 10 }}>
-                    <Image src={"/api/" + newsItem.thumbnail} preview={false} />
+                    <Image
+                      src={"/api/" + newsItem.thumbnail}
+                      preview={false}
+                      style={{ maxWidth: 200, minWidth: 200 }}
+                    />
                   </div>
                   {/* <Typography.Title level={1}>NEW</Typography.Title> */}
                   {/* </div> */}
@@ -90,7 +100,9 @@ export default function News() {
                         {newsItem.news_title}
                       </Typography.Title>
                       {/* </Link> */}
-                      {newsItem.content}
+                      <Typography.Paragraph ellipsis={{ rows: 3 }}>
+                        {newsItem.content}
+                      </Typography.Paragraph>
                     </div>
                     <div style={{ textAlign: "right" }}>
                       <Typography.Text>

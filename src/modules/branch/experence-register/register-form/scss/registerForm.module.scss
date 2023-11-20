@@ -1,0 +1,48 @@
+@import "@/assets/scss/variables";
+
+.form {
+  border-top: 2px #80c29a solid;
+  font-size: 14px;
+  :global {
+    .ant-form-item {
+      margin-bottom: 0;
+      width: 100%;
+
+      div {
+        width: 100%;
+      }
+    }
+
+    button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}
+
+.row {
+  border-bottom: 0.75px $color-darker-gray dotted;
+}
+
+.label {
+  background-color: #c2edd9;
+  padding: 17px 12px;
+  font-weight: 700;
+  line-height: 22px;
+  color: $color-black;
+  border-bottom: 0.75px $color-darker-gray dotted;
+}
+
+.input {
+  padding: 12px 24px;
+}
+
+.btns {
+  margin: 23px;
+
+  button {
+    width: 90px !important;
+    padding: 5px 9px;
+  }
+}
