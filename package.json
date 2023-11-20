@@ -9,7 +9,7 @@
     "lint": "tsc && eslint --ext .js,.jsx,.ts,.tsx src",
     "format": "prettier --write \"**/*.{ts,tsx,css,scss,json}\"",
     "preview": "vite preview",
-    "prepare": "husky install && chmod ug+x .husky/*"
+    "prepare": "husky install"
   },
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
