@@ -20,14 +20,26 @@
     "register_failure": "Đăng ký thất bại"
   },
   "nav": {
-    "about": {
-      "title": "Giới thiệu",
+    "info": {
+      "title": "Giới thiệu về Kiness",
       "children": {
-        "intro": "Giới thiệu",
-        "news": "Tin tức",
-        "mission": "Kiness Việt Nam",
-        "3": "Blog thành viên",
-        "4": "Câu chuyện tăng trưởng"
+        "history": {
+          "title": "Lịch sử Kiness",
+          "greeting": "Lời chào của CEO",
+          "history": "Lịch sử"
+        },
+        "organ": {
+          "title": "Mạng lưới Kiness",
+          "organ": "Sơ đồ tổ chức",
+          "map": "Tìm chi nhánh"
+        },
+        "researcher": {
+          "title": "Phòng thí nghiệm Kiness",
+          "researcher": "Các nhà nghiên cứu",
+          "thesis": "Bài nghiên cứu",
+          "patent": "Bằng sáng chế",
+          "book": "Sách xuất bản"
+        }
       }
     },
     "training": {

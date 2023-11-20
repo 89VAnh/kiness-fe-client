@@ -1,30 +1,19 @@
 import { ProLayoutProps } from "@ant-design/pro-components";
+import { Typography } from "antd";
 import { TFunction } from "i18next";
 import { Link } from "react-router-dom";
 
 import {
-  ADVISE_URL,
-  BENEFIT_GROWTH_URL,
-  EXAM_GROWTH_URL,
-  FEE_URL,
-  GROWTH_FORECAST_URL,
-  GROWTH_URL,
+  BOOK_URL,
+  GREETING_URL,
+  HISTORY_URL,
   HOME_URL,
-  HORMONE_URL,
-  INFO_GROWTH_URL,
-  INTRO_URL,
-  MISSION_URL,
-  NEWS_URL,
-  POINT_GROWTH_URL,
-  QUALITY_URL,
-  RANGE_GROWTH_URL,
-  REASONS_GROWTH_URL,
-  SCHEDULE_TRAIN_URL,
-  STAGES_GROWTH_URL,
-  SUPPORT_EQUIP_URL,
-  TRAINING_PROGRAM_URL,
-  TRAINING_URL,
-  WIKI_URL,
+  INFO_URL,
+  MAP_URL,
+  ORGAN_URL,
+  PATENT_URL,
+  RESEARCHER_URL,
+  THESIS_URL,
 } from "@/urls";
 import { getKeyFromPath } from "@/utils/format-string";
 
@@ -33,54 +22,112 @@ export const appRoute = (t: TFunction): ProLayoutProps["route"] => {
     path: HOME_URL,
     routes: [
       {
-        path: INTRO_URL,
-        name: <Link to={INTRO_URL}>{t("nav.about.title")}</Link>,
-        routes: renderRoutes(t, [NEWS_URL, MISSION_URL], "about"),
-      },
-      {
-        path: TRAINING_URL,
-        name: <Link to={TRAINING_URL}>{t("nav.training.title")}</Link>,
-        routes: renderRoutes(
-          t,
-          [
-            GROWTH_URL,
-            SUPPORT_EQUIP_URL,
-            TRAINING_PROGRAM_URL,
-            FEE_URL,
-            QUALITY_URL,
-          ],
-          "training",
+        path: INFO_URL,
+        key: t("nav.info.title"),
+        name: (
+          <Typography.Link href={GREETING_URL}>
+            {t("nav.info.title")}
+          </Typography.Link>
         ),
-      },
-      {
-        path: WIKI_URL,
-        name: <Link to={STAGES_GROWTH_URL}>{t("nav.wiki.title")}</Link>,
-        routes: renderRoutes(
-          t,
-          [
-            STAGES_GROWTH_URL,
-            BENEFIT_GROWTH_URL,
-            HORMONE_URL,
-            REASONS_GROWTH_URL,
-            POINT_GROWTH_URL,
-            RANGE_GROWTH_URL,
-            INFO_GROWTH_URL,
-            EXAM_GROWTH_URL,
-          ],
-          "wiki",
-          // true,
-        ),
-      },
-      {
-        // path: TESTING_URL,
-        path: "/testing",
-        name: <Link to={GROWTH_FORECAST_URL}>{t("nav.test.title")}</Link>,
-        routes: renderRoutes(
-          t,
-          [GROWTH_FORECAST_URL, SCHEDULE_TRAIN_URL, ADVISE_URL],
-          "test",
-          // true,
-        ),
+        children: [
+          {
+            path: GREETING_URL,
+            key: t("nav.info.children.history.title"),
+            name: (
+              <Typography.Link href={GREETING_URL}>
+                {t("nav.info.children.history.title")}
+              </Typography.Link>
+            ),
+            children: [
+              {
+                path: GREETING_URL,
+                name: (
+                  <Typography.Link href={GREETING_URL}>
+                    {t("nav.info.children.history.greeting")}
+                  </Typography.Link>
+                ),
+              },
+              {
+                path: HISTORY_URL,
+                name: (
+                  <Typography.Link href={HISTORY_URL}>
+                    {t("nav.info.children.history.history")}
+                  </Typography.Link>
+                ),
+              },
+            ],
+          },
+          {
+            path: ORGAN_URL,
+            key: t("nav.info.children.organ.title"),
+            name: (
+              <Typography.Link href={ORGAN_URL}>
+                {t("nav.info.children.organ.title")}
+              </Typography.Link>
+            ),
+            children: [
+              {
+                path: ORGAN_URL,
+                name: (
+                  <Typography.Link href={ORGAN_URL}>
+                    {t("nav.info.children.organ.organ")}
+                  </Typography.Link>
+                ),
+              },
+              {
+                path: MAP_URL,
+                name: (
+                  <Typography.Link href={MAP_URL}>
+                    {t("nav.info.children.organ.map")}
+                  </Typography.Link>
+                ),
+              },
+            ],
+          },
+          {
+            path: RESEARCHER_URL,
+            key: t("nav.info.children.researcher.title"),
+            name: (
+              <Typography.Link href={RESEARCHER_URL}>
+                {t("nav.info.children.researcher.title")}
+              </Typography.Link>
+            ),
+            children: [
+              {
+                path: RESEARCHER_URL,
+                name: (
+                  <Typography.Link href={RESEARCHER_URL}>
+                    {t("nav.info.children.researcher.researcher")}
+                  </Typography.Link>
+                ),
+              },
+              {
+                path: THESIS_URL,
+                name: (
+                  <Typography.Link href={THESIS_URL}>
+                    {t("nav.info.children.researcher.thesis")}
+                  </Typography.Link>
+                ),
+              },
+              {
+                path: PATENT_URL,
+                name: (
+                  <Typography.Link href={PATENT_URL}>
+                    {t("nav.info.children.researcher.patent")}
+                  </Typography.Link>
+                ),
+              },
+              {
+                path: BOOK_URL,
+                name: (
+                  <Typography.Link href={BOOK_URL}>
+                    {t("nav.info.children.researcher.book")}
+                  </Typography.Link>
+                ),
+              },
+            ],
+          },
+        ],
       },
     ],
   };
