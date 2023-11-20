@@ -35,7 +35,7 @@ export default function NewsDetail({
       }
       open={open}
       style={{ top: 120, borderRadius: "10px", padding: 0 }}
-      width={"68vw"}
+      width={"90vw"}
       onCancel={() => {
         setOpen(false);
         setNewsIdSelected(undefined);

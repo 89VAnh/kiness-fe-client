@@ -48,7 +48,7 @@ export default function RegisterForm() {
   const createTestRegister = useCreateTestRegister({
     config: {
       onSuccess: () => {
-        message.success("Đăng ký thành công!");
+        message.success(t("message.register_success"));
       },
     },
   });
@@ -167,7 +167,7 @@ export default function RegisterForm() {
           rules={[...RULES_FORM.required]}
         >
           <DatePicker
-            onChange={(value) => setDate(value)}
+            onChange={setDate}
             value={date?.isValid() ? date : undefined}
             format={formatDateShow}
             placeholder={formatDateShow.toLowerCase()}

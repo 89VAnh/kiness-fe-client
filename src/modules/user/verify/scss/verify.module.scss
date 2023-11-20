@@ -1,0 +1,11 @@
+@import "@/assets/scss/variables";
+
+.container {
+  padding-top: 120px !important;
+  min-height: 50vh;
+  @include responsive-content;
+
+  .content {
+    padding: 50px 0;
+  }
+}

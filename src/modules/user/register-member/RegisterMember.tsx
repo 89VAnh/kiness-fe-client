@@ -16,14 +16,15 @@ import { DefaultOptionType } from "antd/es/select";
 import dayjs, { Dayjs } from "dayjs";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { useCityDropdown } from "@/loader/city.loader";
 import { useCreateCustomer } from "@/loader/customer.loader";
 // import { useNavigate } from "react-router-dom";
 import Sidebar from "@/modules/shared/sidebar/Sidebar";
 import { getBranchesDropdown } from "@/services/branch.service";
-import { LOGIN_URL } from "@/urls";
+import { sendVerifyAccount } from "@/services/email.service";
+import { LOGIN_URL, VERIFY_URL } from "@/urls";
 import { formatDatePost, formatDateShow } from "@/utils/format-string";
 import { RULES_FORM } from "@/utils/validator";
 
@@ -37,18 +38,31 @@ export default function RegisterMember(): JSX.Element {
   const items = renderUserMenus(t);
   const [branchOptions, setBranchOptions] = useState<DefaultOptionType[]>([]);
   const [isLoadingBranch, setIsLoadingBranch] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const { data: cityOptions, isLoading: isLoadingCity } = useCityDropdown({});
 
   const createCustomer = useCreateCustomer({
     config: {
-      onSuccess: (data) => {
+      onSuccess: (data, variables) => {
         if (!data.results) {
           message.error(data.message);
           return;
         }
-        message.success("Đăng ký thành công!");
+        message.success(
+          "Đăng ký thành công! Vui lòng kiểm tra email để xác thực.",
+        );
+
+        sendVerifyAccount({
+          email: variables.email,
+          full_name: variables.customer_name,
+          link:
+            window.location.origin +
+            `/${VERIFY_URL}?email=${variables.email}&time=${Date.now()}`,
+        });
+        setBirthday(undefined);
         form.resetFields();
+        navigate(LOGIN_URL);
       },
       onError: (err) => {
         message.error(err.message);
@@ -65,11 +79,16 @@ export default function RegisterMember(): JSX.Element {
     });
   };
 
+  const handleReset = () => {
+    form.resetFields();
+    setBirthday(undefined);
+  };
+
   const handleChangeCity = async (city_id: string) => {
-    form.setFieldValue("branch_id", "");
     setIsLoadingBranch(true);
     const dropdown = await getBranchesDropdown({ city_id });
     if (!dropdown.message) setBranchOptions(dropdown);
+    form.setFieldValue("branch_id", dropdown[0].value);
     setIsLoadingBranch(false);
   };
 
@@ -203,12 +222,12 @@ export default function RegisterMember(): JSX.Element {
               <Form.Item>
                 <DatePicker
                   style={{ width: "100%" }}
-                  onChange={(value) => setBirthday(value)}
+                  onChange={setBirthday}
                   value={birthday?.isValid() ? birthday : undefined}
                   format={formatDateShow}
                   placeholder={formatDateShow.toLowerCase()}
                   disabledDate={disabledDate}
-                  defaultValue={dayjs("1999-01-01")}
+                  name="birthday"
                 />
               </Form.Item>
             </Col>
@@ -272,9 +291,9 @@ export default function RegisterMember(): JSX.Element {
           </Row>
           <Row className={styles.footerForm}>
             <Col span={24}>
-              <Link to={LOGIN_URL}>
-                <Button>{t("all.btn_cancel")}</Button>
-              </Link>
+              <Button type="default" htmlType="reset" onClick={handleReset}>
+                {t("all.btn_cancel")}
+              </Button>
               <Button
                 className="filled"
                 htmlType="submit"

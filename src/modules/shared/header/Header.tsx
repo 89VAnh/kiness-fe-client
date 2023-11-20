@@ -1,8 +1,11 @@
 import { Divider } from "antd";
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
+import { useRecoilValue } from "recoil";
 
+import { UserState } from "@/store/auth/atom";
 import {
+  REGISTER_BRANCH_URL,
   REGISTER_EXPERIENCE_URL,
   REGISTER_URL,
   TEST_REGISTER_URL,
@@ -16,6 +19,8 @@ interface Props {
 }
 
 export default function Header({ context }: Props): JSX.Element {
+  const userProfile = useRecoilValue(UserState);
+
   return (
     <>
       <div className={styles.headerTop}>
@@ -32,6 +37,14 @@ export default function Header({ context }: Props): JSX.Element {
             Đăng ký thành viên
           </Link>
           <Divider type="vertical" style={{ backgroundColor: "#8C8C8C" }} />
+          {userProfile.user_id && (
+            <>
+              <Link to={REGISTER_BRANCH_URL} className={styles.linkItem}>
+                Đăng ký trung tâm
+              </Link>
+              <Divider type="vertical" style={{ backgroundColor: "#8C8C8C" }} />
+            </>
+          )}
           <UserDropdown />
         </div>
       </div>
