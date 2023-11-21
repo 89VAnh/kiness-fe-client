@@ -1,6 +1,5 @@
 import { ProLayout, ProLayoutProps } from "@ant-design/pro-components";
 import { Image } from "antd";
-import { useTranslation } from "react-i18next";
 import { Link, Outlet, useLocation } from "react-router-dom";
 
 import Logo from "@/assets/img/logo/logo.png";
@@ -20,7 +19,6 @@ const settings: ProLayoutProps = {
   splitMenus: true,
 };
 export default function AppLayout({ children }: Props): JSX.Element {
-  const { t } = useTranslation();
   const location = useLocation();
 
   return (
@@ -28,7 +26,7 @@ export default function AppLayout({ children }: Props): JSX.Element {
       location={location}
       logo={<Image className="logo" preview={false} src={Logo} />}
       title={""}
-      route={appRoute(t)}
+      route={appRoute()}
       headerTitleRender={(_, __, ___) => (
         <Link to={HOME_URL}>
           <Image className="logo" preview={false} src={Logo} />
