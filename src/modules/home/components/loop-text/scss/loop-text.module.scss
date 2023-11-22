@@ -1,16 +1,25 @@
+@import "@/assets/scss/variables";
+
 .loop-container {
   display: flex;
   white-space: nowrap;
   overflow: hidden;
   padding: 1em 0;
+  margin-top: -8px;
   background: url("@/assets/img/others/loop_bn.png") repeat;
   background-size: contain;
 
   .loop-text {
     animation: textLoop 30s linear infinite;
-    font-size: 1.3vw;
+    @include resp-text(1.3vw, 14px, 14px);
     padding-right: 5em;
     color: #26726e;
+  }
+}
+
+@media only screen and (max-width: 640px) {
+  .loop-container {
+    margin-top: 0;
   }
 }
 

@@ -6,6 +6,7 @@ import Logo from "@/assets/img/logo/logo.png";
 import "@/assets/scss/index.scss";
 import { HOME_URL } from "@/urls";
 
+import Footer from "../shared/footer/Footer";
 import { appRoute } from "./AppRouter";
 
 interface Props {
@@ -40,6 +41,8 @@ export default function AppLayout({ children }: Props): JSX.Element {
     >
       <Outlet />
       {children}
+
+      <Footer />
     </ProLayout>
   );
 }

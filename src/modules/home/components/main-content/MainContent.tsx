@@ -3,23 +3,25 @@ import { motion } from "framer-motion";
 
 import topBg from "@/assets/img/others/main_k_bg_top.png";
 
-import { dataBenefit, dataStep } from "./data/data-fake";
+import { dataBanner, dataBenefit, dataStep } from "./data/data-fake";
 import styles from "./scss/main-content.module.scss";
 
 export default function MainContent(): JSX.Element {
   return (
     <section className={styles.mainContent}>
       <div className={styles.top}>
-        <Image preview={false} src={topBg} />
+        {/* <Image preview={false} src={topBg} /> */}
+        <img src={topBg} alt="top-bg" />
       </div>
 
       <div className={styles.main}>
         <div className="inner">
           <div className={styles.titleWrap}>
             <motion.div
-              initial={{ y: -50, opacity: 0 }}
+              viewport={{ once: true }}
+              initial={{ y: -50, opacity: 0.5 }}
               whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.3 }}
               className={styles.mainTitle}
             >
               <Typography.Title level={2} className={styles.title}>
@@ -59,9 +61,9 @@ export default function MainContent(): JSX.Element {
                 {dataStep.map((item, index) => (
                   <motion.li
                     key={index}
-                    initial={{ x: -50, opacity: 0 }}
+                    initial={{ x: -50, opacity: 0.5 }}
                     whileInView={{ x: 0, opacity: 1 }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.3 }}
                   >
                     <div className={styles.step}>
                       <div className={styles.stepInner}>
@@ -74,16 +76,32 @@ export default function MainContent(): JSX.Element {
               </ul>
             </div>
           </div>
-        </div>
-        <div className={styles.banner}>
-          <div className={styles.box}>d</div>
-          <div className={styles.box}>d</div>
-          <div className={styles.box}>d</div>
+
+          <div className={styles.banner}>
+            {dataBanner.map((item, index) => (
+              <motion.div
+                viewport={{ once: true }}
+                key={index}
+                initial={{ y: 50, opacity: 0.3 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.3 }}
+                className={styles.box}
+              >
+                <Typography.Link href={item.link}>
+                  <Image preview={false} src={item.img} />
+                  <Typography.Title level={4}>{item.title}</Typography.Title>
+                  <Typography.Paragraph className={styles.bannerParagraph}>
+                    {item.content}{" "}
+                  </Typography.Paragraph>
+                </Typography.Link>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
 
       <div className={styles.bottom}>
-        <Image preview={false} src={topBg} />
+        <img src={topBg} alt="bottom-bg" />
       </div>
     </section>
   );

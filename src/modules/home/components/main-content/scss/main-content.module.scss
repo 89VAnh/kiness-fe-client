@@ -3,6 +3,15 @@
 .main-content {
   margin: 80px 0;
 
+  .top,
+  .bottom {
+    overflow: hidden;
+    img {
+      object-fit: cover;
+      vertical-align: middle;
+    }
+  }
+
   .main {
     background: $color-blond url("@/assets/img/others/main_k_bg.png") center
       center no-repeat;
@@ -127,13 +136,54 @@
 
     .banner {
       display: flex;
-      // margin-bottom: 40px;
-      // margin: 0 -20px;
+      margin-bottom: 40px;
+      margin: 0 -20px;
 
       .box {
         width: calc(100% / 3 - 20px);
         margin: 0 20px;
         text-align: center;
+
+        img {
+          min-height: 200px;
+          max-height: 240px;
+          object-fit: contain;
+        }
+
+        h4 {
+          @include resp-text(30px, 24px, 24px);
+          position: relative;
+          font-weight: bold;
+          padding: 30px 0 15px 0;
+          text-align: left;
+
+          &:hover {
+            color: $color-primary;
+
+            &::after {
+              margin-left: 20px;
+            }
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: url("@/assets/img/others/ico_center_link.png");
+            margin-left: 10px;
+            margin-top: 5px;
+            transition: all 0.2s ease;
+          }
+        }
+
+        .banner-paragraph {
+          font-size: 18px;
+          color: #666;
+          text-align: left;
+          word-break: keep-all;
+          margin: 0;
+        }
       }
     }
   }
@@ -152,6 +202,10 @@
         display: inline-block !important;
         width: calc(100% / 3 - 30px) !important;
         margin: 10px !important;
+
+        &::before {
+          margin-left: 53% !important;
+        }
       }
 
       li:nth-child(3n) {
@@ -161,6 +215,11 @@
 
     .banner {
       display: block !important;
+
+      .box {
+        margin-bottom: 20px !important;
+        width: calc(100% - 40px) !important;
+      }
     }
   }
 
@@ -212,6 +271,10 @@
                 padding-top: 2px;
               }
             }
+          }
+
+          &::before {
+            display: none;
           }
         }
       }

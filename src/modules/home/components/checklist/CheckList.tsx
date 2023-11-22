@@ -15,7 +15,8 @@ export default function Checklist(): JSX.Element {
       <div className="inner" style={{ position: "relative" }}>
         <div className={styles.titleWrap}>
           <motion.div
-            initial={{ y: -50, opacity: 0 }}
+            viewport={{ once: true }}
+            initial={{ y: -50, opacity: 0.5 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6 }}
             className={styles.mainTitle}

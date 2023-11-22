@@ -24,7 +24,8 @@ export default function QuickList(): JSX.Element {
       <div className="inner">
         <div className={styles.titleWrap}>
           <motion.div
-            initial={{ y: -50, opacity: 0 }}
+            viewport={{ once: true }}
+            initial={{ y: -50, opacity: 0.5 }}
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6 }}
             className={styles.mainTitle}
@@ -42,7 +43,8 @@ export default function QuickList(): JSX.Element {
               (item, index) => (
                 <Col span={8} lg={4.8} key={index}>
                   <motion.div
-                    initial={{ x: -50, opacity: 0 }}
+                    viewport={{ once: true }}
+                    initial={{ x: -50, opacity: 0.5 }}
                     whileInView={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.3 + index * 0.1 }}
                     className={`${styles.cardItem} ${

@@ -3,7 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import AppLayout from "./modules/app/AppLayout";
 import ProtectedComponent from "./modules/app/ProtectComponent";
 import { ErrorBoundaryPage } from "./modules/error/boundary";
-import { HomePage } from "./modules/home";
+import Home from "./modules/home/Home";
 import { HOME_URL } from "./urls";
 
 export const router = createBrowserRouter([
@@ -20,7 +20,7 @@ export const router = createBrowserRouter([
         path: HOME_URL,
         element: (
           <ProtectedComponent
-            Element={HomePage}
+            Element={Home}
             title="Kiness Việt Nam"
             url={HOME_URL}
           />

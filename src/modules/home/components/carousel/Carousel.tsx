@@ -2,7 +2,6 @@
 import { Image } from "antd";
 import { useEffect, useState } from "react";
 import "swiper/css";
-import "swiper/css/effect-fade";
 import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -37,6 +36,7 @@ export default function Carousel(): JSX.Element {
       <Swiper
         modules={[Pagination, Autoplay]}
         loop
+        speed={700}
         style={{ width: "100%" }}
         pagination={
           window.innerWidth > 742
