@@ -1,13 +1,13 @@
-import small01 from "@/assets/img/carousel/big/m_visual01.png";
-import small02 from "@/assets/img/carousel/big/m_visual02.png";
-import small03 from "@/assets/img/carousel/big/m_visual03.png";
-import small04 from "@/assets/img/carousel/big/m_visual04.png";
-import small05 from "@/assets/img/carousel/big/m_visual05.png";
 import big01 from "@/assets/img/carousel/big/main_visual01.png";
 import big02 from "@/assets/img/carousel/big/main_visual02.png";
 import big03 from "@/assets/img/carousel/big/main_visual03.png";
 import big04 from "@/assets/img/carousel/big/main_visual04.png";
 import big05 from "@/assets/img/carousel/big/main_visual05.png";
+import small01 from "@/assets/img/carousel/small/m_visual01.png";
+import small02 from "@/assets/img/carousel/small/m_visual02.png";
+import small03 from "@/assets/img/carousel/small/m_visual03.png";
+import small04 from "@/assets/img/carousel/small/m_visual04.png";
+import small05 from "@/assets/img/carousel/small/m_visual05.png";
 
 export const dataCarousel = [
   {

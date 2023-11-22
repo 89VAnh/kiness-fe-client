@@ -20,6 +20,7 @@
         line-height: 80px;
         letter-spacing: -0.4pt;
         position: relative;
+        background: #fff;
 
         &.swiper-pagination-bullet-active::after {
           content: "";

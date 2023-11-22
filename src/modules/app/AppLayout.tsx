@@ -24,7 +24,11 @@ export default function AppLayout({ children }: Props): JSX.Element {
   return (
     <ProLayout
       location={location}
-      logo={<Image className="logo" preview={false} src={Logo} />}
+      logo={
+        <Link to={HOME_URL}>
+          <Image className="logo" preview={false} width={160} src={Logo} />
+        </Link>
+      }
       title={""}
       route={appRoute()}
       headerTitleRender={(_, __, ___) => (

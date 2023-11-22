@@ -1,7 +1,9 @@
 // Import Swiper styles
 import { Image } from "antd";
+import { useEffect, useState } from "react";
 import "swiper/css";
 import "swiper/css/effect-fade";
+import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { PaginationOptions } from "swiper/types";
@@ -10,26 +12,53 @@ import { dataCarousel } from "./data/data-fake";
 import styles from "./scss/carousel.module.scss";
 
 export default function Carousel(): JSX.Element {
+  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 641);
+
+  useEffect(() => {
+    const handleResize = (e: any) => {
+      const width = e.target.innerWidth;
+      setIsMobile(width < 641);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const pagination: PaginationOptions = {
     clickable: true,
     renderBullet: function (index, className) {
-      return `<span level={5} class="${className} bullet">${dataCarousel[index].title}</span>`;
+      return `<span level={5} class="${className} bullet" title="${dataCarousel[index].title}">${dataCarousel[index].title}</span>`;
     },
   };
 
   return (
-    <Swiper
-      modules={[Pagination, Autoplay]}
-      loop
-      style={{ width: "100%" }}
-      pagination={pagination}
-      className={styles.swiperContainer}
-    >
-      {dataCarousel.map((item) => (
-        <SwiperSlide style={{ background: "#fff" }}>
-          <Image preview={false} src={item.big_image} />
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <section>
+      <Swiper
+        modules={[Pagination, Autoplay]}
+        loop
+        style={{ width: "100%" }}
+        pagination={
+          window.innerWidth > 742
+            ? pagination
+            : {
+                dynamicBullets: true,
+              }
+        }
+        className={window.innerWidth > 742 ? styles.swiperContainer : ""}
+        autoplay={{
+          delay: 3000,
+        }}
+      >
+        {dataCarousel.map((item, index) => (
+          <SwiperSlide key={index} style={{ background: "#fff" }}>
+            <Image
+              preview={false}
+              src={isMobile ? item.small_image : item.big_image}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </section>
   );
 }

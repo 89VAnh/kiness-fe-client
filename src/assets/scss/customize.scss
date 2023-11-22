@@ -1,3 +1,5 @@
+@import "variables";
+
 // Header
 .ant-layout-header {
   height: 100px !important;
@@ -79,6 +81,8 @@
   padding-top: 0 !important;
   padding-left: 0 !important;
   padding-right: 0 !important;
+  background-color: #fff !important;
+  // overflow: hidden;
 }
 
 .ant-menu-submenu.ant-menu-submenu-popup {
@@ -100,4 +104,36 @@
       }
     }
   }
+}
+
+.btn-link {
+  display: block;
+  margin: 40px auto;
+  width: 260px;
+  height: 60px;
+  line-height: 60px;
+  color: $color-white;
+  background: $color-primary;
+  @include resp-text(22px, 18px);
+  text-align: center;
+  border-radius: 50px;
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: $color-white;
+  }
+}
+
+.btn-mint {
+  background: linear-gradient(
+    0deg,
+    rgba(2, 180, 168, 1) 0%,
+    rgba(11, 201, 189, 1) 100%
+  );
+  border: none;
+  box-shadow: 0 10px 20px rgba(11, 201, 189, 0.2);
+}
+
+.font-mint {
+  color: $color-primary;
 }

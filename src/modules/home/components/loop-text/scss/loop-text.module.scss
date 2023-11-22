@@ -1,0 +1,26 @@
+.loop-container {
+  display: flex;
+  white-space: nowrap;
+  overflow: hidden;
+  padding: 1em 0;
+  background: url("@/assets/img/others/loop_bn.png") repeat;
+  background-size: contain;
+
+  .loop-text {
+    animation: textLoop 30s linear infinite;
+    font-size: 1.3vw;
+    padding-right: 5em;
+    color: #26726e;
+  }
+}
+
+@keyframes textLoop {
+  0% {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translate3d(-100%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
+  }
+}
