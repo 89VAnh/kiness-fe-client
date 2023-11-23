@@ -1,6 +1,7 @@
 import { Space, Typography } from "antd";
+import { Link } from "react-router-dom";
 
-import { GREETING_URL, MAP_URL } from "@/urls";
+import { GREETING_URL, HOME_URL, MAP_URL } from "@/urls";
 
 import { info, socials } from "./data/data-fake";
 import styles from "./scss/footer.module.scss";
@@ -11,14 +12,12 @@ export default function Footer(): JSX.Element {
       <div className={styles.footerNav}>
         <div className="inner">
           <Space className={styles.listNav} wrap>
-            <Typography.Link href={GREETING_URL}>
-              Giới thiệu về Kiness
-            </Typography.Link>
-            <Typography.Link href={MAP_URL}>Mạng lưới Kiness</Typography.Link>
-            <Typography.Link>Chính sách bảo mật</Typography.Link>
-            <Typography.Link className="last">
+            <Link to={GREETING_URL}>Giới thiệu về Kiness</Link>
+            <Link to={MAP_URL}>Mạng lưới Kiness</Link>
+            <Link to={HOME_URL}>Chính sách bảo mật</Link>
+            <Link to={HOME_URL} className="last">
               Điều khoản sử dụng
-            </Typography.Link>
+            </Link>
           </Space>
         </div>
       </div>

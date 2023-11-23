@@ -22,117 +22,103 @@
   "nav": {
     "info": {
       "title": "Giới thiệu về Kiness",
-      "children": {
-        "history": {
-          "title": "Lịch sử Kiness",
-          "greeting": "Lời chào của CEO",
-          "history": "Lịch sử"
-        },
-        "organ": {
-          "title": "Mạng lưới Kiness",
-          "organ": "Sơ đồ tổ chức",
-          "map": "Tìm chi nhánh"
-        },
-        "researcher": {
-          "title": "Phòng thí nghiệm Kiness",
-          "researcher": "Các nhà nghiên cứu",
-          "thesis": "Bài nghiên cứu",
-          "patent": "Bằng sáng chế",
-          "book": "Sách xuất bản"
-        }
+      "history": {
+        "title": "Lịch sử Kiness",
+        "greetings": { "title": "Lời chào của CEO" },
+        "history": { "title": "Lịch sử" }
+      },
+      "branch": {
+        "title": "Mạng lưới Kiness",
+        "organ": { "title": "Sơ đồ tổ chức" },
+        "map": { "title": "Tìm chi nhánh" }
+      },
+      "lab": {
+        "title": "Phòng thí nghiệm Kiness",
+        "researcher": { "title": "Các nhà nghiên cứu" },
+        "thesis": { "title": "Bài nghiên cứu" },
+        "patent": { "title": "Bằng sáng chế" },
+        "book": { "title": "Sách xuất bản" }
       }
     },
     "advice": {
       "title": "Tư vấn đặt chỗ",
-      "children": {
-        "overhaul": {
-          "title": "Kiểm tra tăng trưởng"
-        },
-        "ex": {
-          "title": "Đặt lịch trải nghiệm/tư vấn 1 ngày"
-        },
-        "faq": {
-          "title": "Câu hỏi thường gặp"
-        },
-        "inquiry": {
-          "title": "Hỏi đáp tư vấn"
-        }
+      "overhaul": {
+        "title": "Kiểm tra tăng trưởng"
+      },
+      "ex": {
+        "title": "Đặt lịch trải nghiệm/tư vấn 1 ngày"
+      },
+      "faq": {
+        "title": "Câu hỏi thường gặp"
+      },
+      "inquiry": {
+        "title": "Hỏi đáp tư vấn"
       }
     },
     "program": {
       "title": "Chương trình Kiness",
-      "children": {
-        "question": {
-          "title": "Kiểm tra tăng trưởng chi tiết là gì ?"
-        },
-        "method": {
-          "title": "Phương pháp tăng trưởng Kiness"
-        },
-        "system": {
-          "title": "Hệ thống đảm bảo trách nhiệm tăng trường"
-        }
+      "question": {
+        "title": "Kiểm tra tăng trưởng chi tiết là gì ?"
+      },
+      "method": {
+        "title": "Phương pháp tăng trưởng Kiness"
+      },
+      "system": {
+        "title": "Hệ thống đảm bảo trách nhiệm tăng trường"
       }
     },
     "case": {
       "title": "Trường hợp tăng trưởng",
-      "children": {
-        "story": {
-          "title": "Câu chuyện tăng trưởng"
-        },
-        "posture": {
-          "title": "Trường hợp chỉnh sửa tư thế"
-        },
-        "old": {
-          "title": "Trường hợp trễ hạn"
-        },
-        "fat": {
-          "title": "Trường hợp béo phì"
-        }
+      "story": {
+        "title": "Câu chuyện tăng trưởng"
+      },
+      "posture": {
+        "title": "Trường hợp chỉnh sửa tư thế"
+      },
+      "old": {
+        "title": "Trường hợp trễ hạn"
+      },
+      "fat": {
+        "title": "Trường hợp béo phì"
       }
     },
     "info-growth": {
       "title": "Thông tin tăng trưởng",
-      "children": {
-        "height": {
-          "title": "Tăng trưởng chiều cao"
-        },
-        "standing": {
-          "title": "Tư thế đứng"
-        },
-        "period": {
-          "title": "Kỳ hạn / đáo hạn sớm"
-        },
-        "fat": {
-          "title": "Béo phì thời thơ ấu"
-        },
-        "column": {
-          "title": "Cột tăng trưởng"
-        }
+      "height": {
+        "title": "Tăng trưởng chiều cao"
+      },
+      "standing": {
+        "title": "Tư thế đứng"
+      },
+      "period": {
+        "title": "Kỳ hạn / đáo hạn sớm"
+      },
+      "fat": {
+        "title": "Béo phì thời thơ ấu"
+      },
+      "column": {
+        "title": "Cột tăng trưởng"
       }
     },
     "tv": {
       "title": "Phát tin",
-      "children": {
-        "local": {
-          "title": "Kiness TV"
-        },
-        "world": {
-          "title": "Kiness trên thế giới"
-        }
+      "local": {
+        "title": "Kiness TV"
+      },
+      "world": {
+        "title": "Kiness trên thế giới"
       }
     },
     "expected": {
       "title": "Chiều cao dự kiến",
-      "children": {
-        "gen": {
-          "title": "Chiều cao dự kiến do di truyền"
-        },
-        "current": {
-          "title": "Chiều cao hiện tại"
-        },
-        "chart": {
-          "title": "Biểu đồ tăng trưởng"
-        }
+      "gen": {
+        "title": "Chiều cao dự kiến do di truyền"
+      },
+      "current": {
+        "title": "Chiều cao hiện tại"
+      },
+      "chart": {
+        "title": "Biểu đồ tăng trưởng"
       }
     }
   },

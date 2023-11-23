@@ -1,5 +1,6 @@
 // $color-primary: #f53838;
 $color-primary: #0bc9bd;
+$color-water: #d8f2f0;
 $color-cultured: #f4f9f9;
 $color-blond: #fff1c2;
 $color-amber: #ffba53;
@@ -28,6 +29,28 @@ $color-white: #fff;
   }
   @media only screen and (max-width: 768px) {
     padding: $sm;
+  }
+}
+
+@mixin resp-margin($init: 0, $md: 0, $sm: 0) {
+  margin: $init;
+
+  @media only screen and (max-width: 992px) {
+    margin: $md;
+  }
+  @media only screen and (max-width: 768px) {
+    margin: $sm;
+  }
+}
+
+@mixin resp-display($init: block, $md: block, $sm: block) {
+  display: $init;
+
+  @media only screen and (max-width: 992px) {
+    display: $md;
+  }
+  @media only screen and (max-width: 768px) {
+    display: $sm;
   }
 }
 

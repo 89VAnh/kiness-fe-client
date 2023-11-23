@@ -1,10 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 
+import { OverhaulPage } from "./modules/advice";
 import AppLayout from "./modules/app/AppLayout";
 import ProtectedComponent from "./modules/app/ProtectComponent";
 import { ErrorBoundaryPage } from "./modules/error/boundary";
+import { GreetingPage } from "./modules/greetings";
 import Home from "./modules/home/Home";
-import { HOME_URL } from "./urls";
+import { ADVICE_OVERHAUL_URL, GREETING_URL, HOME_URL } from "./urls";
 
 export const router = createBrowserRouter([
   {
@@ -23,6 +25,28 @@ export const router = createBrowserRouter([
             Element={Home}
             title="Kiness Việt Nam"
             url={HOME_URL}
+          />
+        ),
+      },
+      {
+        path: GREETING_URL,
+        element: (
+          <ProtectedComponent
+            Element={GreetingPage}
+            title="Lời chào của CEO"
+            url={GREETING_URL}
+          />
+        ),
+      },
+
+      // advice
+      {
+        path: ADVICE_OVERHAUL_URL,
+        element: (
+          <ProtectedComponent
+            Element={OverhaulPage}
+            title="Kiểm tra tăng trưởng"
+            url={ADVICE_OVERHAUL_URL}
           />
         ),
       },

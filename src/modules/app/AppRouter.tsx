@@ -1,6 +1,6 @@
 import { ProLayoutProps } from "@ant-design/pro-components";
-import { Typography } from "antd";
 import { t } from "i18next";
+import { Link } from "react-router-dom";
 
 import {
   ADVICE_EX_URL,
@@ -51,9 +51,7 @@ const generateRoutes = (tree: any[] = []) => {
       key: tree[i].title,
       path: tree[i].url,
       title: tree[i].title,
-      name: (
-        <Typography.Link href={tree[i].url}>{tree[i].title}</Typography.Link>
-      ),
+      name: <Link to={tree[i].url}>{tree[i].title}</Link>,
       routes: generateRoutes(tree[i].children),
       sort: tree[i].sort_order,
     };
@@ -70,18 +68,18 @@ const functions = [
     url: GREETING_URL,
     children: [
       {
-        title: t("nav.info.children.history.title"),
+        title: t("nav.info.history.title"),
         url: GREETING_URL,
         children: [
           {
-            title: t("nav.info.children.history.greeting"),
+            title: t("nav.info.history.greetings.title"),
             url: GREETING_URL,
             children: [],
             sort_order: 0,
             is_leaf: true,
           },
           {
-            title: t("nav.info.children.history.history"),
+            title: t("nav.info.history.history.title"),
             url: HISTORY_URL,
             children: [],
             sort_order: 1,
@@ -92,18 +90,18 @@ const functions = [
         is_leaf: false,
       },
       {
-        title: t("nav.info.children.organ.title"),
+        title: t("nav.info.branch.title"),
         url: ORGAN_URL,
         children: [
           {
-            title: t("nav.info.children.organ.organ"),
+            title: t("nav.info.branch.organ.title"),
             url: ORGAN_URL,
             children: [],
             sort_order: 0,
             is_leaf: true,
           },
           {
-            title: t("nav.info.children.organ.map"),
+            title: t("nav.info.branch.map.title"),
             url: MAP_URL,
             children: [],
             sort_order: 1,
@@ -114,32 +112,32 @@ const functions = [
         is_leaf: false,
       },
       {
-        title: t("nav.info.children.researcher.title"),
+        title: t("nav.info.lab.title"),
         url: RESEARCHER_URL,
         children: [
           {
-            title: t("nav.info.children.researcher.researcher"),
+            title: t("nav.info.lab.researcher.title"),
             url: RESEARCHER_URL,
             children: [],
             sort_order: 0,
             is_leaf: true,
           },
           {
-            title: t("nav.info.children.researcher.thesis"),
+            title: t("nav.info.lab.thesis.title"),
             url: THESIS_URL,
             children: [],
             sort_order: 1,
             is_leaf: true,
           },
           {
-            title: t("nav.info.children.researcher.patent"),
+            title: t("nav.info.lab.patent.title"),
             url: PATENT_URL,
             children: [],
             sort_order: 2,
             is_leaf: true,
           },
           {
-            title: t("nav.info.children.researcher.book"),
+            title: t("nav.info.lab.book.title"),
             url: BOOK_URL,
             children: [],
             sort_order: 3,
@@ -158,28 +156,28 @@ const functions = [
     url: ADVICE_OVERHAUL_URL,
     children: [
       {
-        title: t("nav.advice.children.overhaul.title"),
+        title: t("nav.advice.overhaul.title"),
         url: ADVICE_OVERHAUL_URL,
         children: [],
         sort_order: 0,
         is_leaf: true,
       },
       {
-        title: t("nav.advice.children.ex.title"),
+        title: t("nav.advice.ex.title"),
         url: ADVICE_EX_URL,
         children: [],
         sort_order: 1,
         is_leaf: true,
       },
       {
-        title: t("nav.advice.children.faq.title"),
+        title: t("nav.advice.faq.title"),
         url: ADVICE_FAQ_URL,
         children: [],
         sort_order: 2,
         is_leaf: true,
       },
       {
-        title: t("nav.advice.children.inquiry.title"),
+        title: t("nav.advice.inquiry.title"),
         url: ADVICE_INQUIRY_URL,
         children: [],
         sort_order: 3,
@@ -194,21 +192,21 @@ const functions = [
     url: PROGRAM_QUESTION_URL,
     children: [
       {
-        title: t("nav.program.children.question.title"),
+        title: t("nav.program.question.title"),
         url: PROGRAM_QUESTION_URL,
         children: [],
         sort_order: 0,
         is_leaf: true,
       },
       {
-        title: t("nav.program.children.method.title"),
+        title: t("nav.program.method.title"),
         url: PROGRAM_METHOD_URL,
         children: [],
         sort_order: 1,
         is_leaf: true,
       },
       {
-        title: t("nav.program.children.system.title"),
+        title: t("nav.program.system.title"),
         url: PROGRAM_SYSTEM_URL,
         children: [],
         sort_order: 2,
@@ -223,28 +221,28 @@ const functions = [
     url: CASE_STORY_URL,
     children: [
       {
-        title: t("nav.case.children.story.title"),
+        title: t("nav.case.story.title"),
         url: CASE_STORY_URL,
         children: [],
         sort_order: 0,
         is_leaf: true,
       },
       {
-        title: t("nav.case.children.posture.title"),
+        title: t("nav.case.posture.title"),
         url: CASE_POSTURE_URL,
         children: [],
         sort_order: 1,
         is_leaf: true,
       },
       {
-        title: t("nav.case.children.old.title"),
+        title: t("nav.case.old.title"),
         url: CASE_OLD_URL,
         children: [],
         sort_order: 2,
         is_leaf: true,
       },
       {
-        title: t("nav.case.children.fat.title"),
+        title: t("nav.case.fat.title"),
         url: CASE_FAT_URL,
         children: [],
         sort_order: 3,
@@ -259,35 +257,35 @@ const functions = [
     url: INFO_GROWTH_HEIGHT_URL,
     children: [
       {
-        title: t("nav.info-growth.children.height.title"),
+        title: t("nav.info-growth.height.title"),
         url: INFO_GROWTH_HEIGHT_URL,
         children: [],
         sort_order: 0,
         is_leaf: true,
       },
       {
-        title: t("nav.info-growth.children.standing.title"),
+        title: t("nav.info-growth.standing.title"),
         url: INFO_GROWTH_STANDING_URL,
         children: [],
         sort_order: 1,
         is_leaf: true,
       },
       {
-        title: t("nav.info-growth.children.period.title"),
+        title: t("nav.info-growth.period.title"),
         url: INFO_GROWTH_PERIOD_URL,
         children: [],
         sort_order: 2,
         is_leaf: true,
       },
       {
-        title: t("nav.info-growth.children.fat.title"),
+        title: t("nav.info-growth.fat.title"),
         url: INFO_GROWTH_FAT_URL,
         children: [],
         sort_order: 3,
         is_leaf: true,
       },
       {
-        title: t("nav.info-growth.children.column.title"),
+        title: t("nav.info-growth.column.title"),
         url: INFO_GROWTH_COLUMN_URL,
         children: [],
         sort_order: 4,
@@ -302,14 +300,14 @@ const functions = [
     url: TV_LOCAL_URL,
     children: [
       {
-        title: t("nav.tv.children.local.title"),
+        title: t("nav.tv.local.title"),
         url: TV_LOCAL_URL,
         children: [],
         sort_order: 0,
         is_leaf: true,
       },
       {
-        title: t("nav.tv.children.world.title"),
+        title: t("nav.tv.world.title"),
         url: TV_WORLD_URL,
         children: [],
         sort_order: 1,
@@ -324,21 +322,21 @@ const functions = [
     url: EXPECTED_GEN_URL,
     children: [
       {
-        title: t("nav.expected.children.gen.title"),
+        title: t("nav.expected.gen.title"),
         url: EXPECTED_GEN_URL,
         children: [],
         sort_order: 0,
         is_leaf: true,
       },
       {
-        title: t("nav.expected.children.current.title"),
+        title: t("nav.expected.current.title"),
         url: EXPECTED_CURRENT_URL,
         children: [],
         sort_order: 1,
         is_leaf: true,
       },
       {
-        title: t("nav.expected.children.chart.title"),
+        title: t("nav.expected.chart.title"),
         url: EXPECTED_CHART_URL,
         children: [],
         sort_order: 2,

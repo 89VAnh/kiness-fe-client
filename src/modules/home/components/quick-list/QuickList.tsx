@@ -1,6 +1,7 @@
 import { Card, Col, Row, Typography } from "antd";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 import { dataQuick } from "./data/data-fake";
 import styles from "./scss/quick-list.module.scss";
@@ -65,10 +66,7 @@ export default function QuickList(): JSX.Element {
                         : ""
                     }`}
                   >
-                    <Typography.Link
-                      className={styles.linkWrap}
-                      href={item.link}
-                    >
+                    <Link className={styles.linkWrap} to={item.link}>
                       <div className={styles.box}>
                         <p
                           className={
@@ -79,7 +77,7 @@ export default function QuickList(): JSX.Element {
                         ></p>
                         {item.title}
                       </div>
-                    </Typography.Link>
+                    </Link>
                   </motion.div>
                 </Col>
               ),

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import hotImg from "@/assets/img/others/main_ico_hot.png";
 import newImg from "@/assets/img/others/main_ico_new.png";
-import { TV_LOCAL_URL } from "@/urls";
+import { TV_LOCAL_URL, TV_WORLD_URL } from "@/urls";
 
 import styles from "./scss/movie.module.scss";
 
@@ -62,7 +62,7 @@ export default function Movie(): JSX.Element {
             ></iframe>
           </div>
           <div className={styles.textBox}>
-            <Typography.Link>
+            <Link to={TV_WORLD_URL}>
               <div>
                 <Typography.Title
                   level={4}
@@ -76,7 +76,7 @@ export default function Movie(): JSX.Element {
                   tình trạng chậm trưởng thành và béo phì!
                 </p>
               </div>
-            </Typography.Link>
+            </Link>
           </div>
         </div>
         <div className={styles.movieRight}>
@@ -102,12 +102,12 @@ export default function Movie(): JSX.Element {
             >
               {[...Array(10)].map((_, index) => (
                 <li key={index}>
-                  <Typography.Link>
+                  <Link to={TV_WORLD_URL}>
                     <div className={styles.slideImg}></div>
                     <div className={styles.slideText}>
                       <p>Kines trên thế giới - CNN Broadcast</p>
                     </div>
-                  </Typography.Link>
+                  </Link>
                 </li>
               ))}
             </Carousel>

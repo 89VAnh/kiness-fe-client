@@ -135,3 +135,12 @@
 .font-mint {
   color: $color-primary;
 }
+
+.inner-text {
+  @include resp-text(18px, 18px, 16px);
+  line-height: 1.75;
+  letter-spacing: -0.02em;
+  color: #666;
+  font-weight: normal;
+  word-break: keep-all;
+}

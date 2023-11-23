@@ -2,17 +2,20 @@ const HOME_URL = "/";
 
 // Info
 const INFO_URL = "/info";
-const GREETING_URL = `${INFO_URL}/greetings`;
-const HISTORY_URL = `${INFO_URL}/history`;
-const ORGAN_URL = `${INFO_URL}/organ`;
-const MAP_URL = `${INFO_URL}/map`;
-const RESEARCHER_URL = `${INFO_URL}/researcher`;
-const THESIS_URL = `${INFO_URL}/thesis`;
-const PATENT_URL = `${INFO_URL}/patent`;
-const BOOK_URL = `${INFO_URL}/book`;
+const INFO_HISTORY_URL = `${INFO_URL}/history`;
+const INFO_BRANCH_URL = `${INFO_URL}/branch`;
+const INFO_LAB_URL = `${INFO_URL}/lab`;
+const GREETING_URL = `${INFO_HISTORY_URL}/greetings`;
+const HISTORY_URL = `${INFO_HISTORY_URL}/history`;
+const ORGAN_URL = `${INFO_BRANCH_URL}/organ`;
+const MAP_URL = `${INFO_BRANCH_URL}/map`;
+const RESEARCHER_URL = `${INFO_LAB_URL}/researcher`;
+const THESIS_URL = `${INFO_LAB_URL}/thesis`;
+const PATENT_URL = `${INFO_LAB_URL}/patent`;
+const BOOK_URL = `${INFO_LAB_URL}/book`;
 
 // advise
-const ADVICE_URL = "/advise";
+const ADVICE_URL = "/advice";
 const ADVICE_OVERHAUL_URL = `${ADVICE_URL}/overhaul`;
 const ADVICE_EX_URL = `${ADVICE_URL}/ex`;
 const ADVICE_FAQ_URL = `${ADVICE_URL}/faq`;
@@ -57,6 +60,9 @@ const breadcrumbNameMap: Record<string, string> = {
 export {
   HOME_URL,
   INFO_URL,
+  INFO_HISTORY_URL,
+  INFO_BRANCH_URL,
+  INFO_LAB_URL,
   GREETING_URL,
   HISTORY_URL,
   ORGAN_URL,

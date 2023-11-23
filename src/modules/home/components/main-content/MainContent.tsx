@@ -1,5 +1,6 @@
 import { Image, Typography } from "antd";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 import topBg from "@/assets/img/others/main_k_bg_top.png";
 
@@ -87,13 +88,13 @@ export default function MainContent(): JSX.Element {
                 transition={{ duration: 0.3 }}
                 className={styles.box}
               >
-                <Typography.Link href={item.link}>
+                <Link to={item.link}>
                   <Image preview={false} src={item.img} />
                   <Typography.Title level={4}>{item.title}</Typography.Title>
                   <Typography.Paragraph className={styles.bannerParagraph}>
                     {item.content}{" "}
                   </Typography.Paragraph>
-                </Typography.Link>
+                </Link>
               </motion.div>
             ))}
           </div>

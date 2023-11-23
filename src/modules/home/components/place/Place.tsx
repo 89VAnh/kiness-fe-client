@@ -1,5 +1,8 @@
 import { List, Space, Typography } from "antd";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+
+import { MAP_URL } from "@/urls";
 
 import styles from "./scss/place.module.scss";
 
@@ -33,11 +36,11 @@ export default function Place(): JSX.Element {
                 </Typography.Title>
 
                 <Space align="center" wrap>
-                  <Typography.Link>Chi nhánh Thanh Xuân</Typography.Link>
-                  <Typography.Link>Chi nhánh Thanh Xuân</Typography.Link>
-                  <Typography.Link className="last">
+                  <Link to={MAP_URL}>Chi nhánh Thanh Xuân</Link>
+                  <Link to={MAP_URL}>Chi nhánh Thanh Xuân</Link>
+                  <Link to={MAP_URL} className="last">
                     Chi nhánh Thanh Xuân
-                  </Typography.Link>
+                  </Link>
                 </Space>
               </Space>
             </List.Item>
