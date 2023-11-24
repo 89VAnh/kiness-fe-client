@@ -1,0 +1,89 @@
+@import "@/assets/scss/variables";
+
+.place {
+  padding: 70px 0;
+  position: relative;
+  z-index: 1;
+  // overflow: hidden;
+
+  .title-wrap {
+    padding-bottom: 40px;
+
+    .main-title {
+      @include resp-text(45px, 30px, 28px);
+      text-align: center;
+
+      .title {
+        @include resp-text(45px, 30px, 28px);
+      }
+
+      p,
+      div {
+        @include resp-text(22px, 18px, 18px);
+        text-align: center;
+        padding-top: 10px;
+      }
+    }
+  }
+
+  .list-place {
+    .list-title {
+      margin: 0 16px 0 0;
+      position: relative;
+      white-space: nowrap;
+      height: 100%;
+      line-height: 2;
+      @include resp-text(18px, 16px, 16px);
+
+      &::after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        bottom: 5px;
+        height: 15px;
+        z-index: -1;
+        background-color: $color-pale-lavender;
+        border-radius: 20px;
+      }
+    }
+
+    .list-item {
+      a {
+        color: $color-black;
+        @include resp-text(18px, 14px, 14px);
+        display: inline-block;
+        padding: 0 16px 0 0;
+        white-space: nowrap;
+
+        &:hover {
+          color: $color-primary;
+        }
+      }
+    }
+
+    :global {
+      a:not(.last) {
+        border-right: 1px solid $color-gray;
+      }
+
+      .ant-list-item {
+        border: none;
+        flex-wrap: wrap;
+      }
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    background: url("@/assets/img/others/place_bg.png") center top no-repeat;
+    background-size: cover;
+    padding: 70px 0;
+    z-index: -2;
+    width: 100%;
+    height: 100%;
+    top: 0;
+  }
+}

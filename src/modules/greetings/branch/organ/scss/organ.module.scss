@@ -1,0 +1,11 @@
+@import "@/assets/scss/variables";
+
+.content-wrap {
+  width: 100%;
+  @include resp-padding(70px 0 0, 70px 0 0, 40px 0 0);
+
+  .box {
+    @include resp-height(800px, 600px, 300px);
+    margin-bottom: 40px;
+  }
+}

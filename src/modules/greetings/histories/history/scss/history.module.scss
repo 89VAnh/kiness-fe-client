@@ -1,0 +1,102 @@
+@import "@/assets/scss/variables";
+
+.content-wrap {
+  width: 100%;
+  @include resp-padding(70px 0 0, 70px 0 0, 40px 0 0);
+
+  .timeline {
+    .left {
+      @include resp-padding(0 60px 0 0);
+
+      .timeline-label-text {
+        text-align: right;
+      }
+    }
+
+    .right {
+      @include resp-padding(0 0 0 60px);
+
+      .timeline-label-text {
+        text-align: left;
+      }
+    }
+
+    .timeline-label {
+      margin-bottom: 0.5em;
+      text-align: right;
+      position: relative;
+
+      &-text {
+        color: $color-primary;
+        margin: 0;
+        @include resp-text(54px, 30px, 30px);
+      }
+    }
+
+    .timeline-content {
+      margin-bottom: 50px;
+
+      .title-year {
+        @include resp-text(18px, 18px, 18px);
+        font-weight: 700;
+        width: 70px;
+        display: block;
+      }
+    }
+
+    .timeline-dot {
+      width: 20px;
+      height: 20px;
+      border: 5px solid $color-primary;
+      border-radius: 100%;
+      z-index: 99;
+    }
+
+    .list-sub {
+      // margin-left: 24px;
+      padding: 0;
+      list-style: none;
+
+      li {
+        padding-bottom: 2px;
+        @include resp-text(18px, 18px, 16px);
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          height: 8px;
+          width: 8px;
+          border-radius: 50%;
+          background-color: $color-primary;
+          top: 13px;
+        }
+
+        &.even {
+          &::before {
+            left: -15px;
+          }
+        }
+
+        &.odd {
+          &::before {
+            right: -15px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  :global {
+    .ant-space {
+      flex-direction: column !important;
+      gap: 0;
+    }
+
+    .ant-timeline-item-tail {
+      border-inline-start: 2px solid $color-water !important;
+    }
+  }
+}

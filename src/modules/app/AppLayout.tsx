@@ -1,15 +1,12 @@
 import { ProLayout, ProLayoutProps } from "@ant-design/pro-components";
 import { Image } from "antd";
-import { useTranslation } from "react-i18next";
 import { Link, Outlet, useLocation } from "react-router-dom";
 
 import Logo from "@/assets/img/logo/logo.png";
 import "@/assets/scss/index.scss";
 import { HOME_URL } from "@/urls";
 
-import FloatButtons from "../shared/float-button/FloatButton";
 import Footer from "../shared/footer/Footer";
-import Header from "../shared/header/Header";
 import { appRoute } from "./AppRouter";
 
 interface Props {
@@ -23,27 +20,29 @@ const settings: ProLayoutProps = {
   splitMenus: true,
 };
 export default function AppLayout({ children }: Props): JSX.Element {
-  const { t } = useTranslation();
   const location = useLocation();
 
   return (
     <ProLayout
       location={location}
-      logo={<Image className="logo" preview={false} width={199} src={Logo} />}
+      logo={
+        <Link to={HOME_URL}>
+          <Image className="logo" preview={false} width={160} src={Logo} />
+        </Link>
+      }
       title={""}
-      route={appRoute(t)}
+      route={appRoute()}
       headerTitleRender={(_, __, ___) => (
         <Link to={HOME_URL}>
-          <Image className="logo" preview={false} width={199} src={Logo} />
+          <Image className="logo" preview={false} src={Logo} />
         </Link>
       )}
-      headerRender={(_, context) => <Header context={context} />}
-      footerRender={() => <Footer />}
       {...settings}
     >
       <Outlet />
       {children}
-      <FloatButtons />
+
+      <Footer />
     </ProLayout>
   );
 }

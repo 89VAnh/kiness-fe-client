@@ -1,0 +1,268 @@
+@import "@/assets/scss/variables";
+
+.movie-container {
+  position: relative;
+  overflow: hidden;
+  margin-top: 40px;
+
+  .title-wrap {
+    padding-bottom: 40px;
+
+    .main-title {
+      @include resp-text(45px, 30px, 28px);
+      text-align: center;
+
+      .title {
+        @include resp-text(45px, 30px, 28px);
+      }
+
+      p,
+      div {
+        @include resp-text(22px, 18px, 18px);
+        text-align: center;
+        padding-top: 10px;
+      }
+    }
+  }
+
+  .movie {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    width: 100%;
+    margin-top: 10px;
+    position: relative;
+
+    &-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+
+      span {
+        @include resp-text(20px, 18px, 18px);
+      }
+    }
+
+    &-left {
+      width: 50%;
+      margin-right: 30px;
+      overflow: hidden;
+
+      div {
+        vertical-align: top;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .movie-box {
+        position: relative;
+        padding-bottom: 56.25%;
+        border-radius: 10px 10px 0 0;
+        overflow: hidden;
+
+        iframe {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      .text-box {
+        background: $color-primary;
+        display: block;
+        border-radius: 0 0 10px 10px;
+        margin-top: -1px;
+
+        a {
+          color: #353535;
+          text-decoration: none;
+
+          > div {
+            width: 94%;
+            padding: 27px;
+
+            h4 {
+              display: block;
+              @include resp-text(24px, 18px, 18px);
+              line-height: 34px;
+              color: $color-white;
+              font-weight: 500;
+              letter-spacing: -0.05em;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+              overflow: hidden;
+            }
+
+            p {
+              margin-top: 10px;
+              max-height: 70px;
+              @include resp-text(18px, 14px, 14px);
+              line-height: 24px;
+              color: $color-white;
+              letter-spacing: -0.05em;
+              white-space: normal;
+              word-wrap: break-word;
+              display: -webkit-box;
+              -webkit-line-clamp: 2;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+              word-break: keep-all;
+            }
+          }
+        }
+      }
+    }
+
+    &-right {
+      width: 50%;
+
+      .slide {
+        background-color: #f4f9f9;
+        padding: 20px 10px;
+        border-radius: 10px;
+
+        a {
+          display: table;
+          width: 100%;
+          table-layout: fixed;
+          font-size: 0;
+          background: $color-white;
+          padding: 10px;
+          -webkit-transition: all 0.4s;
+          -moz-transition: all 0.4s;
+          transition: all 0.4s;
+          border-radius: 10px;
+          border: 1px solid transparent;
+
+          > div {
+            display: table-cell;
+            vertical-align: middle;
+            box-sizing: border-box;
+            background: #fff;
+          }
+
+          .slide-img {
+            background-image: url("@/assets/img/tv/0.jpg");
+            width: 40%;
+            position: relative;
+            padding-bottom: 20%;
+            background-size: cover !important;
+            border: 1px solid #ddd;
+          }
+
+          .slide-text {
+            padding: 0 3.5%;
+            text-align: left;
+
+            p {
+              padding-left: 10px;
+              position: relative;
+              padding-left: 20px;
+              @include resp-text(18px, 14px, 14px);
+              line-height: 24px;
+              color: #333;
+              letter-spacing: -0.05em;
+              white-space: normal;
+              word-wrap: break-word;
+              display: -webkit-box;
+              -webkit-line-clamp: 2;
+              -webkit-box-orient: vertical;
+              overflow: hidden;
+              word-break: keep-all;
+              margin: 0;
+            }
+          }
+        }
+      }
+
+      :global {
+        .slick-list {
+          margin: -10px 0;
+
+          .slick-slide {
+            padding: 5px 10px;
+          }
+        }
+
+        .slick-arrow {
+          position: absolute;
+          left: 50%;
+          margin-left: -30px;
+          width: 60px;
+          height: 60px;
+          text-indent: -9999px;
+          outline: none;
+          border-radius: 50px;
+          -webkit-transition: all 0.3s;
+          -moz-transition: all 0.3s;
+          transition: all 0.3s;
+          box-shadow: 0 3px 6px 0 rgba(173, 176, 193, 0.5);
+          border: 1px solid #eee;
+
+          &.slick-prev {
+            top: -25px;
+            background: url("@/assets/img/others/main_tv_ar.png") no-repeat
+              center;
+            z-index: 99;
+            background-position: contain;
+          }
+
+          &.slick-next {
+            top: 95%;
+            background: url("@/assets/img/others/main_tv_ar2.png") no-repeat
+              center;
+            z-index: 99;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .movie {
+    display: block !important;
+    padding: 0 20px !important;
+
+    &-left {
+      width: 100% !important;
+      margin-bottom: 60px;
+
+      h4 {
+        padding-top: 10px;
+      }
+
+      .text-box p {
+        margin: 0 0 10px 0;
+        line-height: 20px;
+      }
+    }
+
+    &-right {
+      width: 100% !important;
+      margin-bottom: 60px;
+    }
+  }
+
+  :global {
+    .slick-arrow {
+      height: 40px !important;
+      width: 40px !important;
+
+      &.slick-prev {
+        top: -15px !important;
+      }
+
+      &.slick-next {
+        top: 97% !important;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+}

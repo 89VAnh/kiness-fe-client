@@ -1,0 +1,140 @@
+@import "@/assets/scss/variables";
+
+.main-quick {
+  width: 100%;
+  padding: 0;
+  position: relative;
+  padding: 80px 0;
+  z-index: 2;
+  background: $color-cultured;
+  margin-bottom: 80px;
+
+  .title-wrap {
+    padding-bottom: 40px;
+
+    .main-title {
+      @include resp-text(45px, 30px, 28px);
+      text-align: center;
+
+      .title {
+        @include resp-text(45px, 30px, 28px);
+      }
+
+      .title-mint {
+        color: $color-primary;
+      }
+    }
+  }
+
+  .card {
+    .card-item {
+      position: relative;
+
+      &.border-left::before {
+        content: "";
+        width: 1px;
+        height: 80%;
+        background: #eee;
+        position: absolute;
+        right: 0;
+        top: 10%;
+      }
+
+      &.border-top::after {
+        content: "";
+        width: 100%;
+        height: 1px;
+        background: #eee;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+
+      .link-wrap {
+        display: block;
+        text-align: center;
+        word-break: keep-all;
+        padding: 10px 0 10px 0;
+        color: $color-black;
+        transition: 0.001s !important;
+
+        .box {
+          transition: 0.3s;
+          margin: 10% 0;
+          @include resp-text(20px);
+          .link-icon {
+            width: 90px;
+            height: 80px;
+            margin: 10px auto 20px auto;
+            transition: all 0.3s ease;
+            &-1 {
+              background: url("@/assets/img/quick/ico_fv1.png") center center
+                no-repeat;
+              background-size: contain;
+            }
+            &-2 {
+              background: url("@/assets/img/quick/ico_fv2.png") center center
+                no-repeat;
+              background-size: contain;
+            }
+            &-3 {
+              background: url("@/assets/img/quick/ico_fv3.png") center center
+                no-repeat;
+              background-size: contain;
+            }
+            &-4 {
+              background: url("@/assets/img/quick/ico_fv4.png") center center
+                no-repeat;
+              background-size: contain;
+            }
+            &-5 {
+              background: url("@/assets/img/quick/ico_fv5.png") center center
+                no-repeat;
+              background-size: contain;
+            }
+            &-6 {
+              background: url("@/assets/img/quick/ico_fv6.png") center center
+                no-repeat;
+              background-size: contain;
+            }
+            &-7 {
+              background: url("@/assets/img/quick/ico_fv7.png") center center
+                no-repeat;
+              background-size: contain;
+            }
+            &-8 {
+              background: url("@/assets/img/quick/ico_fv8.png") center center
+                no-repeat;
+              background-size: contain;
+            }
+            &-9 {
+              background: url("@/assets/img/quick/ico_fv9.png") center center
+                no-repeat;
+              background-size: contain;
+            }
+            &-10 {
+              background: url("@/assets/img/quick/ico_fv10.png") center center
+                no-repeat;
+              background-size: contain;
+            }
+          }
+
+          @media screen and (max-width: 992px) {
+            .link-icon {
+              width: 70px;
+              height: 70px;
+            }
+          }
+        }
+
+        &:hover {
+          color: $color-primary;
+
+          .link-icon {
+            transform: scaleX(-1);
+          }
+        }
+      }
+    }
+  }
+}

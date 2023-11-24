@@ -1,7 +1,7 @@
 import axios from "axios";
 
-import { BASE_URL, LOCAL_USER } from "@/constant/config";
-import storage, { storageService } from "@/utils/storage";
+import { BASE_URL } from "@/constant/config";
+import storage from "@/utils/storage";
 
 export const apiClient = axios.create({
   baseURL: BASE_URL,
@@ -30,10 +30,6 @@ apiClient.interceptors.response.use(
     // Drunk code here. Will fix after has refresh token api 👀
     if (error?.response?.status === 401) {
       storage.clearToken();
-      storageService.clearStorage(LOCAL_USER);
-      console.clear();
-      // if (error.response?.data?.message !== "Sai mật tài khoản hoặc mật khẩu")
-      //   window.open("/login", "_parent");
     }
     return Promise.reject(error);
   },

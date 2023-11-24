@@ -12,23 +12,28 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@ant-design/graphs": "^1.4.0",
     "@ant-design/icons": "^5.2.6",
     "@ant-design/pro-components": "^2.6.28",
     "antd": "^5.9.4",
     "axios": "^1.5.1",
     "dayjs": "^1.11.10",
+    "framer-motion": "^10.16.5",
     "i18next": "^23.5.1",
     "i18next-browser-languagedetector": "^7.1.0",
+    "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-i18next": "^13.2.2",
     "react-query": "^3.39.3",
     "react-router-dom": "^6.16.0",
-    "recoil": "^0.7.7"
+    "recoil": "^0.7.7",
+    "swiper": "^11.0.4"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.2.0",
+    "@types/lodash": "^4.14.202",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@types/react-helmet": "^6.1.9",

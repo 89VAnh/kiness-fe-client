@@ -20,60 +20,105 @@
     "register_failure": "Đăng ký thất bại"
   },
   "nav": {
-    "about": {
-      "title": "Giới thiệu",
-      "children": {
-        "intro": "Giới thiệu",
-        "news": "Tin tức",
-        "mission": "Kiness Việt Nam",
-        "3": "Blog thành viên",
-        "4": "Câu chuyện tăng trưởng"
+    "info": {
+      "title": "Giới thiệu về Kiness",
+      "history": {
+        "title": "Lịch sử Kiness",
+        "greetings": { "title": "Lời chào của CEO" },
+        "history": { "title": "Lịch sử" }
+      },
+      "branch": {
+        "title": "Mạng lưới Kiness",
+        "organ": { "title": "Sơ đồ tổ chức" },
+        "map": { "title": "Tìm chi nhánh" }
+      },
+      "lab": {
+        "title": "Phòng thí nghiệm Kiness",
+        "researcher": { "title": "Các nhà nghiên cứu" },
+        "thesis": { "title": "Bài nghiên cứu" },
+        "patent": { "title": "Bằng sáng chế" },
+        "book": { "title": "Sách xuất bản" }
       }
     },
-    "training": {
-      "title": "Chương trình huấn luyện",
-      "children": {
-        "growth-method": "Phương pháp tăng trưởng",
-        "support-equip": "Thiết bị hỗ trợ",
-        "training-program": "Chương trình tập luyện",
-        "fee": "Chi phí",
-        "quality": "Đảm bảo chất lượng"
+    "advice": {
+      "title": "Tư vấn đặt chỗ",
+      "overhaul": {
+        "title": "Kiểm tra tăng trưởng"
+      },
+      "ex": {
+        "title": "Đặt lịch trải nghiệm/tư vấn 1 ngày"
+      },
+      "faq": {
+        "title": "Câu hỏi thường gặp"
+      },
+      "inquiry": {
+        "title": "Hỏi đáp tư vấn"
       }
     },
-    "wiki": {
-      "title": "Bách khoa tăng trưởng về chiều cao",
-      "children": {
-        "stages-of-growth": "Các giai đoạn phát triển",
-        "benefit-growth": "Lợi ích tăng trưởng chiều cao",
-        "hormone": "Hóc môn tăng trưởng",
-        "reasons-growth": "Các yếu tố giúp tăng trưởng chiều cao thành công",
-        "point-growth": "Điểm tăng trưởng chiều cao",
-        "range-growth": "Tấm tăng trưởng",
-        "info-growth": "38 thông tin chính để tăng trưởng chiều cao",
-        "exam-growth": "Bài kiểm tra độ chính xác tăng trưởng Kines"
+    "program": {
+      "title": "Chương trình Kiness",
+      "question": {
+        "title": "Kiểm tra tăng trưởng chi tiết là gì ?"
+      },
+      "method": {
+        "title": "Phương pháp tăng trưởng Kiness"
+      },
+      "system": {
+        "title": "Hệ thống đảm bảo trách nhiệm tăng trường"
       }
     },
-    "test": {
-      "title": "Kiểm tra tăng trưởng",
-      "children": {
-        "growth-forecast": "Dự đoán tăng trưởng",
-        "schedule-train": "Lên lịch tập luyện",
-        "advise": "Tư vấn tăng trưởng"
+    "case": {
+      "title": "Trường hợp tăng trưởng",
+      "story": {
+        "title": "Câu chuyện tăng trưởng"
+      },
+      "posture": {
+        "title": "Trường hợp chỉnh sửa tư thế"
+      },
+      "old": {
+        "title": "Trường hợp trễ hạn"
+      },
+      "fat": {
+        "title": "Trường hợp béo phì"
       }
     },
-    "user": {
-      "children": {
-        "login": "Đăng nhập",
-        "register": "Đăng ký thành viên",
-        "privacy-policy": "Chính sách bảo mật",
-        "terms-use": "Điều khoản sử dụng"
+    "info-growth": {
+      "title": "Thông tin tăng trưởng",
+      "height": {
+        "title": "Tăng trưởng chiều cao"
+      },
+      "standing": {
+        "title": "Tư thế đứng"
+      },
+      "period": {
+        "title": "Kỳ hạn / đáo hạn sớm"
+      },
+      "fat": {
+        "title": "Béo phì thời thơ ấu"
+      },
+      "column": {
+        "title": "Cột tăng trưởng"
       }
     },
-    "branch": {
-      "children": {
-        "branch": "Chi nhánh",
-        "register-for-the-test": "Đăng ký kiểm tra",
-        "register-to-experience": "Đăng ký trải nghiệm"
+    "tv": {
+      "title": "Phát tin",
+      "local": {
+        "title": "Kiness TV"
+      },
+      "world": {
+        "title": "Kiness trên thế giới"
+      }
+    },
+    "expected": {
+      "title": "Chiều cao dự kiến",
+      "gen": {
+        "title": "Chiều cao dự kiến do di truyền"
+      },
+      "current": {
+        "title": "Chiều cao hiện tại"
+      },
+      "chart": {
+        "title": "Biểu đồ tăng trưởng"
       }
     }
   },
