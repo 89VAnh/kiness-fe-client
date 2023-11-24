@@ -1,39 +1,67 @@
 // $color-primary: #f53838;
-$color-primary: #2c53a5;
-$color-blue: #23469a;
-$color-sky: #2bb8e1;
-$color-pink: #fa7a7a;
-$color-amber: #f49c0c;
-$color-black: #0b132a;
-$color-coffee: #595959;
+$color-primary: #0bc9bd;
+$color-water: #d8f2f0;
+$color-cultured: #f4f9f9;
+$color-blond: #fff1c2;
+$color-amber: #ffba53;
+$color-pale-lavender: #d3daf5;
+$color-black: #222;
+$color-dark: #2b2e3a;
+$color-gray: #c2c4ce;
 $color-white: #fff;
-$color-green: #27a150;
-$color-gray: #f8f8f8;
-$color-darker-gray: #8c8c8c;
-$color-blue-primaty: #159ac9;
-$color-green-title: #6fc191;
 
-@mixin back-button-primary {
-  content: "";
-  position: absolute;
-  border-radius: 10px;
-  background: rgba(78, 56, 245, 0.35);
-  filter: blur(27px);
-  width: 211.829px;
-  height: 60px;
-  flex-shrink: 0;
-  top: 50%;
+@mixin resp-text($init: 16px, $md: 16px, $sm: 16px) {
+  font-size: $init;
+
+  @media only screen and (max-width: 992px) {
+    font-size: $md;
+  }
+  @media only screen and (max-width: 768px) {
+    font-size: $sm;
+  }
 }
 
-@mixin responsive-content {
-  margin: 0;
-  @media only screen and (min-width: 668px) {
-    padding: 0;
-    margin: 0 100px;
+@mixin resp-padding($init: 0, $md: 0, $sm: 0) {
+  padding: $init;
+
+  @media only screen and (max-width: 992px) {
+    padding: $md;
   }
-  @media only screen and (min-width: 1540px) {
-    padding: 0;
-    margin: 0 300px;
+  @media only screen and (max-width: 768px) {
+    padding: $sm;
+  }
+}
+
+@mixin resp-margin($init: 0, $md: 0, $sm: 0) {
+  margin: $init;
+
+  @media only screen and (max-width: 992px) {
+    margin: $md;
+  }
+  @media only screen and (max-width: 768px) {
+    margin: $sm;
+  }
+}
+
+@mixin resp-display($init: block, $md: block, $sm: block) {
+  display: $init;
+
+  @media only screen and (max-width: 992px) {
+    display: $md;
+  }
+  @media only screen and (max-width: 768px) {
+    display: $sm;
+  }
+}
+
+@mixin resp-height($init: auto, $md: auto, $sm: auto) {
+  height: $init;
+
+  @media only screen and (max-width: 992px) {
+    height: $md;
+  }
+  @media only screen and (max-width: 768px) {
+    height: $sm;
   }
 }
 
