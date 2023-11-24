@@ -45,7 +45,7 @@ export default function Breadcrumb(): JSX.Element {
           >
             <Typography.Text className={styles.titleDropdown}>
               <Space>
-                {getLabelMenuByLevel(menuDefault, window.location.pathname)}
+                {getLabelMenuByLevel(menuDefault, window.location.pathname, 1)}
                 <DownOutlined />
               </Space>
             </Typography.Text>

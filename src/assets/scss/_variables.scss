@@ -54,6 +54,17 @@ $color-white: #fff;
   }
 }
 
+@mixin resp-height($init: auto, $md: auto, $sm: auto) {
+  height: $init;
+
+  @media only screen and (max-width: 992px) {
+    height: $md;
+  }
+  @media only screen and (max-width: 768px) {
+    height: $sm;
+  }
+}
+
 @mixin perfect-center {
   position: absolute;
   top: 50%;

@@ -4,13 +4,14 @@ import { OverhaulPage } from "./modules/advice";
 import AppLayout from "./modules/app/AppLayout";
 import ProtectedComponent from "./modules/app/ProtectComponent";
 import { ErrorBoundaryPage } from "./modules/error/boundary";
-import { GreetingPage, HistoryPage } from "./modules/greetings";
+import { GreetingPage, HistoryPage, OrganPage } from "./modules/greetings";
 import Home from "./modules/home/Home";
 import {
   ADVICE_OVERHAUL_URL,
   GREETING_URL,
   HISTORY_URL,
   HOME_URL,
+  ORGAN_URL,
 } from "./urls";
 
 export const router = createBrowserRouter([
@@ -50,6 +51,16 @@ export const router = createBrowserRouter([
             Element={HistoryPage}
             title="Lịch sử"
             url={HISTORY_URL}
+          />
+        ),
+      },
+      {
+        path: ORGAN_URL,
+        element: (
+          <ProtectedComponent
+            Element={OrganPage}
+            title="Sơ đồ tổ chức"
+            url={ORGAN_URL}
           />
         ),
       },
