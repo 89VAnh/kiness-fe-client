@@ -4,9 +4,14 @@ import { OverhaulPage } from "./modules/advice";
 import AppLayout from "./modules/app/AppLayout";
 import ProtectedComponent from "./modules/app/ProtectComponent";
 import { ErrorBoundaryPage } from "./modules/error/boundary";
-import { GreetingPage } from "./modules/greetings";
+import { GreetingPage, HistoryPage } from "./modules/greetings";
 import Home from "./modules/home/Home";
-import { ADVICE_OVERHAUL_URL, GREETING_URL, HOME_URL } from "./urls";
+import {
+  ADVICE_OVERHAUL_URL,
+  GREETING_URL,
+  HISTORY_URL,
+  HOME_URL,
+} from "./urls";
 
 export const router = createBrowserRouter([
   {
@@ -35,6 +40,16 @@ export const router = createBrowserRouter([
             Element={GreetingPage}
             title="Lời chào của CEO"
             url={GREETING_URL}
+          />
+        ),
+      },
+      {
+        path: HISTORY_URL,
+        element: (
+          <ProtectedComponent
+            Element={HistoryPage}
+            title="Lịch sử"
+            url={HISTORY_URL}
           />
         ),
       },

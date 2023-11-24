@@ -1,9 +1,14 @@
 import { Typography } from "antd";
 import { motion } from "framer-motion";
 
+import { getLabelMenu } from "../breadcrumb/utils/utils";
 import styles from "./scss/title.module.scss";
 
-export default function Title(): JSX.Element {
+interface IProps {
+  title?: string;
+}
+
+export default function Title({ title }: IProps): JSX.Element {
   return (
     <motion.div
       viewport={{ once: true }}
@@ -14,7 +19,9 @@ export default function Title(): JSX.Element {
     >
       <div className={styles.titleWrap}>
         <div className={styles.titlePage}>
-          <Typography.Title level={1}>Lời chào của CEO</Typography.Title>
+          <Typography.Title level={1}>
+            {title ? title : getLabelMenu(window.location.pathname)}
+          </Typography.Title>
         </div>
       </div>
     </motion.div>

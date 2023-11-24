@@ -53,10 +53,6 @@ const EXPECTED_GEN_URL = `${EXPECTED_URL}/gen`;
 const EXPECTED_CURRENT_URL = `${EXPECTED_URL}/current`;
 const EXPECTED_CHART_URL = `${EXPECTED_URL}/chart`;
 
-const breadcrumbNameMap: Record<string, string> = {
-  [HOME_URL]: "Trang chủ",
-};
-
 export {
   HOME_URL,
   INFO_URL,
@@ -94,5 +90,4 @@ export {
   EXPECTED_GEN_URL,
   EXPECTED_CURRENT_URL,
   EXPECTED_CHART_URL,
-  breadcrumbNameMap,
 };

@@ -7,7 +7,7 @@ import { HOME_URL } from "@/urls";
 
 import { getMenuLevel, menuDefault } from "./data/breadcrumb";
 import styles from "./scss/breadcrumb.module.scss";
-import { getLabelMenu } from "./utils/utils";
+import { getLabelMenuByLevel } from "./utils/utils";
 
 export default function Breadcrumb(): JSX.Element {
   const navigate = useNavigate();
@@ -45,7 +45,7 @@ export default function Breadcrumb(): JSX.Element {
           >
             <Typography.Text className={styles.titleDropdown}>
               <Space>
-                {getLabelMenu(menuDefault, window.location.pathname)}
+                {getLabelMenuByLevel(menuDefault, window.location.pathname)}
                 <DownOutlined />
               </Space>
             </Typography.Text>
@@ -59,7 +59,7 @@ export default function Breadcrumb(): JSX.Element {
           >
             <Typography.Text className={styles.titleDropdown}>
               <Space>
-                {getLabelMenu(
+                {getLabelMenuByLevel(
                   getMenuLevel(window.location.pathname),
                   window.location.pathname,
                 )}
@@ -77,9 +77,10 @@ export default function Breadcrumb(): JSX.Element {
             >
               <Typography.Text className={styles.titleDropdown}>
                 <Space>
-                  {getLabelMenu(
+                  {getLabelMenuByLevel(
                     getMenuLevel(window.location.pathname, 3),
                     window.location.pathname,
+                    3,
                   )}
                   <DownOutlined />
                 </Space>
