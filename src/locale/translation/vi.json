@@ -130,6 +130,17 @@
     "logout": "Đăng xuất",
     "profile": "Thông tin cá nhân"
   },
+  "thesis": {
+    "search_placeholder": "Nhập nội dung",
+    "serial": "STT",
+    "title": "Tên bài báo",
+    "author": "Tác giả",
+    "organ": "Tổ chức phát hành",
+    "year_release": "Năm phát hàng"
+  },
+  "patent": {
+    "search_placeholder": "Nhập nội dung"
+  },
   "branch_register": {
     "city_id": "Thành phố",
     "branch_name": "Tên chi nhánh",

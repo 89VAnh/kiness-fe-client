@@ -9,7 +9,8 @@ import {
   TableColumnsType,
   Typography,
 } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
 import Breadcrumb from "@/modules/shared/breadcrumb/Breadcrumb";
@@ -20,18 +21,21 @@ import { dataThesis } from "./data/data-fake";
 import styles from "./scss/thesis.module.scss";
 
 export default function Thesis(): JSX.Element {
+  const { t } = useTranslation();
   const [page, setPage] = useState<number>(1);
   const [pageSize, setPageSize] = useState<number>(15);
 
   const columns: TableColumnsType<any> = [
     {
-      title: "STT",
+      key: "serial",
+      title: t("thesis.serial"),
       width: 50,
       align: "center",
       render: (_, __, index) => index + 1,
     },
     {
-      title: "Tên bài báo",
+      key: "title",
+      title: t("thesis.title"),
       dataIndex: "title",
       render: (value, record) => (
         <Space>
@@ -47,24 +51,53 @@ export default function Thesis(): JSX.Element {
       ),
     },
     {
-      title: "Tác giả",
+      key: "author",
+      title: t("thesis.author"),
       dataIndex: "author",
       width: "10%",
       render: (value) => value.join(", "),
     },
     {
-      title: "Tổ chức phát hành",
+      key: "organ",
+      title: t("thesis.organ"),
       dataIndex: "organ",
       width: "24%",
       render: (value) => value.join(", "),
     },
     {
-      title: "Năm phát hành",
+      key: "year_release",
+      title: t("thesis.year_release"),
       dataIndex: "year",
       align: "center",
       width: 100,
     },
   ];
+
+  const [currentColumns, setCurrentColumns] =
+    useState<TableColumnsType<any>>(columns);
+
+  useEffect(() => {
+    const handleResize = (e: any) => {
+      if (e.target.innerWidth < 768) {
+        const col = columns.find((c) => c.key === "title");
+        col && setCurrentColumns([col]);
+      } else if (e.target.innerWidth < 992) {
+        const cols = columns.filter(
+          (c) => c.key === "title" || c.key === "author",
+        );
+        setCurrentColumns(cols);
+      } else {
+        setCurrentColumns(columns);
+      }
+    };
+
+    handleResize({ target: window });
+
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
@@ -78,12 +111,16 @@ export default function Thesis(): JSX.Element {
             <Typography.Text type="secondary">{`Tổng cộng ${dataThesis.length} mục, trang ${page}`}</Typography.Text>
             <Input.Search
               style={{ maxWidth: 300 }}
-              placeholder="Nhập nội dung..."
+              placeholder={t("thesis.search_placeholder")}
             />
           </div>
           <Divider />
 
-          <Table size="small" columns={columns} dataSource={dataThesis} />
+          <Table
+            size="small"
+            columns={currentColumns}
+            dataSource={dataThesis}
+          />
 
           <Pagination
             current={page}
