@@ -5,11 +5,6 @@ export const dataOrgan = [
     name: "Trụ sở chính",
   },
   {
-    id: 17,
-    parent_id: null,
-    name: "Trụ sở chínhgg",
-  },
-  {
     id: 2,
     parent_id: 1,
     name: "Kinh doanh mới",
@@ -37,12 +32,12 @@ export const dataOrgan = [
   },
   {
     id: 7,
-    parent_id: 3,
+    parent_id: 6,
     name: "Tài chính",
   },
   {
     id: 8,
-    parent_id: 3,
+    parent_id: 7,
     name: "Kế toán",
   },
 
@@ -53,12 +48,12 @@ export const dataOrgan = [
   },
   {
     id: 10,
-    parent_id: 4,
+    parent_id: 9,
     name: "Thiết kế",
   },
   {
     id: 11,
-    parent_id: 4,
+    parent_id: 10,
     name: "Tiếp thị",
   },
 
@@ -69,12 +64,12 @@ export const dataOrgan = [
   },
   {
     id: 13,
-    parent_id: 5,
+    parent_id: 12,
     name: "Giáo dục",
   },
   {
     id: 14,
-    parent_id: 5,
+    parent_id: 13,
     name: "C/S",
   },
 ];
@@ -85,7 +80,12 @@ export const getOrganTree = (data: any[]) => {
 
   // Create an index for quick lookup
   data.forEach((item) => {
-    index[item.id] = { ...item, children: [] };
+    index[item.id] = {
+      ...item,
+      id: item.id + "",
+      value: { name: item.name },
+      children: [],
+    };
   });
 
   // Build the tree

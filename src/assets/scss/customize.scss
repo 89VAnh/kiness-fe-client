@@ -136,6 +136,11 @@
   color: $color-primary;
 }
 
+.bg-mint {
+  background-color: $color-primary;
+  color: $color-white !important;
+}
+
 .inner-text {
   @include resp-text(18px, 18px, 16px);
   line-height: 1.75;

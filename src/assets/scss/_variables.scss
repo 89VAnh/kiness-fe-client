@@ -8,6 +8,7 @@ $color-pale-lavender: #d3daf5;
 $color-black: #222;
 $color-dark: #2b2e3a;
 $color-gray: #c2c4ce;
+$color-smoke: #f4f5f9;
 $color-white: #fff;
 
 @mixin resp-text($init: 16px, $md: 16px, $sm: 16px) {
@@ -62,6 +63,17 @@ $color-white: #fff;
   }
   @media only screen and (max-width: 768px) {
     height: $sm;
+  }
+}
+
+@mixin resp-width($init: auto, $md: auto, $sm: auto) {
+  width: $init;
+
+  @media only screen and (max-width: 992px) {
+    width: $md;
+  }
+  @media only screen and (max-width: 768px) {
+    width: $sm;
   }
 }
 

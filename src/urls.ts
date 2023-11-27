@@ -9,6 +9,7 @@ const GREETING_URL = `${INFO_HISTORY_URL}/greetings`;
 const HISTORY_URL = `${INFO_HISTORY_URL}/history`;
 const ORGAN_URL = `${INFO_BRANCH_URL}/organ`;
 const MAP_URL = `${INFO_BRANCH_URL}/map`;
+const MAP_DETAIL_URL = `${INFO_BRANCH_URL}/map/:id`;
 const RESEARCHER_URL = `${INFO_LAB_URL}/researcher`;
 const THESIS_URL = `${INFO_LAB_URL}/thesis`;
 const PATENT_URL = `${INFO_LAB_URL}/patent`;
@@ -63,6 +64,7 @@ export {
   HISTORY_URL,
   ORGAN_URL,
   MAP_URL,
+  MAP_DETAIL_URL,
   RESEARCHER_URL,
   THESIS_URL,
   PATENT_URL,

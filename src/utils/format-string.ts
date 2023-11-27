@@ -19,3 +19,7 @@ export const getLastPath = (path: string) => {
 
 export const formatDateShow = "DD/MM/YYYY";
 export const formatDatePost = "YYYY-MM-DD";
+
+export const getUrlToDetail = (url: string, id: string | number): string => {
+  return url.replace(":id", id + "");
+};
