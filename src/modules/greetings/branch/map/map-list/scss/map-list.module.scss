@@ -1,0 +1,39 @@
+@import "@/assets/scss/variables";
+
+.content-wrap {
+  width: 100%;
+  @include resp-padding(70px 0 0, 70px 0 0, 40px 0 0);
+
+  .filter-bar {
+    margin: 10px 0;
+
+    .filter-select {
+      @include resp-width(150px, 150px, 100px);
+    }
+  }
+
+  .card-item {
+    margin-bottom: 20px;
+
+    .card-text {
+      margin-left: 10px;
+
+      span {
+        @include resp-text(16px, 16px, 14px);
+      }
+
+      h5 {
+        @include resp-text(18px, 18px, 16px);
+      }
+
+      a {
+        :hover {
+          h5 {
+            color: $color-primary;
+            transition: 0.2s;
+          }
+        }
+      }
+    }
+  }
+}

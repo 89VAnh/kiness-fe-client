@@ -1,0 +1,34 @@
+@import "@/assets/scss/variables";
+
+.content-wrap {
+  width: 100%;
+  @include resp-padding(70px 0 0, 70px 0 0, 40px 0 0);
+
+  .box {
+    .img {
+      background-color: $color-water;
+      border-radius: 20px;
+      height: 100%;
+    }
+
+    .list {
+      margin-left: 16px;
+      margin-bottom: 16px;
+
+      li span {
+        @include resp-text(16px, 16px, 14px);
+      }
+    }
+  }
+
+  .list-card {
+    background-color: $color-smoke;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .img img {
+    width: 100% !important;
+    max-width: 400px;
+  }
+}

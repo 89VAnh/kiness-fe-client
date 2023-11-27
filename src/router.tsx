@@ -1,17 +1,36 @@
-import { createBrowserRouter } from "react-router-dom";
+import { Navigate, createBrowserRouter } from "react-router-dom";
 
 import { OverhaulPage } from "./modules/advice";
 import AppLayout from "./modules/app/AppLayout";
 import ProtectedComponent from "./modules/app/ProtectComponent";
 import { ErrorBoundaryPage } from "./modules/error/boundary";
-import { GreetingPage, HistoryPage, OrganPage } from "./modules/greetings";
+import {
+  BookPage,
+  GreetingPage,
+  HistoryPage,
+  MapDetailPage,
+  MapListPage,
+  OrganPage,
+  PatentPage,
+  ResearcherPage,
+  ThesisPage,
+} from "./modules/greetings";
 import Home from "./modules/home/Home";
 import {
   ADVICE_OVERHAUL_URL,
+  BOOK_URL,
   GREETING_URL,
   HISTORY_URL,
   HOME_URL,
+  INFO_BRANCH_URL,
+  INFO_HISTORY_URL,
+  INFO_LAB_URL,
+  MAP_DETAIL_URL,
+  MAP_URL,
   ORGAN_URL,
+  PATENT_URL,
+  RESEARCHER_URL,
+  THESIS_URL,
 } from "./urls";
 
 export const router = createBrowserRouter([
@@ -34,6 +53,19 @@ export const router = createBrowserRouter([
           />
         ),
       },
+      {
+        path: INFO_HISTORY_URL,
+        element: <Navigate to={GREETING_URL}></Navigate>,
+      },
+      {
+        path: INFO_BRANCH_URL,
+        element: <Navigate to={ORGAN_URL}></Navigate>,
+      },
+      {
+        path: INFO_LAB_URL,
+        element: <Navigate to={RESEARCHER_URL}></Navigate>,
+      },
+
       {
         path: GREETING_URL,
         element: (
@@ -61,6 +93,66 @@ export const router = createBrowserRouter([
             Element={OrganPage}
             title="Sơ đồ tổ chức"
             url={ORGAN_URL}
+          />
+        ),
+      },
+      {
+        path: MAP_URL,
+        element: (
+          <ProtectedComponent
+            Element={MapListPage}
+            title="Tìm chi nhánh"
+            url={MAP_URL}
+          />
+        ),
+      },
+      {
+        path: MAP_DETAIL_URL,
+        element: (
+          <ProtectedComponent
+            Element={MapDetailPage}
+            title="Chi nhánh"
+            url={MAP_DETAIL_URL}
+          />
+        ),
+      },
+      {
+        path: RESEARCHER_URL,
+        element: (
+          <ProtectedComponent
+            Element={ResearcherPage}
+            title="Các nhà nghiên cứu"
+            url={RESEARCHER_URL}
+          />
+        ),
+      },
+      {
+        path: THESIS_URL,
+        element: (
+          <ProtectedComponent
+            Element={ThesisPage}
+            title="Bài nghiên cứu"
+            url={THESIS_URL}
+          />
+        ),
+      },
+      {
+        path: PATENT_URL,
+        element: (
+          <ProtectedComponent
+            Element={PatentPage}
+            title="Bằng sáng chế"
+            url={PATENT_URL}
+          />
+        ),
+      },
+      {
+        path: BOOK_URL,
+        element: (
+          <ProtectedComponent
+            Element={BookPage}
+            title="Sách xuất bản"
+            url={BOOK_URL}
           />
         ),
       },
