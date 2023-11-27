@@ -1,0 +1,58 @@
+@import "@/assets/scss/variables";
+
+.content-wrap {
+  width: 100%;
+  @include resp-padding(70px 0 0, 70px 0 0, 40px 0 0);
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .radio-group {
+      display: flex;
+      @include resp-margin(0, 0, 0 0 16px 0);
+    }
+  }
+
+  .thumbnail {
+    @include resp-height(200px, 200px, 250px);
+    border-radius: 25px;
+    border: 1px solid $color-smoke;
+  }
+
+  .text-wrap {
+    margin: 10px 0;
+    max-width: 100%;
+    margin: 25px auto;
+    display: inline-block;
+    padding: 0 0 0 20px;
+
+    h4 {
+      font-size: 22px;
+      margin: 0;
+    }
+  }
+
+  :global {
+    .ant-radio-button-wrapper {
+      &.ant-radio-button-wrapper-checked {
+        background-color: $color-primary !important;
+        border-color: $color-primary !important;
+
+        :hover {
+          color: $color-white !important;
+        }
+      }
+      :hover {
+        color: $color-primary !important;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header-content {
+    display: block !important;
+  }
+}
