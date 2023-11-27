@@ -1,6 +1,6 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
 
-import { OverhaulPage } from "./modules/advice";
+import { ExPage, FaqPage, InquiryPage, OverhaulPage } from "./modules/advice";
 import AppLayout from "./modules/app/AppLayout";
 import ProtectedComponent from "./modules/app/ProtectComponent";
 import { ErrorBoundaryPage } from "./modules/error/boundary";
@@ -13,10 +13,14 @@ import {
   OrganPage,
   PatentPage,
   ResearcherPage,
+  ThesisDetailPage,
   ThesisPage,
 } from "./modules/greetings";
 import Home from "./modules/home/Home";
 import {
+  ADVICE_EX_URL,
+  ADVICE_FAQ_URL,
+  ADVICE_INQUIRY_URL,
   ADVICE_OVERHAUL_URL,
   BOOK_URL,
   GREETING_URL,
@@ -30,6 +34,7 @@ import {
   ORGAN_URL,
   PATENT_URL,
   RESEARCHER_URL,
+  THESIS_DETAIL_URL,
   THESIS_URL,
 } from "./urls";
 
@@ -137,6 +142,16 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: THESIS_DETAIL_URL,
+        element: (
+          <ProtectedComponent
+            Element={ThesisDetailPage}
+            title="Bài nghiên cứu"
+            url={THESIS_DETAIL_URL}
+          />
+        ),
+      },
+      {
         path: PATENT_URL,
         element: (
           <ProtectedComponent
@@ -165,6 +180,36 @@ export const router = createBrowserRouter([
             Element={OverhaulPage}
             title="Kiểm tra tăng trưởng"
             url={ADVICE_OVERHAUL_URL}
+          />
+        ),
+      },
+      {
+        path: ADVICE_EX_URL,
+        element: (
+          <ProtectedComponent
+            Element={ExPage}
+            title="Đặt lịch trải nghiệm 1 ngày"
+            url={ADVICE_EX_URL}
+          />
+        ),
+      },
+      {
+        path: ADVICE_FAQ_URL,
+        element: (
+          <ProtectedComponent
+            Element={FaqPage}
+            title="Các câu hỏi thường gặp"
+            url={ADVICE_FAQ_URL}
+          />
+        ),
+      },
+      {
+        path: ADVICE_INQUIRY_URL,
+        element: (
+          <ProtectedComponent
+            Element={InquiryPage}
+            title="Hỏi đáp tư vấn"
+            url={ADVICE_INQUIRY_URL}
           />
         ),
       },

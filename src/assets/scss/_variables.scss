@@ -3,6 +3,7 @@ $color-primary: #0bc9bd;
 $color-water: #d8f2f0;
 $color-cultured: #f4f9f9;
 $color-blond: #fff1c2;
+$color-cloud: #fffaeb;
 $color-amber: #ffba53;
 $color-pale-lavender: #d3daf5;
 $color-black: #222;
@@ -74,6 +75,17 @@ $color-white: #fff;
   }
   @media only screen and (max-width: 768px) {
     width: $sm;
+  }
+}
+
+@mixin resp-max-width($init: auto, $md: auto, $sm: auto) {
+  max-width: $init;
+
+  @media only screen and (max-width: 992px) {
+    max-width: $md;
+  }
+  @media only screen and (max-width: 768px) {
+    max-width: $sm;
   }
 }
 

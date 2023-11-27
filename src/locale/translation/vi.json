@@ -11,7 +11,9 @@
   "all": {
     "btn_cancel": "Hủy",
     "btn_confirm": "Xác nhận",
-    "btn_register": "Đăng ký"
+    "btn_register": "Đăng ký",
+    "step": "Bước",
+    "branch": "Chi nhánh"
   },
   "messages": {
     "login_success": "Đăng nhập thành công",
