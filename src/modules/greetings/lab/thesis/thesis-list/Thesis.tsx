@@ -15,7 +15,8 @@ import { Link } from "react-router-dom";
 
 import Breadcrumb from "@/modules/shared/breadcrumb/Breadcrumb";
 import Title from "@/modules/shared/title/Title";
-import { THESIS_URL } from "@/urls";
+import { THESIS_DETAIL_URL } from "@/urls";
+import { getUrlToDetail } from "@/utils/format-string";
 
 import { dataThesis } from "./data/data-fake";
 import styles from "./scss/thesis.module.scss";
@@ -39,7 +40,7 @@ export default function Thesis(): JSX.Element {
       dataIndex: "title",
       render: (value, record) => (
         <Space>
-          <Link to={THESIS_URL}>
+          <Link to={getUrlToDetail(THESIS_DETAIL_URL, record.id)}>
             <Typography.Title level={5}>{value}</Typography.Title>
           </Link>
           <Typography.Link href={record.origin_link} target="_blank">
@@ -54,8 +55,8 @@ export default function Thesis(): JSX.Element {
       key: "author",
       title: t("thesis.author"),
       dataIndex: "author",
-      width: "10%",
-      render: (value) => value.join(", "),
+      width: "15%",
+      render: (value) => value.map((i: any) => i.name).join(", "),
     },
     {
       key: "organ",
@@ -120,6 +121,7 @@ export default function Thesis(): JSX.Element {
             size="small"
             columns={currentColumns}
             dataSource={dataThesis}
+            rowKey={"id"}
           />
 
           <Pagination

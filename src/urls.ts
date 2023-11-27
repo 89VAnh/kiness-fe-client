@@ -12,6 +12,7 @@ const MAP_URL = `${INFO_BRANCH_URL}/map`;
 const MAP_DETAIL_URL = `${INFO_BRANCH_URL}/map/:id`;
 const RESEARCHER_URL = `${INFO_LAB_URL}/researcher`;
 const THESIS_URL = `${INFO_LAB_URL}/thesis`;
+const THESIS_DETAIL_URL = `${INFO_LAB_URL}/thesis/:id`;
 const PATENT_URL = `${INFO_LAB_URL}/patent`;
 const BOOK_URL = `${INFO_LAB_URL}/book`;
 
@@ -67,6 +68,7 @@ export {
   MAP_DETAIL_URL,
   RESEARCHER_URL,
   THESIS_URL,
+  THESIS_DETAIL_URL,
   PATENT_URL,
   BOOK_URL,
   ADVICE_URL,
