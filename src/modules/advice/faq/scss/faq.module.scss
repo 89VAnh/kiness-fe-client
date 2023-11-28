@@ -1,0 +1,73 @@
+@import "@/assets/scss/variables";
+
+.content-wrap {
+  width: 100%;
+  @include resp-padding(70px 0 0, 70px 0 0, 40px 0 0);
+
+  .icon-ques {
+    font-size: 24px;
+    color: $color-primary;
+    font-weight: 600;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid $color-gray;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .icon-answer {
+    font-size: 24px;
+    background-color: $color-primary;
+    color: $color-white;
+    font-weight: 600;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid $color-primary;
+    margin-right: 16px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .header-text {
+    @include resp-text(17px, 17px, 15px);
+  }
+
+  .pagination-wrap {
+    text-align: right;
+    margin: 20px 0;
+  }
+
+  .content {
+    @include resp-display(inline-flex, inline-flex, block);
+  }
+}
+
+:global {
+  .ant-collapse-header {
+    align-items: center !important;
+  }
+
+  .ant-collapse-content-box {
+    background-color: $color-smoke;
+    @include resp-text(17px, 17px, 15px);
+    @include resp-padding(40px !important, 40px !important, 20px !important);
+  }
+
+  .ant-radio-button-wrapper {
+    &.ant-radio-button-wrapper-checked {
+      background-color: $color-primary !important;
+      border-color: $color-primary !important;
+
+      &:hover {
+        color: $color-white !important;
+      }
+    }
+    &:hover {
+      color: $color-primary !important;
+    }
+  }
+}

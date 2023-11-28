@@ -1,14 +1,70 @@
-import { Image, Typography } from "antd";
-import { motion } from "framer-motion";
+import { CaretRightOutlined } from "@ant-design/icons";
+import {
+  Collapse,
+  CollapseProps,
+  Divider,
+  Pagination,
+  Radio,
+  Space,
+  Typography,
+  theme,
+} from "antd";
+import _ from "lodash";
+import { useEffect, useState } from "react";
 
-import personImg from "@/assets/img/info/img_greet_doctor.png";
 import Breadcrumb from "@/modules/shared/breadcrumb/Breadcrumb";
 import Title from "@/modules/shared/title/Title";
 
-import { greetingData } from "./data/data-fake";
-import styles from "./scss/greeting.module.scss";
+import { dataFaq, faqDropdown } from "./data/data-fake";
+import styles from "./scss/faq.module.scss";
 
 export default function Faq(): JSX.Element {
+  const [currentType, setCurrentType] = useState<string>("");
+  const [page, setPage] = useState<number>(1);
+  const [pageSize, setPageSize] = useState<number>(10);
+  const [originData, setOriginData] = useState(dataFaq);
+  const [currentData, setCurrentData] = useState<any[]>([]);
+  const { token } = theme.useToken();
+
+  useEffect(() => {
+    const data = dataFaq.filter((i) =>
+      currentType ? i.type_id === currentType : true,
+    );
+    setOriginData(data);
+    setCurrentData(
+      _.slice(
+        _.clone(data),
+        (page - 1) * pageSize,
+        (page - 1) * pageSize + pageSize,
+      ),
+    );
+  }, [currentType, page, pageSize]);
+
+  const getItems: () => CollapseProps["items"] = () =>
+    _.clone(currentData).map((item) => ({
+      key: item.id,
+      label: (
+        <Space wrap>
+          <div className={styles.iconQues}>Q</div>
+          <Typography.Text className={`${styles.headerText} font-mint`}>
+            {item.type_name}
+          </Typography.Text>
+          <Typography.Text className={styles.headerText}>
+            {item.title}
+          </Typography.Text>
+        </Space>
+      ),
+      children: (
+        <Space
+          style={{ alignItems: "flex-start", gap: 16 }}
+          rootClassName={styles.content}
+        >
+          <div className={styles.iconAnswer}>A</div>
+          {item.answer}
+        </Space>
+      ),
+    }));
+
   return (
     <>
       <Title />
@@ -17,40 +73,49 @@ export default function Faq(): JSX.Element {
 
       <div className={styles.contentWrap}>
         <div className="inner">
-          <motion.div
-            initial={{ y: -50, opacity: 0.5 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className={styles.box}
+          <Radio.Group
+            buttonStyle="solid"
+            defaultValue={currentType}
+            onChange={(value) => {
+              setCurrentType(value.target.value);
+              setPage(1);
+              setPageSize(10);
+            }}
           >
-            <Typography.Title level={4}>
-              Xin chào?{" "}
-              <Typography.Text strong>
-                Đây là Tiến sĩ Yangsoo Kim, Giám đốc điều hành của
-              </Typography.Text>
-              <br />
-              Trung tâm Tăng trưởng Kiness.
-            </Typography.Title>
+            {faqDropdown.map((item) => (
+              <Radio.Button key={item.value} value={item.value}>
+                {item.label}
+              </Radio.Button>
+            ))}
+          </Radio.Group>
 
-            <Image
-              preview={false}
-              src={personImg}
-              wrapperClassName={styles.img}
+          <div style={{ marginTop: 10 }}>
+            <Typography.Text type="secondary">{`Tổng cộng ${originData.length} mục, trang ${page}`}</Typography.Text>
+          </div>
+          <Divider />
+
+          <Collapse
+            bordered={false}
+            accordion
+            expandIconPosition="end"
+            expandIcon={({ isActive }) => (
+              <CaretRightOutlined rotate={isActive ? 90 : 0} />
+            )}
+            style={{ background: token.colorBgContainer }}
+            items={getItems()}
+          />
+
+          <div className={styles.paginationWrap}>
+            <Pagination
+              total={originData.length}
+              current={page}
+              pageSize={pageSize}
+              onChange={(page, pageSize) => {
+                setPage(page);
+                setPageSize(pageSize);
+              }}
             />
-          </motion.div>
-          <motion.div
-            initial={{ y: -50, opacity: 0.5 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className={styles.boxText}
-          >
-            <div
-              className={"inner-text"}
-              dangerouslySetInnerHTML={{ __html: greetingData }}
-            ></div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </>

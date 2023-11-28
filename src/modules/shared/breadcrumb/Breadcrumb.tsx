@@ -9,7 +9,11 @@ import { getMenuLevel, menuDefault } from "./data/breadcrumb";
 import styles from "./scss/breadcrumb.module.scss";
 import { getLabelMenuByLevel } from "./utils/utils";
 
-export default function Breadcrumb(): JSX.Element {
+interface Props {
+  showLast?: boolean;
+}
+
+export default function Breadcrumb({ showLast = true }: Props): JSX.Element {
   const navigate = useNavigate();
   const [isTablet, setIsTablet] = useState<boolean>(window.innerWidth < 768);
 
@@ -68,7 +72,7 @@ export default function Breadcrumb(): JSX.Element {
             </Typography.Text>
           </Dropdown>
 
-          {getMenuLevel(window.location.pathname, 3).length > 0 && (
+          {getMenuLevel(window.location.pathname, 3).length > 0 && showLast && (
             <Dropdown
               menu={{
                 items: getMenuLevel(window.location.pathname, 3),

@@ -40,11 +40,11 @@
         background-color: $color-primary !important;
         border-color: $color-primary !important;
 
-        :hover {
+        &:hover {
           color: $color-white !important;
         }
       }
-      :hover {
+      &:hover {
         color: $color-primary !important;
       }
     }
