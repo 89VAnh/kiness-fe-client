@@ -15,7 +15,12 @@ export const FaqPage = lazyLoad(
   (module) => module.default,
 );
 
-export const InquiryPage = lazyLoad(
-  () => import("./inquiry/Inquiry"),
+export const InquiryListPage = lazyLoad(
+  () => import("./inquiry/inquiry-list/InquiryList"),
+  (module) => module.default,
+);
+
+export const InquiryWritePage = lazyLoad(
+  () => import("./inquiry/inquiry-write/InquiryWrite"),
   (module) => module.default,
 );

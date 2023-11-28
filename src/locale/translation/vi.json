@@ -10,10 +10,11 @@
   },
   "all": {
     "btn_cancel": "Hủy",
-    "btn_confirm": "Xác nhận",
+    "btn_ok": "Xác nhận",
     "btn_register": "Đăng ký",
     "step": "Bước",
-    "branch": "Chi nhánh"
+    "branch": "Chi nhánh",
+    "regis_day": "Đặt trước trải nghiệm 1 ngày"
   },
   "messages": {
     "login_success": "Đăng nhập thành công",
@@ -149,5 +150,15 @@
     "phone_number": "Số điện thoại",
     "address": "Địa chỉ",
     "email": "Email"
+  },
+  "inquiry": {
+    "form": {
+      "full_name": "Họ tên",
+      "password": "Mật khẩu",
+      "email": "Email",
+      "phone": "Số điện thoại",
+      "subject": "Tiêu đề yêu cầu",
+      "content": "Nội dung yêu cầu"
+    }
   }
 }

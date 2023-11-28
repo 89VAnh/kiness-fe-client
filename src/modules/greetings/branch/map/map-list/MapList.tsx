@@ -1,7 +1,7 @@
 import {
-  EnvironmentOutlined,
-  FieldTimeOutlined,
-  PhoneOutlined,
+  ClockCircleFilled,
+  EnvironmentFilled,
+  PhoneFilled,
   SyncOutlined,
 } from "@ant-design/icons";
 import {
@@ -86,7 +86,7 @@ export default function MapList(): JSX.Element {
                           </div>
                           <div>
                             <Space>
-                              <EnvironmentOutlined />
+                              <EnvironmentFilled />
                               <Typography.Text>
                                 Tầng 3, 775-2 Yeoksam-dong, Gangnam-gu, Seoul
                               </Typography.Text>
@@ -94,7 +94,7 @@ export default function MapList(): JSX.Element {
                           </div>
                           <div>
                             <Space>
-                              <FieldTimeOutlined />
+                              <ClockCircleFilled />
                               <Typography.Text>
                                 Các ngày trong tuần 14:00-22:00 / Cuối tuần
                                 09:00-17:00
@@ -103,7 +103,7 @@ export default function MapList(): JSX.Element {
                           </div>
                           <div>
                             <Space>
-                              <PhoneOutlined />
+                              <PhoneFilled />
                               <Typography.Link
                                 style={{ color: "#000" }}
                                 href={`tel:02-558-2758`}

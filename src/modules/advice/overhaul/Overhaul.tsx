@@ -44,6 +44,7 @@ export default function Overhaul(): JSX.Element {
                     whileInView={{ y: 0, opacity: 1 }}
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
+                    className={styles.cardWrap}
                   >
                     <Link
                       className={styles.cardItem}

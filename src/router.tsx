@@ -1,6 +1,12 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
 
-import { ExPage, FaqPage, InquiryPage, OverhaulPage } from "./modules/advice";
+import {
+  ExPage,
+  FaqPage,
+  InquiryListPage,
+  InquiryWritePage,
+  OverhaulPage,
+} from "./modules/advice";
 import AppLayout from "./modules/app/AppLayout";
 import ProtectedComponent from "./modules/app/ProtectComponent";
 import { ErrorBoundaryPage } from "./modules/error/boundary";
@@ -21,6 +27,7 @@ import {
   ADVICE_EX_URL,
   ADVICE_FAQ_URL,
   ADVICE_INQUIRY_URL,
+  ADVICE_INQUIRY_WRITE_URL,
   ADVICE_OVERHAUL_URL,
   BOOK_URL,
   GREETING_URL,
@@ -207,9 +214,19 @@ export const router = createBrowserRouter([
         path: ADVICE_INQUIRY_URL,
         element: (
           <ProtectedComponent
-            Element={InquiryPage}
+            Element={InquiryListPage}
             title="Hỏi đáp tư vấn"
             url={ADVICE_INQUIRY_URL}
+          />
+        ),
+      },
+      {
+        path: ADVICE_INQUIRY_WRITE_URL,
+        element: (
+          <ProtectedComponent
+            Element={InquiryWritePage}
+            title="Viết câu hỏi tư vấn"
+            url={ADVICE_INQUIRY_WRITE_URL}
           />
         ),
       },
