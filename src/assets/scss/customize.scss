@@ -149,3 +149,9 @@
   font-weight: normal;
   word-break: keep-all;
 }
+
+.text-underline {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(180deg, transparent 79%, #ffda53 70%);
+}
