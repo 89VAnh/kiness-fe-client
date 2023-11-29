@@ -24,6 +24,11 @@ import {
 } from "./modules/greetings";
 import Home from "./modules/home/Home";
 import {
+  GrowthMethodPage,
+  GrowthSystemPage,
+  QuestionPage,
+} from "./modules/program";
+import {
   ADVICE_EX_URL,
   ADVICE_FAQ_URL,
   ADVICE_INQUIRY_URL,
@@ -40,6 +45,9 @@ import {
   MAP_URL,
   ORGAN_URL,
   PATENT_URL,
+  PROGRAM_METHOD_URL,
+  PROGRAM_QUESTION_URL,
+  PROGRAM_SYSTEM_URL,
   RESEARCHER_URL,
   THESIS_DETAIL_URL,
   THESIS_URL,
@@ -227,6 +235,38 @@ export const router = createBrowserRouter([
             Element={InquiryWritePage}
             title="Viết câu hỏi tư vấn"
             url={ADVICE_INQUIRY_WRITE_URL}
+          />
+        ),
+      },
+
+      // Program
+      {
+        path: PROGRAM_QUESTION_URL,
+        element: (
+          <ProtectedComponent
+            Element={QuestionPage}
+            title="Kiểm tra tăng trưởng là gì?"
+            url={PROGRAM_QUESTION_URL}
+          />
+        ),
+      },
+      {
+        path: PROGRAM_METHOD_URL,
+        element: (
+          <ProtectedComponent
+            Element={GrowthMethodPage}
+            title="Phương pháp tăng trưởng"
+            url={PROGRAM_METHOD_URL}
+          />
+        ),
+      },
+      {
+        path: PROGRAM_SYSTEM_URL,
+        element: (
+          <ProtectedComponent
+            Element={GrowthSystemPage}
+            title="Hệ thống tăng trưởng"
+            url={PROGRAM_SYSTEM_URL}
           />
         ),
       },
