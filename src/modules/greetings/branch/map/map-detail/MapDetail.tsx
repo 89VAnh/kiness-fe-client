@@ -5,6 +5,7 @@ import {
 } from "@ant-design/icons";
 import { Col, Row, Space, Tag, Typography } from "antd";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 import Breadcrumb from "@/modules/shared/breadcrumb/Breadcrumb";
 import Title from "@/modules/shared/title/Title";
@@ -12,9 +13,11 @@ import Title from "@/modules/shared/title/Title";
 import styles from "./scss/map-detail.module.scss";
 
 export default function MapDetail(): JSX.Element {
+  const { t } = useTranslation();
+
   return (
     <>
-      <Title title="Tìm chi nhánh" />
+      <Title title={t("nav.info.branch.map.title")} />
 
       <Breadcrumb />
 
