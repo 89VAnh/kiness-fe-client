@@ -71,7 +71,7 @@ export default function Faq(): JSX.Element {
 
       <Breadcrumb />
 
-      <div className={styles.contentWrap}>
+      <section className={styles.contentWrap}>
         <div className="inner">
           <Radio.Group
             buttonStyle="solid"
@@ -117,7 +117,7 @@ export default function Faq(): JSX.Element {
             />
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }

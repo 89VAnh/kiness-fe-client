@@ -16,7 +16,7 @@ export default function Researcher(): JSX.Element {
 
       <Breadcrumb />
 
-      <div className={styles.contentWrap}>
+      <section className={styles.contentWrap}>
         <div className="inner">
           <motion.div
             initial={{ y: -50, opacity: 0.5 }}
@@ -98,7 +98,7 @@ export default function Researcher(): JSX.Element {
             ))}
           </Row>
         </div>
-      </div>
+      </section>
     </>
   );
 }

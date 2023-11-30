@@ -22,7 +22,7 @@ export default function ThesisDetail(): JSX.Element {
 
       <Breadcrumb />
 
-      <div className={styles.contentWrap}>
+      <section className={styles.contentWrap}>
         <div className="inner">
           <Typography.Link
             onClick={(e) => {
@@ -62,7 +62,7 @@ export default function ThesisDetail(): JSX.Element {
             <br />
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }

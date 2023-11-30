@@ -90,7 +90,7 @@ export default function InquiryDetail(): JSX.Element {
 
       <Breadcrumb />
 
-      <div className={styles.contentWrap}>
+      <section className={styles.contentWrap}>
         <div className="inner">
           <div className={styles.headerContent}>
             <Typography.Text type="secondary">{`Tổng cộng ${dataInquiry.length} mục, trang ${page}`}</Typography.Text>
@@ -123,7 +123,7 @@ export default function InquiryDetail(): JSX.Element {
             rowKey={"id"}
           />
         </div>
-      </div>
+      </section>
     </>
   );
 }

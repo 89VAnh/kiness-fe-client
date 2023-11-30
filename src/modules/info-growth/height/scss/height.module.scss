@@ -1,0 +1,92 @@
+@import "@/assets/scss/variables";
+
+.content-wrap {
+  width: 100%;
+  @include resp-padding(70px 0 50px 0, 70px 0 50px 0, 40px 0 20px 0);
+
+  .header-wrap {
+    @include resp-display(flex, flex, block);
+
+    .img {
+      @include resp-margin(0 45px 0 0, 0 45px 0 0, 0 0 30px 0);
+      text-align: center;
+      img {
+        width: auto;
+      }
+    }
+
+    .header-title {
+      h2 {
+        @include resp-text(40px, 30px !important);
+        line-height: 1.5;
+        padding-bottom: 20px;
+        font-weight: normal;
+      }
+
+      .header-paragraph {
+        line-height: 1.5;
+        @include resp-text(18px, 18px, 16px);
+      }
+    }
+  }
+
+  .yellow-box {
+    text-align: center;
+    padding: 30px 0;
+    margin-bottom: 90px;
+
+    .box-button {
+      background-color: $color-amber !important;
+      height: auto;
+      font-size: 18px;
+      display: block;
+      width: 100%;
+      white-space: wrap;
+      max-width: 290px;
+      margin: 0 auto;
+      padding: 5px;
+      border-radius: 20px;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .list-step {
+    padding: 90px 0;
+    background-color: $color-smoke;
+
+    .step {
+      display: flex;
+      align-items: start;
+      margin-bottom: 30px;
+
+      &-badge {
+        background-color: $color-primary;
+        color: $color-white;
+        font-weight: bold;
+        width: 35px;
+        height: 35px;
+        text-align: center;
+        line-height: 35px;
+        border-radius: 30px;
+        flex-shrink: 0;
+        margin-right: 10px;
+        font-size: 18px;
+      }
+
+      h5 {
+        @include resp-text(24px, 24px, 20px);
+        line-height: 1.4;
+      }
+
+      .txt {
+        margin-bottom: 8px;
+        line-height: 1.5;
+        @include resp-text(18px, 18px, 16px);
+        color: #666;
+      }
+    }
+  }
+}

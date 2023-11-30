@@ -34,7 +34,7 @@ export default function StoryList(): JSX.Element {
 
       <Breadcrumb showLast={false} />
 
-      <div className={styles.contentWrap}>
+      <section className={styles.contentWrap}>
         <div className="inner">
           <div className={styles.headerContent}>
             <Typography.Text type="secondary">{`Tổng cộng ${dataStory.length} mục, trang ${page}`}</Typography.Text>
@@ -82,7 +82,7 @@ export default function StoryList(): JSX.Element {
             />
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }

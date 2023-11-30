@@ -33,7 +33,7 @@ export default function MapList(): JSX.Element {
 
       <Breadcrumb />
 
-      <div className={styles.contentWrap}>
+      <section className={styles.contentWrap}>
         <div className="inner">
           <div className={styles.filterBar}>
             <Space style={{ width: "100%", justifyContent: "space-between" }}>
@@ -121,7 +121,7 @@ export default function MapList(): JSX.Element {
             </Row>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }

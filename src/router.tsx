@@ -33,6 +33,7 @@ import {
   ThesisPage,
 } from "./modules/greetings";
 import Home from "./modules/home/Home";
+import { HeightPage, StandingPage } from "./modules/info-growth";
 import {
   GrowthMethodPage,
   GrowthSystemPage,
@@ -57,6 +58,8 @@ import {
   HISTORY_URL,
   HOME_URL,
   INFO_BRANCH_URL,
+  INFO_GROWTH_HEIGHT_URL,
+  INFO_GROWTH_STANDING_URL,
   INFO_HISTORY_URL,
   INFO_LAB_URL,
   MAP_DETAIL_URL,
@@ -367,6 +370,28 @@ export const router = createBrowserRouter([
             Element={FatDetailPage}
             title="Chi tiết trường hợp béo phì"
             url={CASE_FAT_DETAIL_URL}
+          />
+        ),
+      },
+
+      // info growth
+      {
+        path: INFO_GROWTH_HEIGHT_URL,
+        element: (
+          <ProtectedComponent
+            Element={HeightPage}
+            title="Tăng trưởng chiều cao"
+            url={INFO_GROWTH_HEIGHT_URL}
+          />
+        ),
+      },
+      {
+        path: INFO_GROWTH_STANDING_URL,
+        element: (
+          <ProtectedComponent
+            Element={StandingPage}
+            title="Tư thế đứng"
+            url={INFO_GROWTH_STANDING_URL}
           />
         ),
       },

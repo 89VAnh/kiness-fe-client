@@ -20,7 +20,7 @@ export default function Overhaul(): JSX.Element {
 
       <Breadcrumb />
 
-      <div className={styles.contentWrap}>
+      <section className={styles.contentWrap}>
         <div className="inner">
           <motion.div
             initial={{ y: -50, opacity: 0.5 }}
@@ -132,7 +132,7 @@ export default function Overhaul(): JSX.Element {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </>
   );
 }
