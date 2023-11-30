@@ -16,7 +16,7 @@ export default function Patent(): JSX.Element {
 
       <Breadcrumb />
 
-      <div className={styles.contentWrap}>
+      <section className={styles.contentWrap}>
         <div className="inner">
           <div className={styles.headerContent}>
             <div></div>
@@ -62,7 +62,7 @@ export default function Patent(): JSX.Element {
             ))}
           </Row>
         </div>
-      </div>
+      </section>
     </>
   );
 }

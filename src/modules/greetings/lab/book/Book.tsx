@@ -27,7 +27,7 @@ export default function Book(): JSX.Element {
 
       <Breadcrumb />
 
-      <div className={styles.contentWrap}>
+      <section className={styles.contentWrap}>
         <div className="inner">
           <div className={styles.headerContent}>
             <Space className={styles.radioGroup}>
@@ -86,7 +86,7 @@ export default function Book(): JSX.Element {
               ))}
           </Row>
         </div>
-      </div>
+      </section>
     </>
   );
 }

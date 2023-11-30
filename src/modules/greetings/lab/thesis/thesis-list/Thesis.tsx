@@ -106,7 +106,7 @@ export default function Thesis(): JSX.Element {
 
       <Breadcrumb />
 
-      <div className={styles.contentWrap}>
+      <section className={styles.contentWrap}>
         <div className="inner">
           <div className={styles.headerContent}>
             <Typography.Text type="secondary">{`Tổng cộng ${dataThesis.length} mục, trang ${page}`}</Typography.Text>
@@ -135,7 +135,7 @@ export default function Thesis(): JSX.Element {
             }}
           />
         </div>
-      </div>
+      </section>
     </>
   );
 }

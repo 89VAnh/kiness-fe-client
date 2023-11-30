@@ -19,7 +19,7 @@ export default function InquiryWrite(): JSX.Element {
 
       <Breadcrumb showLast={false} />
 
-      <div className={styles.contentWrap}>
+      <section className={styles.contentWrap}>
         <div className="inner">
           <Form form={form} layout="vertical">
             <Row gutter={16}>
@@ -95,7 +95,7 @@ export default function InquiryWrite(): JSX.Element {
             </Row>
           </Form>
         </div>
-      </div>
+      </section>
     </>
   );
 }

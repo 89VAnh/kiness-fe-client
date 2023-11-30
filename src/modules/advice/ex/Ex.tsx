@@ -18,7 +18,7 @@ export default function Ex(): JSX.Element {
 
       <Breadcrumb />
 
-      <div className={styles.contentWrap}>
+      <section className={styles.contentWrap}>
         <div className="inner">
           <Row gutter={16}>
             {dataEx.map((item, index) => (
@@ -85,7 +85,7 @@ export default function Ex(): JSX.Element {
             ))}
           </Row>
         </div>
-      </div>
+      </section>
     </>
   );
 }
