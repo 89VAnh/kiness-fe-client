@@ -14,7 +14,8 @@
     "btn_register": "Đăng ký",
     "step": "Bước",
     "branch": "Chi nhánh",
-    "regis_day": "Đặt trước trải nghiệm 1 ngày"
+    "regis_day": "Đặt trước trải nghiệm 1 ngày",
+    "back": "Trở lại"
   },
   "messages": {
     "login_success": "Đăng nhập thành công",

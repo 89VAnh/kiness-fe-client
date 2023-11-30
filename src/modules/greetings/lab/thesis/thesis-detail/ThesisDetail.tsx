@@ -1,37 +1,37 @@
 import { LeftOutlined, LinkOutlined } from "@ant-design/icons";
 import { Card, Divider, Space, Typography } from "antd";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 
 import Breadcrumb from "@/modules/shared/breadcrumb/Breadcrumb";
 import Title from "@/modules/shared/title/Title";
-import { THESIS_URL } from "@/urls";
 
 import { dataThesis } from "../thesis-list/data/data-fake";
 import styles from "./scss/thesis.module.scss";
 
 export default function ThesisDetail(): JSX.Element {
   const { id } = useParams();
+  const { t } = useTranslation();
   const [data] = useState<any>(dataThesis.find((i) => i.id === Number(id)));
   const navigate = useNavigate();
 
   return (
     <>
-      <Title title="Bài nghiên cứu" />
+      <Title title={t("nav.info.lab.thesis.title")} />
 
       <Breadcrumb />
 
       <div className={styles.contentWrap}>
         <div className="inner">
           <Typography.Link
-            href={THESIS_URL}
             onClick={(e) => {
               e.preventDefault();
               navigate(-1);
             }}
           >
             <Typography.Title level={4} type="secondary">
-              <LeftOutlined /> Trở lại
+              <LeftOutlined /> {t("all.back")}
             </Typography.Title>
           </Typography.Link>
 

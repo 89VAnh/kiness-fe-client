@@ -9,6 +9,16 @@ import {
 } from "./modules/advice";
 import AppLayout from "./modules/app/AppLayout";
 import ProtectedComponent from "./modules/app/ProtectComponent";
+import {
+  FatDetailPage,
+  FatListPage,
+  OldDetailPage,
+  OldListPage,
+  PoseDetailPage,
+  PoseListPage,
+  StoryDetailPage,
+  StoryListPage,
+} from "./modules/case";
 import { ErrorBoundaryPage } from "./modules/error/boundary";
 import {
   BookPage,
@@ -35,6 +45,14 @@ import {
   ADVICE_INQUIRY_WRITE_URL,
   ADVICE_OVERHAUL_URL,
   BOOK_URL,
+  CASE_FAT_DETAIL_URL,
+  CASE_FAT_URL,
+  CASE_OLD_DETAIL_URL,
+  CASE_OLD_URL,
+  CASE_POSTURE_DETAIL_URL,
+  CASE_POSTURE_URL,
+  CASE_STORY_DETAIL_URL,
+  CASE_STORY_URL,
   GREETING_URL,
   HISTORY_URL,
   HOME_URL,
@@ -267,6 +285,88 @@ export const router = createBrowserRouter([
             Element={GrowthSystemPage}
             title="Hệ thống tăng trưởng"
             url={PROGRAM_SYSTEM_URL}
+          />
+        ),
+      },
+
+      // Case
+      {
+        path: CASE_STORY_URL,
+        element: (
+          <ProtectedComponent
+            Element={StoryListPage}
+            title="Câu chuyện tăng trưởng"
+            url={CASE_STORY_URL}
+          />
+        ),
+      },
+      {
+        path: CASE_STORY_DETAIL_URL,
+        element: (
+          <ProtectedComponent
+            Element={StoryDetailPage}
+            title="Chi tiết câu chuyện tăng trưởng"
+            url={CASE_STORY_DETAIL_URL}
+          />
+        ),
+      },
+      {
+        path: CASE_POSTURE_URL,
+        element: (
+          <ProtectedComponent
+            Element={PoseListPage}
+            title="Trường hợp chỉnh sửa tư thế"
+            url={CASE_POSTURE_URL}
+          />
+        ),
+      },
+      {
+        path: CASE_POSTURE_DETAIL_URL,
+        element: (
+          <ProtectedComponent
+            Element={PoseDetailPage}
+            title="Chi tiết chỉnh sửa tư thế"
+            url={CASE_POSTURE_DETAIL_URL}
+          />
+        ),
+      },
+      {
+        path: CASE_OLD_URL,
+        element: (
+          <ProtectedComponent
+            Element={OldListPage}
+            title="Trường hợp trễ hạn"
+            url={CASE_OLD_URL}
+          />
+        ),
+      },
+      {
+        path: CASE_OLD_DETAIL_URL,
+        element: (
+          <ProtectedComponent
+            Element={OldDetailPage}
+            title="Chi tiết trường hợp trễ hạn"
+            url={CASE_OLD_DETAIL_URL}
+          />
+        ),
+      },
+      {
+        path: CASE_FAT_URL,
+        element: (
+          <ProtectedComponent
+            Element={FatListPage}
+            title="Trường hợp béo phì"
+            url={CASE_FAT_URL}
+          />
+        ),
+      },
+      {
+        path: CASE_FAT_DETAIL_URL,
+        element: (
+          <ProtectedComponent
+            Element={FatDetailPage}
+            title="Chi tiết trường hợp béo phì"
+            url={CASE_FAT_DETAIL_URL}
           />
         ),
       },

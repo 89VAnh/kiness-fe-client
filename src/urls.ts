@@ -34,9 +34,13 @@ const PROGRAM_SYSTEM_URL = `${PROGRAM_URL}/system`;
 // case
 const CASE_URL = "/case";
 const CASE_STORY_URL = `${CASE_URL}/story`;
+const CASE_STORY_DETAIL_URL = `${CASE_URL}/story/:id`;
 const CASE_POSTURE_URL = `${CASE_URL}/posture`;
+const CASE_POSTURE_DETAIL_URL = `${CASE_URL}/posture/:id`;
 const CASE_OLD_URL = `${CASE_URL}/old`;
+const CASE_OLD_DETAIL_URL = `${CASE_URL}/old/:id`;
 const CASE_FAT_URL = `${CASE_URL}/fat`;
+const CASE_FAT_DETAIL_URL = `${CASE_URL}/fat/:id`;
 
 // Info growth
 const INFO_GROWTH_URL = "/info-growth";
@@ -85,9 +89,13 @@ export {
   PROGRAM_METHOD_URL,
   PROGRAM_SYSTEM_URL,
   CASE_STORY_URL,
+  CASE_STORY_DETAIL_URL,
   CASE_POSTURE_URL,
+  CASE_POSTURE_DETAIL_URL,
   CASE_OLD_URL,
+  CASE_OLD_DETAIL_URL,
   CASE_FAT_URL,
+  CASE_FAT_DETAIL_URL,
   INFO_GROWTH_HEIGHT_URL,
   INFO_GROWTH_STANDING_URL,
   INFO_GROWTH_PERIOD_URL,
