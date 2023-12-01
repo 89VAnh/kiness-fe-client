@@ -2,7 +2,7 @@
 
 .content-wrap {
   width: 100%;
-  @include resp-padding(70px 0 0, 70px 0 0, 40px 0 0);
+  @include resp-padding(70px 0 40px 0, 70px 0 40px 0, 40px 0 20px 0);
 
   .header-content {
     display: flex;
