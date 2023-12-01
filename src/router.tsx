@@ -33,7 +33,7 @@ import {
   ThesisPage,
 } from "./modules/greetings";
 import Home from "./modules/home/Home";
-import { HeightPage, StandingPage } from "./modules/info-growth";
+import { HeightPage, PeriodPage, StandingPage } from "./modules/info-growth";
 import {
   GrowthMethodPage,
   GrowthSystemPage,
@@ -59,6 +59,7 @@ import {
   HOME_URL,
   INFO_BRANCH_URL,
   INFO_GROWTH_HEIGHT_URL,
+  INFO_GROWTH_PERIOD_URL,
   INFO_GROWTH_STANDING_URL,
   INFO_HISTORY_URL,
   INFO_LAB_URL,
@@ -392,6 +393,16 @@ export const router = createBrowserRouter([
             Element={StandingPage}
             title="Tư thế đứng"
             url={INFO_GROWTH_STANDING_URL}
+          />
+        ),
+      },
+      {
+        path: INFO_GROWTH_PERIOD_URL,
+        element: (
+          <ProtectedComponent
+            Element={PeriodPage}
+            title="Kỳ hạn / đáo hạn sớm"
+            url={INFO_GROWTH_PERIOD_URL}
           />
         ),
       },

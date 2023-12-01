@@ -9,3 +9,8 @@ export const StandingPage = lazyLoad(
   () => import("./standing/Standing"),
   (module) => module.default,
 );
+
+export const PeriodPage = lazyLoad(
+  () => import("./period/Period"),
+  (module) => module.default,
+);

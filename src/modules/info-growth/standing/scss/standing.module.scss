@@ -2,7 +2,7 @@
 
 .content-wrap {
   width: 100%;
-  @include resp-padding(70px 0 50px 0, 70px 0 50px 0, 40px 0 20px 0);
+  @include resp-padding(70px 0 40px 0, 70px 0 40px 0, 40px 0 20px 0);
 
   .header-wrap {
     padding-bottom: 50px;
@@ -17,5 +17,52 @@
       line-height: 1.5;
       @include resp-text(18px, 18px 16px);
     }
+  }
+}
+
+.posture-area {
+  background-color: #f5fbff;
+
+  .posture-title {
+    @include resp-text(28px, 22px !important);
+    font-weight: bold;
+    text-align: left;
+    position: relative;
+    color: #353535;
+    line-height: 28px;
+    padding: 10px 0 20px 35px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 25px;
+      height: 25px;
+      background: url("@/assets/img/others/sub_tit.png") left center no-repeat;
+    }
+  }
+
+  .img {
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    width: 100%;
+
+    img {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+  }
+
+  .box {
+    border: 1px solid $color-smoke;
+    border-radius: 20px;
+    background: $color-white;
+    @include resp-text(18px, 18px, 16px);
+    margin-bottom: 20px;
+    padding: 30px 40px;
+    line-height: 1.5;
   }
 }
