@@ -1,0 +1,58 @@
+@import "@/assets/scss/variables";
+
+.content-wrap {
+  width: 100%;
+  @include resp-padding(70px 0 0, 70px 0 0, 40px 0 0);
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .radio-group {
+      display: flex;
+      @include resp-margin(0, 0, 0 0 16px 0);
+    }
+  }
+
+  .img {
+    .thumbnail {
+      // @include resp-height(200px, 200px, 250px);
+      border: 1px solid $color-smoke;
+    }
+  }
+
+  .text-wrap {
+    max-width: 100%;
+    margin: 15px auto;
+    display: inline-block;
+
+    h4 {
+      font-size: 18px;
+      font-weight: 500;
+      margin: 0;
+    }
+  }
+
+  :global {
+    .ant-radio-button-wrapper {
+      &.ant-radio-button-wrapper-checked {
+        background-color: $color-primary !important;
+        border-color: $color-primary !important;
+
+        &:hover {
+          color: $color-white !important;
+        }
+      }
+      &:hover {
+        color: $color-primary !important;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .header-content {
+    display: block !important;
+  }
+}

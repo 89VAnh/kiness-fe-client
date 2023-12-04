@@ -33,12 +33,20 @@ import {
   ThesisPage,
 } from "./modules/greetings";
 import Home from "./modules/home/Home";
-import { HeightPage, PeriodPage, StandingPage } from "./modules/info-growth";
+import {
+  ColumnDetailPage,
+  ColumnListPage,
+  FatPage,
+  HeightPage,
+  PeriodPage,
+  StandingPage,
+} from "./modules/info-growth";
 import {
   GrowthMethodPage,
   GrowthSystemPage,
   QuestionPage,
 } from "./modules/program";
+import { TVLocalPage, TVWorldPage } from "./modules/tv";
 import {
   ADVICE_EX_URL,
   ADVICE_FAQ_URL,
@@ -58,6 +66,9 @@ import {
   HISTORY_URL,
   HOME_URL,
   INFO_BRANCH_URL,
+  INFO_GROWTH_COLUMN_DETAIL_URL,
+  INFO_GROWTH_COLUMN_URL,
+  INFO_GROWTH_FAT_URL,
   INFO_GROWTH_HEIGHT_URL,
   INFO_GROWTH_PERIOD_URL,
   INFO_GROWTH_STANDING_URL,
@@ -73,6 +84,8 @@ import {
   RESEARCHER_URL,
   THESIS_DETAIL_URL,
   THESIS_URL,
+  TV_LOCAL_URL,
+  TV_WORLD_URL,
 } from "./urls";
 
 export const router = createBrowserRouter([
@@ -403,6 +416,58 @@ export const router = createBrowserRouter([
             Element={PeriodPage}
             title="Kỳ hạn / đáo hạn sớm"
             url={INFO_GROWTH_PERIOD_URL}
+          />
+        ),
+      },
+      {
+        path: INFO_GROWTH_FAT_URL,
+        element: (
+          <ProtectedComponent
+            Element={FatPage}
+            title="Béo phì thời thơ ấu"
+            url={INFO_GROWTH_FAT_URL}
+          />
+        ),
+      },
+      {
+        path: INFO_GROWTH_COLUMN_URL,
+        element: (
+          <ProtectedComponent
+            Element={ColumnListPage}
+            title="Cột tăng trưởng"
+            url={INFO_GROWTH_COLUMN_URL}
+          />
+        ),
+      },
+      {
+        path: INFO_GROWTH_COLUMN_DETAIL_URL,
+        element: (
+          <ProtectedComponent
+            Element={ColumnDetailPage}
+            title="Chi tiết cột tăng trưởng"
+            url={INFO_GROWTH_COLUMN_DETAIL_URL}
+          />
+        ),
+      },
+
+      // tv
+      {
+        path: TV_LOCAL_URL,
+        element: (
+          <ProtectedComponent
+            Element={TVLocalPage}
+            title="Kênh trong nước"
+            url={TV_LOCAL_URL}
+          />
+        ),
+      },
+      {
+        path: TV_WORLD_URL,
+        element: (
+          <ProtectedComponent
+            Element={TVWorldPage}
+            title="Kênh thế giới"
+            url={TV_WORLD_URL}
           />
         ),
       },

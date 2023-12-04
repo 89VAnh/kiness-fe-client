@@ -14,3 +14,18 @@ export const PeriodPage = lazyLoad(
   () => import("./period/Period"),
   (module) => module.default,
 );
+
+export const FatPage = lazyLoad(
+  () => import("./fat/Fat"),
+  (module) => module.default,
+);
+
+export const ColumnListPage = lazyLoad(
+  () => import("./column/column-list/ColumnList"),
+  (module) => module.default,
+);
+
+export const ColumnDetailPage = lazyLoad(
+  () => import("./column/column-detail/ColumnDetail"),
+  (module) => module.default,
+);
