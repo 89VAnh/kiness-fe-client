@@ -119,11 +119,17 @@
         "title": "Chiều cao dự kiến do di truyền"
       },
       "current": {
-        "title": "Chiều cao hiện tại"
+        "title": "Chiều cao dự kiến theo chiều cao hiện tại"
       },
       "chart": {
         "title": "Biểu đồ tăng trưởng"
       }
+    },
+    "privacy-term": {
+      "title": "Chính sách bảo mật"
+    },
+    "policy": {
+      "title": "Điều khoản sử dụng"
     }
   },
   "user": {
