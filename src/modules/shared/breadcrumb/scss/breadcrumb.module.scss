@@ -49,6 +49,25 @@
   }
 }
 
+.dropdown {
+  ul {
+    border-radius: 10px !important;
+
+    li {
+      transition: 0.1s !important;
+      &:hover {
+        background-color: $color-primary !important;
+        color: $color-white !important;
+      }
+
+      span {
+        @include resp-text;
+        line-height: 2.5;
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: 1120px) {
   .inner {
     margin: 0 !important;

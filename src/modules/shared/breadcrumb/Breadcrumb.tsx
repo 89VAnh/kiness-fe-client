@@ -42,6 +42,7 @@ export default function Breadcrumb({ showLast = true }: Props): JSX.Element {
           )}
 
           <Dropdown
+            overlayClassName={styles.dropdown}
             menu={{
               items: menuDefault,
               onClick: handleMenuClick,
@@ -56,6 +57,7 @@ export default function Breadcrumb({ showLast = true }: Props): JSX.Element {
           </Dropdown>
 
           <Dropdown
+            overlayClassName={styles.dropdown}
             menu={{
               items: getMenuLevel(window.location.pathname),
               onClick: handleMenuClick,
@@ -74,6 +76,7 @@ export default function Breadcrumb({ showLast = true }: Props): JSX.Element {
 
           {getMenuLevel(window.location.pathname, 3).length > 0 && showLast && (
             <Dropdown
+              overlayClassName={styles.dropdown}
               menu={{
                 items: getMenuLevel(window.location.pathname, 3),
                 onClick: handleMenuClick,

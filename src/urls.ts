@@ -62,6 +62,10 @@ const EXPECTED_GEN_URL = `${EXPECTED_URL}/gen`;
 const EXPECTED_CURRENT_URL = `${EXPECTED_URL}/current`;
 const EXPECTED_CHART_URL = `${EXPECTED_URL}/chart`;
 
+// single page
+const PRIVACY_TERM_URL = `/privacy-terms`;
+const POLICY_URL = `/policy`;
+
 export {
   HOME_URL,
   INFO_URL,
@@ -108,4 +112,6 @@ export {
   EXPECTED_GEN_URL,
   EXPECTED_CURRENT_URL,
   EXPECTED_CHART_URL,
+  PRIVACY_TERM_URL,
+  POLICY_URL,
 };

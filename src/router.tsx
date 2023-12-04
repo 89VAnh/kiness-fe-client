@@ -20,6 +20,7 @@ import {
   StoryListPage,
 } from "./modules/case";
 import { ErrorBoundaryPage } from "./modules/error/boundary";
+import { ChartGrowthPage, CurrentPage, GenPage } from "./modules/expected";
 import {
   BookPage,
   GreetingPage,
@@ -41,6 +42,8 @@ import {
   PeriodPage,
   StandingPage,
 } from "./modules/info-growth";
+import Policy from "./modules/policy/Policy";
+import PrivacyTerm from "./modules/privacy-term/PrivacyTerm";
 import {
   GrowthMethodPage,
   GrowthSystemPage,
@@ -62,6 +65,9 @@ import {
   CASE_POSTURE_URL,
   CASE_STORY_DETAIL_URL,
   CASE_STORY_URL,
+  EXPECTED_CHART_URL,
+  EXPECTED_CURRENT_URL,
+  EXPECTED_GEN_URL,
   GREETING_URL,
   HISTORY_URL,
   HOME_URL,
@@ -78,6 +84,8 @@ import {
   MAP_URL,
   ORGAN_URL,
   PATENT_URL,
+  POLICY_URL,
+  PRIVACY_TERM_URL,
   PROGRAM_METHOD_URL,
   PROGRAM_QUESTION_URL,
   PROGRAM_SYSTEM_URL,
@@ -404,7 +412,7 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedComponent
             Element={StandingPage}
-            title="Tư thế đứng"
+            title="Tư thế đúng"
             url={INFO_GROWTH_STANDING_URL}
           />
         ),
@@ -468,6 +476,60 @@ export const router = createBrowserRouter([
             Element={TVWorldPage}
             title="Kênh thế giới"
             url={TV_WORLD_URL}
+          />
+        ),
+      },
+
+      // expected
+      {
+        path: EXPECTED_GEN_URL,
+        element: (
+          <ProtectedComponent
+            Element={GenPage}
+            title="Chiều cao dự kiến do di truyền"
+            url={EXPECTED_GEN_URL}
+          />
+        ),
+      },
+      {
+        path: EXPECTED_CURRENT_URL,
+        element: (
+          <ProtectedComponent
+            Element={CurrentPage}
+            title="Chiều cao dự kiến theo chiều cao hiện tại"
+            url={EXPECTED_CURRENT_URL}
+          />
+        ),
+      },
+      {
+        path: EXPECTED_CHART_URL,
+        element: (
+          <ProtectedComponent
+            Element={ChartGrowthPage}
+            title="Biểu đồ tăng trưởng tiêu chuẩn Việt Nam"
+            url={EXPECTED_CHART_URL}
+          />
+        ),
+      },
+
+      // single page
+      {
+        path: PRIVACY_TERM_URL,
+        element: (
+          <ProtectedComponent
+            Element={PrivacyTerm}
+            title="Chính sách bảo mật"
+            url={PRIVACY_TERM_URL}
+          />
+        ),
+      },
+      {
+        path: POLICY_URL,
+        element: (
+          <ProtectedComponent
+            Element={Policy}
+            title="Điều khoản sử dụng"
+            url={POLICY_URL}
           />
         ),
       },
