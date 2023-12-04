@@ -1,0 +1,67 @@
+@import "@/assets/scss/variables";
+
+.content-wrap {
+  width: 100%;
+  @include resp-padding(70px 0 0, 70px 0 0, 40px 0 0);
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .table {
+    .status {
+      background-color: $color-primary;
+      color: $color-white;
+      display: inline-block;
+      margin-right: 5px;
+      border-radius: 15px;
+      width: 80px;
+      height: 30px;
+      line-height: 30px;
+      font-size: 13px !important;
+      text-align: center;
+    }
+
+    .link {
+      font-weight: 600;
+      color: $color-black;
+
+      &:hover {
+        color: $color-primary !important;
+      }
+    }
+
+    span {
+      @include resp-text;
+    }
+  }
+
+  .pencil {
+    font-size: 18px;
+    color: $color-gray;
+
+    &:hover {
+      color: $color-black;
+    }
+  }
+}
+
+.modal {
+  @include resp-width(500px !important, 50vw !important, auto !important);
+
+  :global {
+    .ant-modal-title {
+      @include resp-text(24px, 20px, 18px);
+    }
+
+    .ant-modal-body {
+      text-align: center;
+
+      span {
+        @include resp-text(16px, 16px, 14px);
+      }
+    }
+  }
+}
