@@ -39,11 +39,12 @@ export default function AppLayout({ children }: Props): JSX.Element {
         </Link>
       )}
       {...settings}
+      footerRender={Footer}
     >
       <Outlet />
       {children}
 
-      <Footer />
+      {/* <Footer /> */}
       <ButtonNav />
     </ProLayout>
   );

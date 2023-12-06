@@ -136,6 +136,7 @@
   margin-top: calc(100px - 58px);
   // max-width: 1400px;
   margin-left: auto;
+  min-height: 50vh;
   margin-right: auto;
   padding: 0 !important;
   background-color: #fff !important;
@@ -221,4 +222,8 @@
   position: relative;
   display: inline-block;
   background: linear-gradient(180deg, transparent 79%, #ffda53 70%);
+}
+
+.w-full {
+  width: 100% !important;
 }
