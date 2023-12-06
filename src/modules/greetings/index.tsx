@@ -31,7 +31,12 @@ export const ResearcherPage = lazyLoad(
 );
 
 export const ThesisPage = lazyLoad(
-  () => import("./lab/thesis/Thesis"),
+  () => import("./lab/thesis/thesis-list/Thesis"),
+  (module) => module.default,
+);
+
+export const ThesisDetailPage = lazyLoad(
+  () => import("./lab/thesis/thesis-detail/ThesisDetail"),
   (module) => module.default,
 );
 

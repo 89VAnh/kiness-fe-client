@@ -12,6 +12,7 @@ const MAP_URL = `${INFO_BRANCH_URL}/map`;
 const MAP_DETAIL_URL = `${INFO_BRANCH_URL}/map/:id`;
 const RESEARCHER_URL = `${INFO_LAB_URL}/researcher`;
 const THESIS_URL = `${INFO_LAB_URL}/thesis`;
+const THESIS_DETAIL_URL = `${INFO_LAB_URL}/thesis/:id`;
 const PATENT_URL = `${INFO_LAB_URL}/patent`;
 const BOOK_URL = `${INFO_LAB_URL}/book`;
 
@@ -21,6 +22,8 @@ const ADVICE_OVERHAUL_URL = `${ADVICE_URL}/overhaul`;
 const ADVICE_EX_URL = `${ADVICE_URL}/ex`;
 const ADVICE_FAQ_URL = `${ADVICE_URL}/faq`;
 const ADVICE_INQUIRY_URL = `${ADVICE_URL}/inquiry`;
+const ADVICE_INQUIRY_DETAIL_URL = `${ADVICE_URL}/inquiry/:id`;
+const ADVICE_INQUIRY_WRITE_URL = `${ADVICE_URL}/inquiry/write`;
 
 // program
 const PROGRAM_URL = "/program";
@@ -31,9 +34,13 @@ const PROGRAM_SYSTEM_URL = `${PROGRAM_URL}/system`;
 // case
 const CASE_URL = "/case";
 const CASE_STORY_URL = `${CASE_URL}/story`;
+const CASE_STORY_DETAIL_URL = `${CASE_URL}/story/:id`;
 const CASE_POSTURE_URL = `${CASE_URL}/posture`;
+const CASE_POSTURE_DETAIL_URL = `${CASE_URL}/posture/:id`;
 const CASE_OLD_URL = `${CASE_URL}/old`;
+const CASE_OLD_DETAIL_URL = `${CASE_URL}/old/:id`;
 const CASE_FAT_URL = `${CASE_URL}/fat`;
+const CASE_FAT_DETAIL_URL = `${CASE_URL}/fat/:id`;
 
 // Info growth
 const INFO_GROWTH_URL = "/info-growth";
@@ -42,6 +49,7 @@ const INFO_GROWTH_STANDING_URL = `${INFO_GROWTH_URL}/standing`;
 const INFO_GROWTH_PERIOD_URL = `${INFO_GROWTH_URL}/period`;
 const INFO_GROWTH_FAT_URL = `${INFO_GROWTH_URL}/fat`;
 const INFO_GROWTH_COLUMN_URL = `${INFO_GROWTH_URL}/column`;
+const INFO_GROWTH_COLUMN_DETAIL_URL = `${INFO_GROWTH_URL}/column/:id`;
 
 // Tv
 const TV_URL = "/tv";
@@ -53,6 +61,10 @@ const EXPECTED_URL = "/expected";
 const EXPECTED_GEN_URL = `${EXPECTED_URL}/gen`;
 const EXPECTED_CURRENT_URL = `${EXPECTED_URL}/current`;
 const EXPECTED_CHART_URL = `${EXPECTED_URL}/chart`;
+
+// single page
+const PRIVACY_TERM_URL = `/privacy-terms`;
+const POLICY_URL = `/policy`;
 
 export {
   HOME_URL,
@@ -67,6 +79,7 @@ export {
   MAP_DETAIL_URL,
   RESEARCHER_URL,
   THESIS_URL,
+  THESIS_DETAIL_URL,
   PATENT_URL,
   BOOK_URL,
   ADVICE_URL,
@@ -74,22 +87,31 @@ export {
   ADVICE_EX_URL,
   ADVICE_FAQ_URL,
   ADVICE_INQUIRY_URL,
+  ADVICE_INQUIRY_DETAIL_URL,
+  ADVICE_INQUIRY_WRITE_URL,
   PROGRAM_URL,
   PROGRAM_QUESTION_URL,
   PROGRAM_METHOD_URL,
   PROGRAM_SYSTEM_URL,
   CASE_STORY_URL,
+  CASE_STORY_DETAIL_URL,
   CASE_POSTURE_URL,
+  CASE_POSTURE_DETAIL_URL,
   CASE_OLD_URL,
+  CASE_OLD_DETAIL_URL,
   CASE_FAT_URL,
+  CASE_FAT_DETAIL_URL,
   INFO_GROWTH_HEIGHT_URL,
   INFO_GROWTH_STANDING_URL,
   INFO_GROWTH_PERIOD_URL,
   INFO_GROWTH_FAT_URL,
   INFO_GROWTH_COLUMN_URL,
+  INFO_GROWTH_COLUMN_DETAIL_URL,
   TV_LOCAL_URL,
   TV_WORLD_URL,
   EXPECTED_GEN_URL,
   EXPECTED_CURRENT_URL,
   EXPECTED_CHART_URL,
+  PRIVACY_TERM_URL,
+  POLICY_URL,
 };

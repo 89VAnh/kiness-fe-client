@@ -1,0 +1,55 @@
+@import "@/assets/scss/variables";
+
+.content-wrap {
+  width: 100%;
+  @include resp-padding(70px 0 0, 70px 0 0, 40px 0 0);
+
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .thumbnail {
+    @include resp-height(300px, 250px, 300px);
+    border-radius: 25px;
+    border: 1px solid $color-smoke;
+  }
+
+  .text-wrap {
+    margin: 10px 0;
+    max-width: 100%;
+    margin: 25px auto;
+    display: inline-block;
+    padding: 0 0 0 20px;
+
+    h4 {
+      font-size: 22px;
+      margin: 0;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      li {
+        display: block;
+        position: relative;
+        padding-left: 15px;
+        font-size: 16px;
+        margin: 8px 0;
+
+        ::before {
+          content: "";
+          background: #444444;
+          width: 4px;
+          height: 4px;
+          border-radius: 5px;
+          position: absolute;
+          margin-left: -15px;
+          top: 10px;
+        }
+      }
+    }
+  }
+}

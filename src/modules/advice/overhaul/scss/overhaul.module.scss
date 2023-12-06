@@ -1,0 +1,114 @@
+@import "@/assets/scss/variables";
+
+.content-wrap {
+  width: 100%;
+  @include resp-padding(70px 0 0, 70px 0 0, 40px 0 0);
+
+  .box {
+    background-color: $color-smoke;
+    text-align: center;
+    border-radius: 20px;
+    padding: 50px 10px;
+    text-align: center;
+
+    h3 {
+      font-size: 28px;
+    }
+
+    :global {
+      div.ant-typography {
+        @include resp-text(20px, 20px, 16px);
+      }
+    }
+
+    .card-wrap {
+      height: 100%;
+    }
+
+    .card-item {
+      width: 100%;
+      height: 100%;
+      display: block;
+      padding: 20px 10px;
+      text-align: center;
+      @include resp-text(24px, 18px, 16px);
+      color: $color-white !important;
+      border-radius: 20px;
+      display: block;
+      padding: 40px 30px;
+      text-align: center;
+      transition: all 0.3s ease;
+
+      span {
+        color: $color-white !important;
+        @include resp-text(24px, 18px, 16px);
+      }
+
+      &:hover {
+        box-shadow:
+          4px 4px 6px 0 rgba(255, 255, 255, 0.3),
+          -4px -4px 6px 0 rgba(116, 125, 136, 0.2),
+          inset -4px -4px 6px 0 rgba(255, 255, 255, 0.2),
+          inset 4px 4px 6px 0 rgba(0, 0, 0, 0.21);
+      }
+    }
+  }
+
+  .overhaul-title {
+    text-align: center;
+    @include resp-text(45px, 30px 24px);
+    padding-top: 50px;
+
+    img {
+      @include resp-max-width(auto, auto, 80px);
+    }
+  }
+
+  .cloud-area {
+    background-color: $color-cloud;
+
+    .card-item {
+      .card-img {
+        text-align: center;
+
+        img {
+          width: 100%;
+        }
+      }
+
+      h4 {
+        @include resp-text(26px, 20px, 20px);
+
+        .badge {
+          color: $color-white;
+          @include resp-text(18px, 14px, 14px);
+          font-weight: bold;
+          border-radius: 30px;
+          padding: 5px 8px;
+          display: inline-block;
+          white-space: nowrap;
+          margin-right: 10px;
+        }
+      }
+
+      .paragraph {
+        @include resp-text(20px, 18px, 16px);
+      }
+    }
+
+    .text-bottom {
+      text-align: right;
+      color: #888;
+      font-size: 16px;
+      padding-right: 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+      @include resp-padding(
+        20px 20px 180px 20px,
+        20px 20px 180px 20px,
+        20px 20px 100px 20px
+      );
+      clear: both;
+    }
+  }
+}

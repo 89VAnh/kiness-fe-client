@@ -1,58 +1,68 @@
-import { Image, Typography } from "antd";
-import { motion } from "framer-motion";
+import { Col, Divider, Image, Input, Row, Typography } from "antd";
+import { useTranslation } from "react-i18next";
 
-import personImg from "@/assets/img/info/img_greet_doctor.png";
 import Breadcrumb from "@/modules/shared/breadcrumb/Breadcrumb";
 import Title from "@/modules/shared/title/Title";
 
-import { greetingData } from "./data/data-fake";
-import styles from "./scss/greeting.module.scss";
+import { dataPatent } from "./data/data-fake";
+import styles from "./scss/patent.module.scss";
 
 export default function Patent(): JSX.Element {
+  const { t } = useTranslation();
+
   return (
     <>
       <Title />
 
       <Breadcrumb />
 
-      <div className={styles.contentWrap}>
+      <section className={styles.contentWrap}>
         <div className="inner">
-          <motion.div
-            initial={{ y: -50, opacity: 0.5 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className={styles.box}
-          >
-            <Typography.Title level={4}>
-              Xin chào?{" "}
-              <Typography.Text strong>
-                Đây là Tiến sĩ Yangsoo Kim, Giám đốc điều hành của
-              </Typography.Text>
-              <br />
-              Trung tâm Tăng trưởng Kiness.
-            </Typography.Title>
-
-            <Image
-              preview={false}
-              src={personImg}
-              wrapperClassName={styles.img}
+          <div className={styles.headerContent}>
+            <div></div>
+            <Input.Search
+              style={{ maxWidth: 300 }}
+              placeholder={t("patent.search_placeholder")}
             />
-          </motion.div>
-          <motion.div
-            initial={{ y: -50, opacity: 0.5 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className={styles.boxText}
-          >
-            <div
-              className={"inner-text"}
-              dangerouslySetInnerHTML={{ __html: greetingData }}
-            ></div>
-          </motion.div>
+          </div>
+          <Divider />
+
+          <Row gutter={16}>
+            {dataPatent.map((item) => (
+              <Col
+                key={item.key}
+                span={24}
+                md={12}
+                lg={8}
+                style={{ marginBottom: 16 }}
+              >
+                <div>
+                  <Image
+                    src={item.thumb}
+                    wrapperStyle={{ width: "100%" }}
+                    className={styles.thumbnail}
+                    style={{ maxHeight: 300, objectFit: "cover" }}
+                  />
+
+                  <div className={styles.textWrap}>
+                    <Typography.Title level={4}>
+                      {item.title}{" "}
+                      <Typography.Text type="secondary">
+                        số {item.number}
+                      </Typography.Text>
+                    </Typography.Title>
+
+                    <div
+                      className={styles.description}
+                      dangerouslySetInnerHTML={{ __html: item.description }}
+                    ></div>
+                  </div>
+                </div>
+              </Col>
+            ))}
+          </Row>
         </div>
-      </div>
+      </section>
     </>
   );
 }

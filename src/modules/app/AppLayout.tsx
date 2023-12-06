@@ -6,6 +6,7 @@ import Logo from "@/assets/img/logo/logo.png";
 import "@/assets/scss/index.scss";
 import { HOME_URL } from "@/urls";
 
+import ButtonNav from "../shared/button-nav/ButtonNav";
 import Footer from "../shared/footer/Footer";
 import { appRoute } from "./AppRouter";
 
@@ -38,11 +39,13 @@ export default function AppLayout({ children }: Props): JSX.Element {
         </Link>
       )}
       {...settings}
+      footerRender={Footer}
     >
       <Outlet />
       {children}
 
-      <Footer />
+      {/* <Footer /> */}
+      <ButtonNav />
     </ProLayout>
   );
 }

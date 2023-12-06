@@ -1,58 +1,92 @@
-import { Image, Typography } from "antd";
-import { motion } from "framer-motion";
+import {
+  Col,
+  Divider,
+  Image,
+  Input,
+  Radio,
+  Row,
+  Space,
+  Typography,
+} from "antd";
+import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
-import personImg from "@/assets/img/info/img_greet_doctor.png";
 import Breadcrumb from "@/modules/shared/breadcrumb/Breadcrumb";
 import Title from "@/modules/shared/title/Title";
 
-import { greetingData } from "./data/data-fake";
-import styles from "./scss/greeting.module.scss";
+import { bookDropdown, dataBook } from "./data/data-fake";
+import styles from "./scss/book.module.scss";
 
 export default function Book(): JSX.Element {
+  const { t } = useTranslation();
+  const [currentType, setCurrentType] = useState<string>("");
+
   return (
     <>
       <Title />
 
       <Breadcrumb />
 
-      <div className={styles.contentWrap}>
+      <section className={styles.contentWrap}>
         <div className="inner">
-          <motion.div
-            initial={{ y: -50, opacity: 0.5 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className={styles.box}
-          >
-            <Typography.Title level={4}>
-              Xin chào?{" "}
-              <Typography.Text strong>
-                Đây là Tiến sĩ Yangsoo Kim, Giám đốc điều hành của
-              </Typography.Text>
-              <br />
-              Trung tâm Tăng trưởng Kiness.
-            </Typography.Title>
-
-            <Image
-              preview={false}
-              src={personImg}
-              wrapperClassName={styles.img}
+          <div className={styles.headerContent}>
+            <Space className={styles.radioGroup}>
+              <Radio.Group
+                buttonStyle="solid"
+                defaultValue={currentType}
+                onChange={(value) => setCurrentType(value.target.value)}
+              >
+                {bookDropdown.map((item) => (
+                  <Radio.Button key={item.value} value={item.value}>
+                    {item.label}
+                  </Radio.Button>
+                ))}
+              </Radio.Group>
+            </Space>
+            <Input.Search
+              style={{ maxWidth: 300 }}
+              placeholder={t("thesis.search_placeholder")}
             />
-          </motion.div>
-          <motion.div
-            initial={{ y: -50, opacity: 0.5 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className={styles.boxText}
-          >
-            <div
-              className={"inner-text"}
-              dangerouslySetInnerHTML={{ __html: greetingData }}
-            ></div>
-          </motion.div>
+          </div>
+          <Divider />
+
+          <Row gutter={16}>
+            {dataBook
+              .filter((item) =>
+                currentType ? item.type === currentType : true,
+              )
+              .map((item, index) => (
+                <Col
+                  key={index}
+                  span={24}
+                  md={8}
+                  lg={4.8}
+                  style={{ marginBottom: 16 }}
+                >
+                  <div>
+                    <Image
+                      src={item.thumb}
+                      wrapperStyle={{ width: "100%" }}
+                      className={styles.thumbnail}
+                      style={{ maxHeight: 300, objectFit: "cover" }}
+                    />
+
+                    <div className={styles.textWrap}>
+                      <Typography.Text strong>{item.type}</Typography.Text>
+                      <Typography.Title level={4}>
+                        {item.title}{" "}
+                      </Typography.Title>
+
+                      <Typography.Text type="secondary" strong>
+                        {item.date}
+                      </Typography.Text>
+                    </div>
+                  </div>
+                </Col>
+              ))}
+          </Row>
         </div>
-      </div>
+      </section>
     </>
   );
 }

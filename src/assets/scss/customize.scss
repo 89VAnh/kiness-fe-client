@@ -71,12 +71,72 @@
   }
 }
 
+.ant-pro-sider-menu {
+  .ant-menu-submenu-title,
+  .ant-menu-item {
+    a {
+      color: $color-black;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    &:hover {
+      a {
+        color: $color-primary;
+      }
+    }
+  }
+
+  & > .ant-menu-submenu-selected {
+    & > .ant-menu-submenu-title {
+      background-color: $color-primary !important;
+      color: $color-white !important;
+
+      a {
+        color: $color-white !important;
+      }
+    }
+
+    & > .ant-menu {
+      .ant-menu-item-selected.ant-menu-item-only-child {
+        background-color: $color-primary !important;
+        color: $color-white !important;
+
+        a {
+          color: $color-white !important;
+        }
+      }
+    }
+
+    .ant-menu-submenu-selected {
+      & > .ant-menu-submenu-title {
+        background-color: $color-primary !important;
+        color: $color-white !important;
+
+        a {
+          color: $color-white !important;
+        }
+      }
+
+      .ant-menu-item-selected {
+        background-color: $color-primary !important;
+        color: $color-white !important;
+
+        a {
+          color: $color-white !important;
+        }
+      }
+    }
+  }
+}
+
 // Content
 .ant-layout-content {
   margin-top: 0 !important;
   margin-top: calc(100px - 58px);
   // max-width: 1400px;
   margin-left: auto;
+  min-height: 50vh;
   margin-right: auto;
   padding: 0 !important;
   background-color: #fff !important;
@@ -130,10 +190,18 @@
   );
   border: none;
   box-shadow: 0 10px 20px rgba(11, 201, 189, 0.2);
+
+  &:hover {
+    box-shadow:
+      4px 4px 6px 0 rgba(255, 255, 255, 0.5),
+      -4px -4px 6px 0 rgba(116, 125, 136, 0.2),
+      inset -4px -4px 6px 0 rgba(255, 255, 255, 0.2),
+      inset 4px 4px 6px 0 rgba(0, 0, 0, 0.1);
+  }
 }
 
 .font-mint {
-  color: $color-primary;
+  color: $color-primary !important;
 }
 
 .bg-mint {
@@ -148,4 +216,14 @@
   color: #666;
   font-weight: normal;
   word-break: keep-all;
+}
+
+.text-underline {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(180deg, transparent 79%, #ffda53 70%);
+}
+
+.w-full {
+  width: 100% !important;
 }

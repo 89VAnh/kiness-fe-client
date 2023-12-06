@@ -10,8 +10,12 @@
   },
   "all": {
     "btn_cancel": "Hủy",
-    "btn_confirm": "Xác nhận",
-    "btn_register": "Đăng ký"
+    "btn_ok": "Xác nhận",
+    "btn_register": "Đăng ký",
+    "step": "Bước",
+    "branch": "Chi nhánh",
+    "regis_day": "Đặt trước trải nghiệm 1 ngày",
+    "back": "Trở lại"
   },
   "messages": {
     "login_success": "Đăng nhập thành công",
@@ -88,7 +92,7 @@
         "title": "Tăng trưởng chiều cao"
       },
       "standing": {
-        "title": "Tư thế đứng"
+        "title": "Tư thế đúng"
       },
       "period": {
         "title": "Kỳ hạn / đáo hạn sớm"
@@ -115,11 +119,17 @@
         "title": "Chiều cao dự kiến do di truyền"
       },
       "current": {
-        "title": "Chiều cao hiện tại"
+        "title": "Chiều cao dự kiến theo chiều cao hiện tại"
       },
       "chart": {
         "title": "Biểu đồ tăng trưởng"
       }
+    },
+    "privacy-term": {
+      "title": "Chính sách bảo mật"
+    },
+    "policy": {
+      "title": "Điều khoản sử dụng"
     }
   },
   "user": {
@@ -130,11 +140,38 @@
     "logout": "Đăng xuất",
     "profile": "Thông tin cá nhân"
   },
+  "thesis": {
+    "search_placeholder": "Nhập nội dung",
+    "serial": "STT",
+    "title": "Tên bài báo",
+    "author": "Tác giả",
+    "organ": "Tổ chức phát hành",
+    "year_release": "Năm phát hàng"
+  },
+  "patent": {
+    "search_placeholder": "Nhập nội dung"
+  },
   "branch_register": {
     "city_id": "Thành phố",
     "branch_name": "Tên chi nhánh",
     "phone_number": "Số điện thoại",
     "address": "Địa chỉ",
     "email": "Email"
+  },
+  "inquiry": {
+    "form": {
+      "full_name": "Họ tên",
+      "password": "Mật khẩu",
+      "email": "Email",
+      "phone": "Số điện thoại",
+      "subject": "Tiêu đề yêu cầu",
+      "content": "Nội dung yêu cầu"
+    }
+  },
+  "info_fat": {
+    "search_placeholder": "Nhập nội dung",
+    "serial": "STT",
+    "title": "Tiêu đề",
+    "date": "Ngày"
   }
 }
