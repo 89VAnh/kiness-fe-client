@@ -23,7 +23,7 @@ const useSearchBranches = ({
   return useQuery<ExtractFnReturnType<typeof searchBranches>>({
     ...config,
     queryKey: [CACHE_BRANCH.BRANCHES, params],
-    queryFn: () => searchBranches({ params }),
+    queryFn: () => searchBranches(params),
   });
 };
 

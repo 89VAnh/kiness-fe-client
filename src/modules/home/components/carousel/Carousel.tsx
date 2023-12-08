@@ -7,15 +7,17 @@ import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { PaginationOptions } from "swiper/types";
 
-import { dataCarousel } from "./data/data-fake";
+import { BASE_URL } from "@/constant/config";
+import { useSearchSlides } from "@/loader/slides.loader";
+
 import styles from "./scss/carousel.module.scss";
 
 export default function Carousel(): JSX.Element {
   const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 641);
 
-  // const { data: dataSlides } = useSearchSlides({
-  //   params: {},
-  // });
+  const { data: dataSlides } = useSearchSlides({
+    params: {},
+  });
 
   useEffect(() => {
     const handleResize = (e: any) => {
@@ -31,7 +33,7 @@ export default function Carousel(): JSX.Element {
   const pagination: PaginationOptions = {
     clickable: true,
     renderBullet: function (index, className) {
-      return `<span level={5} class="${className} bullet" title="${dataCarousel[index].title}">${dataCarousel[index].title}</span>`;
+      return `<span level={5} class="${className} bullet" title="${dataSlides?.data?.[index].slide_caption}">${dataSlides?.data?.[index].slide_caption}</span>`;
     },
   };
 
@@ -54,22 +56,24 @@ export default function Carousel(): JSX.Element {
           delay: 3000,
         }}
       >
-        {dataCarousel.map((item, index) => (
+        {/* {dataCarousel.map((item, index) => (
           <SwiperSlide key={index} style={{ background: "#fff" }}>
             <Image
               preview={false}
               src={isMobile ? item.small_image : item.big_image}
             />
           </SwiperSlide>
-        ))}
-        {/* {dataSlides?.data?.map((item: any, index: number) => (
+        ))} */}
+        {dataSlides?.data?.map((item: any, index: number) => (
           <SwiperSlide key={index} style={{ background: "#fff" }}>
             <Image
               preview={false}
-              src={`/api/${isMobile ? item.image_small : item.image_big}`}
+              src={`${BASE_URL}/${
+                isMobile ? item.image_small : item.image_big
+              }`}
             />
           </SwiperSlide>
-        ))} */}
+        ))}
       </Swiper>
     </section>
   );

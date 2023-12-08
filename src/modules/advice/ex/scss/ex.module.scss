@@ -54,3 +54,19 @@
     }
   }
 }
+
+.input-disabled {
+  background-color: $color-white !important;
+  color: $color-black !important;
+}
+
+.modal {
+  overflow: hidden;
+  @include resp-width(50% !important, 70% !important, 100% !important);
+  :global {
+    .ant-modal-body {
+      max-height: calc(100vh - 250px);
+      overflow-x: hidden;
+    }
+  }
+}
