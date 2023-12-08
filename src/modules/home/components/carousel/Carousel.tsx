@@ -13,6 +13,10 @@ import styles from "./scss/carousel.module.scss";
 export default function Carousel(): JSX.Element {
   const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 641);
 
+  // const { data: dataSlides } = useSearchSlides({
+  //   params: {},
+  // });
+
   useEffect(() => {
     const handleResize = (e: any) => {
       const width = e.target.innerWidth;
@@ -58,6 +62,14 @@ export default function Carousel(): JSX.Element {
             />
           </SwiperSlide>
         ))}
+        {/* {dataSlides?.data?.map((item: any, index: number) => (
+          <SwiperSlide key={index} style={{ background: "#fff" }}>
+            <Image
+              preview={false}
+              src={`/api/${isMobile ? item.image_small : item.image_big}`}
+            />
+          </SwiperSlide>
+        ))} */}
       </Swiper>
     </section>
   );
