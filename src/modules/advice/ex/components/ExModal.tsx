@@ -34,7 +34,7 @@ export default function ExModal({ branch }: Props): JSX.Element {
   const sendRegister = useCreateExperienceRegister({
     config: {
       onSuccess: () => {
-        message.error(t("messages.register_success"));
+        message.success(t("messages.register_success"));
         handleClose();
       },
       onError: () => {
@@ -61,6 +61,7 @@ export default function ExModal({ branch }: Props): JSX.Element {
           ...values,
           date: dayjs(values.date).format(formatDatePost),
           branch_id: branch.branch_id,
+          created_by_user_id: values.fullname,
         };
 
         sendRegister.mutate(dataPost);

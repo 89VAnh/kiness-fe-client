@@ -8,7 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { PaginationOptions } from "swiper/types";
 
 import { BASE_URL } from "@/constant/config";
-import { useSearchSlides } from "@/loader/slides.loader";
+import { useSearchSlides } from "@/loader/slide.loader";
 
 import styles from "./scss/carousel.module.scss";
 
