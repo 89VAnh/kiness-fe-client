@@ -9,6 +9,7 @@ import {
   Card,
   Col,
   Input,
+  Pagination,
   Row,
   Select,
   Skeleton,
@@ -16,11 +17,14 @@ import {
   Tag,
   Typography,
 } from "antd";
+import { DefaultOptionType } from "antd/es/select";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 
 import locationIco from "@/assets/img/others/markerStar1.png";
 import { useSearchBranches } from "@/loader/branch.loader";
+import { useCityDropdown } from "@/loader/city.loader";
 import { IBranch } from "@/models/branch";
 import Breadcrumb from "@/modules/shared/breadcrumb/Breadcrumb";
 import Title from "@/modules/shared/title/Title";
@@ -30,9 +34,40 @@ import { getUrlToDetail } from "@/utils/format-string";
 import styles from "./scss/map-list.module.scss";
 
 export default function MapList(): JSX.Element {
-  const { data: branches, isLoading } = useSearchBranches({
-    params: {},
+  const [page, setPage] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchContent = searchParams.get("k") || "";
+  const [cityOptions, setCityOptions] = useState<DefaultOptionType[]>([
+    { label: "Tất cả", value: "" },
+  ]);
+  const [citySelected, setCitySelected] = useState("");
+
+  const { isLoading: isLoadingDropdown } = useCityDropdown({
+    config: {
+      onSuccess: (data) => {
+        if (data?.length > 0) {
+          setCityOptions((prev) =>
+            prev.length === 1 ? [...prev, ...data] : [...prev],
+          );
+        }
+      },
+    },
   });
+
+  const { data: branches, isLoading } = useSearchBranches({
+    params: {
+      pageIndex: page,
+      pageSize,
+      search_content: searchContent,
+      city_id: citySelected || null,
+    },
+  });
+
+  const handleSearch = (keyword: string) => {
+    searchParams.set("k", keyword);
+    setSearchParams(searchParams);
+  };
 
   return (
     <>
@@ -47,14 +82,21 @@ export default function MapList(): JSX.Element {
               <Select
                 className={styles.filterSelect}
                 defaultValue={""}
-                options={[{ label: "Tất cả", value: "" }]}
+                loading={isLoadingDropdown}
+                onChange={(value) => setCitySelected(value)}
+                options={cityOptions}
               />
 
               <Space>
                 <Button>
                   <SyncOutlined />
                 </Button>
-                <Input.Search placeholder="Nhập thông tin..." />
+                <Input.Search
+                  loading={isLoading}
+                  defaultValue={searchContent}
+                  onSearch={handleSearch}
+                  placeholder="Nhập thông tin..."
+                />
               </Space>
             </Space>
           </div>
@@ -138,6 +180,18 @@ export default function MapList(): JSX.Element {
                     </Col>
                   ))}
             </Row>
+          </div>
+          <div className="pagination-wrap">
+            <Pagination
+              total={branches?.totalItems || 0}
+              current={page}
+              pageSize={pageSize}
+              onChange={(page, pageSize) => {
+                setPage(page);
+                setPageSize(pageSize);
+              }}
+              hideOnSinglePage
+            />
           </div>
         </div>
       </section>

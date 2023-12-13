@@ -9,6 +9,7 @@
     "backHome": "Quay lại trang chủ"
   },
   "all": {
+    "all": "Tất cả",
     "btn_cancel": "Hủy",
     "btn_ok": "Xác nhận",
     "btn_register": "Đăng ký",
@@ -21,7 +22,8 @@
     "login_success": "Đăng nhập thành công",
     "login_failure": "Tài khoản hoặc mật khẩu không đúng!",
     "register_success": "Đăng ký thành công! Trung tâm sẽ liện hệ với bạn qua các thông tin liên hệ đã nhận được!",
-    "register_failure": "Đăng ký thất bại"
+    "register_failure": "Đăng ký thất bại",
+    "validate_failure": "Vui lòng điền đầy đủ thông tin"
   },
   "nav": {
     "info": {
@@ -139,6 +141,27 @@
     "login": "Đăng nhập",
     "logout": "Đăng xuất",
     "profile": "Thông tin cá nhân"
+  },
+  "ex": {
+    "btn_register": "Đặt lịch",
+    "modal": {
+      "title_register": "Đăng ký trải nghiệm",
+
+      "fields": {
+        "branch": "Tên chi nhánh",
+        "city": "Khu vực",
+        "open_time": "Thời gian mở cửa",
+        "close_time": "Thời gian đóng cửa",
+        "your_name": "Tên của bạn",
+        "your_gender": "Giới tính của bạn",
+        "your_level": "Cấp",
+        "your_phone": "Số điện thoại của bạn",
+        "your_email": "Email của bạn",
+        "date_come": "Ngày đặt trải nghiệm",
+        "your_address": "Địa chỉ của bạn",
+        "your_note": "Ghi chú"
+      }
+    }
   },
   "thesis": {
     "search_placeholder": "Nhập nội dung",
