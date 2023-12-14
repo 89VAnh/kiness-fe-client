@@ -23,6 +23,7 @@ import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 
 import locationIco from "@/assets/img/others/markerStar1.png";
+import { ERROR_TIMEOUT } from "@/constant/config";
 import { useSearchBranches } from "@/loader/branch.loader";
 import { useCityDropdown } from "@/loader/city.loader";
 import { IBranch } from "@/models/branch";
@@ -43,24 +44,39 @@ export default function MapList(): JSX.Element {
   ]);
   const [citySelected, setCitySelected] = useState("");
 
-  const { isLoading: isLoadingDropdown } = useCityDropdown({
-    config: {
-      onSuccess: (data) => {
-        if (data?.length > 0) {
-          setCityOptions((prev) =>
-            prev.length === 1 ? [...prev, ...data] : [...prev],
-          );
-        }
+  const { isLoading: isLoadingDropdown, refetch: refetchCity } =
+    useCityDropdown({
+      config: {
+        onSuccess: (data) => {
+          if (data.message === ERROR_TIMEOUT) {
+            refetchCity();
+          }
+          if (data?.length > 0) {
+            setCityOptions((prev) =>
+              prev.length === 1 ? [...prev, ...data] : [...prev],
+            );
+          }
+        },
       },
-    },
-  });
+    });
 
-  const { data: branches, isLoading } = useSearchBranches({
+  const {
+    data: branches,
+    isLoading,
+    refetch: refetchBranches,
+  } = useSearchBranches({
     params: {
       pageIndex: page,
       pageSize,
       search_content: searchContent,
       city_id: citySelected || null,
+    },
+    config: {
+      onSuccess: (data) => {
+        if (data.message === ERROR_TIMEOUT) {
+          refetchBranches();
+        }
+      },
     },
   });
 

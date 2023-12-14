@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import _ from "lodash";
 import { useState } from "react";
 
-import { BASE_URL } from "@/constant/config";
+import { BASE_URL, ERROR_TIMEOUT } from "@/constant/config";
 import { useSearchResearchers } from "@/loader/researcher.loader";
 import { IResearcher } from "@/models/researcher";
 import Breadcrumb from "@/modules/shared/breadcrumb/Breadcrumb";
@@ -16,10 +16,13 @@ export default function Researcher(): JSX.Element {
   const [representor, setRepresentor] = useState<IResearcher>();
   const [listResearchers, setListResearchers] = useState<IResearcher[]>([]);
 
-  const { isLoading } = useSearchResearchers({
+  const { isLoading, refetch } = useSearchResearchers({
     params: {},
     config: {
       onSuccess: (data) => {
+        if (data.message === ERROR_TIMEOUT) {
+          refetch();
+        }
         if (data?.data?.length > 0) {
           const index = _.findIndex(
             data.data,

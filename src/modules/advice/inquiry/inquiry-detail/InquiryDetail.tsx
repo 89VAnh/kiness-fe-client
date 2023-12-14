@@ -1,127 +1,149 @@
-import { CheckOutlined, EditOutlined, LockOutlined } from "@ant-design/icons";
 import {
-  Divider,
-  Input,
-  Space,
-  Table,
-  TableColumnsType,
-  Typography,
-} from "antd";
-import { useEffect, useState } from "react";
+  CheckCircleFilled,
+  ClockCircleOutlined,
+  LeftOutlined,
+  UserOutlined,
+} from "@ant-design/icons";
+import { Avatar, Card, Spin, Typography } from "antd";
+import dayjs from "dayjs";
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
+import { ERROR_TIMEOUT, PASSWORD_SESSION } from "@/constant/config";
+import { useGetRequestDetail } from "@/loader/request.loader";
+import { NotAuthorizationPage } from "@/modules/error/403";
 import Breadcrumb from "@/modules/shared/breadcrumb/Breadcrumb";
 import Title from "@/modules/shared/title/Title";
-import { HOME_URL, THESIS_DETAIL_URL } from "@/urls";
-import { getUrlToDetail } from "@/utils/format-string";
+import { decodedData, formatDateShow } from "@/utils/format-string";
+import { sessionService } from "@/utils/storage";
 
-import { dataInquiry } from "./data/data-fake";
 import styles from "./scss/inquiry-detail.module.scss";
 
 export default function InquiryDetail(): JSX.Element {
   const { t } = useTranslation();
-  const [page, setPage] = useState<number>(1);
-  const [pageSize, setPageSize] = useState<number>(10);
+  const { id } = useParams();
+  const pwd = JSON.parse(
+    decodedData(sessionService.getStorage(PASSWORD_SESSION) || ""),
+  );
+  const [isPermission, setIsPermission] = useState<boolean>(!!pwd);
+  const navigate = useNavigate();
 
-  const columns: TableColumnsType<any> = [
-    {
-      key: "serial",
-      title: "Trạng thái",
-      width: 100,
-      align: "center",
-      render: (_, __) => (
-        <Typography.Text className={styles.status}>
-          <CheckOutlined /> Đã trả lời
-        </Typography.Text>
-      ),
+  const {
+    data: dataInquiry,
+    isLoading,
+    refetch,
+  } = useGetRequestDetail({
+    params: {
+      password: pwd,
+      request_id: id,
     },
-    {
-      key: "title",
-      title: t("thesis.title"),
-      dataIndex: "title",
-      render: (value, record) => (
-        <Space>
-          {record.need_password ? <LockOutlined /> : ""}
-          <Link
-            to={getUrlToDetail(THESIS_DETAIL_URL, record.id)}
-            className={styles.link}
-          >
-            <Typography.Text>{value}</Typography.Text>
-          </Link>
-        </Space>
-      ),
+    config: {
+      onSuccess: (data) => {
+        if (data.message === ERROR_TIMEOUT) {
+          refetch();
+        }
+        if (!data.success) return setIsPermission(false);
+        else {
+        }
+      },
     },
-    {
-      key: "author",
-      title: t("thesis.author"),
-      dataIndex: "author",
-      width: 150,
-      render: (value) => <Typography.Text>{value}</Typography.Text>,
-    },
-  ];
+  });
 
-  const [currentColumns, setCurrentColumns] =
-    useState<TableColumnsType<any>>(columns);
-
-  useEffect(() => {
-    const handleResize = (e: any) => {
-      if (e.target.innerWidth < 640) {
-        const col = columns.filter(
-          (c) => c.key === "title" || c.key === "author",
-        );
-        col && setCurrentColumns(col);
-      } else {
-        setCurrentColumns(columns);
-      }
-    };
-
-    handleResize({ target: window });
-
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  if (!isPermission) return <NotAuthorizationPage />;
 
   return (
     <>
-      <Title />
+      <Title title={t("nav.advice.inquiry.title")} />
 
-      <Breadcrumb />
+      <Breadcrumb showLast={false} />
 
       <section className={styles.contentWrap}>
         <div className="inner">
-          <div className={styles.headerContent}>
-            <Typography.Text type="secondary">{`Tổng cộng ${dataInquiry.length} mục, trang ${page}`}</Typography.Text>
-            <Space>
-              <Input.Search
-                style={{ maxWidth: 300 }}
-                placeholder={t("thesis.search_placeholder")}
-              />
-
-              <Link to={HOME_URL} className={styles.pencil}>
-                <EditOutlined />
-              </Link>
-            </Space>
-          </div>
-
-          <Divider />
-
-          <Table
-            className={styles.table}
-            columns={currentColumns}
-            dataSource={dataInquiry}
-            pagination={{
-              current: page,
-              pageSize,
-              onChange(page, pageSize) {
-                setPage(page);
-                setPageSize(pageSize);
-              },
+          <Typography.Link
+            onClick={(e) => {
+              e.preventDefault();
+              navigate(-1);
             }}
-            rowKey={"id"}
-          />
+          >
+            <Typography.Title level={4} type="secondary">
+              <LeftOutlined /> {t("all.back")}
+            </Typography.Title>
+          </Typography.Link>
+          <Spin spinning={isLoading}>
+            <Typography.Title level={3} style={{ textAlign: "center" }}>
+              {dataInquiry?.data?.subject}{" "}
+              {dataInquiry?.data?.is_answered && (
+                <Typography.Text type="success" title="Đã trả lời">
+                  <CheckCircleFilled />
+                </Typography.Text>
+              )}
+            </Typography.Title>
+
+            <div className={styles.container}>
+              <div className={styles.questionWrap}>
+                <Avatar
+                  style={{ backgroundColor: "#87d068" }}
+                  icon={<UserOutlined />}
+                />
+                <div className={styles.flex1}>
+                  <Typography.Text
+                    strong
+                    style={{ display: "block", textAlign: "left" }}
+                  >
+                    {dataInquiry?.data?.author_name}
+                  </Typography.Text>
+                  <Typography.Text
+                    type="secondary"
+                    style={{
+                      fontSize: 12,
+                      textAlign: "left",
+                      display: "block",
+                    }}
+                  >
+                    <ClockCircleOutlined />{" "}
+                    {dayjs(dataInquiry?.data?.created_date_time).format(
+                      formatDateShow + " HH:mm:ss",
+                    )}
+                  </Typography.Text>
+                  <Card className={styles.content}>
+                    {dataInquiry?.data?.content}
+                  </Card>
+                </div>
+              </div>
+              <div className={styles.answerWrap}>
+                <div className={styles.flex1}>
+                  <Typography.Text
+                    strong
+                    style={{ textAlign: "right", display: "block" }}
+                  >
+                    {dataInquiry?.data?.answered_by}
+                  </Typography.Text>
+                  <Typography.Text
+                    type="secondary"
+                    style={{
+                      textAlign: "right",
+                      display: "block",
+                      fontSize: 12,
+                    }}
+                  >
+                    <ClockCircleOutlined />{" "}
+                    {dayjs(dataInquiry?.data?.lu_updated).format(
+                      formatDateShow + " HH:mm:ss",
+                    )}
+                  </Typography.Text>
+                  <Card className={"bg-mint " + styles.content}>
+                    {dataInquiry?.data?.answer}
+                  </Card>
+                </div>
+                <Avatar
+                  style={{ backgroundColor: "#fde3cf", color: "#f56a00" }}
+                >
+                  A
+                </Avatar>
+              </div>
+            </div>
+          </Spin>
         </div>
       </section>
     </>

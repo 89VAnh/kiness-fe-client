@@ -20,6 +20,11 @@ export const InquiryListPage = lazyLoad(
   (module) => module.default,
 );
 
+export const InquiryDetailPage = lazyLoad(
+  () => import("./inquiry/inquiry-detail/InquiryDetail"),
+  (module) => module.default,
+);
+
 export const InquiryWritePage = lazyLoad(
   () => import("./inquiry/inquiry-write/InquiryWrite"),
   (module) => module.default,

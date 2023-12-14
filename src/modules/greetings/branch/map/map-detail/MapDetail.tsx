@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 
+import { ERROR_TIMEOUT } from "@/constant/config";
 import { useGetBranchById } from "@/loader/branch.loader";
 import Breadcrumb from "@/modules/shared/breadcrumb/Breadcrumb";
 import Title from "@/modules/shared/title/Title";
@@ -18,9 +19,16 @@ export default function MapDetail(): JSX.Element {
   const { t } = useTranslation();
   const { id } = useParams();
 
-  const { data: branch } = useGetBranchById({
+  const { data: branch, refetch } = useGetBranchById({
     id: +id!,
     enabled: !!id,
+    config: {
+      onSuccess: (data) => {
+        if (data.message === ERROR_TIMEOUT) {
+          refetch();
+        }
+      },
+    },
   });
 
   return (

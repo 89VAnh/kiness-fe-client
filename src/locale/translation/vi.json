@@ -23,7 +23,8 @@
     "login_failure": "Tài khoản hoặc mật khẩu không đúng!",
     "register_success": "Đăng ký thành công! Trung tâm sẽ liện hệ với bạn qua các thông tin liên hệ đã nhận được!",
     "register_failure": "Đăng ký thất bại",
-    "validate_failure": "Vui lòng điền đầy đủ thông tin"
+    "validate_failure": "Vui lòng điền đầy đủ thông tin",
+    "error": "Có lỗi xảy ra! Vui lòng thử lại"
   },
   "nav": {
     "info": {
@@ -170,6 +171,12 @@
     "author": "Tác giả",
     "organ": "Tổ chức phát hành",
     "year_release": "Năm phát hàng"
+  },
+  "request": {
+    "search_placeholder": "Nhập nội dung",
+    "serial": "STT",
+    "subject": "Tiêu đề",
+    "author_name": "Tác giả"
   },
   "patent": {
     "search_placeholder": "Nhập nội dung"

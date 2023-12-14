@@ -3,6 +3,7 @@ import { Card, Col, Row, Spin, Typography } from "antd";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 
+import { ERROR_TIMEOUT } from "@/constant/config";
 import { useSearchBranches } from "@/loader/branch.loader";
 import { IBranch } from "@/models/branch";
 import Breadcrumb from "@/modules/shared/breadcrumb/Breadcrumb";
@@ -15,8 +16,19 @@ import styles from "./scss/ex.module.scss";
 export default function Ex(): JSX.Element {
   const { t } = useTranslation();
 
-  const { data: dataBranches, isLoading } = useSearchBranches({
+  const {
+    data: dataBranches,
+    isLoading,
+    refetch,
+  } = useSearchBranches({
     params: {},
+    config: {
+      onSuccess: (data) => {
+        if (data.message === ERROR_TIMEOUT) {
+          refetch();
+        }
+      },
+    },
   });
 
   return (

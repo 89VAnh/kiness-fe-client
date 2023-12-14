@@ -3,6 +3,7 @@ import { Navigate, createBrowserRouter } from "react-router-dom";
 import {
   ExPage,
   FaqPage,
+  InquiryDetailPage,
   InquiryListPage,
   InquiryWritePage,
   OverhaulPage,
@@ -53,6 +54,7 @@ import { TVLocalPage, TVWorldPage } from "./modules/tv";
 import {
   ADVICE_EX_URL,
   ADVICE_FAQ_URL,
+  ADVICE_INQUIRY_DETAIL_URL,
   ADVICE_INQUIRY_URL,
   ADVICE_INQUIRY_WRITE_URL,
   ADVICE_OVERHAUL_URL,
@@ -268,6 +270,16 @@ export const router = createBrowserRouter([
             Element={InquiryListPage}
             title="Hỏi đáp tư vấn"
             url={ADVICE_INQUIRY_URL}
+          />
+        ),
+      },
+      {
+        path: ADVICE_INQUIRY_DETAIL_URL,
+        element: (
+          <ProtectedComponent
+            Element={InquiryDetailPage}
+            title="Chi tiết hỏi đáp tư vấn"
+            url={ADVICE_INQUIRY_DETAIL_URL}
           />
         ),
       },

@@ -7,7 +7,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { PaginationOptions } from "swiper/types";
 
-import { BASE_URL } from "@/constant/config";
+import { BASE_URL, ERROR_TIMEOUT } from "@/constant/config";
 import { useSearchSlides } from "@/loader/slide.loader";
 
 import styles from "./scss/carousel.module.scss";
@@ -15,8 +15,15 @@ import styles from "./scss/carousel.module.scss";
 export default function Carousel(): JSX.Element {
   const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 641);
 
-  const { data: dataSlides } = useSearchSlides({
+  const { data: dataSlides, refetch } = useSearchSlides({
     params: {},
+    config: {
+      onSuccess: (data) => {
+        if (data.message === ERROR_TIMEOUT) {
+          refetch();
+        }
+      },
+    },
   });
 
   useEffect(() => {

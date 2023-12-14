@@ -14,6 +14,7 @@ import { DefaultOptionType } from "antd/es/select";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 
+import { ERROR_TIMEOUT } from "@/constant/config";
 import { useFaqTopicDropdown } from "@/loader/faq-topic.loader";
 import { useSearchFaqs } from "@/loader/faq.loader";
 import Breadcrumb from "@/modules/shared/breadcrumb/Breadcrumb";
@@ -31,9 +32,12 @@ export default function Faq(): JSX.Element {
   const [pageSize, setPageSize] = useState<number>(10);
   const { token } = theme.useToken();
 
-  useFaqTopicDropdown({
+  const { refetch: refetchTopic } = useFaqTopicDropdown({
     config: {
       onSuccess: (data) => {
+        if (data.message === ERROR_TIMEOUT) {
+          refetchTopic();
+        }
         if (data.success) {
           setTopicOptions((prev) =>
             prev.length === 1 ? [...prev, ...data?.data] : [...prev],
@@ -43,11 +47,22 @@ export default function Faq(): JSX.Element {
     },
   });
 
-  const { data: dataFaqs, isLoading: isLoadingFaq } = useSearchFaqs({
+  const {
+    data: dataFaqs,
+    isLoading: isLoadingFaq,
+    refetch: refetchFaqs,
+  } = useSearchFaqs({
     params: {
       pageIndex: page,
       pageSize,
       topic_id: currentTopic || null,
+    },
+    config: {
+      onSuccess: (data) => {
+        if (data.message === ERROR_TIMEOUT) {
+          refetchFaqs();
+        }
+      },
     },
   });
 

@@ -23,3 +23,12 @@ export const formatDatePost = "YYYY-MM-DD";
 export const getUrlToDetail = (url: string, id: string | number): string => {
   return url.replace(":id", id + "");
 };
+
+export const encodedData = (data: any): string => {
+  const d = JSON.stringify(data);
+  return btoa(d);
+};
+
+export const decodedData = (data: string): any => {
+  return atob(data);
+};
