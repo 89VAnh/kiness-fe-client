@@ -3,14 +3,21 @@ import {
   EyeFilled,
   LeftOutlined,
 } from "@ant-design/icons";
-import { Divider, Space, Typography } from "antd";
+import { Divider, Space, Spin, Typography } from "antd";
+import dayjs from "dayjs";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 
+import { ERROR_TIMEOUT } from "@/constant/config";
+import {
+  useGetObesityStoryDetail,
+  useUpdateViewObesityStory,
+} from "@/loader/obesity-story.loader";
 import Breadcrumb from "@/modules/shared/breadcrumb/Breadcrumb";
 import Title from "@/modules/shared/title/Title";
+import { formatDateShow } from "@/utils/format-string";
 
-import { dataStory } from "../fat-list/data/data-fake";
 import styles from "./scss/fat-detail.module.scss";
 
 export default function FatDetail(): JSX.Element {
@@ -18,7 +25,26 @@ export default function FatDetail(): JSX.Element {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const data = dataStory.find((i) => i.id === +id!);
+  const {
+    data: dataObesity,
+    isLoading,
+    refetch,
+  } = useGetObesityStoryDetail({
+    id: id!,
+    config: {
+      onSuccess: (data) => {
+        if (data.message === ERROR_TIMEOUT) {
+          refetch();
+        }
+      },
+    },
+  });
+
+  const { mutate: mutateUpdateView } = useUpdateViewObesityStory({});
+
+  useEffect(() => {
+    mutateUpdateView(id!);
+  }, [id, mutateUpdateView]);
 
   return (
     <>
@@ -39,25 +65,34 @@ export default function FatDetail(): JSX.Element {
             </Typography.Title>
           </Typography.Link>
 
-          <Typography.Title level={2}>{data?.title}</Typography.Title>
+          <Typography.Title level={2}>
+            {dataObesity?.data?.title}
+          </Typography.Title>
 
           <Typography.Title style={{ paddingTop: 20 }} level={5}>
-            {data?.author}
+            {dataObesity?.data?.author_name}
           </Typography.Title>
 
           <Space>
             <Typography.Text>
-              <EyeFilled /> {data?.view}
+              <EyeFilled /> {dataObesity?.data?.view_count}
             </Typography.Text>
             <Typography.Text>
-              <ClockCircleOutlined /> {data?.date}
+              <ClockCircleOutlined />{" "}
+              {dayjs(dataObesity?.data?.posted_date).format(formatDateShow)}
             </Typography.Text>
           </Space>
           <Divider />
 
-          <div className={styles.content}>
-            <div dangerouslySetInnerHTML={{ __html: data?.html + "" }}></div>
-          </div>
+          <Spin spinning={isLoading}>
+            <div className={styles.content}>
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: dataObesity?.data?.content + "",
+                }}
+              ></div>
+            </div>
+          </Spin>
         </div>
       </section>
     </>
