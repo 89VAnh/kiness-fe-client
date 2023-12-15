@@ -1,6 +1,5 @@
 import { LeftOutlined, LinkOutlined } from "@ant-design/icons";
 import { Card, Divider, Space, Typography } from "antd";
-import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useParams } from "react-router-dom";
 
