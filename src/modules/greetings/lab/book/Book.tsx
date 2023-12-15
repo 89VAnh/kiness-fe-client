@@ -131,7 +131,7 @@ export default function Book(): JSX.Element {
                 >
                   <div>
                     <Image
-                      src={item.image_url}
+                      src={"/api/" + item.image_url}
                       wrapperStyle={{ width: "100%" }}
                       className={styles.thumbnail}
                       style={{ maxHeight: 300, objectFit: "cover" }}
