@@ -69,7 +69,7 @@ export default function Patent(): JSX.Element {
 
           <Row gutter={16}>
             {patents ? (
-              patents.data.data.map((item: ILicenseOfInvention) => (
+              patents?.data?.data?.map((item: ILicenseOfInvention) => (
                 <Col
                   key={item.license_id}
                   span={24}

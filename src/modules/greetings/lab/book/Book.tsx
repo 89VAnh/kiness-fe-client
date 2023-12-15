@@ -32,7 +32,7 @@ export default function Book(): JSX.Element {
     Number(searchParams.get("sca")) || 0,
   );
 
-  const { data: bookAuthors, remove: athorRemove } = useBookAuthorDropdown({});
+  const { data: bookAuthors, remove: authorRemove } = useBookAuthorDropdown({});
 
   const {
     data: books,
@@ -54,7 +54,7 @@ export default function Book(): JSX.Element {
     },
   });
 
-  useEffect(() => athorRemove, [athorRemove]);
+  useEffect(() => authorRemove, [authorRemove]);
   useEffect(() => booksRemove, [booksRemove]);
 
   const handleSearch = (value: string) => {
@@ -121,7 +121,7 @@ export default function Book(): JSX.Element {
 
           <Row gutter={16}>
             {books ? (
-              books.data.data.map((item: any, index: number) => (
+              books?.data?.data?.map((item: any, index: number) => (
                 <Col
                   key={index}
                   span={24}
