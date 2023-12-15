@@ -1,14 +1,53 @@
 import { Col, Divider, Image, Input, Row, Typography } from "antd";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useSearchParams } from "react-router-dom";
 
+import { ERROR_TIMEOUT } from "@/constant/config";
+import { useSearchLicenses } from "@/loader/license-of-invention.loader";
+import { ILicenseOfInvention } from "@/models/license-of-invention";
 import Breadcrumb from "@/modules/shared/breadcrumb/Breadcrumb";
 import Title from "@/modules/shared/title/Title";
 
-import { dataPatent } from "./data/data-fake";
 import styles from "./scss/patent.module.scss";
 
 export default function Patent(): JSX.Element {
   const { t } = useTranslation();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchContent, setSearchContent] = useState<string | null>(
+    searchParams.get("k") || "",
+  );
+
+  const {
+    data: patents,
+    remove,
+    refetch,
+  } = useSearchLicenses({
+    params: {
+      pageIndex: 0,
+      pageSize: 0,
+      search_content: searchContent,
+    },
+    config: {
+      onSuccess: (data) => {
+        console.log(data);
+        if (data.message === ERROR_TIMEOUT) {
+          refetch();
+        }
+      },
+    },
+  });
+
+  useEffect(() => remove, [remove]);
+
+  const handleSearch = (value: string) => {
+    if (value === "") searchParams.delete("k");
+    else searchParams.set("k", value);
+
+    setSearchParams(searchParams);
+
+    setSearchContent(value);
+  };
 
   return (
     <>
@@ -23,43 +62,50 @@ export default function Patent(): JSX.Element {
             <Input.Search
               style={{ maxWidth: 300 }}
               placeholder={t("patent.search_placeholder")}
+              onSearch={handleSearch}
             />
           </div>
           <Divider />
 
           <Row gutter={16}>
-            {dataPatent.map((item) => (
-              <Col
-                key={item.key}
-                span={24}
-                md={12}
-                lg={8}
-                style={{ marginBottom: 16 }}
-              >
-                <div>
-                  <Image
-                    src={item.thumb}
-                    wrapperStyle={{ width: "100%" }}
-                    className={styles.thumbnail}
-                    style={{ maxHeight: 300, objectFit: "cover" }}
-                  />
+            {patents ? (
+              patents.data.data.map((item: ILicenseOfInvention) => (
+                <Col
+                  key={item.license_id}
+                  span={24}
+                  md={12}
+                  lg={8}
+                  style={{ marginBottom: 16 }}
+                >
+                  <div>
+                    <Image
+                      src={item.image_url}
+                      wrapperStyle={{ width: "100%" }}
+                      className={styles.thumbnail}
+                      style={{ maxHeight: 300, objectFit: "cover" }}
+                    />
 
-                  <div className={styles.textWrap}>
-                    <Typography.Title level={4}>
-                      {item.title}{" "}
-                      <Typography.Text type="secondary">
-                        số {item.number}
-                      </Typography.Text>
-                    </Typography.Title>
+                    <div className={styles.textWrap}>
+                      <Typography.Title level={4}>
+                        {item.title}{" "}
+                        <Typography.Text type="secondary">
+                          số {item.license_no}
+                        </Typography.Text>
+                      </Typography.Title>
 
-                    <div
-                      className={styles.description}
-                      dangerouslySetInnerHTML={{ __html: item.description }}
-                    ></div>
+                      <div
+                        className={styles.description}
+                        dangerouslySetInnerHTML={{
+                          __html: item.description || "",
+                        }}
+                      ></div>
+                    </div>
                   </div>
-                </div>
-              </Col>
-            ))}
+                </Col>
+              ))
+            ) : (
+              <></>
+            )}
           </Row>
         </div>
       </section>

@@ -11,20 +11,66 @@ import {
 } from "antd";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
+import { ERROR_TIMEOUT } from "@/constant/config";
+import { useSearchResearchArticle } from "@/loader/research-article.loader";
 import Breadcrumb from "@/modules/shared/breadcrumb/Breadcrumb";
 import Title from "@/modules/shared/title/Title";
 import { THESIS_DETAIL_URL } from "@/urls";
 import { getUrlToDetail } from "@/utils/format-string";
 
-import { dataThesis } from "./data/data-fake";
 import styles from "./scss/thesis.module.scss";
 
 export default function Thesis(): JSX.Element {
   const { t } = useTranslation();
-  const [page, setPage] = useState<number>(1);
-  const [pageSize, setPageSize] = useState<number>(15);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchContent, setSearchContent] = useState<string | null>(
+    searchParams.get("k") || "",
+  );
+  const [page, setPage] = useState<number | string>(
+    searchParams.get("page") || 1,
+  );
+  const [pageSize, setPageSize] = useState<number | string>(
+    searchParams.get("page_size") || 15,
+  );
+
+  const {
+    data: articles,
+    remove,
+    refetch,
+  } = useSearchResearchArticle({
+    params: {
+      pageIndex: 0,
+      pageSize: 0,
+      search_content: searchContent,
+    },
+    config: {
+      onSuccess: (data) => {
+        console.log(data);
+        if (data.message === ERROR_TIMEOUT) {
+          refetch();
+        }
+      },
+      onError: (err) => {
+        console.log(err);
+      },
+    },
+  });
+
+  useEffect(() => remove, [remove]);
+
+  const handleSearch = (value: string) => {
+    searchParams.delete("page");
+
+    if (value === "") searchParams.delete("k");
+    else searchParams.set("k", value);
+
+    setSearchParams(searchParams);
+
+    setSearchContent(value);
+  };
 
   const columns: TableColumnsType<any> = [
     {
@@ -40,10 +86,10 @@ export default function Thesis(): JSX.Element {
       dataIndex: "title",
       render: (value, record) => (
         <Space>
-          <Link to={getUrlToDetail(THESIS_DETAIL_URL, record.id)}>
+          <Link to={getUrlToDetail(THESIS_DETAIL_URL, record.article_id)}>
             <Typography.Title level={5}>{value}</Typography.Title>
           </Link>
-          <Typography.Link href={record.origin_link} target="_blank">
+          <Typography.Link href={record.article_link} target="_blank">
             <Button className="bg-mint">
               <LinkOutlined />
             </Button>
@@ -52,23 +98,21 @@ export default function Thesis(): JSX.Element {
       ),
     },
     {
-      key: "author",
+      key: "authors",
       title: t("thesis.author"),
-      dataIndex: "author",
+      dataIndex: "authors",
       width: "15%",
-      render: (value) => value.map((i: any) => i.name).join(", "),
     },
     {
-      key: "organ",
+      key: "issuers",
       title: t("thesis.organ"),
-      dataIndex: "organ",
+      dataIndex: "issuers",
       width: "24%",
-      render: (value) => value.join(", "),
     },
     {
-      key: "year_release",
+      key: "year_of_release",
       title: t("thesis.year_release"),
-      dataIndex: "year",
+      dataIndex: "year_of_release",
       align: "center",
       width: 100,
     },
@@ -109,10 +153,13 @@ export default function Thesis(): JSX.Element {
       <section className={styles.contentWrap}>
         <div className="inner">
           <div className={styles.headerContent}>
-            <Typography.Text type="secondary">{`Tổng cộng ${dataThesis.length} mục, trang ${page}`}</Typography.Text>
+            <Typography.Text type="secondary">{`Tổng cộng ${
+              articles ? articles.totalItems : 0
+            } mục, trang ${page}`}</Typography.Text>
             <Input.Search
               style={{ maxWidth: 300 }}
               placeholder={t("thesis.search_placeholder")}
+              onSearch={handleSearch}
             />
           </div>
           <Divider />
@@ -120,14 +167,14 @@ export default function Thesis(): JSX.Element {
           <Table
             size="small"
             columns={currentColumns}
-            dataSource={dataThesis}
-            rowKey={"id"}
+            dataSource={articles ? articles.data : []}
+            rowKey={"article_id"}
           />
 
           <Pagination
-            current={page}
-            pageSize={pageSize}
-            total={dataThesis.length}
+            current={Number(page) || 1}
+            pageSize={Number(pageSize) || 15}
+            total={articles ? articles.totalItems : 0}
             hideOnSinglePage
             onChange={(page, pageSize) => {
               setPage(page);

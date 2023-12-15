@@ -31,7 +31,6 @@
     ul {
       margin: 0;
       padding: 0;
-      list-style: none;
       li {
         display: block;
         position: relative;
@@ -39,7 +38,7 @@
         font-size: 16px;
         margin: 8px 0;
 
-        ::before {
+        &::before {
           content: "";
           background: #444444;
           width: 4px;
