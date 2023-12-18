@@ -29,7 +29,7 @@ export default function PoseList(): JSX.Element {
     refetch,
   } = useSearchPostureStories({
     params: {
-      pageIndex: page,
+      page_index: page,
       pageSize,
       search_content: isEmpty(searchContent) ? null : searchContent,
     },
@@ -58,7 +58,7 @@ export default function PoseList(): JSX.Element {
         <div className="inner">
           <div className={styles.headerContent}>
             <Typography.Text type="secondary">{`Tổng cộng ${
-              dataPostures?.data?.totalItems || 0
+              dataPostures?.data?.total_items || 0
             } mục, trang ${page}`}</Typography.Text>
             <Space>
               <Input.Search
@@ -102,7 +102,7 @@ export default function PoseList(): JSX.Element {
             <Pagination
               current={page}
               pageSize={pageSize}
-              total={dataPostures?.data?.totalItems || 0}
+              total={dataPostures?.data?.total_items || 0}
               onChange={(page, pageSize) => {
                 setPage(page);
                 setPageSize(pageSize);

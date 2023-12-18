@@ -40,8 +40,8 @@ export default function Book(): JSX.Element {
     refetch: bookRefetch,
   } = useSearchBooks({
     params: {
-      pageIndex: 0,
-      pageSize: 0,
+      page_index: 0,
+      page_size: 0,
       search_content: searchContent,
       author_id: authorId,
     },

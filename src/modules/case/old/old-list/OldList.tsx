@@ -29,7 +29,7 @@ export default function OldList(): JSX.Element {
     refetch,
   } = useSearchLateStories({
     params: {
-      pageIndex: page,
+      page_index: page,
       pageSize,
       search_content: isEmpty(searchContent) ? null : searchContent,
     },
@@ -58,7 +58,7 @@ export default function OldList(): JSX.Element {
         <div className="inner">
           <div className={styles.headerContent}>
             <Typography.Text type="secondary">{`Tổng cộng ${
-              dataLates?.data?.totalItems || 0
+              dataLates?.data?.total_items || 0
             } mục, trang ${page}`}</Typography.Text>
             <Space>
               <Input.Search
@@ -99,7 +99,7 @@ export default function OldList(): JSX.Element {
             <Pagination
               current={page}
               pageSize={pageSize}
-              total={dataLates?.data?.totalItems || 0}
+              total={dataLates?.data?.total_items || 0}
               onChange={(page, pageSize) => {
                 setPage(page);
                 setPageSize(pageSize);

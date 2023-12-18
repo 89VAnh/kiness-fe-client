@@ -36,7 +36,7 @@ export default function InquiryList(): JSX.Element {
     refetch,
   } = useSearchRequests({
     params: {
-      pageIndex: page,
+      page_index: page,
       pageSize,
       search_content: isEmpty(searchContent) ? null : searchContent,
     },
@@ -114,7 +114,7 @@ export default function InquiryList(): JSX.Element {
       <section className={styles.contentWrap}>
         <div className="inner">
           <div className={styles.headerContent}>
-            <Typography.Text type="secondary">{`Tổng cộng ${dataInquiries?.data?.totalItems} mục, trang ${page}`}</Typography.Text>
+            <Typography.Text type="secondary">{`Tổng cộng ${dataInquiries?.data?.total_items} mục, trang ${page}`}</Typography.Text>
             <Space>
               <Input.Search
                 style={{ maxWidth: 300 }}
@@ -142,7 +142,7 @@ export default function InquiryList(): JSX.Element {
                 setPage(page);
                 setPageSize(pageSize);
               },
-              total: dataInquiries?.data?.totalItems || 0,
+              total: dataInquiries?.data?.total_items || 0,
               hideOnSinglePage: true,
             }}
             rowKey={"request_id"}
