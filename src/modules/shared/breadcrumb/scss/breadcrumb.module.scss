@@ -1,0 +1,89 @@
+@import "@/assets/scss/variables";
+
+.container {
+  .selected-wrap {
+    position: relative;
+    z-index: 2;
+    background-color: $color-cultured;
+    max-width: 1400px;
+    margin: 0 auto;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    height: 70px;
+
+    a {
+      color: $color-black;
+    }
+
+    .home {
+      width: 60px;
+      height: 100%;
+      text-align: center;
+      font-size: 24px;
+      display: inline-block;
+      line-height: 65px;
+      border-right: 1px solid $color-pale-lavender;
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+
+    .title-dropdown {
+      height: 100%;
+      padding: 0 15px;
+      border-right: 1px solid $color-pale-lavender;
+      cursor: pointer;
+
+      > div {
+        height: 100%;
+      }
+    }
+  }
+
+  .inner {
+    padding: 0 20px;
+    margin: 0 auto;
+    max-width: 1400px;
+  }
+}
+
+.dropdown {
+  ul {
+    border-radius: 10px !important;
+
+    li {
+      transition: 0.1s !important;
+      &:hover {
+        background-color: $color-primary !important;
+        color: $color-white !important;
+      }
+
+      span {
+        @include resp-text;
+        line-height: 2.5;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1120px) {
+  .inner {
+    margin: 0 !important;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .inner {
+    margin: 0 !important;
+  }
+}
+
+:global {
+  .ant-dropdown-menu {
+    margin-top: -4px !important;
+    border-radius: 0 !important;
+    width: 100% !important;
+  }
+}

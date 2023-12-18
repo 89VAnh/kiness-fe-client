@@ -4,7 +4,7 @@ import { MutationConfig } from "@/lib/react-query";
 import { createExperienceRegister } from "@/services/experience-register.service";
 
 export const CACHE_EXPERIENCE_REGISTER = {
-  EXPERIENCE_REGISTER: "EXPERIENCE_REGISTER",
+  SEARCH: "EXPERIENCE_REGISTERS",
 };
 
 const useCreateExperienceRegister = ({

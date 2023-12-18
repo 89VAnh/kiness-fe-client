@@ -31,10 +31,10 @@ export const storageService = {
 };
 
 export const sessionService = {
-  getStorage: (key: string) => {
-    return JSON.parse(
-      window.sessionStorage.getItem(`${storagePrefix}${key}`) || "{}",
-    );
+  getStorage: (key: string, parse: boolean = true) => {
+    const item = window.sessionStorage.getItem(`${storagePrefix}${key}`);
+    const result = parse ? JSON.parse(item || "{}") : item;
+    return result;
   },
   setStorage: (key: string, value: any) => {
     window.sessionStorage.setItem(

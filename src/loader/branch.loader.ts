@@ -1,15 +1,11 @@
 import { AxiosRequestConfig } from "axios";
-import { useMutation, useQuery } from "react-query";
+import { useQuery } from "react-query";
 
+import { ExtractFnReturnType, QueryConfig } from "@/lib/react-query";
 import {
-  ExtractFnReturnType,
-  MutationConfig,
-  QueryConfig,
-} from "@/lib/react-query";
-import {
-  createTestRegister,
-  getBranches,
+  getBranchById,
   getBranchesDropdown,
+  searchBranches,
 } from "@/services/branch.service";
 
 export const CACHE_BRANCH = {
@@ -17,17 +13,17 @@ export const CACHE_BRANCH = {
   DROPDOWN_BRANCH: "DROPDOWN_BRANCH",
 };
 
-const useBranches = ({
+const useSearchBranches = ({
   params,
   config,
 }: {
   params: AxiosRequestConfig["params"];
-  config?: QueryConfig<typeof getBranches>;
+  config?: QueryConfig<typeof searchBranches>;
 }) => {
-  return useQuery<ExtractFnReturnType<typeof getBranches>>({
+  return useQuery<ExtractFnReturnType<typeof searchBranches>>({
     ...config,
     queryKey: [CACHE_BRANCH.BRANCHES, params],
-    queryFn: () => getBranches({ params }),
+    queryFn: () => searchBranches(params),
   });
 };
 
@@ -45,18 +41,21 @@ const useBranchDropdown = ({
   });
 };
 
-const useCreateTestRegister = ({
+const useGetBranchById = ({
+  id,
+  enabled,
   config,
 }: {
-  config?: MutationConfig<typeof createTestRegister>;
+  id: number;
+  enabled: boolean;
+  config?: QueryConfig<typeof getBranchById>;
 }) => {
-  return useMutation({
-    onMutate: () => {},
-    onError: () => {},
-    onSuccess: () => {},
+  return useQuery<ExtractFnReturnType<typeof getBranchById>>({
     ...config,
-    mutationFn: createTestRegister,
+    enabled,
+    queryKey: [CACHE_BRANCH.BRANCHES, id],
+    queryFn: () => getBranchById(id),
   });
 };
 
-export { useBranchDropdown, useBranches, useCreateTestRegister };
+export { useBranchDropdown, useGetBranchById, useSearchBranches };

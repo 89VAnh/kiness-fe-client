@@ -1,0 +1,72 @@
+@import "@/assets/scss/variables";
+
+.content-wrap {
+  width: 100%;
+  @include resp-padding(70px 0 0, 70px 0 0, 40px 0 0);
+
+  .card-wrap {
+    margin-bottom: 16px;
+
+    img {
+      width: 100%;
+      object-fit: cover;
+      vertical-align: middle;
+    }
+
+    .text-wrap {
+      @include resp-padding(20px 30px, 20px, 16px);
+
+      .text-box {
+        padding: 10px 0;
+        span,
+        svg {
+          @include resp-text(16px, 16px, 14px);
+          color: $color-dark;
+        }
+      }
+
+      .card-bottom {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: center;
+
+        .btn-regis {
+          border-radius: 25px;
+          width: auto;
+          padding: 5px 25px;
+          height: auto;
+        }
+      }
+
+      .font-mint {
+        color: $color-primary !important;
+      }
+    }
+
+    :global {
+      .ant-card {
+        border-radius: 25px;
+        .ant-card-body {
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+
+.input-disabled {
+  background-color: $color-white !important;
+  color: $color-black !important;
+}
+
+.modal {
+  overflow: hidden;
+  @include resp-width(50% !important, 70% !important, 100% !important);
+  :global {
+    .ant-modal-body {
+      max-height: calc(100vh - 250px);
+      overflow-x: hidden;
+    }
+  }
+}

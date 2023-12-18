@@ -9,72 +9,130 @@
     "backHome": "Quay lại trang chủ"
   },
   "all": {
+    "all": "Tất cả",
     "btn_cancel": "Hủy",
-    "btn_confirm": "Xác nhận",
-    "btn_register": "Đăng ký"
+    "btn_ok": "Xác nhận",
+    "btn_register": "Đăng ký",
+    "step": "Bước",
+    "branch": "Chi nhánh",
+    "regis_day": "Đặt trước trải nghiệm 1 ngày",
+    "back": "Trở lại"
   },
   "messages": {
     "login_success": "Đăng nhập thành công",
     "login_failure": "Tài khoản hoặc mật khẩu không đúng!",
     "register_success": "Đăng ký thành công! Trung tâm sẽ liện hệ với bạn qua các thông tin liên hệ đã nhận được!",
-    "register_failure": "Đăng ký thất bại"
+    "register_failure": "Đăng ký thất bại",
+    "validate_failure": "Vui lòng điền đầy đủ thông tin",
+    "error": "Có lỗi xảy ra! Vui lòng thử lại"
   },
   "nav": {
-    "about": {
-      "title": "Giới thiệu",
-      "children": {
-        "intro": "Giới thiệu",
-        "news": "Tin tức",
-        "mission": "Kiness Việt Nam",
-        "3": "Blog thành viên",
-        "4": "Câu chuyện tăng trưởng"
+    "info": {
+      "title": "Giới thiệu về Kiness",
+      "history": {
+        "title": "Lịch sử Kiness",
+        "greetings": { "title": "Lời chào của CEO" },
+        "history": { "title": "Lịch sử" }
+      },
+      "branch": {
+        "title": "Mạng lưới Kiness",
+        "organ": { "title": "Sơ đồ tổ chức" },
+        "map": { "title": "Tìm chi nhánh" }
+      },
+      "lab": {
+        "title": "Phòng thí nghiệm Kiness",
+        "researcher": { "title": "Các nhà nghiên cứu" },
+        "thesis": { "title": "Bài nghiên cứu" },
+        "patent": { "title": "Bằng sáng chế" },
+        "book": { "title": "Sách xuất bản" }
       }
     },
-    "training": {
-      "title": "Chương trình huấn luyện",
-      "children": {
-        "growth-method": "Phương pháp tăng trưởng",
-        "support-equip": "Thiết bị hỗ trợ",
-        "training-program": "Chương trình tập luyện",
-        "fee": "Chi phí",
-        "quality": "Đảm bảo chất lượng"
+    "advice": {
+      "title": "Tư vấn đặt chỗ",
+      "overhaul": {
+        "title": "Kiểm tra tăng trưởng"
+      },
+      "ex": {
+        "title": "Đặt lịch trải nghiệm/tư vấn 1 ngày"
+      },
+      "faq": {
+        "title": "Câu hỏi thường gặp"
+      },
+      "inquiry": {
+        "title": "Hỏi đáp tư vấn"
       }
     },
-    "wiki": {
-      "title": "Bách khoa tăng trưởng về chiều cao",
-      "children": {
-        "stages-of-growth": "Các giai đoạn phát triển",
-        "benefit-growth": "Lợi ích tăng trưởng chiều cao",
-        "hormone": "Hóc môn tăng trưởng",
-        "reasons-growth": "Các yếu tố giúp tăng trưởng chiều cao thành công",
-        "point-growth": "Điểm tăng trưởng chiều cao",
-        "range-growth": "Tấm tăng trưởng",
-        "info-growth": "38 thông tin chính để tăng trưởng chiều cao",
-        "exam-growth": "Bài kiểm tra độ chính xác tăng trưởng Kines"
+    "program": {
+      "title": "Chương trình Kiness",
+      "question": {
+        "title": "Kiểm tra tăng trưởng chi tiết là gì ?"
+      },
+      "method": {
+        "title": "Phương pháp tăng trưởng Kiness"
+      },
+      "system": {
+        "title": "Hệ thống đảm bảo trách nhiệm tăng trường"
       }
     },
-    "test": {
-      "title": "Kiểm tra tăng trưởng",
-      "children": {
-        "growth-forecast": "Dự đoán tăng trưởng",
-        "schedule-train": "Lên lịch tập luyện",
-        "advise": "Tư vấn tăng trưởng"
+    "case": {
+      "title": "Trường hợp tăng trưởng",
+      "story": {
+        "title": "Câu chuyện tăng trưởng"
+      },
+      "posture": {
+        "title": "Trường hợp chỉnh sửa tư thế"
+      },
+      "old": {
+        "title": "Trường hợp trễ hạn"
+      },
+      "fat": {
+        "title": "Trường hợp béo phì"
       }
     },
-    "user": {
-      "children": {
-        "login": "Đăng nhập",
-        "register": "Đăng ký thành viên",
-        "privacy-policy": "Chính sách bảo mật",
-        "terms-use": "Điều khoản sử dụng"
+    "info-growth": {
+      "title": "Thông tin tăng trưởng",
+      "height": {
+        "title": "Tăng trưởng chiều cao"
+      },
+      "standing": {
+        "title": "Tư thế đúng"
+      },
+      "period": {
+        "title": "Kỳ hạn / đáo hạn sớm"
+      },
+      "fat": {
+        "title": "Béo phì thời thơ ấu"
+      },
+      "column": {
+        "title": "Cột tăng trưởng"
       }
     },
-    "branch": {
-      "children": {
-        "branch": "Chi nhánh",
-        "register-for-the-test": "Đăng ký kiểm tra",
-        "register-to-experience": "Đăng ký trải nghiệm"
+    "tv": {
+      "title": "Phát tin",
+      "local": {
+        "title": "Kiness TV"
+      },
+      "world": {
+        "title": "Kiness trên thế giới"
       }
+    },
+    "expected": {
+      "title": "Chiều cao dự kiến",
+      "gen": {
+        "title": "Chiều cao dự kiến do di truyền"
+      },
+      "current": {
+        "title": "Chiều cao dự kiến theo chiều cao hiện tại"
+      },
+      "chart": {
+        "title": "Biểu đồ tăng trưởng"
+      }
+    },
+    "privacy-term": {
+      "title": "Chính sách bảo mật"
+    },
+    "policy": {
+      "title": "Điều khoản sử dụng"
     }
   },
   "user": {
@@ -85,11 +143,65 @@
     "logout": "Đăng xuất",
     "profile": "Thông tin cá nhân"
   },
+  "ex": {
+    "btn_register": "Đặt lịch",
+    "modal": {
+      "title_register": "Đăng ký trải nghiệm",
+
+      "fields": {
+        "branch": "Tên chi nhánh",
+        "city": "Khu vực",
+        "open_time": "Thời gian mở cửa",
+        "close_time": "Thời gian đóng cửa",
+        "your_name": "Tên của bạn",
+        "your_gender": "Giới tính của bạn",
+        "your_level": "Cấp",
+        "your_phone": "Số điện thoại của bạn",
+        "your_email": "Email của bạn",
+        "date_come": "Ngày đặt trải nghiệm",
+        "your_address": "Địa chỉ của bạn",
+        "your_note": "Ghi chú"
+      }
+    }
+  },
+  "thesis": {
+    "search_placeholder": "Nhập nội dung",
+    "serial": "STT",
+    "title": "Tên bài báo",
+    "author": "Tác giả",
+    "organ": "Tổ chức phát hành",
+    "year_release": "Năm phát hàng"
+  },
+  "request": {
+    "search_placeholder": "Nhập nội dung",
+    "serial": "STT",
+    "subject": "Tiêu đề",
+    "author_name": "Tác giả"
+  },
+  "patent": {
+    "search_placeholder": "Nhập nội dung"
+  },
   "branch_register": {
     "city_id": "Thành phố",
     "branch_name": "Tên chi nhánh",
     "phone_number": "Số điện thoại",
     "address": "Địa chỉ",
     "email": "Email"
+  },
+  "inquiry": {
+    "form": {
+      "full_name": "Họ tên",
+      "password": "Mật khẩu",
+      "email": "Email",
+      "phone": "Số điện thoại",
+      "subject": "Tiêu đề yêu cầu",
+      "content": "Nội dung yêu cầu"
+    }
+  },
+  "info_fat": {
+    "search_placeholder": "Nhập nội dung",
+    "serial": "STT",
+    "title": "Tiêu đề",
+    "date": "Ngày"
   }
 }

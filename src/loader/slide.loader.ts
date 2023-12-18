@@ -1,24 +1,27 @@
+import { AxiosRequestConfig } from "axios";
 import { useQuery } from "react-query";
 
 import { ExtractFnReturnType, QueryConfig } from "@/lib/react-query";
-import { getSlides } from "@/services/slide.service";
+import { searchSlides } from "@/services/slide.service";
 
-export const CACHE_SLIDE = {
-  SEARCH_CACHE: "SEARCH_CACHE",
+export const CACHE_SLIDES = {
+  SEARCH: "SLIDES",
+  DETAIL: "SLIDE_DETAIL",
 };
 
-const useGetSlides = ({
-  data,
+// Search list
+const useSearchSlides = ({
+  params,
   config,
 }: {
-  data?: any;
-  config?: QueryConfig<typeof getSlides>;
+  params: AxiosRequestConfig["params"];
+  config?: QueryConfig<typeof searchSlides>;
 }) => {
-  return useQuery<ExtractFnReturnType<typeof getSlides>>({
+  return useQuery<ExtractFnReturnType<typeof searchSlides>>({
     ...config,
-    queryKey: [CACHE_SLIDE.SEARCH_CACHE, data],
-    queryFn: () => getSlides(data),
+    queryKey: [CACHE_SLIDES.SEARCH, params],
+    queryFn: () => searchSlides(params),
   });
 };
 
-export { useGetSlides };
+export { useSearchSlides };

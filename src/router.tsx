@@ -1,63 +1,106 @@
 import { Navigate, createBrowserRouter } from "react-router-dom";
 
-import { IntroPage } from "./modules/about/intro";
-import { MissionPage } from "./modules/about/mission";
-import { NewsPage } from "./modules/about/news";
+import {
+  ExPage,
+  FaqPage,
+  InquiryDetailPage,
+  InquiryListPage,
+  InquiryWritePage,
+  OverhaulPage,
+} from "./modules/advice";
 import AppLayout from "./modules/app/AppLayout";
 import ProtectedComponent from "./modules/app/ProtectComponent";
-import { BranchPage } from "./modules/branch/branch";
-import { BranchRegisterPage } from "./modules/branch/branch-register";
-import { ExperienceRegisterPage } from "./modules/branch/experence-register";
-import { TestRegisterPage } from "./modules/branch/test-register";
-import { ErrorBoundaryPage } from "./modules/error/boundary";
-import { HomePage } from "./modules/home";
-import { TestPage } from "./modules/test";
-import { EquipmentPage } from "./modules/training/equipment";
-import { GrowthPage } from "./modules/training/growth";
-import { ProgramPage } from "./modules/training/program";
-import { QualityPage } from "./modules/training/quality";
-import { LoginPage } from "./modules/user/login";
-import { PrivacyPolicyPage } from "./modules/user/privacy-policy";
-import { RegisterMemberPage } from "./modules/user/register-member";
-import { TermsUsePage } from "./modules/user/terms-use";
-import { VerifyAccountPage } from "./modules/user/verify";
-import { WikiPage } from "./modules/wiki";
 import {
-  ADVISE_URL,
-  BENEFIT_GROWTH_URL,
-  BRANCH_URL,
-  EXAM_GROWTH_URL,
-  FEE_URL,
-  GROWTH_FORECAST_URL,
-  GROWTH_URL,
+  FatDetailPage,
+  FatListPage,
+  OldDetailPage,
+  OldListPage,
+  PoseDetailPage,
+  PoseListPage,
+  StoryDetailPage,
+  StoryListPage,
+} from "./modules/case";
+import { ErrorBoundaryPage } from "./modules/error/boundary";
+import { ChartGrowthPage, CurrentPage, GenPage } from "./modules/expected";
+import {
+  BookPage,
+  GreetingPage,
+  HistoryPage,
+  MapDetailPage,
+  MapListPage,
+  OrganPage,
+  PatentPage,
+  ResearcherPage,
+  ThesisDetailPage,
+  ThesisPage,
+} from "./modules/greetings";
+import Home from "./modules/home/Home";
+import {
+  ColumnDetailPage,
+  ColumnListPage,
+  FatPage,
+  HeightPage,
+  PeriodPage,
+  StandingPage,
+} from "./modules/info-growth";
+import Policy from "./modules/policy/Policy";
+import PrivacyTerm from "./modules/privacy-term/PrivacyTerm";
+import {
+  GrowthMethodPage,
+  GrowthSystemPage,
+  QuestionPage,
+} from "./modules/program";
+import { TVLocalPage, TVWorldPage } from "./modules/tv";
+import {
+  ADVICE_EX_URL,
+  ADVICE_FAQ_URL,
+  ADVICE_INQUIRY_DETAIL_URL,
+  ADVICE_INQUIRY_URL,
+  ADVICE_INQUIRY_WRITE_URL,
+  ADVICE_OVERHAUL_URL,
+  BOOK_URL,
+  CASE_FAT_DETAIL_URL,
+  CASE_FAT_URL,
+  CASE_OLD_DETAIL_URL,
+  CASE_OLD_URL,
+  CASE_POSTURE_DETAIL_URL,
+  CASE_POSTURE_URL,
+  CASE_STORY_DETAIL_URL,
+  CASE_STORY_URL,
+  EXPECTED_CHART_URL,
+  EXPECTED_CURRENT_URL,
+  EXPECTED_GEN_URL,
+  GREETING_URL,
+  HISTORY_URL,
   HOME_URL,
-  HORMONE_URL,
-  INFO_GROWTH_URL,
-  INTRO_URL,
-  LOGIN_URL,
-  MISSION_URL,
-  NEWS_URL,
-  POINT_GROWTH_URL,
-  PRIVACY_POLICY_URL,
-  QUALITY_URL,
-  RANGE_GROWTH_URL,
-  REASONS_GROWTH_URL,
-  REGISTER_BRANCH_URL,
-  REGISTER_EXPERIENCE_URL,
-  REGISTER_URL,
-  SCHEDULE_TRAIN_URL,
-  STAGES_GROWTH_URL,
-  SUPPORT_EQUIP_URL,
-  TERMS_USE_URL,
-  TEST_REGISTER_URL,
-  TRAINING_PROGRAM_URL,
-  TRAINING_URL,
-  VERIFY_URL,
+  INFO_BRANCH_URL,
+  INFO_GROWTH_COLUMN_DETAIL_URL,
+  INFO_GROWTH_COLUMN_URL,
+  INFO_GROWTH_FAT_URL,
+  INFO_GROWTH_HEIGHT_URL,
+  INFO_GROWTH_PERIOD_URL,
+  INFO_GROWTH_STANDING_URL,
+  INFO_HISTORY_URL,
+  INFO_LAB_URL,
+  MAP_DETAIL_URL,
+  MAP_URL,
+  ORGAN_URL,
+  PATENT_URL,
+  POLICY_URL,
+  PRIVACY_TERM_URL,
+  PROGRAM_METHOD_URL,
+  PROGRAM_QUESTION_URL,
+  PROGRAM_SYSTEM_URL,
+  RESEARCHER_URL,
+  THESIS_DETAIL_URL,
+  THESIS_URL,
+  TV_LOCAL_URL,
+  TV_WORLD_URL,
 } from "./urls";
 
 export const router = createBrowserRouter([
   {
-    path: "/",
+    path: HOME_URL,
     element: <AppLayout />,
     errorElement: (
       <AppLayout>
@@ -69,304 +112,436 @@ export const router = createBrowserRouter([
         path: HOME_URL,
         element: (
           <ProtectedComponent
-            Element={HomePage}
+            Element={Home}
             title="Kiness Việt Nam"
             url={HOME_URL}
           />
         ),
       },
-
-      // Intro
       {
-        path: INTRO_URL,
-        element: (
-          <ProtectedComponent
-            Element={IntroPage}
-            title="Giới thiệu"
-            url={INTRO_URL}
-          />
-        ),
+        path: INFO_HISTORY_URL,
+        element: <Navigate to={GREETING_URL}></Navigate>,
       },
       {
-        path: NEWS_URL,
-        element: (
-          <ProtectedComponent
-            Element={NewsPage}
-            title="Tin tức"
-            url={NEWS_URL}
-          />
-        ),
+        path: INFO_BRANCH_URL,
+        element: <Navigate to={ORGAN_URL}></Navigate>,
       },
       {
-        path: MISSION_URL,
-        element: (
-          <ProtectedComponent
-            Element={MissionPage}
-            title="Sứ mệnh và tầm nhìn"
-            url={MISSION_URL}
-          />
-        ),
+        path: INFO_LAB_URL,
+        element: <Navigate to={RESEARCHER_URL}></Navigate>,
       },
 
-      // Training
       {
-        path: TRAINING_URL,
-        element: <Navigate to={GROWTH_URL} />,
-      },
-      {
-        path: GROWTH_URL,
+        path: GREETING_URL,
         element: (
           <ProtectedComponent
-            Element={GrowthPage}
-            title="Phương pháp tăng trưởng"
-            url={GROWTH_URL}
+            Element={GreetingPage}
+            title="Lời chào của CEO"
+            url={GREETING_URL}
           />
         ),
       },
       {
-        path: SUPPORT_EQUIP_URL,
+        path: HISTORY_URL,
         element: (
           <ProtectedComponent
-            Element={EquipmentPage}
-            title="Thiết bị hỗ trợ"
-            url={SUPPORT_EQUIP_URL}
+            Element={HistoryPage}
+            title="Lịch sử"
+            url={HISTORY_URL}
           />
         ),
       },
       {
-        path: TRAINING_PROGRAM_URL,
+        path: ORGAN_URL,
         element: (
           <ProtectedComponent
-            Element={ProgramPage}
-            title="Chương trình tập luyện"
-            url={TRAINING_PROGRAM_URL}
+            Element={OrganPage}
+            title="Sơ đồ tổ chức"
+            url={ORGAN_URL}
           />
         ),
       },
       {
-        path: FEE_URL,
+        path: MAP_URL,
         element: (
           <ProtectedComponent
-            Element={GrowthPage}
-            title="Chi phí"
-            url={FEE_URL}
+            Element={MapListPage}
+            title="Tìm chi nhánh"
+            url={MAP_URL}
           />
         ),
       },
       {
-        path: QUALITY_URL,
+        path: MAP_DETAIL_URL,
         element: (
           <ProtectedComponent
-            Element={QualityPage}
-            title="Đảm bảo chất lượng"
-            url={QUALITY_URL}
-          />
-        ),
-      },
-
-      // Wiki
-      {
-        path: STAGES_GROWTH_URL,
-        element: (
-          <ProtectedComponent
-            Element={WikiPage}
-            title="Các giai đoạn phát triển"
-            url={STAGES_GROWTH_URL}
-          />
-        ),
-      },
-      {
-        path: BENEFIT_GROWTH_URL,
-        element: (
-          <ProtectedComponent
-            Element={WikiPage}
-            title="Lợi ích tăng trưởng chiều cao"
-            url={BENEFIT_GROWTH_URL}
-          />
-        ),
-      },
-      {
-        path: HORMONE_URL,
-        element: (
-          <ProtectedComponent
-            Element={WikiPage}
-            title="Hóc môn tăng trưởng"
-            url={HORMONE_URL}
-          />
-        ),
-      },
-      {
-        path: REASONS_GROWTH_URL,
-        element: (
-          <ProtectedComponent
-            Element={WikiPage}
-            title="Các yếu tố giúp tăng trưởng chiều cao"
-            url={REASONS_GROWTH_URL}
-          />
-        ),
-      },
-      {
-        path: POINT_GROWTH_URL,
-        element: (
-          <ProtectedComponent
-            Element={WikiPage}
-            title="Điểm tăng trưởng chiều cao"
-            url={POINT_GROWTH_URL}
-          />
-        ),
-      },
-      {
-        path: RANGE_GROWTH_URL,
-        element: (
-          <ProtectedComponent
-            Element={WikiPage}
-            title="Tầm tăng trưởng"
-            url={RANGE_GROWTH_URL}
-          />
-        ),
-      },
-      {
-        path: INFO_GROWTH_URL,
-        element: (
-          <ProtectedComponent
-            Element={WikiPage}
-            title="Thông tin tăng trưởng"
-            url={INFO_GROWTH_URL}
-          />
-        ),
-      },
-      {
-        path: EXAM_GROWTH_URL,
-        element: (
-          <ProtectedComponent
-            Element={WikiPage}
-            title="Bài kiểm tra tăng trưởng"
-            url={EXAM_GROWTH_URL}
-          />
-        ),
-      },
-
-      // Test
-      {
-        path: GROWTH_FORECAST_URL,
-        element: (
-          <ProtectedComponent
-            Element={TestPage}
-            title="Dự đoán tăng trưởng"
-            url={GROWTH_FORECAST_URL}
-          />
-        ),
-      },
-      {
-        path: SCHEDULE_TRAIN_URL,
-        element: (
-          <ProtectedComponent
-            Element={TestPage}
-            title="Lên lịch tập luyện"
-            url={SCHEDULE_TRAIN_URL}
-          />
-        ),
-      },
-      {
-        path: ADVISE_URL,
-        element: (
-          <ProtectedComponent
-            Element={TestPage}
-            title="Tư vấn tăng trưởng"
-            url={ADVISE_URL}
-          />
-        ),
-      },
-
-      // User
-      {
-        path: LOGIN_URL,
-        element: (
-          <ProtectedComponent
-            Element={LoginPage}
-            title="Đăng nhập"
-            url={LOGIN_URL}
-          />
-        ),
-      },
-      {
-        path: REGISTER_URL,
-        element: (
-          <ProtectedComponent
-            Element={RegisterMemberPage}
-            title="Đăng ký thành viên"
-            url={REGISTER_URL}
-          />
-        ),
-      },
-      {
-        path: PRIVACY_POLICY_URL,
-        element: (
-          <ProtectedComponent
-            Element={PrivacyPolicyPage}
-            title="Chính sách bảo mật"
-            url={PRIVACY_POLICY_URL}
-          />
-        ),
-      },
-      {
-        path: TERMS_USE_URL,
-        element: (
-          <ProtectedComponent
-            Element={TermsUsePage}
-            title="Điều khoản sử dụng"
-            url={TERMS_USE_URL}
-          />
-        ),
-      },
-      {
-        path: VERIFY_URL,
-        element: (
-          <ProtectedComponent
-            Element={VerifyAccountPage}
-            title="Xác thực tài khoản"
-            url={VERIFY_URL}
-          />
-        ),
-      },
-
-      // Branch
-      {
-        path: BRANCH_URL,
-        element: (
-          <ProtectedComponent
-            Element={BranchPage}
+            Element={MapDetailPage}
             title="Chi nhánh"
-            url={BRANCH_URL}
+            url={MAP_DETAIL_URL}
           />
         ),
       },
       {
-        path: TEST_REGISTER_URL,
+        path: RESEARCHER_URL,
         element: (
           <ProtectedComponent
-            Element={TestRegisterPage}
-            title="Đăng ký kiểm tra"
-            url={TEST_REGISTER_URL}
+            Element={ResearcherPage}
+            title="Các nhà nghiên cứu"
+            url={RESEARCHER_URL}
           />
         ),
       },
       {
-        path: REGISTER_EXPERIENCE_URL,
+        path: THESIS_URL,
         element: (
           <ProtectedComponent
-            Element={ExperienceRegisterPage}
-            title="Đăng ký trải nghiệm"
-            url={REGISTER_EXPERIENCE_URL}
+            Element={ThesisPage}
+            title="Bài nghiên cứu"
+            url={THESIS_URL}
           />
         ),
       },
       {
-        path: REGISTER_BRANCH_URL,
+        path: THESIS_DETAIL_URL,
         element: (
           <ProtectedComponent
-            Element={BranchRegisterPage}
-            title="Đăng ký trung tâm"
+            Element={ThesisDetailPage}
+            title="Bài nghiên cứu"
+            url={THESIS_DETAIL_URL}
+          />
+        ),
+      },
+      {
+        path: PATENT_URL,
+        element: (
+          <ProtectedComponent
+            Element={PatentPage}
+            title="Bằng sáng chế"
+            url={PATENT_URL}
+          />
+        ),
+      },
+      {
+        path: BOOK_URL,
+        element: (
+          <ProtectedComponent
+            Element={BookPage}
+            title="Sách xuất bản"
+            url={BOOK_URL}
+          />
+        ),
+      },
+
+      // advice
+      {
+        path: ADVICE_OVERHAUL_URL,
+        element: (
+          <ProtectedComponent
+            Element={OverhaulPage}
+            title="Kiểm tra tăng trưởng"
+            url={ADVICE_OVERHAUL_URL}
+          />
+        ),
+      },
+      {
+        path: ADVICE_EX_URL,
+        element: (
+          <ProtectedComponent
+            Element={ExPage}
+            title="Đặt lịch trải nghiệm 1 ngày"
+            url={ADVICE_EX_URL}
+          />
+        ),
+      },
+      {
+        path: ADVICE_FAQ_URL,
+        element: (
+          <ProtectedComponent
+            Element={FaqPage}
+            title="Các câu hỏi thường gặp"
+            url={ADVICE_FAQ_URL}
+          />
+        ),
+      },
+      {
+        path: ADVICE_INQUIRY_URL,
+        element: (
+          <ProtectedComponent
+            Element={InquiryListPage}
+            title="Hỏi đáp tư vấn"
+            url={ADVICE_INQUIRY_URL}
+          />
+        ),
+      },
+      {
+        path: ADVICE_INQUIRY_DETAIL_URL,
+        element: (
+          <ProtectedComponent
+            Element={InquiryDetailPage}
+            title="Chi tiết hỏi đáp tư vấn"
+            url={ADVICE_INQUIRY_DETAIL_URL}
+          />
+        ),
+      },
+      {
+        path: ADVICE_INQUIRY_WRITE_URL,
+        element: (
+          <ProtectedComponent
+            Element={InquiryWritePage}
+            title="Viết câu hỏi tư vấn"
+            url={ADVICE_INQUIRY_WRITE_URL}
+          />
+        ),
+      },
+
+      // Program
+      {
+        path: PROGRAM_QUESTION_URL,
+        element: (
+          <ProtectedComponent
+            Element={QuestionPage}
+            title="Kiểm tra tăng trưởng là gì?"
+            url={PROGRAM_QUESTION_URL}
+          />
+        ),
+      },
+      {
+        path: PROGRAM_METHOD_URL,
+        element: (
+          <ProtectedComponent
+            Element={GrowthMethodPage}
+            title="Phương pháp tăng trưởng"
+            url={PROGRAM_METHOD_URL}
+          />
+        ),
+      },
+      {
+        path: PROGRAM_SYSTEM_URL,
+        element: (
+          <ProtectedComponent
+            Element={GrowthSystemPage}
+            title="Hệ thống tăng trưởng"
+            url={PROGRAM_SYSTEM_URL}
+          />
+        ),
+      },
+
+      // Case
+      {
+        path: CASE_STORY_URL,
+        element: (
+          <ProtectedComponent
+            Element={StoryListPage}
+            title="Câu chuyện tăng trưởng"
+            url={CASE_STORY_URL}
+          />
+        ),
+      },
+      {
+        path: CASE_STORY_DETAIL_URL,
+        element: (
+          <ProtectedComponent
+            Element={StoryDetailPage}
+            title="Chi tiết câu chuyện tăng trưởng"
+            url={CASE_STORY_DETAIL_URL}
+          />
+        ),
+      },
+      {
+        path: CASE_POSTURE_URL,
+        element: (
+          <ProtectedComponent
+            Element={PoseListPage}
+            title="Trường hợp chỉnh sửa tư thế"
+            url={CASE_POSTURE_URL}
+          />
+        ),
+      },
+      {
+        path: CASE_POSTURE_DETAIL_URL,
+        element: (
+          <ProtectedComponent
+            Element={PoseDetailPage}
+            title="Chi tiết chỉnh sửa tư thế"
+            url={CASE_POSTURE_DETAIL_URL}
+          />
+        ),
+      },
+      {
+        path: CASE_OLD_URL,
+        element: (
+          <ProtectedComponent
+            Element={OldListPage}
+            title="Trường hợp trễ hạn"
+            url={CASE_OLD_URL}
+          />
+        ),
+      },
+      {
+        path: CASE_OLD_DETAIL_URL,
+        element: (
+          <ProtectedComponent
+            Element={OldDetailPage}
+            title="Chi tiết trường hợp trễ hạn"
+            url={CASE_OLD_DETAIL_URL}
+          />
+        ),
+      },
+      {
+        path: CASE_FAT_URL,
+        element: (
+          <ProtectedComponent
+            Element={FatListPage}
+            title="Trường hợp béo phì"
+            url={CASE_FAT_URL}
+          />
+        ),
+      },
+      {
+        path: CASE_FAT_DETAIL_URL,
+        element: (
+          <ProtectedComponent
+            Element={FatDetailPage}
+            title="Chi tiết trường hợp béo phì"
+            url={CASE_FAT_DETAIL_URL}
+          />
+        ),
+      },
+
+      // info growth
+      {
+        path: INFO_GROWTH_HEIGHT_URL,
+        element: (
+          <ProtectedComponent
+            Element={HeightPage}
+            title="Tăng trưởng chiều cao"
+            url={INFO_GROWTH_HEIGHT_URL}
+          />
+        ),
+      },
+      {
+        path: INFO_GROWTH_STANDING_URL,
+        element: (
+          <ProtectedComponent
+            Element={StandingPage}
+            title="Tư thế đúng"
+            url={INFO_GROWTH_STANDING_URL}
+          />
+        ),
+      },
+      {
+        path: INFO_GROWTH_PERIOD_URL,
+        element: (
+          <ProtectedComponent
+            Element={PeriodPage}
+            title="Kỳ hạn / đáo hạn sớm"
+            url={INFO_GROWTH_PERIOD_URL}
+          />
+        ),
+      },
+      {
+        path: INFO_GROWTH_FAT_URL,
+        element: (
+          <ProtectedComponent
+            Element={FatPage}
+            title="Béo phì thời thơ ấu"
+            url={INFO_GROWTH_FAT_URL}
+          />
+        ),
+      },
+      {
+        path: INFO_GROWTH_COLUMN_URL,
+        element: (
+          <ProtectedComponent
+            Element={ColumnListPage}
+            title="Cột tăng trưởng"
+            url={INFO_GROWTH_COLUMN_URL}
+          />
+        ),
+      },
+      {
+        path: INFO_GROWTH_COLUMN_DETAIL_URL,
+        element: (
+          <ProtectedComponent
+            Element={ColumnDetailPage}
+            title="Chi tiết cột tăng trưởng"
+            url={INFO_GROWTH_COLUMN_DETAIL_URL}
+          />
+        ),
+      },
+
+      // tv
+      {
+        path: TV_LOCAL_URL,
+        element: (
+          <ProtectedComponent
+            Element={TVLocalPage}
+            title="Kênh trong nước"
+            url={TV_LOCAL_URL}
+          />
+        ),
+      },
+      {
+        path: TV_WORLD_URL,
+        element: (
+          <ProtectedComponent
+            Element={TVWorldPage}
+            title="Kênh thế giới"
+            url={TV_WORLD_URL}
+          />
+        ),
+      },
+
+      // expected
+      {
+        path: EXPECTED_GEN_URL,
+        element: (
+          <ProtectedComponent
+            Element={GenPage}
+            title="Chiều cao dự kiến do di truyền"
+            url={EXPECTED_GEN_URL}
+          />
+        ),
+      },
+      {
+        path: EXPECTED_CURRENT_URL,
+        element: (
+          <ProtectedComponent
+            Element={CurrentPage}
+            title="Chiều cao dự kiến theo chiều cao hiện tại"
+            url={EXPECTED_CURRENT_URL}
+          />
+        ),
+      },
+      {
+        path: EXPECTED_CHART_URL,
+        element: (
+          <ProtectedComponent
+            Element={ChartGrowthPage}
+            title="Biểu đồ tăng trưởng tiêu chuẩn Việt Nam"
+            url={EXPECTED_CHART_URL}
+          />
+        ),
+      },
+
+      // single page
+      {
+        path: PRIVACY_TERM_URL,
+        element: (
+          <ProtectedComponent
+            Element={PrivacyTerm}
+            title="Chính sách bảo mật"
+            url={PRIVACY_TERM_URL}
+          />
+        ),
+      },
+      {
+        path: POLICY_URL,
+        element: (
+          <ProtectedComponent
+            Element={Policy}
+            title="Điều khoản sử dụng"
+            url={POLICY_URL}
           />
         ),
       },

@@ -1,18 +1,26 @@
-import Banner from "./components/banner/Banner";
-import CallToAction from "./components/call-to-actions/CallToAction";
-import Hero from "./components/hero/Hero";
-import Mission from "./components/mission/Mission";
+import Carousel from "./components/carousel/Carousel";
+import Checklist from "./components/checklist/CheckList";
+import LoopText from "./components/loop-text/LoopText";
+import MainContent from "./components/main-content/MainContent";
+import Movie from "./components/movie/Movie";
+import Place from "./components/place/Place";
+import QuickList from "./components/quick-list/QuickList";
 
 export default function Home(): JSX.Element {
   return (
     <>
-      <Hero />
+      <Carousel />
+      <LoopText />
 
-      <CallToAction />
+      <QuickList />
 
-      <Banner />
+      <Checklist />
 
-      <Mission />
+      <MainContent />
+
+      <Movie />
+
+      <Place />
     </>
   );
 }

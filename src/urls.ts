@@ -1,84 +1,117 @@
 const HOME_URL = "/";
 
-// Introduction
-const INTRO_URL = "/intro";
-const NEWS_URL = `${INTRO_URL}/news`;
-const MISSION_URL = `${INTRO_URL}/mission`;
+// Info
+const INFO_URL = "/info";
+const INFO_HISTORY_URL = `${INFO_URL}/history`;
+const INFO_BRANCH_URL = `${INFO_URL}/branch`;
+const INFO_LAB_URL = `${INFO_URL}/lab`;
+const GREETING_URL = `${INFO_HISTORY_URL}/greetings`;
+const HISTORY_URL = `${INFO_HISTORY_URL}/history`;
+const ORGAN_URL = `${INFO_BRANCH_URL}/organ`;
+const MAP_URL = `${INFO_BRANCH_URL}/map`;
+const MAP_DETAIL_URL = `${INFO_BRANCH_URL}/map/:id`;
+const RESEARCHER_URL = `${INFO_LAB_URL}/researcher`;
+const THESIS_URL = `${INFO_LAB_URL}/thesis`;
+const THESIS_DETAIL_URL = `${INFO_LAB_URL}/thesis/:id`;
+const PATENT_URL = `${INFO_LAB_URL}/patent`;
+const BOOK_URL = `${INFO_LAB_URL}/book`;
 
-// Training
-const TRAINING_URL = "/training";
-const GROWTH_URL = `${TRAINING_URL}/growth-method`;
-const SUPPORT_EQUIP_URL = `${TRAINING_URL}/support-equip`;
-const TRAINING_PROGRAM_URL = `${TRAINING_URL}/training-program`;
-const FEE_URL = `${TRAINING_URL}/fee`;
-const QUALITY_URL = `${TRAINING_URL}/quality`;
+// advise
+const ADVICE_URL = "/advice";
+const ADVICE_OVERHAUL_URL = `${ADVICE_URL}/overhaul`;
+const ADVICE_EX_URL = `${ADVICE_URL}/ex`;
+const ADVICE_FAQ_URL = `${ADVICE_URL}/faq`;
+const ADVICE_INQUIRY_URL = `${ADVICE_URL}/inquiry`;
+const ADVICE_INQUIRY_DETAIL_URL = `${ADVICE_URL}/inquiry/:id`;
+const ADVICE_INQUIRY_WRITE_URL = `${ADVICE_URL}/inquiry/write`;
 
-// Wiki
-const WIKI_URL = "/wiki";
-const STAGES_GROWTH_URL = `${WIKI_URL}/stages-of-growth`;
-const BENEFIT_GROWTH_URL = `${WIKI_URL}/benefit-growth`;
-const HORMONE_URL = `${WIKI_URL}/hormone`;
-const REASONS_GROWTH_URL = `${WIKI_URL}/reasons-growth`;
-const POINT_GROWTH_URL = `${WIKI_URL}/point-growth`;
-const RANGE_GROWTH_URL = `${WIKI_URL}/range-growth`;
-const INFO_GROWTH_URL = `${WIKI_URL}/info-growth`;
-const EXAM_GROWTH_URL = `${WIKI_URL}/exam-growth`;
+// program
+const PROGRAM_URL = "/program";
+const PROGRAM_QUESTION_URL = `${PROGRAM_URL}/question`;
+const PROGRAM_METHOD_URL = `${PROGRAM_URL}/method`;
+const PROGRAM_SYSTEM_URL = `${PROGRAM_URL}/system`;
 
-// Testing
-const TESTING_URL = "/testing";
-const GROWTH_FORECAST_URL = `${TESTING_URL}/growth-forecast`;
-const SCHEDULE_TRAIN_URL = `${TESTING_URL}/schedule-train`;
-const ADVISE_URL = `${TESTING_URL}/advise`;
+// case
+const CASE_URL = "/case";
+const CASE_STORY_URL = `${CASE_URL}/story`;
+const CASE_STORY_DETAIL_URL = `${CASE_URL}/story/:id`;
+const CASE_POSTURE_URL = `${CASE_URL}/posture`;
+const CASE_POSTURE_DETAIL_URL = `${CASE_URL}/posture/:id`;
+const CASE_OLD_URL = `${CASE_URL}/old`;
+const CASE_OLD_DETAIL_URL = `${CASE_URL}/old/:id`;
+const CASE_FAT_URL = `${CASE_URL}/fat`;
+const CASE_FAT_DETAIL_URL = `${CASE_URL}/fat/:id`;
 
-// User
-const LOGIN_URL = "/login";
-const REGISTER_URL = "/register";
-const PRIVACY_POLICY_URL = "/privacy-policy";
-const TERMS_USE_URL = "/terms-use";
-const VERIFY_URL = "/verify";
+// Info growth
+const INFO_GROWTH_URL = "/info-growth";
+const INFO_GROWTH_HEIGHT_URL = `${INFO_GROWTH_URL}/height`;
+const INFO_GROWTH_STANDING_URL = `${INFO_GROWTH_URL}/standing`;
+const INFO_GROWTH_PERIOD_URL = `${INFO_GROWTH_URL}/period`;
+const INFO_GROWTH_FAT_URL = `${INFO_GROWTH_URL}/fat`;
+const INFO_GROWTH_COLUMN_URL = `${INFO_GROWTH_URL}/column`;
+const INFO_GROWTH_COLUMN_DETAIL_URL = `${INFO_GROWTH_URL}/column/:id`;
 
-// Branch
-const BRANCH_URL = "/branch";
-const TEST_REGISTER_URL = "/register-for-the-test";
-const REGISTER_EXPERIENCE_URL = "/register-to-experience";
-const REGISTER_BRANCH_URL = "/register-branch";
+// Tv
+const TV_URL = "/tv";
+const TV_LOCAL_URL = `${TV_URL}/local`;
+const TV_WORLD_URL = `${TV_URL}/world`;
 
-const breadcrumbNameMap: Record<string, string> = {
-  [HOME_URL]: "Trang chủ",
-};
+// expected
+const EXPECTED_URL = "/expected";
+const EXPECTED_GEN_URL = `${EXPECTED_URL}/gen`;
+const EXPECTED_CURRENT_URL = `${EXPECTED_URL}/current`;
+const EXPECTED_CHART_URL = `${EXPECTED_URL}/chart`;
+
+// single page
+const PRIVACY_TERM_URL = `/privacy-terms`;
+const POLICY_URL = `/policy`;
 
 export {
-  ADVISE_URL,
-  BENEFIT_GROWTH_URL,
-  BRANCH_URL,
-  EXAM_GROWTH_URL,
-  FEE_URL,
-  GROWTH_FORECAST_URL,
-  GROWTH_URL,
   HOME_URL,
-  HORMONE_URL,
-  INFO_GROWTH_URL,
-  INTRO_URL,
-  LOGIN_URL,
-  MISSION_URL,
-  NEWS_URL,
-  POINT_GROWTH_URL,
-  PRIVACY_POLICY_URL,
-  QUALITY_URL,
-  RANGE_GROWTH_URL,
-  REASONS_GROWTH_URL,
-  REGISTER_BRANCH_URL,
-  REGISTER_EXPERIENCE_URL,
-  REGISTER_URL,
-  SCHEDULE_TRAIN_URL,
-  STAGES_GROWTH_URL,
-  SUPPORT_EQUIP_URL,
-  TERMS_USE_URL,
-  VERIFY_URL,
-  TESTING_URL,
-  TEST_REGISTER_URL,
-  TRAINING_PROGRAM_URL,
-  TRAINING_URL,
-  WIKI_URL,
-  breadcrumbNameMap,
+  INFO_URL,
+  INFO_HISTORY_URL,
+  INFO_BRANCH_URL,
+  INFO_LAB_URL,
+  GREETING_URL,
+  HISTORY_URL,
+  ORGAN_URL,
+  MAP_URL,
+  MAP_DETAIL_URL,
+  RESEARCHER_URL,
+  THESIS_URL,
+  THESIS_DETAIL_URL,
+  PATENT_URL,
+  BOOK_URL,
+  ADVICE_URL,
+  ADVICE_OVERHAUL_URL,
+  ADVICE_EX_URL,
+  ADVICE_FAQ_URL,
+  ADVICE_INQUIRY_URL,
+  ADVICE_INQUIRY_DETAIL_URL,
+  ADVICE_INQUIRY_WRITE_URL,
+  PROGRAM_URL,
+  PROGRAM_QUESTION_URL,
+  PROGRAM_METHOD_URL,
+  PROGRAM_SYSTEM_URL,
+  CASE_STORY_URL,
+  CASE_STORY_DETAIL_URL,
+  CASE_POSTURE_URL,
+  CASE_POSTURE_DETAIL_URL,
+  CASE_OLD_URL,
+  CASE_OLD_DETAIL_URL,
+  CASE_FAT_URL,
+  CASE_FAT_DETAIL_URL,
+  INFO_GROWTH_HEIGHT_URL,
+  INFO_GROWTH_STANDING_URL,
+  INFO_GROWTH_PERIOD_URL,
+  INFO_GROWTH_FAT_URL,
+  INFO_GROWTH_COLUMN_URL,
+  INFO_GROWTH_COLUMN_DETAIL_URL,
+  TV_LOCAL_URL,
+  TV_WORLD_URL,
+  EXPECTED_GEN_URL,
+  EXPECTED_CURRENT_URL,
+  EXPECTED_CHART_URL,
+  PRIVACY_TERM_URL,
+  POLICY_URL,
 };

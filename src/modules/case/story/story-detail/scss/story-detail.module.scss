@@ -1,0 +1,16 @@
+@import "@/assets/scss/variables";
+
+.content-wrap {
+  width: 100%;
+  @include resp-padding(70px 0 0, 70px 0 0, 40px 0 0);
+
+  .content {
+    text-align: center;
+    line-height: 2;
+    margin-bottom: 40px;
+
+    img {
+      max-width: 100%;
+    }
+  }
+}

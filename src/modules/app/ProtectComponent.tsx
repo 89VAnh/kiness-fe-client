@@ -1,28 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Helmet } from "react-helmet";
-import { useRecoilValue } from "recoil";
-
-import { NotAuthorizationPage } from "@/modules/error/403";
-import { UserState } from "@/store/auth/atom";
 
 export default function ProtectedComponent({
   Element,
   title = "KINESS",
-  url,
 }: {
   Element: any;
   title?: string;
   url?: string;
 }) {
-  const userProfile = useRecoilValue(UserState);
-
   // return userProfile.user_id || url ? <Element /> : <NotAuthorizationPage />;
+  const onNavigate = () => {
+    window.scrollTo(0, 0);
+  };
+
+  useEffect(() => {
+    onNavigate();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [window.location.pathname]);
+
   return (
     <React.Fragment>
       <Helmet>
         <title>{title} | KINESS</title>
       </Helmet>
-      {userProfile.user_id || url ? <Element /> : <NotAuthorizationPage />}
+      <Element />
     </React.Fragment>
   );
 }

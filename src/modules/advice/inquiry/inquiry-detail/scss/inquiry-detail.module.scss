@@ -1,0 +1,31 @@
+@import "@/assets/scss/variables";
+
+.content-wrap {
+  width: 100%;
+  @include resp-padding(70px 0 0, 70px 0 0, 40px 0 0);
+
+  .container {
+    text-align: center;
+    @include resp-width(30%, 70%, 100%);
+    margin: auto;
+    border: 1px solid $color-border;
+    padding: 24px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+
+    .answer-wrap,
+    .question-wrap {
+      margin-bottom: 20px;
+      display: flex;
+      gap: 10px;
+
+      .flex-1 {
+        flex: 1;
+      }
+
+      .content {
+        text-align: left;
+      }
+    }
+  }
+}
