@@ -29,7 +29,7 @@ export default function StoryList(): JSX.Element {
     refetch,
   } = useSearchGrowthStories({
     params: {
-      pageIndex: page,
+      page_index: page,
       pageSize,
       search_content: isEmpty(searchContent) ? null : searchContent,
     },
@@ -58,7 +58,7 @@ export default function StoryList(): JSX.Element {
         <div className="inner">
           <div className={styles.headerContent}>
             <Typography.Text type="secondary">{`Tổng cộng ${
-              dataStories?.data?.totalItems || 0
+              dataStories?.data?.total_items || 0
             } mục, trang ${page}`}</Typography.Text>
             <Space>
               <Input.Search
@@ -102,7 +102,7 @@ export default function StoryList(): JSX.Element {
             <Pagination
               current={page}
               pageSize={pageSize}
-              total={dataStories?.data?.totalItems || 0}
+              total={dataStories?.data?.total_items || 0}
               onChange={(page, pageSize) => {
                 setPage(page);
                 setPageSize(pageSize);

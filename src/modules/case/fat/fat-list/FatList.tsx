@@ -29,7 +29,7 @@ export default function FatList(): JSX.Element {
     refetch,
   } = useSearchObesityStories({
     params: {
-      pageIndex: page,
+      page_index: page,
       pageSize,
       search_content: isEmpty(searchContent) ? null : searchContent,
     },
@@ -58,7 +58,7 @@ export default function FatList(): JSX.Element {
         <div className="inner">
           <div className={styles.headerContent}>
             <Typography.Text type="secondary">{`Tổng cộng ${
-              dataObesities?.data?.totalItems || 0
+              dataObesities?.data?.total_items || 0
             } mục, trang ${page}`}</Typography.Text>
             <Space>
               <Input.Search
@@ -102,7 +102,7 @@ export default function FatList(): JSX.Element {
             <Pagination
               current={page}
               pageSize={pageSize}
-              total={dataObesities?.data?.totalItems || 0}
+              total={dataObesities?.data?.total_items || 0}
               onChange={(page, pageSize) => {
                 setPage(page);
                 setPageSize(pageSize);

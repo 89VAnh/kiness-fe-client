@@ -3,7 +3,6 @@ import {
   Button,
   Divider,
   Input,
-  Pagination,
   Space,
   Table,
   TableColumnsType,
@@ -42,13 +41,12 @@ export default function Thesis(): JSX.Element {
     refetch,
   } = useSearchResearchArticle({
     params: {
-      pageIndex: 0,
-      pageSize: 0,
+      page_index: page,
+      page_size: pageSize,
       search_content: searchContent,
     },
     config: {
       onSuccess: (data) => {
-        console.log(data);
         if (data.message === ERROR_TIMEOUT) {
           refetch();
         }
@@ -154,7 +152,7 @@ export default function Thesis(): JSX.Element {
         <div className="inner">
           <div className={styles.headerContent}>
             <Typography.Text type="secondary">{`Tổng cộng ${
-              articles ? articles.totalItems : 0
+              articles ? articles.total_items : 0
             } mục, trang ${page}`}</Typography.Text>
             <Input.Search
               style={{ maxWidth: 300 }}
@@ -169,16 +167,17 @@ export default function Thesis(): JSX.Element {
             columns={currentColumns}
             dataSource={articles ? articles.data : []}
             rowKey={"article_id"}
-          />
-
-          <Pagination
-            current={Number(page) || 1}
-            pageSize={Number(pageSize) || 15}
-            total={articles ? articles.totalItems : 0}
-            hideOnSinglePage
-            onChange={(page, pageSize) => {
-              setPage(page);
-              setPageSize(pageSize);
+            style={{ paddingBottom: 100 }}
+            pagination={{
+              current: Number(page) || 1,
+              pageSize: Number(pageSize) || 15,
+              total: articles ? articles.total_items : 0,
+              hideOnSinglePage: true,
+              position: ["bottomLeft"],
+              onChange: (page, pageSize) => {
+                setPage(page);
+                setPageSize(pageSize);
+              },
             }}
           />
         </div>

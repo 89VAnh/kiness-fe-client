@@ -24,13 +24,12 @@ export default function Patent(): JSX.Element {
     refetch,
   } = useSearchLicenses({
     params: {
-      pageIndex: 0,
-      pageSize: 0,
+      page_index: 0,
+      page_size: 0,
       search_content: searchContent,
     },
     config: {
       onSuccess: (data) => {
-        console.log(data);
         if (data.message === ERROR_TIMEOUT) {
           refetch();
         }
