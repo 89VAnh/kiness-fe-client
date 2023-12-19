@@ -1,22 +1,71 @@
 import { Space, Timeline, Typography } from "antd";
 import { motion } from "framer-motion";
+import _ from "lodash";
 import { useEffect, useState } from "react";
 
+import { useSearchHistories } from "@/loader/history.loader";
 import Breadcrumb from "@/modules/shared/breadcrumb/Breadcrumb";
 import Title from "@/modules/shared/title/Title";
 
-import { dataTimeline, getDataTimeline } from "./data/data-fake";
 import styles from "./scss/history.module.scss";
 
 export default function History(): JSX.Element {
   const [isTablet, setIsTablet] = useState<boolean>(window.innerWidth < 992);
-  const [currentData, setCurrentData] = useState<any[]>([]);
+  const [data, setData] = useState<any[]>([]);
 
-  useEffect(() => {
-    const data = getDataTimeline(dataTimeline);
+  const { remove } = useSearchHistories({
+    params: {},
+    config: {
+      onSuccess: (data) => {
+        if (data?.success) {
+          setData(getDataTimeline(data.data.data));
+        }
+      },
+    },
+  });
+  useEffect(() => remove, [remove]);
 
-    setCurrentData(data);
-  }, []);
+  const getDataTimeline = (dataTimeline: any[]) => {
+    const years = _.chain(dataTimeline.map((i) => i.year))
+      .uniq()
+      .sort((a, b) => a - b)
+      .value();
+
+    let lenYear = years.length;
+    let data = [];
+    while (lenYear > 0) {
+      if (lenYear < 6) {
+        const obj: any = {};
+        const values = [...Array(lenYear)].map((_, index) => {
+          const data: any = {};
+          data[years[index].toString()] = dataTimeline
+            .filter((i) => i.year === years[index])
+            .map((i) => i.content);
+
+          return data;
+        });
+        obj[`${years[0]} ~ ${years[lenYear - 1]}`] = _.reverse(values);
+        years.splice(0, lenYear);
+        data.push(obj);
+      } else {
+        const obj: any = {};
+        const values = [...Array(6)].map((_, index) => {
+          const data: any = {};
+          data[years[index].toString()] = dataTimeline
+            .filter((i) => i.year === years[index])
+            .map((i) => i.content);
+
+          return data;
+        });
+        obj[`${years[0]} ~ ${years[5]}`] = _.reverse(values);
+        years.splice(0, 6);
+        data.push(obj);
+      }
+      lenYear = years.length;
+    }
+
+    return _.reverse(data);
+  };
 
   useEffect(() => {
     const handleResize = (e: any) => {
@@ -46,7 +95,7 @@ export default function History(): JSX.Element {
             <Timeline
               className={styles.timeline}
               mode={!isTablet ? "alternate" : "left"}
-              items={currentData.map((item, index) => ({
+              items={data?.map((item, index) => ({
                 label: !isTablet ? (
                   <div
                     key={index}
