@@ -53,7 +53,7 @@ export default function Faq(): JSX.Element {
     refetch: refetchFaqs,
   } = useSearchFaqs({
     params: {
-      pageIndex: page,
+      page_index: page,
       pageSize,
       topic_id: currentTopic || null,
     },
@@ -118,7 +118,7 @@ export default function Faq(): JSX.Element {
           </Radio.Group>
 
           <div style={{ marginTop: 10 }}>
-            <Typography.Text type="secondary">{`Tổng cộng ${dataFaqs?.data?.totalItems} mục, trang ${page}`}</Typography.Text>
+            <Typography.Text type="secondary">{`Tổng cộng ${dataFaqs?.data?.total_items} mục, trang ${page}`}</Typography.Text>
           </div>
           <Divider />
 
@@ -137,7 +137,7 @@ export default function Faq(): JSX.Element {
 
           <div className={styles.paginationWrap}>
             <Pagination
-              total={dataFaqs?.data?.totalItems || 0}
+              total={dataFaqs?.data?.total_items || 0}
               current={page}
               pageSize={pageSize}
               onChange={(page, pageSize) => {

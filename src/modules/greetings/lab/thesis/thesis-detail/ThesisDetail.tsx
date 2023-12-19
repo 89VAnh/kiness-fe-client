@@ -16,11 +16,6 @@ export default function ThesisDetail(): JSX.Element {
 
   const { data: article } = useGetResearchArticleById({
     id: Number(id) || 0,
-    config: {
-      onSuccess: (data) => {
-        console.log(data);
-      },
-    },
   });
 
   return (

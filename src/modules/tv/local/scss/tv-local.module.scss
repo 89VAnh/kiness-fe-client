@@ -2,7 +2,7 @@
 
 .content-wrap {
   width: 100%;
-  @include resp-padding(70px 0 0, 70px 0 0, 40px 0 0);
+  @include resp-padding(70px 0 100px, 70px 0 0, 40px 0 0);
 
   .header-content {
     display: flex;
@@ -15,11 +15,11 @@
     }
   }
 
-  .img {
-    .thumbnail {
-      // @include resp-height(200px, 200px, 250px);
-      border: 1px solid $color-smoke;
-    }
+  .thumbnail {
+    // @include resp-height(200px, 200px, 250px);
+    width: 100%;
+    aspect-ratio: 16/9;
+    border: 1px solid $color-smoke;
   }
 
   .text-wrap {

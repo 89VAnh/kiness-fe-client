@@ -66,7 +66,7 @@ export default function MapList(): JSX.Element {
     refetch: refetchBranches,
   } = useSearchBranches({
     params: {
-      pageIndex: page,
+      page_index: page,
       pageSize,
       search_content: searchContent,
       city_id: citySelected || null,
@@ -199,7 +199,7 @@ export default function MapList(): JSX.Element {
           </div>
           <div className="pagination-wrap">
             <Pagination
-              total={branches?.totalItems || 0}
+              total={branches?.total_items || 0}
               current={page}
               pageSize={pageSize}
               onChange={(page, pageSize) => {
