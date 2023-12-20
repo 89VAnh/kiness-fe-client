@@ -1,4 +1,4 @@
 export interface IBaseDelete {
   list_json: {}[];
-  updated_by_id: string;
+  lu_user_id: string;
 }
