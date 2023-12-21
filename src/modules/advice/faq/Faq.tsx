@@ -54,7 +54,7 @@ export default function Faq(): JSX.Element {
   } = useSearchFaqs({
     params: {
       page_index: page,
-      pageSize,
+      page_size: pageSize,
       topic_id: currentTopic || null,
     },
     config: {
