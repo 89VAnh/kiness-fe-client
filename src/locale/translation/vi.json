@@ -16,7 +16,8 @@
     "step": "Bước",
     "branch": "Chi nhánh",
     "regis_day": "Đặt trước trải nghiệm 1 ngày",
-    "back": "Trở lại"
+    "back": "Trở lại",
+    "refresh": "Làm mới"
   },
   "messages": {
     "login_success": "Đăng nhập thành công",
@@ -170,7 +171,7 @@
     "title": "Tên bài báo",
     "author": "Tác giả",
     "organ": "Tổ chức phát hành",
-    "year_release": "Năm phát hàng"
+    "year_release": "Năm phát hành"
   },
   "request": {
     "search_placeholder": "Nhập nội dung",
@@ -190,7 +191,7 @@
   },
   "inquiry": {
     "form": {
-      "full_name": "Họ tên",
+      "author_name": "Họ tên",
       "password": "Mật khẩu",
       "email": "Email",
       "phone": "Số điện thoại",
