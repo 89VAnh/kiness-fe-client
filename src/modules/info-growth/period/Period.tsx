@@ -1,12 +1,14 @@
-import { Typography } from "antd";
+import { Col, Row, Typography } from "antd";
 import { Link } from "react-router-dom";
 
+import carbideDoctorImg from "@/assets/img/info-growth/img_carbide_doctor.png";
 import maturityImg1 from "@/assets/img/info-growth/img_maturity.png";
 import Breadcrumb from "@/modules/shared/breadcrumb/Breadcrumb";
 import Title from "@/modules/shared/title/Title";
 import DivTransition from "@/modules/shared/transition/DivTransition";
 import { ADVICE_OVERHAUL_URL } from "@/urls";
 
+import { listPeriod } from "./data/data-fake";
 import styles from "./scss/period.module.scss";
 
 export default function Period(): JSX.Element {
@@ -89,7 +91,59 @@ export default function Period(): JSX.Element {
             </DivTransition>
           </div>
         </div>
+      </section>
 
+      <section className={`${styles.infoArea}`}>
+        <div className="inner">
+          <DivTransition className={styles.titleContainer}>
+            <div className={styles.titleWrap}>
+              <Typography.Title level={4}>Kinh nguyệt là gì ?</Typography.Title>
+              <Typography.Paragraph className={styles.subTitle}>
+                Khi một cô gái trải qua kỳ kinh nguyệt đầu tiên do lượng hormone
+                nữ tiết ra tăng lên, nó được gọi là kinh nguyệt.
+                <br /> Có kinh nguyệt đồng nghĩa với việc lượng nội tiết tố nữ
+                tiết ra tăng lên, kết thúc quá trình sinh trưởng và là bằng
+                chứng của việc bạn đã trưởng thành.
+                <br />
+                Độ tuổi bắt đầu có kinh nguyệt có thể khác nhau tùy thuộc vào sự
+                phát triển thể chất, tình trạng dinh dưỡng, lượng vận động, ảnh
+                hưởng tinh thần, yếu tố môi trường, v.v., nhưng theo khảo sát
+                gần đây của Kines, độ tuổi trung bình là 11,5 đến 12 tuổi, tức
+                là khoảng sớm hơn một năm so với thế hệ cha mẹ.
+                <br />
+                Trong vòng 6 tháng đến 1 năm sau khi có kinh, kinh nguyệt rất
+                hiếm hoặc không đều do buồng trứng chưa phát triển đầy đủ.
+              </Typography.Paragraph>
+            </div>
+            <div className={styles.img}>
+              <img src={carbideDoctorImg} alt="carbide doctor" />
+            </div>
+          </DivTransition>
+          <Row gutter={16} className={styles.infoList}>
+            {listPeriod.map((weather) => (
+              <Col
+                span={24}
+                lg={12}
+                key={weather.id}
+                style={{ marginBottom: 16 }}
+              >
+                <DivTransition className={styles.listItem}>
+                  <div className={styles.txt}>
+                    <Typography.Title level={5}>
+                      {weather.title}
+                    </Typography.Title>
+                    <Typography.Paragraph className={styles.txtContent}>
+                      {weather.description}
+                    </Typography.Paragraph>
+                  </div>
+                </DivTransition>
+              </Col>
+            ))}
+          </Row>
+        </div>
+      </section>
+
+      <section>
         <div className="inner">
           <DivTransition className={styles.banner}>
             <Typography.Title level={3}>

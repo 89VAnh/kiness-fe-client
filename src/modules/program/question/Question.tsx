@@ -7,6 +7,7 @@ import imgGiraffe2 from "@/assets/img/others/detail_img2.png";
 import imgVs from "@/assets/img/others/img_vs.png";
 import Breadcrumb from "@/modules/shared/breadcrumb/Breadcrumb";
 import Title from "@/modules/shared/title/Title";
+import DivTransition from "@/modules/shared/transition/DivTransition";
 
 import { dataListQuestion, dataStepQuestion } from "./data/data-fake";
 import styles from "./scss/question.module.scss";
@@ -107,13 +108,7 @@ export default function Question(): JSX.Element {
 
       <div className={`${styles.contentWrap} ${styles.bottomContainer}`}>
         <div className="inner">
-          <motion.div
-            initial={{ y: -50, opacity: 0.5 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className={styles.textWrap}
-          >
+          <DivTransition className={styles.textWrap}>
             <div className={styles.left}>
               <Typography.Title level={4}>
                 Đĩa tăng trưởng của mọi người đều mở 100% cho đến khoảng 10 tuổi
@@ -133,7 +128,7 @@ export default function Question(): JSX.Element {
             <div className={styles.right}>
               <img src={imgGiraffe2} alt="giraffe 2" />
             </div>
-          </motion.div>
+          </DivTransition>
         </div>
       </div>
     </>

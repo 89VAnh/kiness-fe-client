@@ -124,6 +124,7 @@
         background-color: #f4f9f9;
         padding: 20px 10px;
         border-radius: 10px;
+        max-height: 600px;
 
         a {
           display: table;
@@ -146,10 +147,10 @@
           }
 
           .slide-img {
-            background-image: url("@/assets/img/tv/0.jpg");
+            // background-image: url("@/assets/img/tv/0.jpg");
             width: 40%;
             position: relative;
-            padding-bottom: 20%;
+            // padding-bottom: 20%;
             background-size: cover !important;
             border: 1px solid #ddd;
           }
@@ -182,6 +183,7 @@
       :global {
         .slick-list {
           margin: -10px 0;
+          overflow: hidden;
 
           .slick-slide {
             padding: 5px 10px;

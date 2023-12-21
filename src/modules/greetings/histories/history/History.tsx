@@ -1,11 +1,11 @@
 import { Space, Timeline, Typography } from "antd";
-import { motion } from "framer-motion";
 import _ from "lodash";
 import { useEffect, useState } from "react";
 
 import { useSearchHistories } from "@/loader/history.loader";
 import Breadcrumb from "@/modules/shared/breadcrumb/Breadcrumb";
 import Title from "@/modules/shared/title/Title";
+import DivTransition from "@/modules/shared/transition/DivTransition";
 
 import styles from "./scss/history.module.scss";
 
@@ -86,12 +86,7 @@ export default function History(): JSX.Element {
 
       <section className={styles.contentWrap}>
         <div className="inner">
-          <motion.div
-            initial={{ y: -50, opacity: 0.5 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
+          <DivTransition>
             <Timeline
               className={styles.timeline}
               mode={!isTablet ? "alternate" : "left"}
@@ -181,7 +176,7 @@ export default function History(): JSX.Element {
                 ),
               }))}
             />
-          </motion.div>
+          </DivTransition>
         </div>
       </section>
     </>

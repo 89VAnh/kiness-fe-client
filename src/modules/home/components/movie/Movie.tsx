@@ -1,25 +1,48 @@
 import { Carousel, Typography } from "antd";
-import { motion } from "framer-motion";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import hotImg from "@/assets/img/others/main_ico_hot.png";
 import newImg from "@/assets/img/others/main_ico_new.png";
+import { ERROR_TIMEOUT } from "@/constant/config";
+import { useSearchVideos } from "@/loader/video.loader";
+import { IVideo } from "@/models/video";
+import DivTransition from "@/modules/shared/transition/DivTransition";
 import { TV_LOCAL_URL, TV_WORLD_URL } from "@/urls";
+import { extractVideoId } from "@/utils/format-string";
 
 import styles from "./scss/movie.module.scss";
 
 export default function Movie(): JSX.Element {
+  const [hotVideo, setHotVideo] = useState<IVideo>();
+
+  const videoLocalsQuery = useSearchVideos({
+    params: {
+      is_foreign: 0,
+    },
+    config: {
+      onSuccess: (data) => {
+        if (data.message === ERROR_TIMEOUT) {
+          videoLocalsQuery.refetch();
+        }
+        if (data.success) setHotVideo(data.data?.data?.[0]);
+      },
+    },
+  });
+
+  function getThumbnail(video_link: string) {
+    const videoId = extractVideoId(video_link);
+
+    const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
+
+    return thumbnailUrl;
+  }
+
   return (
     <section className={styles.movieContainer}>
       <div className="inner">
         <div className={styles.titleWrap}>
-          <motion.div
-            viewport={{ once: true }}
-            initial={{ y: -50, opacity: 0.5 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.3 }}
-            className={styles.mainTitle}
-          >
+          <DivTransition className={styles.mainTitle}>
             <Typography.Title level={2} className={styles.title}>
               <span style={{ display: "block" }}>Xem</span>
               <span className="font-mint">
@@ -32,7 +55,7 @@ export default function Movie(): JSX.Element {
                 Con tôi ngày càng cao hơn, Trung tâm Tăng trưởng Kiness
               </span>
             </Typography.Paragraph>
-          </motion.div>
+          </DivTransition>
         </div>
       </div>
 
@@ -54,8 +77,10 @@ export default function Movie(): JSX.Element {
               allowFullScreen={true}
             ></iframe> */}
             <iframe
-              src="https://www.youtube.com/embed/GgU-q_KTiKY?si=dBjP9_Nd5sP8Gwew"
-              title="YouTube video player"
+              src={`https://www.youtube.com/embed/${extractVideoId(
+                hotVideo?.video_link + "",
+              )}?autoplay=0`}
+              title={hotVideo?.video_name}
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen={true}
@@ -100,12 +125,18 @@ export default function Movie(): JSX.Element {
               nextArrow={<button>Next</button>}
               prevArrow={<button>Prev</button>}
             >
-              {[...Array(10)].map((_, index) => (
-                <li key={index}>
-                  <Link to={TV_WORLD_URL}>
-                    <div className={styles.slideImg}></div>
+              {videoLocalsQuery.data?.data?.data?.map((item: IVideo) => (
+                <li key={item.video_id}>
+                  <Link to={TV_LOCAL_URL}>
+                    <div className={styles.slideImg}>
+                      <img
+                        style={{ width: "100%", height: 120 }}
+                        src={getThumbnail(item.video_link)}
+                        alt={item.video_name}
+                      />
+                    </div>
                     <div className={styles.slideText}>
-                      <p>Kines trên thế giới - CNN Broadcast</p>
+                      <p>{item.video_name}</p>
                     </div>
                   </Link>
                 </li>

@@ -1,10 +1,10 @@
 import { Typography } from "antd";
-import { motion } from "framer-motion";
 
 import imgProgram from "@/assets/img/others/img_program_center.png";
 import imgGuarantee from "@/assets/img/program/img_guarantee.png";
 import Breadcrumb from "@/modules/shared/breadcrumb/Breadcrumb";
 import Title from "@/modules/shared/title/Title";
+import DivTransition from "@/modules/shared/transition/DivTransition";
 
 import styles from "./scss/growth-system.module.scss";
 
@@ -17,12 +17,7 @@ export default function GrowthSystem(): JSX.Element {
 
       <section className={`${styles.contentWrap}`}>
         <div className="inner">
-          <motion.div
-            initial={{ y: -50, opacity: 0.5 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
+          <DivTransition>
             <Typography.Title level={4} className={styles.growthTitle}>
               Từ năm 1999, Kines đã tích lũy bí quyết tăng trưởng!
               <br />
@@ -30,14 +25,9 @@ export default function GrowthSystem(): JSX.Element {
                 Tỷ lệ thành công của khóa mục tiêu 92%
               </span>
             </Typography.Title>
-          </motion.div>
+          </DivTransition>
 
-          <motion.div
-            initial={{ y: -50, opacity: 0.5 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
+          <DivTransition>
             <Typography.Paragraph className={styles.info}>
               <Typography.Text>
                 Chúng tôi triển khai hệ thống đảm bảo trách nhiệm tăng trưởng
@@ -50,28 +40,17 @@ export default function GrowthSystem(): JSX.Element {
                 giúp con bạn phát triển chiều cao!
               </Typography.Text>
             </Typography.Paragraph>
-          </motion.div>
+          </DivTransition>
 
-          <motion.div
-            initial={{ y: -50, opacity: 0.5 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
+          <DivTransition>
             <img src={imgGuarantee} alt="guarantee" />
-          </motion.div>
+          </DivTransition>
         </div>
       </section>
 
       <section className={`${styles.programArea}`}>
         <div className="inner">
-          <motion.div
-            initial={{ y: -50, opacity: 0.5 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className={styles.titleWrap}
-          >
+          <DivTransition className={styles.titleWrap}>
             <Typography.Title level={4}>
               Đảm bảo trách nhiệm tăng trưởng của Kines là gì?
             </Typography.Title>
@@ -83,33 +62,21 @@ export default function GrowthSystem(): JSX.Element {
               trách nhiệm về sự thành công. <br /> (Phí giáo dục = 50% số tiền
               đăng ký)
             </Typography.Paragraph>
-          </motion.div>
+          </DivTransition>
 
           <div className={styles.way}>
-            <motion.div
-              initial={{ x: -50, opacity: 0.5 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className={styles.left}
-            >
+            <DivTransition className={styles.left} position="x">
               <Typography.Text>
                 Khi đạt dưới 70% chiều cao mục tiêu
               </Typography.Text>
               <Typography.Title level={5}>
                 Hoàn trả toàn bộ phí đào tạo
               </Typography.Title>
-            </motion.div>
+            </DivTransition>
             <div className={styles.center}>
               <img src={imgProgram} alt="center" />
             </div>
-            <motion.div
-              initial={{ x: 50, opacity: 0.5 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className={styles.right}
-            >
+            <DivTransition className={styles.right} position="x" point={50}>
               <Typography.Text>
                 Khi đạt được chiều cao mục tiêu trên 70% ~ dưới 100%
               </Typography.Text>
@@ -117,7 +84,7 @@ export default function GrowthSystem(): JSX.Element {
                 Chúng tôi sẽ kéo dài thời gian để tăng chiều cao mục tiêu của
                 bạn.
               </Typography.Title>
-            </motion.div>
+            </DivTransition>
           </div>
           <span>
             * Loại trừ: Tiêu chuẩn tăng trưởng dưới 10%, người đang dùng thuốc

@@ -32,3 +32,8 @@ export const encodedData = (data: any): string => {
 export const decodedData = (data: string): any => {
   return atob(data);
 };
+
+export const extractVideoId = (url: string) => {
+  const match = url.match(/[?&]v=([^&]+)/);
+  return match ? match[1] : null;
+};

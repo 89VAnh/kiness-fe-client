@@ -76,27 +76,18 @@ export const dataOrgan = [
 
 export const getOrganTree = (data: any[]) => {
   const tree: any = [];
-  const index: any = {};
 
-  // Create an index for quick lookup
-  data.forEach((item) => {
-    index[item.id] = {
-      ...item,
-      id: item.id + "",
-      value: { name: item.name },
-      children: [],
+  if (!data || data?.length === 0) return;
+
+  data.forEach((node) => {
+    const item = {
+      ...node,
+      id: node.key,
+      value: { name: node.title },
+      children: getOrganTree(node.children),
     };
-  });
 
-  // Build the tree
-  data.forEach((item) => {
-    if (item.parent_id !== null) {
-      // If there is a parent, add the current item as a child
-      index[item.parent_id].children.push(index[item.id]);
-    } else {
-      // If there is no parent, add the current item to the root of the tree
-      tree.push(index[item.id]);
-    }
+    tree.push(item);
   });
 
   return tree;

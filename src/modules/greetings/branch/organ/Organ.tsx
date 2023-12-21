@@ -1,13 +1,41 @@
 import { OrganizationGraph } from "@ant-design/graphs";
-import { motion } from "framer-motion";
+import { OrganizationGraphData } from "@ant-design/graphs/es/components/organization-graph";
+import { useState } from "react";
 
+import { ERROR_TIMEOUT } from "@/constant/config";
+import { useSearchDiagrams } from "@/loader/diagram.loader";
 import Breadcrumb from "@/modules/shared/breadcrumb/Breadcrumb";
 import Title from "@/modules/shared/title/Title";
+import DivTransition from "@/modules/shared/transition/DivTransition";
 
-import { dataOrgan, getOrganTree } from "./data/data-fake";
+import { getOrganTree } from "./data/data-fake";
 import styles from "./scss/organ.module.scss";
 
+const initData: OrganizationGraphData = {
+  id: "abc",
+  value: { name: "Không có dữ liệu" },
+};
+
 export default function Organ(): JSX.Element {
+  const [currentData, setCurrentData] = useState<OrganizationGraphData[]>();
+
+  const diagramsQuery = useSearchDiagrams({
+    params: {},
+    config: {
+      onSuccess: (data) => {
+        if (data.message === ERROR_TIMEOUT) {
+          diagramsQuery.refetch();
+          return;
+        }
+
+        if (data.success) {
+          const newData = getOrganTree(data?.data?.data);
+          setCurrentData(newData);
+        }
+      },
+    },
+  });
+
   return (
     <>
       <Title />
@@ -16,16 +44,16 @@ export default function Organ(): JSX.Element {
 
       <section className={styles.contentWrap}>
         <div className="inner">
-          <motion.div
-            initial={{ y: -50, opacity: 0.5 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className={styles.box}
-          >
+          <DivTransition className={styles.box}>
             <OrganizationGraph
-              data={getOrganTree(dataOrgan)[0]}
+              data={
+                diagramsQuery.isLoading
+                  ? initData
+                  : currentData?.[0] || initData
+              }
+              loading={diagramsQuery.isLoading}
               autoFit
+              fitCenter
               behaviors={[]}
               nodeCfg={{
                 style: (node: any) => {
@@ -34,7 +62,7 @@ export default function Organ(): JSX.Element {
                         fill: "#ffba53",
                         stroke: "#ffba53",
                       }
-                    : node.parent_id === 1
+                    : node.parent_id === "1"
                     ? { fill: "#0bc9bd", stroke: "#0bc9bd" }
                     : { stroke: "#0bc9bd" };
                 },
@@ -54,14 +82,14 @@ export default function Organ(): JSX.Element {
                     };
                     return node.id === "1"
                       ? styles[type as keyof typeof styles]
-                      : node.parent_id === 1
+                      : node.parent_id === "1"
                       ? styles[type as keyof typeof styles]
                       : {};
                   },
                 },
               }}
             />
-          </motion.div>
+          </DivTransition>
         </div>
       </section>
     </>

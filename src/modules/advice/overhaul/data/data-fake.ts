@@ -1,4 +1,5 @@
 import img1 from "@/assets/img/advice/img_overhaul01.png";
+import { ADVICE_EX_URL } from "@/urls";
 
 export const dataOverhaulBranch = {
   title: "Trung tâm kiểm tra Kines",
@@ -7,19 +8,19 @@ export const dataOverhaulBranch = {
   branches: [
     {
       title: "Đặt lịch kiểm tra tại văn phòng chính Hà Nội",
-      url: "",
+      url: ADVICE_EX_URL,
       color:
         "linear-gradient(0deg, rgba(2,180,168,1) 0%, rgba(11,201,189,1) 100%)",
     },
     {
       title: "Đặt lịch kiểm tra tại văn phòng chính Đà Nẵng",
-      url: "",
+      url: ADVICE_EX_URL,
       color:
         "linear-gradient(0deg, rgba(255,162,39,1) 0%, rgba(255,203,83,1) 100%)",
     },
     {
       title: "Đặt lịch kiểm tra tại văn phòng chính TP. Hồ Chí Minh",
-      url: "",
+      url: ADVICE_EX_URL,
       color:
         "linear-gradient(0deg, rgba(0,151,216,1) 0%, rgba(84,197,246,1) 100%)",
     },

@@ -8,6 +8,7 @@ import { ERROR_TIMEOUT } from "@/constant/config";
 import { useSearchVideos } from "@/loader/video.loader";
 import Breadcrumb from "@/modules/shared/breadcrumb/Breadcrumb";
 import Title from "@/modules/shared/title/Title";
+import { extractVideoId } from "@/utils/format-string";
 
 import styles from "./scss/tv-local.module.scss";
 
@@ -62,11 +63,6 @@ export default function TVLocal(): JSX.Element {
     const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
 
     return thumbnailUrl;
-  }
-
-  function extractVideoId(url: string) {
-    const match = url.match(/[?&]v=([^&]+)/);
-    return match ? match[1] : null;
   }
 
   return (

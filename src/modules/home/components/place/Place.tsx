@@ -1,46 +1,80 @@
 import { List, Space, Typography } from "antd";
-import { motion } from "framer-motion";
+import _ from "lodash";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
-import { MAP_URL } from "@/urls";
+import { ERROR_TIMEOUT } from "@/constant/config";
+import { useSearchBranches } from "@/loader/branch.loader";
+import { IBranch } from "@/models/branch";
+import DivTransition from "@/modules/shared/transition/DivTransition";
+import { MAP_DETAIL_URL } from "@/urls";
+import { getUrlToDetail } from "@/utils/format-string";
 
 import styles from "./scss/place.module.scss";
 
 export default function Place(): JSX.Element {
+  const [currentData, setCurrentData] = useState<any>({});
+  const branchesQuery = useSearchBranches({
+    params: {},
+    config: {
+      onSuccess: (data) => {
+        if (data.message === ERROR_TIMEOUT) {
+          branchesQuery.refetch();
+          return;
+        }
+
+        if (data?.data) {
+          const newData = _.groupBy(data.data, "city_name");
+
+          setCurrentData(newData);
+        }
+      },
+    },
+  });
+
   return (
     <section className={styles.place}>
       <div className="inner">
         <div className={styles.titleWrap}>
-          <motion.div
-            viewport={{ once: true }}
-            initial={{ y: -50, opacity: 0.5 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.3 }}
-            className={styles.mainTitle}
-          >
+          <DivTransition className={styles.mainTitle}>
             <Typography.Title level={2} className={styles.title}>
               <span>Tìm chi nhánh Kiness</span>
             </Typography.Title>
             <Typography.Paragraph>
               <span>Sử dụng Kiness thuận tiện gần đó.</span>
             </Typography.Paragraph>
-          </motion.div>
+          </DivTransition>
         </div>
 
         <List className={styles.listPlace}>
-          {[...Array(3)].map((_, index) => (
+          {_.keys(currentData).map((item, index) => (
             <List.Item key={index} className={styles.listItem}>
               <Space align="start">
                 <Typography.Title level={5} className={styles.listTitle}>
-                  Khu vực Hà Nội
+                  Khu vực {item}
                 </Typography.Title>
 
                 <Space align="center" wrap>
-                  <Link to={MAP_URL}>Chi nhánh Thanh Xuân</Link>
-                  <Link to={MAP_URL}>Chi nhánh Thanh Xuân</Link>
+                  {_.get(currentData, `${item}`)?.map(
+                    (branch: IBranch, index: number) => (
+                      <Link
+                        key={branch.branch_id}
+                        className={
+                          index === _.get(currentData, `${item}`)?.length - 1
+                            ? "last"
+                            : ""
+                        }
+                        to={getUrlToDetail(MAP_DETAIL_URL, branch.branch_id)}
+                        target="_blank"
+                      >
+                        {branch.branch_name}
+                      </Link>
+                    ),
+                  )}
+                  {/* <Link to={MAP_URL}>Chi nhánh Thanh Xuân</Link>
                   <Link to={MAP_URL} className="last">
                     Chi nhánh Thanh Xuân
-                  </Link>
+                  </Link> */}
                 </Space>
               </Space>
             </List.Item>
