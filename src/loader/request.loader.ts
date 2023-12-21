@@ -6,7 +6,11 @@ import {
   MutationConfig,
   QueryConfig,
 } from "@/lib/react-query";
-import { getRequestDetail, searchRequests } from "@/services/request.service";
+import {
+  createRequest,
+  getRequestDetail,
+  searchRequests,
+} from "@/services/request.service";
 
 export const CACHE_REQUEST = {
   SEARCH: "REQUESTS",
@@ -58,4 +62,24 @@ const useGetRequestDetail = ({
   });
 };
 
-export { useSearchRequests, useGetRequestDetail, usePostRequestDetail };
+// Create
+const useCreateRequest = ({
+  config,
+}: {
+  config?: MutationConfig<typeof createRequest>;
+}) => {
+  return useMutation({
+    onMutate: () => {},
+    onError: () => {},
+    onSuccess: () => {},
+    ...config,
+    mutationFn: createRequest,
+  });
+};
+
+export {
+  useCreateRequest,
+  useGetRequestDetail,
+  usePostRequestDetail,
+  useSearchRequests,
+};

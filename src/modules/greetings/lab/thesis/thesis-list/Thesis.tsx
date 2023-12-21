@@ -112,7 +112,7 @@ export default function Thesis(): JSX.Element {
       title: t("thesis.year_release"),
       dataIndex: "year_of_release",
       align: "center",
-      width: 100,
+      width: 160,
     },
   ];
 

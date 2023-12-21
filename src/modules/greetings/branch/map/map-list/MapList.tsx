@@ -20,6 +20,7 @@ import {
 import { DefaultOptionType } from "antd/es/select";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link, useSearchParams } from "react-router-dom";
 
 import locationIco from "@/assets/img/others/markerStar1.png";
@@ -35,6 +36,7 @@ import { getUrlToDetail } from "@/utils/format-string";
 import styles from "./scss/map-list.module.scss";
 
 export default function MapList(): JSX.Element {
+  const { t } = useTranslation();
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(10);
   const [searchParams, setSearchParams] = useSearchParams();
@@ -67,7 +69,7 @@ export default function MapList(): JSX.Element {
   } = useSearchBranches({
     params: {
       page_index: page,
-      pageSize,
+      page_size: pageSize,
       search_content: searchContent,
       city_id: citySelected || null,
     },
@@ -83,6 +85,10 @@ export default function MapList(): JSX.Element {
   const handleSearch = (keyword: string) => {
     searchParams.set("k", keyword);
     setSearchParams(searchParams);
+  };
+
+  const refreshBranches = () => {
+    refetchBranches();
   };
 
   return (
@@ -104,7 +110,7 @@ export default function MapList(): JSX.Element {
               />
 
               <Space>
-                <Button>
+                <Button title={t("all.refresh")} onClick={refreshBranches}>
                   <SyncOutlined />
                 </Button>
                 <Input.Search
