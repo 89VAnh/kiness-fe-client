@@ -183,7 +183,13 @@ export default function ExModal({ branch }: Props): JSX.Element {
                 label={t("ex.modal.fields.date_come")}
                 rules={[...RULES_FORM.required]}
               >
-                <DatePicker style={{ width: "100%" }} />
+                <DatePicker
+                  inputReadOnly
+                  disabledDate={(current) =>
+                    current && current < dayjs().endOf("day")
+                  }
+                  style={{ width: "100%" }}
+                />
               </Form.Item>
             </Col>
 

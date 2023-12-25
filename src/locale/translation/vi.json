@@ -25,7 +25,8 @@
     "register_success": "Đăng ký thành công! Trung tâm sẽ liện hệ với bạn qua các thông tin liên hệ đã nhận được!",
     "register_failure": "Đăng ký thất bại",
     "validate_failure": "Vui lòng điền đầy đủ thông tin",
-    "error": "Có lỗi xảy ra! Vui lòng thử lại"
+    "error": "Có lỗi xảy ra! Vui lòng thử lại",
+    "create_success": "Tạo mới thành công"
   },
   "nav": {
     "info": {
@@ -156,7 +157,7 @@
         "close_time": "Thời gian đóng cửa",
         "your_name": "Tên của bạn",
         "your_gender": "Giới tính của bạn",
-        "your_level": "Cấp",
+        "your_level": "Lớp",
         "your_phone": "Số điện thoại của bạn",
         "your_email": "Email của bạn",
         "date_come": "Ngày đặt trải nghiệm",

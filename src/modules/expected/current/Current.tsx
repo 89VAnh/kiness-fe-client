@@ -75,6 +75,7 @@ export default function Current(): JSX.Element {
 
                       <Form.Item label="Ngày sinh">
                         <DatePicker
+                          inputReadOnly
                           defaultValue={dayjs("01-01-2000", formatDateShow)}
                           format={formatDateShow}
                         />
