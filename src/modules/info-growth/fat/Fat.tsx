@@ -27,7 +27,11 @@ export default function Fat(): JSX.Element {
 
                 <div>
                   <Typography.Title level={4}>{item.title}</Typography.Title>
-                  <Typography.Text> {item.description}</Typography.Text>
+                  {item?.description?.map((desc: string) => (
+                    <Typography.Text style={{ display: "block" }}>
+                      {desc}
+                    </Typography.Text>
+                  ))}
                 </div>
               </DivTransition>
             ))}
