@@ -8,7 +8,6 @@ import { ERROR_TIMEOUT } from "@/constant/config";
 import { useSearchVideos } from "@/loader/video.loader";
 import Breadcrumb from "@/modules/shared/breadcrumb/Breadcrumb";
 import Title from "@/modules/shared/title/Title";
-import { extractVideoId } from "@/utils/format-string";
 
 import styles from "./scss/tv-local.module.scss";
 
@@ -57,10 +56,8 @@ export default function TVLocal(): JSX.Element {
     setSearchContent(keyword);
   };
 
-  function getThumbnail(video_link: string) {
-    const videoId = extractVideoId(video_link);
-
-    const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
+  function getThumbnail(video_code: string) {
+    const thumbnailUrl = `https://img.youtube.com/vi/${video_code}/mqdefault.jpg`;
 
     return thumbnailUrl;
   }
@@ -87,15 +84,14 @@ export default function TVLocal(): JSX.Element {
             {videos?.data?.data?.map((item: any) => (
               <Col
                 key={item.video_id}
-                span={8}
-                sm={12}
-                md={8}
+                sm={24}
+                md={12}
                 lg={8}
                 style={{ marginBottom: 16 }}
                 className={styles.videoItem}
               >
                 <Image
-                  src={getThumbnail(item.video_link)}
+                  src={getThumbnail(item.video_code)}
                   wrapperStyle={{ width: "100%" }}
                   className={styles.thumbnail}
                   style={{ objectFit: "cover" }}
@@ -107,9 +103,9 @@ export default function TVLocal(): JSX.Element {
                         <iframe
                           width="940"
                           height="529"
-                          src={`https://www.youtube.com/embed/${extractVideoId(
-                            item.video_link,
-                          )}?autoplay=1`}
+                          src={`https://www.youtube.com/embed/${
+                            item.video_code + ""
+                          }?autoplay=1`}
                           title="YouTube video player"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                           frameBorder={0}
@@ -122,7 +118,7 @@ export default function TVLocal(): JSX.Element {
                 />
 
                 {/* <iframe
-                  src={item.video_link}
+                  src={item.video_code}
                   title="YouTube video player"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"

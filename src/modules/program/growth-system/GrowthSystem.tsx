@@ -19,7 +19,7 @@ export default function GrowthSystem(): JSX.Element {
         <div className="inner">
           <DivTransition>
             <Typography.Title level={4} className={styles.growthTitle}>
-              Từ năm 1999, Kines đã tích lũy bí quyết tăng trưởng!
+              Từ năm 1999, kiness đã tích lũy bí quyết tăng trưởng!
               <br />
               <span className={`text-underline`}>
                 Tỷ lệ thành công của khóa mục tiêu 92%
@@ -52,13 +52,13 @@ export default function GrowthSystem(): JSX.Element {
         <div className="inner">
           <DivTransition className={styles.titleWrap}>
             <Typography.Title level={4}>
-              Đảm bảo trách nhiệm tăng trưởng của Kines là gì?
+              Đảm bảo trách nhiệm tăng trưởng của kiness là gì?
             </Typography.Title>
             <Typography.Paragraph className={styles.subTitle}>
               Hệ thống đảm bảo trách nhiệm tăng trưởng là chương trình đặt ra
               chiều cao mục tiêu sau khi kiểm tra tăng trưởng chi tiết và <br />{" "}
               so sánh chiều cao tăng trưởng trong một năm với chiều cao mục tiêu
-              bằng phương pháp tăng trưởng Kines <br /> để xác định và chịu
+              bằng phương pháp tăng trưởng kiness <br /> để xác định và chịu
               trách nhiệm về sự thành công. <br /> (Phí giáo dục = 50% số tiền
               đăng ký)
             </Typography.Paragraph>

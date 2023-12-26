@@ -80,9 +80,11 @@ export default function GrowthMethod(): JSX.Element {
                     {item.title}
                   </Typography.Title>
                   {item.description.map((des, i) => (
-                    <div key={i} className={styles.cardDescription}>
-                      {des}
-                    </div>
+                    <div
+                      key={i}
+                      className={styles.cardDescription}
+                      dangerouslySetInnerHTML={{ __html: des }}
+                    ></div>
                   ))}
                 </div>
               </motion.div>

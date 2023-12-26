@@ -41,7 +41,7 @@ export default function Place(): JSX.Element {
               <span>Tìm chi nhánh Kiness</span>
             </Typography.Title>
             <Typography.Paragraph>
-              <span>Sử dụng Kiness thuận tiện gần đó.</span>
+              <span>Tìm kiếm Kiness gần bạn nhất</span>
             </Typography.Paragraph>
           </DivTransition>
         </div>

@@ -39,7 +39,7 @@ export default function Question(): JSX.Element {
                   chỉ tạo nên khái niệm phát triển ít hơn.
                 </Typography.Paragraph>
                 <Typography.Paragraph className={styles.paragraph}>
-                  Kines tạo ra một môi trường tăng trưởng giúp tối đa hóa tiềm
+                  kiness tạo ra một môi trường tăng trưởng giúp tối đa hóa tiềm
                   năng tăng trưởng thông qua thử nghiệm tăng trưởng chi tiết.
                 </Typography.Paragraph>
               </div>

@@ -23,7 +23,7 @@
 
     .timeline-label {
       margin-bottom: 0.5em;
-      text-align: right;
+      // text-align: right;
       position: relative;
 
       &-text {
@@ -61,6 +61,7 @@
         padding-bottom: 2px;
         @include resp-text(18px, 18px, 16px);
         position: relative;
+        text-align: justify;
 
         &::before {
           content: "";
