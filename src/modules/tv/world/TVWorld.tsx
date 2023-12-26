@@ -56,18 +56,12 @@ export default function TVWorld(): JSX.Element {
     setSearchContent(keyword);
   };
 
-  function getThumbnail(video_link: string) {
-    const videoId = extractVideoId(video_link);
-
-    const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
+  function getThumbnail(video_code: string) {
+    const thumbnailUrl = `https://img.youtube.com/vi/${video_code}/mqdefault.jpg`;
 
     return thumbnailUrl;
   }
 
-  function extractVideoId(url: string) {
-    const match = url.match(/[?&]v=([^&]+)/);
-    return match ? match[1] : null;
-  }
   return (
     <>
       <Title />
@@ -98,7 +92,7 @@ export default function TVWorld(): JSX.Element {
                 className={styles.videoItem}
               >
                 <Image
-                  src={getThumbnail(item.video_link)}
+                  src={getThumbnail(item.video_code)}
                   wrapperStyle={{ width: "100%" }}
                   className={styles.thumbnail}
                   style={{ objectFit: "cover" }}
@@ -110,9 +104,9 @@ export default function TVWorld(): JSX.Element {
                         <iframe
                           width="940"
                           height="529"
-                          src={`https://www.youtube.com/embed/${extractVideoId(
-                            item.video_link,
-                          )}?autoplay=1`}
+                          src={`https://www.youtube.com/embed/${
+                            item.video_code + ""
+                          }?autoplay=1`}
                           title="YouTube video player"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                           frameBorder={0}

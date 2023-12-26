@@ -50,7 +50,7 @@ export default function Ex(): JSX.Element {
                     viewport={{ once: true }}
                     className={styles.cardWrap}
                   >
-                    <Card>
+                    <Card style={{ height: "100%" }}>
                       <div>
                         <img
                           src={item.thumbnail || dataEx?.[0]?.thumb}
@@ -60,12 +60,12 @@ export default function Ex(): JSX.Element {
                       <div className={styles.textWrap}>
                         <div>
                           <Row gutter={16}>
-                            <Col span={24} lg={12}>
+                            <Col lg={24}>
                               <Typography.Title
                                 level={4}
                               >{`${item.branch_name}`}</Typography.Title>
                             </Col>
-                            <Col span={24} lg={12}>
+                            <Col lg={24}>
                               <Typography.Link href={`tel:${item.phone}`}>
                                 <Typography.Title
                                   level={4}

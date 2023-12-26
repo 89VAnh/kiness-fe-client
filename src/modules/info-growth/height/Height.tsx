@@ -44,7 +44,7 @@ export default function Height(): JSX.Element {
               </Typography.Paragraph>
 
               <Typography.Paragraph className={styles.headerParagraph}>
-                Kines quản lý sự tăng trưởng bằng cách chia giai đoạn tăng
+                kiness quản lý sự tăng trưởng bằng cách chia giai đoạn tăng
                 trưởng và nếu tốc độ tăng trưởng thấp, nó có thể phát triển lên
                 loại cao hơn bằng cách nhận sự quản lý của Kines. Nếu bạn được
                 quản lý thể chất trước tuổi dậy thì, chiều cao dự đoán của bạn
@@ -195,7 +195,7 @@ export default function Height(): JSX.Element {
                   người lại trở nên cao còn những người khác lại trở nên thấp?
                   <br />
                   <br />
-                  Để tìm hiểu, Kines tiến hành một bài kiểm tra tăng trưởng chi
+                  Để tìm hiểu, kiness tiến hành một bài kiểm tra tăng trưởng chi
                   tiết để kiểm tra chức năng cơ thể và môi trường phát triển
                   thay vì chỉ đơn giản là kiểm tra đĩa tăng trưởng.
                   <br />

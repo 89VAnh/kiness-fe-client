@@ -32,8 +32,8 @@ export default function QuickList(): JSX.Element {
             className={styles.mainTitle}
           >
             <Typography.Title level={2} className={styles.title}>
-              <span className={styles.titleMint}>Kiness </span>
-              <span>yêu thích</span>
+              <span>Những chức năng được yêu thích của </span>
+              <span className={styles.titleMint}>Kiness</span>
             </Typography.Title>
           </motion.div>
         </div>

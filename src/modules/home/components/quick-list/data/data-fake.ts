@@ -25,7 +25,7 @@ export const dataQuick = [
     link: PROGRAM_QUESTION_URL,
   },
   {
-    title: "Tính chiều cao dự kiến",
+    title: "Dự đoán chiều cao",
     link: EXPECTED_CURRENT_URL,
   },
   {
@@ -33,7 +33,7 @@ export const dataQuick = [
     link: INFO_GROWTH_COLUMN_URL,
   },
   {
-    title: "Tư thế đứng",
+    title: "Tư thế đúng",
     link: INFO_GROWTH_STANDING_URL,
   },
   {

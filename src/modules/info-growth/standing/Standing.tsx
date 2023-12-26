@@ -42,13 +42,14 @@ export default function Height(): JSX.Element {
             </Typography.Paragraph>
 
             <Typography.Paragraph className={styles.headerParagraph}>
-              Để trẻ phát triển và sống khỏe mạnh, Kines tăng cường chức năng cơ
-              bằng thiết bị đẳng vận động dành cho cơ yếu, tập thể dục cho cơ bị
-              cứng và huấn luyện phản hồi thần kinh để giảm căng thẳng, cũng như
-              CST (Liệu pháp Cranio-Sacral), PRT (Liệu pháp Thư giãn Tư thế), và
-              MET. Thư giãn cơ và mất cân bằng tư thế được cải thiện thông qua
-              nhiều phương pháp điều chỉnh khác nhau như (kỹ thuật năng lượng
-              cơ), liệu pháp giải phóng cân cơ và liệu pháp thư giãn cơ quan.
+              Để trẻ phát triển và sống khỏe mạnh, kiness tăng cường chức năng
+              cơ bằng thiết bị đẳng vận động dành cho cơ yếu, tập thể dục cho cơ
+              bị cứng và huấn luyện phản hồi thần kinh để giảm căng thẳng, cũng
+              như CST (Liệu pháp Cranio-Sacral), PRT (Liệu pháp Thư giãn Tư
+              thế), và MET. Thư giãn cơ và mất cân bằng tư thế được cải thiện
+              thông qua nhiều phương pháp điều chỉnh khác nhau như (kỹ thuật
+              năng lượng cơ), liệu pháp giải phóng cân cơ và liệu pháp thư giãn
+              cơ quan.
             </Typography.Paragraph>
           </motion.div>
         </div>
@@ -97,9 +98,9 @@ export default function Height(): JSX.Element {
             <br />
             <br />
             <span>
-              Kines là một thiết bị isokinetic không chỉ tăng cường chức năng cơ
-              cột sống một cách nhanh chóng, an toàn và thư giãn các cơ cứng để
-              tăng lưu lượng máu não mà còn tạo điều kiện thuận lợi cho dòng
+              kiness là một thiết bị isokinetic không chỉ tăng cường chức năng
+              cơ cột sống một cách nhanh chóng, an toàn và thư giãn các cơ cứng
+              để tăng lưu lượng máu não mà còn tạo điều kiện thuận lợi cho dòng
               chảy của hệ thần kinh trung ương cơ bản thông qua CST, dạy và duy
               trì tư thế đúng trong cuộc sống hàng ngày.
             </span>
@@ -131,11 +132,11 @@ export default function Height(): JSX.Element {
               trọng.
               <br />
               <br />
-              Để ngăn chặn điều này, Kines quản lý các yếu tố ảnh hưởng đến khớp
-              hông và đầu gối, chẳng hạn như điều chỉnh dáng đi, béo phì và quản
-              lý dinh dưỡng, cũng như tăng cường sức mạnh cho các cơ bị suy yếu
-              và thư giãn các cơ bị cứng, đồng thời cung cấp các bài tập tăng
-              cường tính linh hoạt và tăng cường cơ bắp có thể tập tại nhà.
+              Để ngăn chặn điều này, kiness quản lý các yếu tố ảnh hưởng đến
+              khớp hông và đầu gối, chẳng hạn như điều chỉnh dáng đi, béo phì và
+              quản lý dinh dưỡng, cũng như tăng cường sức mạnh cho các cơ bị suy
+              yếu và thư giãn các cơ bị cứng, đồng thời cung cấp các bài tập
+              tăng cường tính linh hoạt và tăng cường cơ bắp có thể tập tại nhà.
               Chúng tôi cung cấp đào tạo để đảm bảo rằng đôi chân của bạn thẳng
               và thẳng.
             </Typography.Text>
@@ -206,7 +207,7 @@ export default function Height(): JSX.Element {
               thiết vì nó gây mất cân bằng trái phải ở vai hoặc cổ và cứng cơ,
               đồng thời trong trường hợp nghiêm trọng, cơn đau hoặc quá trình
               tiêu hóa và hấp thu bị giảm, cản trở sự phát triển. <br /> Sau khi
-              kiểm tra các đoạn cột sống trái và phải, Kines bình thường hóa
+              kiểm tra các đoạn cột sống trái và phải, kiness bình thường hóa
               phạm vi chuyển động bằng cách thư giãn các khớp liên quan bằng
               MET, giảm cứng cơ và đau bằng PRT, đồng thời cải thiện tư thế bằng
               cách tăng cường chức năng cơ lưng bằng thiết bị đẳng động.

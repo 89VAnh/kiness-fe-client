@@ -9,7 +9,6 @@ import { useSearchVideos } from "@/loader/video.loader";
 import { IVideo } from "@/models/video";
 import DivTransition from "@/modules/shared/transition/DivTransition";
 import { TV_LOCAL_URL, TV_WORLD_URL } from "@/urls";
-import { extractVideoId } from "@/utils/format-string";
 
 import styles from "./scss/movie.module.scss";
 
@@ -30,10 +29,8 @@ export default function Movie(): JSX.Element {
     },
   });
 
-  function getThumbnail(video_link: string) {
-    const videoId = extractVideoId(video_link);
-
-    const thumbnailUrl = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
+  function getThumbnail(video_code: string) {
+    const thumbnailUrl = `https://img.youtube.com/vi/${video_code}/mqdefault.jpg`;
 
     return thumbnailUrl;
   }
@@ -69,17 +66,10 @@ export default function Movie(): JSX.Element {
           </div>
 
           <div className={styles.movieBox}>
-            {/* <iframe
-              src="https://www.youtube.com/embed/KMpMnDyxWtc?si=5sJ7aPsmDkNDwvdE"
-              title="YouTube video player"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen={true}
-            ></iframe> */}
             <iframe
-              src={`https://www.youtube.com/embed/${extractVideoId(
-                hotVideo?.video_link + "",
-              )}?autoplay=0`}
+              src={`https://www.youtube.com/embed/${
+                hotVideo?.video_code + ""
+              }?autoplay=0`}
               title={hotVideo?.video_name}
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -112,37 +102,39 @@ export default function Movie(): JSX.Element {
             <Typography.Text strong>Những video mới nhất</Typography.Text>
           </div>
 
-          <ul>
-            <Carousel
-              vertical={true}
-              className={styles.slide}
-              slidesToShow={3}
-              dots={false}
-              arrows
-              autoplay
-              speed={1500}
-              draggable={false}
-              nextArrow={<button>Next</button>}
-              prevArrow={<button>Prev</button>}
-            >
-              {videoLocalsQuery.data?.data?.data?.map((item: IVideo) => (
-                <li key={item.video_id}>
-                  <Link to={TV_LOCAL_URL}>
-                    <div className={styles.slideImg}>
-                      <img
-                        style={{ width: "100%", height: 120 }}
-                        src={getThumbnail(item.video_link)}
-                        alt={item.video_name}
-                      />
-                    </div>
-                    <div className={styles.slideText}>
-                      <p>{item.video_name}</p>
-                    </div>
-                  </Link>
-                </li>
-              ))}
-            </Carousel>
-          </ul>
+          <Carousel
+            vertical={true}
+            className={styles.slide}
+            dots={false}
+            arrows
+            autoplay
+            speed={1500}
+            draggable={false}
+            slidesToShow={
+              videoLocalsQuery.data?.data?.total_items < 3
+                ? videoLocalsQuery.data?.data?.total_items
+                : 3
+            }
+            infinite
+            // slidesToShow={3}
+          >
+            {videoLocalsQuery.data?.data?.data?.map((item: IVideo) => (
+              <li key={item.video_id}>
+                <Link to={TV_LOCAL_URL}>
+                  <div className={styles.slideImg}>
+                    <img
+                      style={{ width: "100%", height: 120 }}
+                      src={getThumbnail(item.video_code)}
+                      alt={item.video_name}
+                    />
+                  </div>
+                  <div className={styles.slideText}>
+                    <p>{item.video_name}</p>
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </Carousel>
         </div>
       </div>
 

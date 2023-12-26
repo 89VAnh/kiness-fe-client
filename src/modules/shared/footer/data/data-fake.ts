@@ -6,7 +6,7 @@ import tw from "@/assets/img/socials/ico_twitter.png";
 import yt from "@/assets/img/socials/ico_youtube.png";
 
 export const info = {
-  company: "Kines Co., Ltd.",
+  company: "kiness Co., Ltd.",
   address: "Tầng 3, Tòa nhà Chowon, 775-2, Yeoksam 2-dong, Gangnam-gu, Seoul",
   deputy: "Nguyễn Văn A",
   tax: "220-86-00194",

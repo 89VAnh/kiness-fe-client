@@ -146,7 +146,7 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedComponent
             Element={HistoryPage}
-            title="Lịch sử"
+            title="Lịch sử phát triển Kiness"
             url={HISTORY_URL}
           />
         ),
@@ -372,7 +372,7 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedComponent
             Element={OldListPage}
-            title="Trường hợp trễ hạn"
+            title="Trường hợp phát triển muộn"
             url={CASE_OLD_URL}
           />
         ),
@@ -382,7 +382,7 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedComponent
             Element={OldDetailPage}
-            title="Chi tiết trường hợp trễ hạn"
+            title="Chi tiết trường hợp phát triển muộn"
             url={CASE_OLD_DETAIL_URL}
           />
         ),
@@ -434,7 +434,7 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedComponent
             Element={PeriodPage}
-            title="Kỳ hạn / đáo hạn sớm"
+            title="Phát triển sớm"
             url={INFO_GROWTH_PERIOD_URL}
           />
         ),
@@ -454,7 +454,7 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedComponent
             Element={ColumnListPage}
-            title="Cột tăng trưởng"
+            title="Hỏi đáp cùng chuyên gia"
             url={INFO_GROWTH_COLUMN_URL}
           />
         ),
@@ -464,7 +464,7 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedComponent
             Element={ColumnDetailPage}
-            title="Chi tiết cột tăng trưởng"
+            title="Chi tiết hỏi đáp cùng chuyên gia"
             url={INFO_GROWTH_COLUMN_DETAIL_URL}
           />
         ),

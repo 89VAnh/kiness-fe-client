@@ -88,7 +88,7 @@ export default function Thesis(): JSX.Element {
             <Typography.Title level={5}>{value}</Typography.Title>
           </Link>
           <Typography.Link href={record.article_link} target="_blank">
-            <Button className="bg-mint">
+            <Button className="bg-mint" style={{ margin: "0 10px" }}>
               <LinkOutlined />
             </Button>
           </Typography.Link>

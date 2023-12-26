@@ -2,6 +2,7 @@ import { Space, Timeline, Typography } from "antd";
 import _ from "lodash";
 import { useEffect, useState } from "react";
 
+import { ERROR_TIMEOUT } from "@/constant/config";
 import { useSearchHistories } from "@/loader/history.loader";
 import Breadcrumb from "@/modules/shared/breadcrumb/Breadcrumb";
 import Title from "@/modules/shared/title/Title";
@@ -13,16 +14,22 @@ export default function History(): JSX.Element {
   const [isTablet, setIsTablet] = useState<boolean>(window.innerWidth < 992);
   const [data, setData] = useState<any[]>([]);
 
-  const { remove } = useSearchHistories({
+  const { remove, refetch } = useSearchHistories({
     params: {},
     config: {
       onSuccess: (data) => {
+        if (data.message === ERROR_TIMEOUT) {
+          refetch();
+          return;
+        }
+
         if (data?.success) {
           setData(getDataTimeline(data.data.data));
         }
       },
     },
   });
+
   useEffect(() => remove, [remove]);
 
   const getDataTimeline = (dataTimeline: any[]) => {

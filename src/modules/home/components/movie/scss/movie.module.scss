@@ -27,7 +27,6 @@
 
   .movie {
     display: flex;
-    align-items: center;
     justify-content: space-between;
     max-width: 1400px;
     width: 100%;
@@ -124,7 +123,7 @@
         background-color: #f4f9f9;
         padding: 20px 10px;
         border-radius: 10px;
-        max-height: 600px;
+        max-height: 530px;
 
         a {
           display: table;

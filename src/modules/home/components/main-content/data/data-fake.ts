@@ -44,12 +44,12 @@ export const dataBanner = [
     img: banner2,
     link: CASE_STORY_URL,
     title: "Câu chuyện tăng trưởng của Kiness",
-    content: `Quản lý con bạn bằng phương pháp tăng trưởng Kines và kiểm tra các trường hợp tăng trưởng thực tế vượt qua đường cong tăng trưởng và vượt quá chiều cao dự kiến.`,
+    content: `Quản lý con bạn bằng phương pháp tăng trưởng kiness và kiểm tra các trường hợp tăng trưởng thực tế vượt qua đường cong tăng trưởng và vượt quá chiều cao dự kiến.`,
   },
   {
     img: banner3,
     link: RESEARCHER_URL,
-    title: "Nghiên cứu động học",
+    title: "Nghiên cứu khoa học của Kiness",
     content: `Bí quyết tăng trưởng có hệ thống, tài liệu nghiên cứu, bằng sáng chế và sách được tích lũy từ năm 1999 của các nhà nghiên cứu Kiness.`,
   },
 ];
