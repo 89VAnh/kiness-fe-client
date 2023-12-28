@@ -1,5 +1,5 @@
 import { ProLayout, ProLayoutProps } from "@ant-design/pro-components";
-import { Image } from "antd";
+import { Image, Typography } from "antd";
 import { Link, Outlet, useLocation } from "react-router-dom";
 
 import Logo from "@/assets/img/logo/logo.png";
@@ -28,14 +28,46 @@ export default function AppLayout({ children }: Props): JSX.Element {
       location={location}
       logo={
         <Link to={HOME_URL}>
-          <Image className="logo" preview={false} width={160} src={Logo} />
+          <div className="logo-wrap">
+            <Image className="logo" preview={false} src={Logo} />
+            <div className="slogan-wrap">
+              <Typography.Title level={4} className="slogan-head">
+                KINESS VIỆT NAM
+              </Typography.Title>
+              <div className="slogan-bot">
+                <Typography.Text strong className="slogan">
+                  Cao Vô Tận
+                </Typography.Text>
+                <span className="slogan-point"></span>
+                <Typography.Text strong className="slogan">
+                  Trí Vô Song
+                </Typography.Text>
+              </div>
+            </div>
+          </div>
         </Link>
       }
       title={""}
       route={appRoute()}
       headerTitleRender={(_, __, ___) => (
         <Link to={HOME_URL}>
-          <Image className="logo" preview={false} src={Logo} />
+          <div className="logo-wrap">
+            <Image className="logo" preview={false} src={Logo} />
+            <div className="slogan-wrap">
+              <Typography.Title level={4} className="slogan-head">
+                KINESS VIỆT NAM
+              </Typography.Title>
+              <div className="slogan-bot">
+                <Typography.Text strong className="slogan">
+                  Cao Vô Tận
+                </Typography.Text>
+                <span className="slogan-point"></span>
+                <Typography.Text strong className="slogan">
+                  Trí Vô Song
+                </Typography.Text>
+              </div>
+            </div>
+          </div>
         </Link>
       )}
       {...settings}

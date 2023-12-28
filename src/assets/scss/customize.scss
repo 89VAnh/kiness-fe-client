@@ -298,3 +298,49 @@
     }
   }
 }
+
+// Logo
+.logo-wrap {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center !important;
+  column-gap: 8px;
+  row-gap: 8px;
+
+  .logo {
+    max-width: 209px;
+    @include resp-height(60px, 60px, 55px);
+    object-fit: contain;
+  }
+
+  .slogan-wrap {
+    .slogan-head {
+      @include resp-text(20px, 18px, 16px);
+      margin-bottom: 8px;
+      line-height: 1;
+      color: #384487;
+    }
+
+    .slogan-bot {
+      line-height: 1;
+      text-align: center;
+      display: flex;
+      column-gap: 3px;
+      align-items: center;
+
+      .slogan {
+        @include resp-text(14px, 14px, 12px);
+        color: #4ea885;
+        line-height: 1;
+      }
+
+      .slogan-point {
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        display: inline-block;
+        background-color: #c95559;
+      }
+    }
+  }
+}

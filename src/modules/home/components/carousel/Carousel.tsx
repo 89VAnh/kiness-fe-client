@@ -63,14 +63,6 @@ export default function Carousel(): JSX.Element {
           delay: 3000,
         }}
       >
-        {/* {dataCarousel.map((item, index) => (
-          <SwiperSlide key={index} style={{ background: "#fff" }}>
-            <Image
-              preview={false}
-              src={isMobile ? item.small_image : item.big_image}
-            />
-          </SwiperSlide>
-        ))} */}
         {dataSlides?.data?.map((item: any, index: number) => (
           <SwiperSlide key={index} style={{ background: "#fff" }}>
             <Image

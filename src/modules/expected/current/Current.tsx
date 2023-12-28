@@ -4,11 +4,13 @@ import {
   DatePicker,
   Form,
   InputNumber,
+  Modal,
   Radio,
   Row,
   Typography,
 } from "antd";
 import dayjs from "dayjs";
+import { useState } from "react";
 
 import kiImg from "@/assets/img/expected/img_ki.png";
 import Breadcrumb from "@/modules/shared/breadcrumb/Breadcrumb";
@@ -17,9 +19,62 @@ import DivTransition from "@/modules/shared/transition/DivTransition";
 import { formatDateShow } from "@/utils/format-string";
 
 import styles from "./scss/current.module.scss";
+import {
+  bertalanffyGrowthModel,
+  calculateAge,
+  findNearestClass,
+  getGrowthRate,
+  sampleData,
+  scaleRecord,
+} from "./utils/calculator-height";
 
 export default function Current(): JSX.Element {
   const [form] = Form.useForm();
+  const [futureHeight, setFutureHeight] = useState<string>();
+
+  const handleSubmit = () => {
+    form.validateFields().then((values) => {
+      const age = calculateAge(values?.date?.format(formatDateShow));
+      const currentHeight = values?.height;
+      const gender = values?.gender;
+
+      // const classLabel = findNearestClass(
+      //   gender,
+      //   age,
+      //   currentHeight,
+      //   sampleData,
+      // );
+
+      // const growthRate = getGrowthRate(classLabel);
+
+      const scale = scaleRecord(age, currentHeight);
+
+      const classLabel2 = findNearestClass(
+        gender,
+        scale.scaledAge,
+        scale.scaledHeight,
+        sampleData,
+      );
+
+      const growthRate2 = getGrowthRate(classLabel2);
+
+      // Giữ mặc định
+      let L_infinity = 175.7;
+      if (gender !== 1) L_infinity = 170.4;
+      const m = 3;
+      const t0 = 0;
+
+      const result = bertalanffyGrowthModel(
+        age,
+        L_infinity,
+        growthRate2,
+        t0,
+        m,
+      );
+
+      if (!isNaN(+result)) setFutureHeight(result);
+    });
+  };
 
   return (
     <>
@@ -62,29 +117,34 @@ export default function Current(): JSX.Element {
                         lên dựa trên chiều cao hiện tại của bạn.
                       </Typography.Text>
 
-                      <Form.Item label="Giới tính">
+                      <Form.Item
+                        name={"gender"}
+                        label="Giới tính"
+                        initialValue={1}
+                      >
                         <Radio.Group>
                           <Radio value={0}> Nữ </Radio>
                           <Radio value={1}> Nam </Radio>
                         </Radio.Group>
                       </Form.Item>
 
-                      <Form.Item label="Chiều cao hiện tại">
+                      <Form.Item name={"height"} label="Chiều cao hiện tại">
                         <InputNumber min={0} addonAfter="cm" />
                       </Form.Item>
 
-                      <Form.Item label="Ngày sinh">
-                        <DatePicker
-                          inputReadOnly
-                          defaultValue={dayjs("01-01-2000", formatDateShow)}
-                          format={formatDateShow}
-                        />
+                      <Form.Item
+                        name={"date"}
+                        label="Ngày sinh"
+                        initialValue={dayjs("01-01-2000", formatDateShow)}
+                      >
+                        <DatePicker inputReadOnly format={formatDateShow} />
                       </Form.Item>
 
                       <Button
                         htmlType="submit"
                         type="primary"
                         className="btn-link btn-mint"
+                        onClick={handleSubmit}
                       >
                         Xem kết quả
                       </Button>
@@ -96,6 +156,19 @@ export default function Current(): JSX.Element {
           </div>
         </div>
       </section>
+
+      <Modal
+        open={!!futureHeight}
+        title={"Dự đoán chiều cao dựa trên chiều cao hiện tại của bạn"}
+        onCancel={() => setFutureHeight(undefined)}
+        okButtonProps={{ hidden: true }}
+      >
+        Kết quả:{" "}
+        <Typography.Text strong type="danger">
+          {futureHeight}
+        </Typography.Text>
+        cm
+      </Modal>
     </>
   );
 }
