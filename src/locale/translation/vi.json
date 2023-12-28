@@ -124,7 +124,10 @@
         "title": "Chiều cao dự kiến do di truyền"
       },
       "current": {
-        "title": "Chiều cao dự kiến theo chiều cao hiện tại"
+        "title": "Chiều cao dự kiến theo chiều cao hiện tại",
+        "result": {
+          ".title": "Kết quả dự đoán chiều cao theo chiều cao hiện tại"
+        }
       },
       "chart": {
         "title": "Biểu đồ tăng trưởng"

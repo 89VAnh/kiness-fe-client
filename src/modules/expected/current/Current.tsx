@@ -4,17 +4,18 @@ import {
   Form,
   Input,
   InputNumber,
-  Modal,
   Radio,
   Row,
   Typography,
 } from "antd";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import kiImg from "@/assets/img/expected/img_ki.png";
 import Breadcrumb from "@/modules/shared/breadcrumb/Breadcrumb";
 import Title from "@/modules/shared/title/Title";
 import DivTransition from "@/modules/shared/transition/DivTransition";
+import { FORECAST_URL } from "@/urls";
+import { sessionService } from "@/utils/storage";
 
 import styles from "./scss/current.module.scss";
 import {
@@ -28,7 +29,7 @@ import {
 
 export default function Current(): JSX.Element {
   const [form] = Form.useForm();
-  const [heightResult, setHeightResult] = useState<any>();
+  const navigate = useNavigate();
 
   const handleSubmit = () => {
     form.validateFields().then((values) => {
@@ -70,12 +71,17 @@ export default function Current(): JSX.Element {
         m,
       );
 
-      if (!isNaN(+result))
-        setHeightResult({
-          height: +result,
-          label: classLabel2,
-          growth: growthRate2,
-        });
+      if (!isNaN(+result)) {
+        sessionService.setStorage(
+          "fore_cast_result",
+          JSON.stringify({
+            height: +result,
+            label: classLabel2,
+            growth: growthRate2,
+          }),
+        );
+        navigate(FORECAST_URL);
+      }
     });
   };
 
@@ -176,7 +182,7 @@ export default function Current(): JSX.Element {
         </div>
       </section>
 
-      <Modal
+      {/* <Modal
         open={!!heightResult?.height}
         title={"Kết quả"}
         onCancel={() => setHeightResult(null)}
@@ -203,7 +209,7 @@ export default function Current(): JSX.Element {
             {heightResult?.growth} (Nhóm {heightResult?.label})
           </Typography.Text>
         </div>
-      </Modal>
+      </Modal> */}
     </>
   );
 }
