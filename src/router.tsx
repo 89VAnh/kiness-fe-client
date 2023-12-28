@@ -22,6 +22,7 @@ import {
 } from "./modules/case";
 import { ErrorBoundaryPage } from "./modules/error/boundary";
 import { ChartGrowthPage, CurrentPage, GenPage } from "./modules/expected";
+import ForcastResult from "./modules/expected/current/forcast-result/ForcastResult";
 import {
   BookPage,
   GreetingPage,
@@ -70,6 +71,7 @@ import {
   EXPECTED_CHART_URL,
   EXPECTED_CURRENT_URL,
   EXPECTED_GEN_URL,
+  FORECAST_URL,
   GREETING_URL,
   HISTORY_URL,
   HOME_URL,
@@ -542,6 +544,16 @@ export const router = createBrowserRouter([
             Element={Policy}
             title="Điều khoản sử dụng"
             url={POLICY_URL}
+          />
+        ),
+      },
+      {
+        path: FORECAST_URL,
+        element: (
+          <ProtectedComponent
+            Element={ForcastResult}
+            title="Chiều cao dự kiến theo chiều cao hiện tại của bạn"
+            url={FORECAST_URL}
           />
         ),
       },
