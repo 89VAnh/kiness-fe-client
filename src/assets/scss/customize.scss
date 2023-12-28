@@ -315,7 +315,7 @@
 
   .slogan-wrap {
     .slogan-head {
-      @include resp-text(20px, 18px, 16px);
+      @include resp-text(18px, 16px, 16px);
       margin-bottom: 8px;
       line-height: 1;
       color: #384487;
@@ -324,12 +324,13 @@
     .slogan-bot {
       line-height: 1;
       text-align: center;
+      justify-content: center;
       display: flex;
       column-gap: 3px;
       align-items: center;
 
       .slogan {
-        @include resp-text(14px, 14px, 12px);
+        @include resp-text(12px, 12px, 12px);
         color: #4ea885;
         line-height: 1;
       }

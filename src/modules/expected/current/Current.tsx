@@ -1,22 +1,20 @@
 import {
   Button,
   Col,
-  DatePicker,
   Form,
+  Input,
   InputNumber,
   Modal,
   Radio,
   Row,
   Typography,
 } from "antd";
-import dayjs from "dayjs";
 import { useState } from "react";
 
 import kiImg from "@/assets/img/expected/img_ki.png";
 import Breadcrumb from "@/modules/shared/breadcrumb/Breadcrumb";
 import Title from "@/modules/shared/title/Title";
 import DivTransition from "@/modules/shared/transition/DivTransition";
-import { formatDateShow } from "@/utils/format-string";
 
 import styles from "./scss/current.module.scss";
 import {
@@ -30,11 +28,11 @@ import {
 
 export default function Current(): JSX.Element {
   const [form] = Form.useForm();
-  const [futureHeight, setFutureHeight] = useState<string>();
+  const [heightResult, setHeightResult] = useState<any>();
 
   const handleSubmit = () => {
     form.validateFields().then((values) => {
-      const age = calculateAge(values?.date?.format(formatDateShow));
+      const age = calculateAge(`${values.day}/${values.month}/${values.year}`);
       const currentHeight = values?.height;
       const gender = values?.gender;
 
@@ -59,8 +57,8 @@ export default function Current(): JSX.Element {
       const growthRate2 = getGrowthRate(classLabel2);
 
       // Giữ mặc định
-      let L_infinity = 175.7;
-      if (gender !== 1) L_infinity = 170.4;
+      let L_infinity = 180.1;
+      if (gender !== 1) L_infinity = 176.8;
       const m = 3;
       const t0 = 0;
 
@@ -72,7 +70,12 @@ export default function Current(): JSX.Element {
         m,
       );
 
-      if (!isNaN(+result)) setFutureHeight(result);
+      if (!isNaN(+result))
+        setHeightResult({
+          height: +result,
+          label: classLabel2,
+          growth: growthRate2,
+        });
     });
   };
 
@@ -108,7 +111,7 @@ export default function Current(): JSX.Element {
                 </Col>
                 <Col span={24} lg={12}>
                   <div className={styles.expectation}>
-                    <Form form={form}>
+                    <Form form={form} labelAlign="left" labelCol={{ span: 6 }}>
                       <Typography.Title level={3}>
                         Phím dự đoán dựa trên chiều cao hiện tại của bạn
                       </Typography.Title>
@@ -129,15 +132,31 @@ export default function Current(): JSX.Element {
                       </Form.Item>
 
                       <Form.Item name={"height"} label="Chiều cao hiện tại">
-                        <InputNumber min={0} addonAfter="cm" />
+                        <InputNumber
+                          min={0}
+                          addonAfter="cm"
+                          style={{ width: "100%" }}
+                        />
                       </Form.Item>
 
-                      <Form.Item
-                        name={"date"}
-                        label="Ngày sinh"
-                        initialValue={dayjs("01-01-2000", formatDateShow)}
-                      >
-                        <DatePicker inputReadOnly format={formatDateShow} />
+                      <Form.Item label="Ngày sinh">
+                        <Row gutter={16}>
+                          <Col span={8}>
+                            <Form.Item name={"day"}>
+                              <Input addonBefore="Ngày" />
+                            </Form.Item>
+                          </Col>
+                          <Col span={8}>
+                            <Form.Item name={"month"}>
+                              <Input addonBefore="Tháng" />
+                            </Form.Item>
+                          </Col>
+                          <Col span={8}>
+                            <Form.Item name={"year"}>
+                              <Input addonBefore="Năm" />
+                            </Form.Item>
+                          </Col>
+                        </Row>
                       </Form.Item>
 
                       <Button
@@ -158,16 +177,32 @@ export default function Current(): JSX.Element {
       </section>
 
       <Modal
-        open={!!futureHeight}
-        title={"Dự đoán chiều cao dựa trên chiều cao hiện tại của bạn"}
-        onCancel={() => setFutureHeight(undefined)}
-        okButtonProps={{ hidden: true }}
+        open={!!heightResult?.height}
+        title={"Kết quả"}
+        onCancel={() => setHeightResult(null)}
+        onOk={() => setHeightResult(null)}
+        cancelButtonProps={{
+          hidden: true,
+          style: { display: "none" },
+        }}
       >
-        Kết quả:{" "}
-        <Typography.Text strong type="danger">
-          {futureHeight}
-        </Typography.Text>
-        cm
+        <Typography.Title level={5}>
+          Dự đoán chiều cao khi đến tuổi trưởng thành (18 tuổi) dựa vào chiều
+          cao hiện tại của bạn
+        </Typography.Title>
+        <div>
+          Chiều cao trưởng thành:{" "}
+          <Typography.Text strong type="danger">
+            {heightResult?.height}
+          </Typography.Text>
+          cm
+        </div>
+        <div>
+          Tỉ lệ tăng trưởng hiện tại:{" "}
+          <Typography.Text strong>
+            {heightResult?.growth} (Nhóm {heightResult?.label})
+          </Typography.Text>
+        </div>
       </Modal>
     </>
   );

@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useEffect } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import { Helmet } from "react-helmet";
