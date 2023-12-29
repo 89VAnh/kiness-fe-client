@@ -1,13 +1,4 @@
-import {
-  Button,
-  Col,
-  Form,
-  Input,
-  InputNumber,
-  Radio,
-  Row,
-  Typography,
-} from "antd";
+import { Button, Col, Form, InputNumber, Radio, Row, Typography } from "antd";
 import { useNavigate } from "react-router-dom";
 
 import kiImg from "@/assets/img/expected/img_ki.png";
@@ -142,6 +133,12 @@ export default function Current(): JSX.Element {
                           min={0}
                           addonAfter="cm"
                           style={{ width: "100%" }}
+                          onKeyDown={(event) => {
+                            console.log(event.key);
+                            if (!/[0-9]|Backspace/.test(event.key)) {
+                              event.preventDefault();
+                            }
+                          }}
                         />
                       </Form.Item>
 
@@ -149,17 +146,25 @@ export default function Current(): JSX.Element {
                         <Row gutter={16}>
                           <Col span={8}>
                             <Form.Item name={"day"}>
-                              <Input addonBefore="Ngày" />
+                              <InputNumber
+                                min={1}
+                                max={31}
+                                addonBefore="Ngày"
+                              />
                             </Form.Item>
                           </Col>
                           <Col span={8}>
                             <Form.Item name={"month"}>
-                              <Input addonBefore="Tháng" />
+                              <InputNumber
+                                min={1}
+                                max={12}
+                                addonBefore="Tháng"
+                              />
                             </Form.Item>
                           </Col>
                           <Col span={8}>
                             <Form.Item name={"year"}>
-                              <Input addonBefore="Năm" />
+                              <InputNumber addonBefore="Năm" />
                             </Form.Item>
                           </Col>
                         </Row>
