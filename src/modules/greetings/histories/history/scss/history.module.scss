@@ -86,6 +86,12 @@
         }
       }
     }
+
+    :global {
+      .ant-timeline-item-tail {
+        border-inline-start: 2px solid $color-primary;
+      }
+    }
   }
 }
 
@@ -97,7 +103,7 @@
     }
 
     .ant-timeline-item-tail {
-      border-inline-start: 2px solid $color-water !important;
+      border-inline-start: 2px solid $color-primary !important;
     }
   }
 }
