@@ -30,7 +30,7 @@ export default function OldList(): JSX.Element {
   } = useSearchLateStories({
     params: {
       page_index: page,
-      pageSize,
+      page_size: pageSize,
       search_content: isEmpty(searchContent) ? null : searchContent,
     },
     config: {

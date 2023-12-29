@@ -30,7 +30,7 @@ export default function StoryList(): JSX.Element {
   } = useSearchGrowthStories({
     params: {
       page_index: page,
-      pageSize,
+      page_size: pageSize,
       search_content: isEmpty(searchContent) ? null : searchContent,
     },
     config: {
