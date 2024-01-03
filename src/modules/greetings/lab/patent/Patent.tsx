@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useSearchParams } from "react-router-dom";
 
-import { ERROR_TIMEOUT } from "@/constant/config";
+import { BASE_URL, ERROR_TIMEOUT } from "@/constant/config";
 import { useSearchLicenses } from "@/loader/license-of-invention.loader";
 import { ILicenseOfInvention } from "@/models/license-of-invention";
 import Breadcrumb from "@/modules/shared/breadcrumb/Breadcrumb";
@@ -78,7 +78,7 @@ export default function Patent(): JSX.Element {
                 >
                   <div>
                     <Image
-                      src={"/api/" + item.image_url}
+                      src={`${BASE_URL}/` + item.image_url}
                       wrapperStyle={{ width: "100%" }}
                       className={styles.thumbnail}
                       style={{ maxHeight: 300, objectFit: "cover" }}
