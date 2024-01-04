@@ -3,16 +3,46 @@ import spring from "@/assets/img/info-growth/img_spring.png";
 import summer from "@/assets/img/info-growth/img_summer.png";
 import winter from "@/assets/img/info-growth/img_winter.png";
 
-export const dataHeight = [...Array(5)].map((_, index) => ({
-  id: index + 1,
-  title:
-    "Hormon tăng trưởng là một loại hormone được tiết ra từ tuyến yên trước có kích thước bằng hạt đậu nằm dưới não.",
-  description: [
-    "Nó được làm từ protein và chức năng của nó là thúc đẩy tăng trưởng chiều dài xương và tăng trưởng cơ bắp trong thời niên thiếu và tăng trưởng.",
-    "Sau khi trưởng thành trên 25 tuổi, mô liên kết (dây chằng) và collagen tăng lên thay vì các sợi cơ co bóp, đồng thời cùng với sự gia tăng sức mạnh cơ bắp, quá trình phân hủy mỡ được thúc đẩy.",
-    "Bằng cách tăng mật độ xương ở cột sống, nó ngăn ngừa loãng xương và giảm nguy cơ gãy xương.",
-  ],
-}));
+export const dataHeight = [
+  {
+    id: 1,
+    title:
+      "Hormon tăng trưởng là một loại hormone được tiết ra từ tuyến yên trước có kích thước bằng hạt đậu nằm dưới não.",
+    description: [
+      "Nó được làm từ protein và chức năng của nó là thúc đẩy tăng trưởng chiều dài xương và tăng trưởng cơ bắp trong thời niên thiếu và tăng trưởng.",
+      "Sau khi trưởng thành trên 25 tuổi, mô liên kết (dây chằng) và collagen tăng lên thay vì các sợi cơ co bóp, đồng thời cùng với sự gia tăng sức mạnh cơ bắp, quá trình phân hủy mỡ được thúc đẩy.",
+      "Bằng cách tăng mật độ xương ở cột sống, nó ngăn ngừa loãng xương và giảm nguy cơ gãy xương.",
+    ],
+  },
+  {
+    id: 2,
+    title:
+      "Hormon tăng trưởng chủ yếu được cơ thể tiết ra vào ban đêm do ảnh hưởng của melatonin, một loại hormone tuyến tùng.",
+    description: [
+      "Sự tiết ra nhiều khi bạn đang ngủ sâu và thời gian được biết là khoảng 10 giờ tối đến 2 giờ chiều. Vì vậy, nếu ngủ sâu trong thời gian này sẽ có lợi cho sự tăng trưởng và thói quen ngủ đều đặn là rất quan trọng.",
+      "Một điều nữa là rất nhiều chất này được tiết ra trong quá trình tập luyện và khi các khớp va chạm vào nhau, sự kích thích sẽ được truyền đến não và chuyển thành chế độ yêu cầu xương phải chắc khỏe hơn để chịu được lượng vận động nhiều.",
+      "Để làm được điều này, hormone tăng trưởng sẽ tích tụ canxi trôi nổi trong máu vào xương, khiến xương chắc khỏe hơn. Trong quá trình này, sự tăng trưởng chiều dài xương xảy ra.",
+    ],
+  },
+  {
+    id: 3,
+    title: "Các trường hợp phải tiêm hormone tăng trưởng nhân tạo:",
+    description: [
+      "Đầu tiên, nó được sử dụng để điều trị bệnh lùn do các bệnh hệ thống mãn tính gây ra, chẳng hạn như bệnh tim bẩm sinh, bệnh phổi mãn tính, bệnh thận mãn tính và bệnh suy nhược mãn tính.",
+      "Thứ hai, nó được sử dụng để điều trị bệnh lùn do bất thường về nội tiết tố như thiếu hụt hormone tăng trưởng, suy giáp và tiểu đường.",
+      "Thứ ba, nó được sử dụng để điều trị hội chứng Turner, một rối loạn nhiễm sắc thể bẩm sinh. Ngoài ra, nó còn được sử dụng cho bệnh lùn do hình thành xương bất thường hoặc bệnh lùn bẩm sinh do sự tăng trưởng và phát triển chậm trong tử cung.",
+    ],
+  },
+  {
+    id: 4,
+    title:
+      "Hormon tăng trưởng được sản xuất trong cơ thể chúng ta cho đến năm 55 tuổi và chịu ảnh hưởng rất lớn bởi các điều kiện môi trường như tập thể dục, dinh dưỡng, căng thẳng và giấc ngủ.",
+    description: [
+      "Vì vậy, thay vì sử dụng trực tiếp, tốt hơn là để nó được tiết ra một cách tự nhiên trong cơ thể chúng ta thông qua tập thể dục thường xuyên, điều chỉnh chế độ ăn uống và ngủ đủ giấc.",
+      "Một lượng lớn hormone tăng trưởng nhân tạo có liên quan đến bệnh tiểu đường, bệnh cơ, rối loạn vi mạch và tử vong sớm, vì vậy cần thận trọng khi sử dụng chúng.",
+    ],
+  },
+];
 
 export const listWeather = [
   {

@@ -31,7 +31,7 @@ export default function Breadcrumb({ showLast = true }: Props): JSX.Element {
     navigate(key);
   };
 
-  return (
+  return !isTablet ? (
     <section className={styles.container}>
       <div className={styles.inner}>
         <div className={styles.selectedWrap}>
@@ -97,5 +97,7 @@ export default function Breadcrumb({ showLast = true }: Props): JSX.Element {
         </div>
       </div>
     </section>
+  ) : (
+    <></>
   );
 }

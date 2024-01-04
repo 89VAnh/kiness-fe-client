@@ -143,7 +143,7 @@ export default function MapList(): JSX.Element {
                         viewport={{ once: true }}
                       >
                         <Card className={styles.cardItem}>
-                          <Space>
+                          <Space align="start">
                             <div>
                               <img src={locationIco} alt="location-ico" />
                             </div>

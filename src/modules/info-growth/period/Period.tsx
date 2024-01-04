@@ -49,13 +49,14 @@ export default function Period(): JSX.Element {
                   <Typography.Paragraph>
                     Trong hầu hết các trường hợp, ngực của bé gái bắt đầu xuất
                     hiện vào khoảng 10 hoặc 11 tuổi và tinh hoàn của bé trai bắt
-                    đầu to ra vào khoảng 12 hoặc 13 tuổi. Những thay đổi này
-                    diễn ra nhanh chóng nên nếu kinh nguyệt xảy ra trước 8 tuổi
-                    ở bé gái và tinh hoàn to trước 9 tuổi ở bé trai thì đó là
-                    dậy thì sớm, nếu xảy ra ở độ tuổi từ 9 đến 10 ở bé gái và 10
-                    đến 11 tuổi ở bé trai. , đó là tuổi dậy thì sớm. Chẩn đoán
-                    chính xác được thực hiện bằng cách kiểm tra nồng độ
-                    gonadotropin thông qua xét nghiệm máu và lấy máu.
+                    đầu to ra vào khoảng 12 hoặc 13 tuổi.
+                  </Typography.Paragraph>
+                  <Typography.Paragraph>
+                    Những thay đổi này diễn ra nhanh chóng nên nếu kinh nguyệt
+                    xảy ra trước 8 tuổi ở bé gái và tinh hoàn to trước 9 tuổi ở
+                    bé trai thì đó là dậy thì sớm, nếu xảy ra ở độ tuổi từ 9 đến
+                    10 ở bé gái và 10 đến 11 tuổi ở bé trai. , đó là tuổi dậy
+                    thì sớm.
                   </Typography.Paragraph>
                 </div>
               </DivTransition>
@@ -63,30 +64,34 @@ export default function Period(): JSX.Element {
 
             <DivTransition className={styles.box}>
               <Typography.Title level={4}>
-                Ngay cả khi con gái nhỏ có ngực thì đó cũng không phải là dậy
-                thì sớm sau 9 tuổi.
+                Tác dụng phụ của việc tiêm thuốc ức chế hormone sinh dục ở tuổi
+                dậy thì sớm
               </Typography.Title>
               <Typography.Paragraph>
-                Nếu trẻ lớn nhanh, ngực hoặc tinh hoàn to trước khi học hết lớp
-                dưới tiểu học thì có nhiều trường hợp trẻ bị cho là dậy thì sớm
-                và được tiêm thuốc ức chế gonadotropin vô điều kiện. Tuy nhiên,
-                tùy theo độ tuổi mà những thay đổi này xảy ra mà thường là dậy
-                thì sớm (dậy thì sớm), có triệu chứng giống như dậy thì sớm
-                nhưng không cần điều trị.
+                Các bé gái có kinh nguyệt lần đầu tiên khoảng hai năm sau khi
+                xuất hiện khối u ở vú. Ngày nay, độ tuổi có kinh trung bình là
+                11,5 tuổi (giữa lớp 5) nên việc thay đổi thể chất vào năm thứ 3
+                tiểu học là điều hoàn toàn bình thường.
+              </Typography.Paragraph>
+              <Typography.Paragraph>
+                Đây là giai đoạn tăng trưởng nhanh mà trẻ có thể phát triển tối
+                đa, vì vậy tối đa hóa sự tăng trưởng thay vì trì hoãn việc có
+                kinh bằng cách tiêm luphrin là con đường tắt để đạt được chiều
+                cao cao.
               </Typography.Paragraph>
             </DivTransition>
             <DivTransition className={styles.box}>
               <Typography.Title level={4}>
-                Ngay cả khi con gái nhỏ có ngực thì đó cũng không phải là dậy
-                thì sớm sau 9 tuổi.
+                Dậy thì sớm thường xảy ra ở trẻ béo phì.
               </Typography.Title>
               <Typography.Paragraph>
-                Nếu trẻ lớn nhanh, ngực hoặc tinh hoàn to trước khi học hết lớp
-                dưới tiểu học thì có nhiều trường hợp trẻ bị cho là dậy thì sớm
-                và được tiêm thuốc ức chế gonadotropin vô điều kiện. Tuy nhiên,
-                tùy theo độ tuổi mà những thay đổi này xảy ra mà thường là dậy
-                thì sớm (dậy thì sớm), có triệu chứng giống như dậy thì sớm
-                nhưng không cần điều trị.
+                Dậy thì sớm và dậy thì sớm thường xảy ra ở trẻ béo phì. Điều này
+                là do việc tiết hormone giới tính được thúc đẩy khi lượng mỡ
+                trong cơ thể tăng lên. Kết quả nghiên cứu trên khắp thế giới đã
+                chỉ ra rằng các bé gái ở độ tuổi dậy thì sớm có tỷ lệ mỡ trong
+                cơ thể cao hơn những đứa trẻ khác. Ngăn ngừa béo phì bằng cách
+                tập luyện tùy chỉnh và cải thiện thói quen ăn uống từ khi còn
+                trẻ là con đường tắt để trì hoãn dậy thì sớm.
               </Typography.Paragraph>
             </DivTransition>
           </div>

@@ -84,7 +84,7 @@ export default function TVWorld(): JSX.Element {
             {videos?.data?.data?.map((item: any) => (
               <Col
                 key={item.video_id}
-                span={8}
+                span={24}
                 sm={12}
                 md={8}
                 lg={8}

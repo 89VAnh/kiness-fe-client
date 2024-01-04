@@ -83,7 +83,7 @@ export default function InquiryList(): JSX.Element {
     const handleResize = (e: any) => {
       if (e.target.innerWidth < 640) {
         const col = columns.filter(
-          (c) => c.key === "title" || c.key === "author",
+          (c) => c.key === "subject" || c.key === "author_name",
         );
         col && setCurrentColumns(col);
       } else {
@@ -114,7 +114,9 @@ export default function InquiryList(): JSX.Element {
       <section className={styles.contentWrap}>
         <div className="inner">
           <div className={styles.headerContent}>
-            <Typography.Text type="secondary">{`Tổng cộng ${dataInquiries?.data?.total_items} mục, trang ${page}`}</Typography.Text>
+            <div>
+              <Typography.Text type="secondary">{`Tổng cộng ${dataInquiries?.data?.total_items} mục, trang ${page}`}</Typography.Text>
+            </div>
             <Space>
               <Input.Search
                 style={{ maxWidth: 300 }}

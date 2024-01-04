@@ -322,7 +322,7 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedComponent
             Element={GrowthSystemPage}
-            title="Hệ thống tăng trưởng"
+            title="Hệ thống đảm bảo tăng trường"
             url={PROGRAM_SYSTEM_URL}
           />
         ),
@@ -510,7 +510,7 @@ export const router = createBrowserRouter([
         element: (
           <ProtectedComponent
             Element={CurrentPage}
-            title="Chiều cao dự kiến theo chiều cao hiện tại"
+            title="Dự đoán chiều cao"
             url={EXPECTED_CURRENT_URL}
           />
         ),

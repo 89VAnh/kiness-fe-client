@@ -38,7 +38,7 @@ export const getMenuLevel = (
   path: string,
   level: number = 2,
 ): MenuItemType[] => {
-  const listLevel = Object.values(urls);
+  const listLevel = Object.values(urls.listUrls);
 
   const keyPath = path.split("/")[1];
 

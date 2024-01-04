@@ -49,6 +49,7 @@ export default function AppLayout({ children }: Props): JSX.Element {
       }
       title={""}
       route={appRoute()}
+      siderWidth={325}
       headerTitleRender={(_, __, ___) => (
         <Link to={HOME_URL}>
           <div className="logo-wrap">
