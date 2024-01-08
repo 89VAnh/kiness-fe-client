@@ -151,9 +151,12 @@ export default function Thesis(): JSX.Element {
       <section className={styles.contentWrap}>
         <div className="inner">
           <div className={styles.headerContent}>
-            <Typography.Text type="secondary">{`Tổng cộng ${
-              articles ? articles.total_items : 0
-            } mục, trang ${page}`}</Typography.Text>
+            <div>
+              <Typography.Text type="secondary">{`Tổng cộng ${
+                articles ? articles.total_items : 0
+              } mục, trang ${page}`}</Typography.Text>
+            </div>
+
             <Input.Search
               style={{ maxWidth: 300 }}
               placeholder={t("thesis.search_placeholder")}

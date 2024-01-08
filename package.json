@@ -1,6 +1,7 @@
 {
   "name": "kiness-fe-client",
   "private": true,
+  "homepage": "https://kiness.vn",
   "version": "1.0.0",
   "type": "module",
   "scripts": {

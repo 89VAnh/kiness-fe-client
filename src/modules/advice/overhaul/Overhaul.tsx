@@ -36,9 +36,9 @@ export default function Overhaul(): JSX.Element {
               {dataOverhaulBranch.description}
             </Typography.Paragraph>
 
-            <Row gutter={16}>
+            <Row gutter={[16, 16]}>
               {dataOverhaulBranch.branches.map((branch, index) => (
-                <Col key={index} span={8}>
+                <Col key={index} span={24} md={8}>
                   <motion.div
                     initial={{ y: -25, opacity: 0.5 }}
                     whileInView={{ y: 0, opacity: 1 }}

@@ -30,7 +30,7 @@
   },
   "nav": {
     "info": {
-      "title": "Giới thiệu về Kiness",
+      "title": "Giới thiệu",
       "history": {
         "title": "Lịch sử Kiness",
         "greetings": { "title": "Lời chào của CEO" },
@@ -73,7 +73,7 @@
         "title": "Phương pháp tăng trưởng Kiness"
       },
       "system": {
-        "title": "Hệ thống đảm bảo trách nhiệm tăng trường"
+        "title": "Hệ thống đảm bảo tăng trường"
       }
     },
     "case": {
@@ -124,7 +124,7 @@
         "title": "Chiều cao dự kiến do di truyền"
       },
       "current": {
-        "title": "Chiều cao dự kiến theo chiều cao hiện tại",
+        "title": "Dự đoán chiều cao",
         "result": {
           ".title": "Kết quả dự đoán chiều cao theo chiều cao hiện tại"
         }

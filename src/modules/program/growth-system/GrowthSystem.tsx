@@ -22,7 +22,7 @@ export default function GrowthSystem(): JSX.Element {
               Từ năm 1999, kiness đã tích lũy bí quyết tăng trưởng!
               <br />
               <span className={`text-underline`}>
-                Tỷ lệ thành công của khóa mục tiêu 92%
+                Tỷ lệ thành công mục tiêu 92%
               </span>
             </Typography.Title>
           </DivTransition>
@@ -56,11 +56,11 @@ export default function GrowthSystem(): JSX.Element {
             </Typography.Title>
             <Typography.Paragraph className={styles.subTitle}>
               Hệ thống đảm bảo trách nhiệm tăng trưởng là chương trình đặt ra
-              chiều cao mục tiêu sau khi kiểm tra tăng trưởng chi tiết và <br />{" "}
-              so sánh chiều cao tăng trưởng trong một năm với chiều cao mục tiêu
-              bằng phương pháp tăng trưởng kiness <br /> để xác định và chịu
-              trách nhiệm về sự thành công. <br /> (Phí giáo dục = 50% số tiền
-              đăng ký)
+              chiều cao mục tiêu sau khi kiểm tra tăng trưởng chi tiết và so
+              sánh chiều cao tăng trưởng trong một năm với chiều cao mục tiêu
+              bằng phương pháp tăng trưởng kiness để xác định và chịu trách
+              nhiệm về sự thành công. <br /> (Phí giáo dục = 50% số tiền đăng
+              ký)
             </Typography.Paragraph>
           </DivTransition>
 

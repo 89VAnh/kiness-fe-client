@@ -57,9 +57,11 @@ export default function FatList(): JSX.Element {
       <section className={styles.contentWrap}>
         <div className="inner">
           <div className={styles.headerContent}>
-            <Typography.Text type="secondary">{`Tổng cộng ${
-              dataObesities?.data?.total_items || 0
-            } mục, trang ${page}`}</Typography.Text>
+            <div>
+              <Typography.Text type="secondary">{`Tổng cộng ${
+                dataObesities?.data?.total_items || 0
+              } mục, trang ${page}`}</Typography.Text>
+            </div>
             <Space>
               <Input.Search
                 style={{ maxWidth: 300 }}

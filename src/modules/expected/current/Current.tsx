@@ -72,7 +72,7 @@ export default function Current(): JSX.Element {
           }),
         );
         navigate(FORECAST_URL);
-      }
+      } else window.alert("Có lỗi xảy ra! Vui lòng nhập lại.");
     });
   };
 
