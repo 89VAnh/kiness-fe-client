@@ -318,7 +318,7 @@ const functions = [
     is_leaf: false,
   },
   {
-    title: t("nav.expected.title"),
+    title: t("nav.expected.title") + " ",
     url: EXPECTED_GEN_URL,
     children: [
       {

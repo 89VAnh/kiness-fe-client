@@ -242,7 +242,9 @@
   .responsive-tbl {
     border-collapse: separate;
     border-spacing: 0;
-    @include resp-width(100%, 992px !important);
+    // @include resp-width(100%, 992px !important);
+    width: 100%;
+    @include resp-text(16px, 12px, 8px);
 
     th {
       background-color: #72d8d8;
@@ -251,8 +253,19 @@
       border-bottom: 1px solid #56b8b8;
       font-weight: normal;
 
+      &:not(:first-child) {
+        @include resp-width(auto, 60px, 24px);
+      }
+
       &.first {
         background-color: #f4f5f9;
+      }
+
+      &:first-child {
+        @include resp-width(auto, 200px, 38px);
+        position: -webkit-sticky;
+        position: sticky;
+        left: 0;
       }
     }
 
