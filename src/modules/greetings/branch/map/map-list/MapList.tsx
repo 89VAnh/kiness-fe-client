@@ -169,7 +169,7 @@ export default function MapList(): JSX.Element {
                                 </Link>
                               </div>
                               <div>
-                                <Space>
+                                <Space className={styles.branchInfo}>
                                   <EnvironmentFilled />
                                   <Typography.Text>
                                     {item.address}
@@ -177,7 +177,7 @@ export default function MapList(): JSX.Element {
                                 </Space>
                               </div>
                               <div>
-                                <Space>
+                                <Space className={styles.branchInfo}>
                                   <ClockCircleFilled />
                                   <Typography.Text>
                                     {item.open_time}
