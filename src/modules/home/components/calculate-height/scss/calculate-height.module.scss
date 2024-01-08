@@ -1,22 +1,22 @@
 @import "@/assets/scss/variables";
 
-.content-wrap {
-  width: 100%;
-  @include resp-padding(70px 0 50px 0, 70px 0 50px 0, 40px 0 20px 0);
+.main-checklist {
+  overflow: hidden;
+  padding: 80px 0;
+  .mainTitle {
+    padding-bottom: 40px;
+    .title {
+      color: $color-primary;
+      text-align: center;
+      @include resp-text(45px, 30px, 28px);
+      margin-bottom: 0;
+    }
 
-  .header-wrap {
-    .header-title {
-      h2 {
-        @include resp-text(40px, 30px !important);
-        line-height: 1.5;
-        padding-bottom: 20px;
-        font-weight: normal;
-      }
-
-      .header-paragraph {
-        line-height: 1.5;
-        @include resp-text(18px, 18px, 16px);
-      }
+    p,
+    div {
+      @include resp-text(22px, 18px, 18px);
+      text-align: center;
+      padding-top: 10px;
     }
   }
 

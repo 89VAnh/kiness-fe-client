@@ -1,3 +1,4 @@
+import CalculateHeight from "./components/calculate-height/CalculateHeight";
 import Carousel from "./components/carousel/Carousel";
 import Checklist from "./components/checklist/CheckList";
 import LoopText from "./components/loop-text/LoopText";
@@ -11,6 +12,8 @@ export default function Home(): JSX.Element {
     <>
       <Carousel />
       <LoopText />
+
+      <CalculateHeight />
 
       <QuickList />
 
