@@ -71,7 +71,7 @@ export default function InquiryList(): JSX.Element {
       key: "author_name",
       title: t("request.author_name"),
       dataIndex: "author_name",
-      width: 150,
+      width: 200,
       render: (value) => <Typography.Text>{value}</Typography.Text>,
     },
   ];

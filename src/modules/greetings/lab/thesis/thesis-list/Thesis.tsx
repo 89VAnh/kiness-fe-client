@@ -83,7 +83,7 @@ export default function Thesis(): JSX.Element {
       title: t("thesis.title"),
       dataIndex: "title",
       render: (value, record) => (
-        <Space>
+        <Space style={{ justifyContent: "space-between", width: "100%" }}>
           <Link to={getUrlToDetail(THESIS_DETAIL_URL, record.article_id)}>
             <Typography.Title level={5}>{value}</Typography.Title>
           </Link>
