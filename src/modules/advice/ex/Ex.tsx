@@ -40,7 +40,7 @@ export default function Ex(): JSX.Element {
       <section className={styles.contentWrap}>
         <div className="inner">
           <Spin spinning={isLoading}>
-            <Row gutter={16}>
+            <Row gutter={[16, 16]}>
               {dataBranches?.data?.map((item: IBranch, index: number) => (
                 <Col key={index} span={24} md={12} lg={8}>
                   <motion.div
@@ -50,7 +50,7 @@ export default function Ex(): JSX.Element {
                     viewport={{ once: true }}
                     className={styles.cardWrap}
                   >
-                    <Card style={{ height: "100%" }}>
+                    <Card className={styles.card}>
                       <div>
                         <img
                           src={item.thumbnail || dataEx?.[0]?.thumb}
@@ -59,35 +59,39 @@ export default function Ex(): JSX.Element {
                       </div>
                       <div className={styles.textWrap}>
                         <div>
-                          <Row gutter={16}>
-                            <Col lg={24}>
-                              <Typography.Title
-                                level={4}
-                              >{`${item.branch_name}`}</Typography.Title>
-                            </Col>
-                            <Col lg={24}>
-                              <Typography.Link href={`tel:${item.phone}`}>
+                          <div>
+                            <Row gutter={16}>
+                              <Col lg={24}>
                                 <Typography.Title
                                   level={4}
-                                  className={styles.fontMint}
-                                >
-                                  {item.phone}
-                                </Typography.Title>
-                              </Typography.Link>
-                            </Col>
-                          </Row>
-                        </div>
+                                >{`${item.branch_name}`}</Typography.Title>
+                              </Col>
+                              <Col lg={24}>
+                                <Typography.Link href={`tel:${item.phone}`}>
+                                  <Typography.Title
+                                    level={4}
+                                    className={styles.fontMint}
+                                  >
+                                    {item.phone}
+                                  </Typography.Title>
+                                </Typography.Link>
+                              </Col>
+                            </Row>
+                          </div>
 
-                        <div className={styles.textBox}>
-                          <div>
-                            <EnvironmentFilled />{" "}
-                            <Typography.Text>{item.address}</Typography.Text>
+                          <div className={styles.textBox}>
+                            <div>
+                              <EnvironmentFilled />{" "}
+                              <Typography.Text>{item.address}</Typography.Text>
+                            </div>
+                            <div>
+                              <ClockCircleFilled />{" "}
+                              <Typography.Text>
+                                {item.open_time}
+                              </Typography.Text>
+                            </div>
+                            <Typography.Text>{item.close_time}</Typography.Text>
                           </div>
-                          <div>
-                            <ClockCircleFilled />{" "}
-                            <Typography.Text>{item.open_time}</Typography.Text>
-                          </div>
-                          <Typography.Text>{item.close_time}</Typography.Text>
                         </div>
 
                         <div className={styles.cardBottom}>
