@@ -42,7 +42,7 @@ export default function ButtonNav(): JSX.Element {
           shape="square"
           // type="primary"
           open={open}
-          style={{ bottom: 100 }}
+          style={{ bottom: 170 }}
           onClick={() => setOpen(!open)}
           icon={<SettingOutlined />}
         >
@@ -88,7 +88,7 @@ export default function ButtonNav(): JSX.Element {
           />
         </FloatButton.Group>
       )}
-      <FloatButton.BackTop duration={0.2} />
+      <FloatButton.BackTop duration={0.2} style={{ bottom: 120 }} />
     </>
   );
 }
