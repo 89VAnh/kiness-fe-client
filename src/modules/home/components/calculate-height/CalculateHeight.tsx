@@ -12,12 +12,13 @@ export default function CalculateHeight(): JSX.Element {
         <div className={styles.titleWrap}>
           <DivTransition className={styles.mainTitle}>
             <Typography.Title level={2} className={styles.title}>
-              Dự đoán chiều cao của trẻ khi trưởng thành
+              Dự đoán chiều cao của trẻ{" "}
+              <span className="font-mint">khi trưởng thành</span>
             </Typography.Title>
-            {/* <Typography.Paragraph>
-              Nếu bất kỳ điều nào trong số này áp dụng cho bạn, vui lòng tham
-              khảo ý kiến ​​​​của một chuyên gia quan trọng.
-            </Typography.Paragraph> */}
+            <Typography.Paragraph>
+              Dựa trên những thông tin tăng trưởng hiện tại của trẻ, Kiness dự
+              đoán chiều cao của trẻ khi trưởng thành (18 tuổi)
+            </Typography.Paragraph>
           </DivTransition>
         </div>
 

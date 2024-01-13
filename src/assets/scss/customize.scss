@@ -2,7 +2,8 @@
 
 // Header
 .ant-layout-header {
-  height: 100px !important;
+  // height: 100px !important;
+  height: 68px !important;
   filter: none;
   background-color: #fff !important;
   border-bottom: 1px solid #ddd !important;
@@ -145,7 +146,7 @@
 
 .ant-menu-submenu.ant-menu-submenu-popup {
   // inset: 92px auto auto 208.422px !important;
-  padding-top: 2px;
+  padding-top: 1px;
   .ant-menu.ant-menu-sub {
     a {
       color: $color-black;

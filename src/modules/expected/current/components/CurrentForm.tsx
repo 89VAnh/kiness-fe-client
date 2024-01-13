@@ -94,8 +94,8 @@ export default function CurrentForm({ styles }: { styles: any }): JSX.Element {
 
               <Form.Item name={"gender"} label="Giới tính" initialValue={1}>
                 <Radio.Group>
-                  <Radio value={0}> Nữ </Radio>
                   <Radio value={1}> Nam </Radio>
+                  <Radio value={0}> Nữ </Radio>
                 </Radio.Group>
               </Form.Item>
 

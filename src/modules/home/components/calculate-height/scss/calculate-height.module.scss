@@ -6,7 +6,7 @@
   .mainTitle {
     padding-bottom: 40px;
     .title {
-      color: $color-primary;
+      // color: $color-primary;
       text-align: center;
       @include resp-text(45px, 30px, 28px);
       margin-bottom: 0;
@@ -23,7 +23,7 @@
   .expectation-box {
     border: 1px solid $color-border;
     width: 100%;
-    margin-top: 50px;
+    // margin-top: 50px;
     border-radius: 20px;
     overflow: hidden;
 
@@ -42,7 +42,7 @@
     }
 
     .expectation {
-      @include resp-padding(70px 70px 15px, 30px 20px !important);
+      @include resp-padding(50px 50px 15px, 30px 20px !important);
 
       h3 {
         @include resp-text(30px, 24px !important);

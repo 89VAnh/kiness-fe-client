@@ -61,7 +61,8 @@ export default function ForcastResult(): JSX.Element {
           </Typography.Paragraph>
         </div>
 
-        <div className={"inner " + styles.infoArea}>
+        <div className={"inner " + styles.infoAreaWrap}>
+          <div className={styles.infoArea}></div>
           <Typography.Title level={5} className={styles.stepTitle}>
             Kiểm tra loại tăng trưởng
           </Typography.Title>

@@ -31,8 +31,10 @@
     margin-bottom: 16px;
   }
 
-  .info-area {
-    @include resp-padding(80px 0, 80px 0, 50px 0 30px 0);
+  .info-area-wrap {
+    .info-area {
+      padding-top: 20px;
+    }
 
     .step-title {
       @include resp-text(28px, 22px !important);
