@@ -5,7 +5,11 @@
   @include resp-padding(70px 0 0, 70px 0 0, 40px 0 0);
 
   .card-wrap {
-    margin-bottom: 16px;
+    height: 100%;
+
+    .card {
+      height: 100%;
+    }
 
     img {
       width: 100%;
@@ -15,6 +19,10 @@
 
     .text-wrap {
       @include resp-padding(20px 30px, 20px, 16px);
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      justify-content: space-between;
 
       .text-box {
         padding: 10px 0;
@@ -49,6 +57,9 @@
         border-radius: 25px;
         .ant-card-body {
           padding: 0;
+          display: flex;
+          flex-direction: column;
+          height: 100%;
         }
       }
     }
