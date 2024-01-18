@@ -46,8 +46,8 @@ export default function CurrentForm({ styles }: { styles: any }): JSX.Element {
       const growthRate2 = getGrowthRate(classLabel2);
 
       // Giữ mặc định
-      let L_infinity = 180.1;
-      if (gender !== 1) L_infinity = 176.8;
+      let L_infinity = 176.1;
+      if (gender !== 1) L_infinity = 163.1;
       const m = 3;
       const t0 = 0;
 
@@ -58,6 +58,11 @@ export default function CurrentForm({ styles }: { styles: any }): JSX.Element {
         t0,
         m,
       );
+
+      console.log("result: ", result);
+      console.log("growth: ", growthRate2);
+      console.log("age: ", age);
+      console.log("scale: ", scale);
 
       if (!isNaN(+result)) {
         sessionService.setStorage(
